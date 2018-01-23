@@ -1,0 +1,63 @@
+.centro{
+  margin-top: 6em;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.conjunto label{
+  font-size: 1.25em;
+  padding: 5px;
+  display: block;
+  border-bottom: solid 1px;
+  margin-bottom: 0px;
+}
+
+
+.Elemento_Perfil{
+  height: auto;
+  width: auto;
+  font-size: 17px;
+  display: inline-block;
+  min-width: 20em;
+  border-right: solid 1px;
+  margin-left: 1px;
+}
+
+.Elemento_Perfil label{
+  font-size: 1em;
+  z-index: 1000;
+  border-bottom: none;
+}
+
+.Elemento_Perfil p{
+  padding-left: 15px;
+}
+
+.Foto_Perfil{
+  float: right;
+  border-bottom: solid 1px;
+  height: 100%;
+  display: inline-table;
+  padding: 10px;
+  background: white;
+}
+
+.Foto_Perfil img{
+  max-width: 100%;
+   height: auto;
+   width: auto;
+}
+
+.conjunto{
+  border: solid 1px;
+  margin-right: 1em;
+  margin-bottom: 2px;
+  display: flow-root;
+}
+
+
+.firma {
+    border: solid 0px;
+    text-align: center;
+    background: white;
+}

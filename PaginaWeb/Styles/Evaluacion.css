@@ -1,0 +1,89 @@
+.Tabs_Evaluacion{
+  border: 1px solid;
+  margin-top: 90px;
+  margin-left: 5%;
+  margin-right: 5%;
+  position: block;
+  text-align: -webkit-auto;
+  align-items: center;
+  background: #FFF;
+}
+.Horario {
+  position: static;
+}
+.Horario table{
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.Horario label{
+  display: block;
+  padding-top: 10px;
+}
+.Horario th, td{
+  text-align: center;
+  border: 1px solid;
+  margin: 10px;
+}
+.Calificaciones{
+
+}
+
+.Calificaciones table{
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.Calificaciones label{
+  display: block;
+}
+.Calificaciones th,td{
+  text-align: center;
+  border: 1px solid;
+  margin: 10px;
+}
+
+.day{
+  width: 20px;
+}
+
+.tabs{
+  display: inline-block;
+  text-align: left;
+  border-radius: 8px 8px 0 0;
+
+}
+.tabs ul{
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.tabs li{
+  padding: 10px;
+  height: auto;
+  width: auto;
+  margin-left: 10px;
+  display: block;
+}
+.tabs label{
+  height: 100%;
+  width: 100%;
+}
+
+#S{
+  background: #077B84;
+  color: #fff;
+}
+
+#U{
+  background: #fff;
+  color: grey;
+}
+
+#U :hover{
+  color: black;
+  cursor: pointer;
+}

@@ -1,0 +1,53 @@
+.Reportes{
+  border: 1px solid;
+  margin-top: 90px;
+  margin-left: 5%;
+  margin-right: 5%;
+  position: inherit;
+  text-align: -webkit-auto;
+  align-items: center;
+  background: #FFF;
+}
+
+.Reportes input{
+  margin-left: 10px;
+}
+
+.Reportes th{
+  text-align: center;
+  border: 1px solid;
+  margin: 10px;
+}
+
+.Reportes td{
+  text-align: center;
+  border: 1px solid;
+  margin: 10px;
+}
+.Reportes table{
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.Reportes label{
+  display: block;
+  padding-top: 10px;
+}
+
+.centro{
+  z-index: 0;
+}
+
+.formato{
+  text-align: center;
+}
+
+.Reportes input[type=file]{
+  display: inline;
+  padding-bottom: 10px;
+}
+
+.contenedor{
+  font-family: Arial, Helvetica, sans-serif;
+}

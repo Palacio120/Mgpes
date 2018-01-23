@@ -1,0 +1,56 @@
+.Titulo{
+  border: 1px solid;
+  margin-top: 90px;
+  margin-left: 5%;
+  margin-right: 5%;
+  position: inherit;
+  text-align: -webkit-auto;
+  align-items: center;
+  background: #FFF;
+}
+
+.Titulo2{
+  border: 1px solid;
+  margin-top: 90px;
+  margin-left: 5%;
+  margin-right: 5%;
+  position: absolute;
+  text-align: -webkit-auto;
+  align-items: center;
+  background: #FFF;
+}
+
+.Titulo th{
+  text-align: center;
+  border: 1px solid;
+  margin: 10px;
+}
+
+.Titulo td{
+  text-align: center;
+  border: 1px solid;
+  margin: 10px;
+}
+.Titulo table{
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.Titulo label{
+  display: block;
+  padding-top: 10px;
+}
+
+.centro{
+  z-index: 0;
+}
+
+.formato{
+  text-align: center;
+}
+
+.Titulo input[type=file]{
+  display: inline;
+  padding-bottom: 10px;
+}

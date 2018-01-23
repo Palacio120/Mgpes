@@ -1,0 +1,55 @@
+.Semestre{
+	display: inline-block;
+	border: 1px solid;
+	width: 100%;
+	background-color:#077B84;
+	max-heigth:3px;
+}
+
+textarea{
+	width:100%;
+	resize: vertical;
+}
+
+textarea :chequed{
+	heigth:50%;
+}
+
+
+.desplegar{
+	height:fit-content;
+	display:inline-grid;
+	background-color:#fff;
+	transition: 10s;
+	width:100%;
+	border-top: solid 1px;
+}
+
+.desplegar p{
+	color: black;
+}
+
+.Semestre p{
+	color: #fff;
+	display:inline;
+	font-size: large;
+}
+
+
+.contenido{
+	margin:10px;
+}
+
+.Botones{
+	width: fit-content;
+	padding-left: 10px;
+	padding-rigth: 10px;
+	display: inline;
+	margin: 10px;
+}
+
+.TablaContenido{
+	width: 50%;
+	border: solid 1px;
+	text-align: center;
+}
