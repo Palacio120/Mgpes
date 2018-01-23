@@ -852,17 +852,17 @@
             }
 
             if (isset($_POST["Submit_Movilidad"])) {
+                Include_once('../php/conf_tab.php');
+                    $DB= new ConfigDB();
+                    $DB->Mysql();
+
               if(isset($_POST["id_Movilidad1"])){
-                $Institucion=$_POST["Institucion"];
-                $Objetivo=$_POST["Objetivo"];
-                $Producto=$_POST["Producto"];
-                $Fecha_Inicio=$_POST["Fecha_Inicio"];
-                $Fecha_Final=$_POST["Fecha_Final"];
-                $Institucion_apoyo=$_POST["Institucion_apoyo"];
-                $ApoyoEconomico=$_POST["ApoyoEconomico"];
-                $Planes_Trabajo_Movilidad=$_FILES["Planes_Trabajo_Movilidad"];
-                $Constancia=$_FILES["Constancia"];
-              }
+
+                $id=$_POST["id_Movilidad1"];
+                $Nombre=$_SESSION["NombreCompleto"];
+                $Pais=$_POST["Pais"];
+                $Tipo_Movilidad=$_POST["Tipo_Movilidad"];
+                $Ambito=$_POST["Ambito"];
 
                 $Institucion=$_POST["Institucion"];
                 $Objetivo=$_POST["Objetivo"];
@@ -872,7 +872,69 @@
                 $Institucion_apoyo=$_POST["Institucion_apoyo"];
                 $ApoyoEconomico=$_POST["ApoyoEconomico"];
                 $Planes_Trabajo_Movilidad=$_FILES["Planes_Trabajo_Movilidad"];
-                $Constancia=$_FILES["Constancia"];
+
+                $Planes_Trabajo_Probatorio=$_FILES['Planes_Trabajo_Movilidad']["tmp_name"];
+                $Planes_Trabajo_tamnio_rep=$_FILES['Planes_Trabajo_Movilidad']["size"];
+                $Planes_Trabajo_nombre_Rep=$_FILES["Planes_Trabajo_Movilidad"]["name"];
+                $Planes_Trabajo_Tipo_Rep=$_FILES["Planes_Trabajo_Movilidad"]["type"];
+                        
+                $Constancia_Probatorio=$_FILES['Constancia']["tmp_name"];
+                $Constancia_tamnio_rep=$_FILES['Constancia']["size"];
+                $Constancia_nombre_Rep=$_FILES["Constancia"]["name"];
+                $Constancia_Tipo_Rep=$_FILES["Constancia"]["type"];
+
+                          if ( $Planes_Trabajo_Probatorio != "none" || $Constancia_Probatorio!="none" ){
+                             $fp1 = fopen($Planes_Trabajo_Probatorio, "r+");
+                             $fp2 = fopen($Constancia_Probatorio, "r+");
+                             $contenido1 = fread($fp1, $Planes_Trabajo_tamnio_rep);
+                             $contenido2 = fread($fp2, $Constancia_tamnio_rep);
+                             $contenido1 = addslashes($contenido1);
+                             $contenido2 = addslashes($contenido2);
+                             fclose($fp1);
+                             fclose($fp2);
+
+
+                          }
+
+              }
+                $Id_Act=$_SESSION["Primer_informe"];
+                $Nombre=$_SESSION["NombreCompleto"];
+                $Pais=$_POST["Pais"];
+                $Tipo_Movilidad=$_POST["Tipo_Movilidad"];
+                $Ambito=$_POST["Ambito"];
+
+                $Institucion=$_POST["Institucion"];
+                $Objetivo=$_POST["Objetivo"];
+                $Producto=$_POST["Producto"];
+                $Fecha_Inicio=$_POST["Fecha_Inicio"];
+                $Fecha_Final=$_POST["Fecha_Final"];
+                $Institucion_apoyo=$_POST["Institucion_apoyo"];
+                $ApoyoEconomico=$_POST["ApoyoEconomico"];
+                
+                $Planes_Trabajo_Probatorio=$_FILES['Planes_Trabajo_Movilidad']["tmp_name"];
+                $Planes_Trabajo_tamnio_rep=$_FILES['Planes_Trabajo_Movilidad']["size"];
+                $Planes_Trabajo_nombre_Rep=$_FILES["Planes_Trabajo_Movilidad"]["name"];
+                $Planes_Trabajo_Tipo_Rep=$_FILES["Planes_Trabajo_Movilidad"]["type"];
+                        
+                $Constancia_Probatorio=$_FILES['Constancia']["tmp_name"];
+                $Constancia_tamnio_rep=$_FILES['Constancia']["size"];
+                $Constancia_nombre_Rep=$_FILES["Constancia"]["name"];
+                $Constancia_Tipo_Rep=$_FILES["Constancia"]["type"];
+
+                            if ( $Planes_Trabajo_Probatorio != "none" || $Constancia_Probatorio!="none" ){
+                                 $fp1 = fopen($Planes_Trabajo_Probatorio, "r+");
+                                 $fp2 = fopen($Constancia_Probatorio, "r+");
+                                 $contenido1 = fread($fp1, $Planes_Trabajo_tamnio_rep);
+                                 $contenido2 = fread($fp2, $Constancia_tamnio_rep);
+                                 $contenido1 = addslashes($contenido1);
+                                 $contenido2 = addslashes($contenido2);
+                                 fclose($fp1);
+                                 fclose($fp2);
+
+                                 $query=$DB->CONSULTA("INSERT INTO `mgps`.`movilidadestudiantes` VALUES(0,'$Id_Act',' $Nombre','$Tipo_Movilidad','$Ambito','$Pais','$Institucion','$Objetivo','$Fecha_Inicio','$Fecha_Final','$ApoyoEconomico','$Institucion_apoyo','$contenido2','$contenido2');");
+                            }
+                             
+
             }
 
           function formPais(){

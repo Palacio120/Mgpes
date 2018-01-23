@@ -1,0 +1,91 @@
+CREATE DATABASE  IF NOT EXISTS `mgps` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `mgps`;
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: mgps
+-- ------------------------------------------------------
+-- Server version	5.7.20-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `produccion_articulodifucion`
+--
+
+DROP TABLE IF EXISTS `produccion_articulodifucion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `produccion_articulodifucion` (
+  `id_Articulo` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Autores` varchar(255) DEFAULT NULL,
+  `Titulo` varchar(255) DEFAULT NULL,
+  `Estado` varchar(255) DEFAULT NULL,
+  `NombreRevista` varchar(255) DEFAULT NULL,
+  `dePagina` int(11) DEFAULT NULL,
+  `aPagina` int(11) DEFAULT NULL,
+  `Pais` varchar(225) DEFAULT NULL,
+  `Editorial` varchar(64) DEFAULT NULL,
+  `Volumen` varchar(64) DEFAULT NULL,
+  `ISSN` varchar(64) DEFAULT NULL,
+  `FechaPublicacion` date DEFAULT NULL,
+  `Proposito` varchar(64) DEFAULT NULL,
+  `Probatorio` longblob,
+  `ProduccionAlumnos` int(10) unsigned NOT NULL,
+  `IdActividades` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id_Articulo`),
+  KEY `Actividades_id_idx` (`IdActividades`),
+  CONSTRAINT `Actividades_id` FOREIGN KEY (`IdActividades`) REFERENCES `actividades` (`idActividades`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='ProducciÃ³n de los articulos de revistas por parte de los estudiantes';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `produccion_articulodifucion`
+--
+
+LOCK TABLES `produccion_articulodifucion` WRITE;
+/*!40000 ALTER TABLE `produccion_articulodifucion` DISABLE KEYS */;
+INSERT INTO `produccion_articulodifucion` VALUES (6,'Alejandro Palacio Alovarez','Prueba de insercion','1','Pruebas',6,7,'MX','Pruebas','Primer Volumen','1','2017-12-31','AsimilaciÃ³n de tecnologÃ­a','‰PNG\r\n\Z\n\0\0\0\rIHDR\0\0\0\0\0\0\0\0\0ôx\Ôú\0\0\0sBIT|dˆ\0\0\0	pHYs\0\0”\0\0”w\í¶ô\0\0\0tEXtSoftware\0www.inkscape.org›\î<\Z\0\0CIDATxœ\í\Ý}°gw]\Øñ÷\Þ,\Èf‡ d`\ä!!H¤aHj}\à¡(2¢N€©ŒŒ\ÚÊ¨\ÅvZªV\nØ–Ú¢6V§¢\È*PEf!8…			¡\É&$d³\é\ç\îr÷\æ\î\Ýûðûs\ï\Þ\×k\æ\Ì\Ùûûó=Ÿý\ëóù}\Î÷{Î®¶‡Vûªs÷ûª3«=Õ©‹û=\Õ\ÉSÀŽpGu`q»uq]µq»jqÿ•©\\«]SpgTV-\î=m8\0°.\×VWT—/î¯Ÿ6œ{\ÛJÀ9\Õ\Å\Õªó\'Ž\0f\é\Ê\êÕ›««\'Ž¥š¾\0xPõ\â\ê%\ÕS&Ž\0\Æð‘\ê\Ò\ê÷ª/O\ÄTÀiÕ¿ª~<÷\íØ™\î¨\ÞX½¦ºyì‹Ÿ4òõN®^Yý~Ã½ý\Ý#_\0¶Š\Ý\ÕÓ«—W÷TU\ë\âcu\0ª—V¿P=b¤kÀvòù\ê\ßV¿]š÷\Å\Æ(\0ž[½¶:o„kÀv÷\É\êU\Õ;\çy‘y\0Oª\ÞP=sŽ\×\0€\ÕûªŸª>>Á\çU\0¼´º¤ºßœ\Æ€\àÎ†9¿=\ëg=	p¡zý\âf‚\0l\Î\î†\ç\ã\ìix¨\Ð=³\Zx–€½\Õ\ïV\ß5\Ã1€ÁW\ß_\Ý2‹ÁfU\0œU]V=nF\ã\0÷ö÷\Õóªk6;\Ð\Â\æc\é\Â\ê£Iþ\00okÈ¹nv \Í\Îø±\ê­\Õ)›\r\0X“ûW?X\ÝXý\åF\ÙLðcÕ¯5›.\0°v\Õsª\Ú`°\Ñ9\0Vš™þ\00¥ƒÕ·7¼rx]6R\0œ\Õpÿ\áA8\0˜­/W´Î‰\ëm\ß\ïm˜\í/ùÀ\Öð †Ü¼w=\'­§\0XhX\ço¶?\0l-k\È\Ñk\Î\ë\ë™øú†Gü\0[\ÏcV\å½g-¯µ\0xiC\0\0l]O¯>W}\âx®e\à“ª\æ\Å>\0°\Ü\ÙP¬úÁµ\Ü+xC’?\0l÷k\ÈÝ«:^ð\Ü\ê™3	\0\Ë3rø1­v`¡ú\Û\ê¼YF\0Œ\â“\Õ7U‡VúrµÀK“ü`»:¯UV\ï«prõ\é\êóˆ\0\Å\ç–Þ±ü‹cu\0~2\É\0¶»G4\äô{Y©pZõ\Ù\êóŒ\0\ÅWª\ÇT7/ýp¥ýb\Ã\Ûþ\0€\í\ï\ä†|\Ô—w\0T}añ`\0\à\ÄpGõð†7V÷žð\â$\08ÑœÜ\ãX^\0¼d¼X\0€•\ã—\Þ8§\Ú?n,\0ÀˆöUW\×\Ñ€‹§‰\0É‘\\¿´\0xÁ\0\0\ã9’\ë\ß8£ú\â4±\0\0#zXuý\á€uÿ\0°3\\X_¿pÑ„\0\0ã¹¨¾^\0\è\0\0À\Îpa\rs\0Ø²\ç\0\'´\Ó\Z\Ö\0;Ç¾…\êÜ©£\0\0Fu®\0\0\ì<û\0\0°ó\ì[¨Îœ:\n\0`Tg.T{¦Ž\0Õž…\êÔ©£\0\0Fuª\0\0\ì<{\0\0°ó\ìY¨vO\00ª\ÝÕ©£\0\0Fu›\0\0vž[\0\0°óP\0\0À\Îs`!¯€\æ\æ…\ê3SG\0Œ\ê3\Õþ©£\0\0Fµ¡ºj\ê(\0€Q]¥\0\0;\Ïþ]\ÕBuKu\Ê\ÄÁ\0\0ów[µw¡:T½\â`\0€q¼¿:´°ø\Ç\åSF\0Œ\æò\Z\ÚÿGþ\0\0Nx—W\íZücWõ¥\êô\É\Â\0\æ\í¦\ê!\Õ=‡;\0÷T\ï™.\0`\ïi\ÈùGnT½ešX\0€‘\Éõ»–|¸»úBõ\Ð\Ñ\Ã\0\æ\í†\ê\á\ÕÁ:ºp°ú\Ý)\"\0\æ\îw[LþutPué¸±\0\0#9*\Ç//\0>^}`¼X\0€| !\Ç±k…ƒžV}p”p\0€1<½ú\Ð\Ò–w\0Z<\àG	\0˜·?lYò¯•;\0U\çVWV\'\Í3\"\0`®\î®Î¯®Zþ\ÅJ€ü­yF\0\Ì\ÝoµBò¯cw\0ªÎ¬>S=`\0su{uvu\ÝJ_«\Ð\â	o˜GD\0ÀÜ½¡c$ÿZ½Pµ·º¦zð,#\0\æ\ê\Æ\ê¬\ê–cp¼I~w.n\ß9Ã \0€ùú¹\ê}«p¼@\r·	\ÞQ=o\0suYõ‚\ê\Ðj­¥\0¨:µa\r\áy›\n\0˜ŸO6<\Ð\ï\Ö\ã¸\Ö \ê\Ñ\ÕÇª\Ó7\00?7U\ßR]»–ƒW[°Üµ\Õ«»6\00?w5\ä\è5%ÿZÿ“þþ¡º>ó\0`+yEõöõœ°‘GýþUÃ²À6p.\00[o¬þýzOZ\Ï€¥vW\ï®þñ\Ï\06\ï\Ï–\ê\\\ï‰-\0ªN«þ$\0\0˜\ÂG«\ï¨n\Þ\È\É\ë™¸\Ü\ÍÕ³ª·lb\0`ý~§!o(ù\×\æ_÷{°a\ÒÁÕ…m®£\0\0¬\îPõª\ê§\Û@\Û©Y&\ì\ç7tö\ÌpL\0`pKõÕ»f1Ø¬±Ÿ\ßð\ÂG\Íx\\\0\ØÉ®iø¡ý©Y\r¸™9\0+¹²\á)D«¾€\0\0X³+\Z&\Ü\Ï,ù\×\æ\ç\0¬\äö†[§UOÎ¼\0\0Øˆ»«_©^Z\Ý6\ëÁg\Ý8\ì®\ê\'ª\'4£{\0°ƒüQõ\Õ+\Û\äd¿c\ë\×ù³ª\×UO\éz\0°}¨ú\Ù\êó¾Ð¼:\0\ËýEõ\Ô\êE\Õ\Õ#]\0¶‹ý\r/óyz#$ÿš\æþü\î\êGªWWgLp}\0\Ø*¾Xý|õ›Í©\Õ,SN\Ð;¥zyõ²†û\0°Sü]õ¦\ê’\æ0Áo-¶\Êý\'V/ixÀ®\0\0\'¢ë«·V—V3q,[¦\08ì¤†¹-nO­\î;iD\0°1_«>\\]¾¸}¸aiß–°\Õ\n€\åP=£ú\æ\êœê±‹{]\0¶’\ë&¹zqÿ\×\r“ùnŸ2¨\Õlõ\àXöVg.\îO]\Ü\ï­\î\ßöý?°µ\ÝS}µ\á™ü·T·.\î¯[\Ü\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0À‰e\×\Ôl\ÒIÕž%\Û\Émÿÿ\0[\Ó=\ÕÕ%\ÛÝ“F´	\Û!YžV=¡\ÚW»¸\ßWY\ÝÂ¸\0\à«\Õu\Õþ\Å\íª\Åý\'ª›\'Œë¸¶b°·ú\Ö\ê\Â\ê\Ù\r\ÉaÒˆ\0`}5ï­®¨\Þ_\Ý2iD\Ël•\à”\ê…\Õ\Å\rIÿ¤i\Ã€™º»¡xsõ\ÕmÓ†3}paõ²\ê{\ZŠ\0\08\Ñ\ÝV½½zSCw`S\0O«^_=c¢\ëÀVð\êg«}\á±ï­Ÿ\ÛPõ|0\É\0žÑ\ßÞ#G3VpfuIueõ\Ý#]\0¶‹\ïnÈ‘—4\äÌ¹›÷-€½\r­Ÿª0\çkÀ‰\àö\ê\r\r·\Ê\ç¶r`žÀU¯­<\Çk\0À‰\ê\Æ\êU\Õo\Ícðy,·\Û]ýjõù\Õ\0õ€\êù\ÕÃª?mx¶À\ÌÌºpzõ¶†µü\0Àl¼·zQuÓ¬œeðøêª³f8&\00¸¦¡#ð©Y6«U\0\ÏiX\Ã(ùÀ|œÕkŸ3‹Áf1\àg\Z&(œ<ƒ±\0€c»_õâ†—}p3m\æÀ}ªß¬^²™\0\0€\r¹´ú\áê®œ¼™À¯6,õ\0\Æ÷„\ê!Õ»6ròF€WT¯\Þ\à¹\0Àl<¹úRõ±õž¸‘[\0Ï®þ¬a½?\00­ƒ\Õ?iX*¸f\ë-\0S}´a½?\0°5\ÜT]P}v­\'¬g\à©\r\ëü%\0\ØZNo\ÈÑ§®õ„µ\0\Õ[ªó6\00\ç5\ä\ê5\åöµN|MfüÀV·¯\áY—\ïÀµ\Ìxnu\Ùf#\0Fó¼ê«p¼`wueCE\0lû«óV¬\èx÷	~(\É\0¶›}\ç\Öýj€Sª\Ï4¼‡\0\Ø^¾X]Ý¶Ò—«u\0^™\ä\0\Û\Õ\Ã\ZrùŠŽ\ÕxH\Ã{‡×¼ž\0\Ørnmxð—–q¬e€¯«¾už\0sw¿\êþÕ»—±R\à\ì\êS\r¯û\0¶·»ª\Ç7\Ì\ë;b¥9\0¿”\ä\0\'Šû4\äö£,\ï\0<º\á\ÞÿF\Þ\0lM÷4\Ì¸öð\Ë;\0\'ùÀ‰fWCŽ?êƒ¥®®;Z8\0ÀX>]sø¥€§&ùÀ‰\ê±\r¹¾:º\0¸ø\Þ\Ç\0\'#¹~\é-€\ÏU=\0`,ÿP=ª¾\ÞxL’?\0œ\èÙó\0M\00¢‹J\0\0;\ÍEõõ9\0\×W.\0`$7Tg\ìjx]\àu\0Œ\çÌ…j\ß\ÔQ\0\0£Ú·P;u\0À¨\Î\Õ\0€gŸ\0\0vž}Õƒ§Ž\0Õƒª=SG\0Œj\0\0v\0\0\ì@{vUwV÷:\0`4_[8þ1\0À‰f¡:0u\0À¨(\0\0`\çQ\0\0À¤\0\0€\èÀBu\ã\ÔQ\0\0£ºq¡\Ú?u\0À¨ö+\0\0`\çÙ¿P]5u\0À¨®\ÚU=¬ºn\êH\0€Ñœ¹kñ\×W2\0`7Tg~ð{§Œ\0\Í{kxp\Õ\å\0Œ\çòR\0\0ÀNsyÕ®%|®z\ä$¡\0\0cø‡\êQõõ@Õ»&	\0Ë‘\\¿´\0xó\0\0\ã9’\ëw-û\â\ê\ê±\ã\Æ\0Œ\à\Ó\Õ9‡ÿXXö\å\ïŒ\00’£rüòÀ£«kVø\0Ø¾\î©Îª®=üÁòÀµ\Õ\ÛÆŒ\0˜»·µ$ù\×Ê¿ôÏ®>U\ÝgŒˆ\0€¹º«z|õ™¥.\ï\0´xÀ%cD\0\Ì\Ý%-Kþu\ì{ýi˜p\ê<#\0\æ\êÖ†{ÿ_Zþ\ÅI\Ç8\áöjwõ\ì9\0\Ì\×/U\ï^\é‹\ÕfûŸ\Ò\Ð2x\Ø<\"\0\æ\ê‹\róún[\é\Ëcu\0j˜4p z\î‚\0\æë§«\ë\Ë\ã­÷\ß]]Y\í›eD\0À\\\í¯Î¯ë€•V,u°¡‚\0\0¶Ÿn•\ä_«\ß8\ì\ê\ê\ä\ê³ˆ\0˜«\×V¿~¼ƒ\Öú\Èß…\ê\Õó6\00W—U/¨\ïÀõ<óÿÔ†\É\çm0(\0`~>Y=­a\íÿq­÷¥?©>Z¾\Îó\0€ù¹©º ú\ìZO8\Þ$À\å>[½¨\ãL,\0\0Fs°!7¯9ù\×\Ú&.÷¹†J\ã98\0˜­Ÿhoò\ÝHPõ±†\'>yƒ\ç\0›÷ß«·‘7Z\0TýYõ\È\ê	›\0Ø˜K«k\r3þW²™\àP\Ã\ÒÀÛ«‹Zÿ„B\0`ýU?»¸m(ù\×\ì’ösª·V{g4\0poÿ¯úþŽñ†¿õ˜\å¯ö\ÇW\Ôð\Þa\0`¶>]=¿ºjƒ­w\àj>U=¥z\ï\Ç\0\ê\Ïr\ìL’mnÀJ¾Z½¥zhV\0À,ü\×\ê\â†9w33\ë †		\ïª>_=½zÀ®\0\'ºªWT¯«\î™õ\àó(\0û\ëê’†‚\à\É\Õ}\æx-\08Q\Ü\ÖðF¿\ïkx\î\Î\\Ì³\0¨º³º¢úŸ\r/zb³w\0\0\'Šƒ\ÕoT\ßS½³ú\Ú</6ö\Úýs«\×T\ß=òu`+{{õs\Õ\Õc]pª‡÷<­z}õŒ‰®\0[ÁªŸ©><ö…§~zß…\Õ\Ë\Z\Ú§L\n\0Œâ¶†_üoj¸M>‰©€\ÃN©^Ø°\Ì\á\Ù\Ín\0Œ\é\î†\çä¼¹úƒ†\"`R[¥\0Xjoõ­\rÝg7¼l\È\ÄA\0¶“C\Õ\'\Z’þ\Õû«[&h™­X\0,wZC°¯a\á¾\Å\í\Ì\êþ\Æ\0_­®«ö/nW-\î?Q\Ý<a\\Çµ\n€ÕœT\íY²\Üöÿ?°5\ÝS\ÝQX²\Ý=iD\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\00O»¦`ƒöVg.\îO]\Ü\ï­\î\ßöý?°µ\ÝS}µºeq»uq\Ý\â~[\Ù\ê\Éò\Õ3ªo®Î©»¸?cÊ \0`™ë«««O/\îÿºú@uû”A­f«\0\'UO­.ZÜžZ\ÝwÒˆ\0`c¾V}¸º|qûpu÷¤-±U\n€\'V/©~ ¿\î81]_½µº´ú›‰c™´\08¥zyõ²\ê\'Œ\0\ÆöwÕ›ªKªÛ¦`Š`wõ#Õ«ók€\íú\ê\ç«ÿQó\Âc\0\ß[ýR\ÃD>\0`puõ¯«\ß\ë‚c\0Ïª^W=e¤\ëÀvô‘\ê_V1\ïÍ»\08¿zmõœ9_\0N$\ïª^U]9¯Ì«\0¸OõŸ«WTsº\0œ\ÈU¿V½²ºkÖƒÏ£\0xpõ\Õ3\ç06\0\ì4\ï«^X\Ý8\ËAg]\0œ_]V=j\Æ\ãÀNö¹\êy\Íð–À,\ÛóÏ¯>”\ä\0³ö¨†ûüY\rxÒŒ\ÆyUõ\Õýf4\0p´ûV\ß\×ðˆ\álv°\Í\Þ8¹ú\Í\ê7\0°fo©~¸ºc£l¦\08­ú“\ê‚MŒ\0l\ÌG«\ï¨n\Þ\È\É°»ú_Iþ\00•\Zrñîœ¼\Ñ9\0¿R½xƒ\ç\0³ñ˜\êAÕ»\×{\âF\n€­~q\ç\0³wAu]õW\ë9i½s\0žU½§\áI\0À\ÖpWõm­\ã\ë)\0]}¬:}A\0ówSõ-Õµk9x­“\0OmxÂŸ\ä\0[\Ó\é\r¹úÔµ¼–`¡a½\áy›\n\0˜¿ó\ZröqóûZ&þDõ\Ï7\00Š}Õ—«¬v\Ðñ\æ\0ì­®ix\Ã\0°=\ÜXU\Ýr¬Ž\×ø7\rO\0¶T‡ª+ŽuÀj€3«\Ï,\0l/·Wg7<#\à^V\ë\0ü§\ê©óˆ\0˜»û4¬x\çJ_«pnue³{]0\00¾»«ó««–q¬e¯Iò€\íî¤†œ~/+u\0žV}p®\á\0\0czzõ¡¥¬\Ôxý8±\0\0#¹Wn_\ÞxR\ë|›\0°-ü£\ê\ã‡ÿX\ÞxÉ¸±\0\0#9*\Ç/\í\0ì®¾P=t\Ôp\0€1\ÜP=¼:XGw\0¾#\É\0NTm\É\Ó}—\0?8~,\0ÀˆŽ\äú]Kö_jx—0\0pbº©zHu\Ï\áÀ“ü\àDwzC\Î?r\à¢\éb\0FtQ)\0\0`§¹¨†{ÿ\Õ-\Õ)“†\0Œ\á¶j\ïBõ\rIþ\0°SœR}\ÃBµo\êH\0€Q\í[¨Î:\n\0`T\ç\ê\0\0ÀÎ³o¡:{\ê(\0€Q½P6u\0À¨N[¨öL\00ª=\n\0\0\Øy\0\0°º«º«\Ú=u$\0Àh.T§Ž\0\ÕÁ…\êÀ\ÔQ\0\0£: \0\0€\çÀBu\ë\ÔQ\0\0£ºU\0\0vž\ÕuSG\0Œêº…jÿ\ÔQ\0\0£Ú¯\0\0€gÿBu\Õ\ÔQ\0\0£ºjWõÀ\ê\æ©#\0Fs\ÚBõ•\êÚ©#\0Fqmõ•…\Å?®˜2\0`4WT.\0.Ÿ0\0`<—W\íZü\ãŒ\ê‹\Ó\Å\0Œ\äa\Õõ‡;\0\×WWN\00W6\äü#·\0ª\Þ1M,\0ÀHŽ\äú]K><\'€Ù¾\ê\ê:ºpuõ‘I\Â\0\æ\í#-&ÿ:º\0¨ºt\ÜX\0€‘•\ãw-ûòA\Õª“G\0˜·;ª‡W_>üÁòÀ—«7Ž\00wolIò¯{w\0ªN«>\ÛðŽ\0\0`{ûJõ˜–½÷\ç¤¼£º§ú¶‚\0\æ\ëÕ­ð\Äß•:\05\ÌøtõˆyF\0\Ì\Õ\ç«\Ç6ü¸?\ÊJ€ªƒ\r-ƒ:Ç \0€ùú\Õ_®ôÅ±:\05Lü\Û\ê¼yD\0\Ì\Õ\'«oª­ô\åòU\0Kª^5ˆ\0€¹{U\ÇHþµzà°¿¨ž9³p\0€y{_õ¬\ÕXKð¤\êƒ\Õýf\00WwVO¯>¾\ÚA«\Ý8\ì\ã\Õ\Ëg\00w/\ï8É¿Ž½\n`¹OT{\Z*\n\0`kú\Õ/¯\åÀµ\Ü8l¡º¬ú®D\0\Ì\ÕW\Ïk•‰K­§\0¨\Ú[}¸z\Ü:\Ï\0\æ\çï«§V·¬õ„õ\0UgUmxs \00­/WT×¬ç¤µL\\\îš\êE\rO\0¦s°!\'¯+ù\×\Ú\'.wmucõœ\rž\0lÞWo\ÛÈ‰-\0jx¶ð\rÕ··±N\0°1’ÿ¯ot€\ÌX\îÂ†\êÃœ\0\0˜¿›ª\ï­þ÷f™EP\Ã\ÄÀË²:\0\0\æ\é“\Õó«\Ïnv Yµ\î¯iX~ð\Ç3\Z\08\Úe\ÕÓšAò¯\Í\ÍX\î\Î\ê÷ªSò\Ä@\0˜¥ÿPýhC®‰Y\0U÷T\ï©>W}gµ{\Æ\ãÀNrGõ\Ò\ê¿4\äØ™™up\Ø\'\Zn<®zäœ®\0\'²+\Z\Öøÿù<Ÿ\çò½7¼‹øy\r“\0€\ãûÛ†÷\î\\\Ôðƒz.\ÆX¿ÿ\Îê›ªV}~„\ëÀvô«—U\ß\\½{\Þ›\Õ2Àµ:¹ú\É\ê\çªŽ|m\0ØŠnn˜\ä÷\ß\Z\îùb^s\0Ž\å`õª\ßX¼ö“2Q€éŽ†\É}/ª.o\äw\ìŒ\ÝX\îAÕ‹«—TO™8\0\ÃGªK–\Îyª ¦.\0–:§º¸zAuþÄ±\0À,]Y½£zsuõÄ±T[«\0XêŒ†w\\´¸ô´\á\0Àº\\Û°Œ\ïò\ÅýõÓ†so[µ\0X\îÕ¾\ê\Ü\Åý¾\ê\ÌjOu\ê\â~O\Ã$C\0˜—;ª‹Û­‹û\ëªý‹\ÛU‹û¯L\àZýcF2ºòyv\0\0\0\0IEND®B`‚',11,21),(7,'Prueba','Prueba','1','Prueba',3,3,'MX','Prueba','Prueba','Prueba','2018-01-01','AsimilaciÃ³n de tecnologÃ­a','‰PNG\r\n\Z\n\0\0\0\rIHDR\0\0\0\0\0\0\0\0\0ôx\Ôú\0\0\0sBIT|dˆ\0\0\0	pHYs\0\0”\0\0”w\í¶ô\0\0\0tEXtSoftware\0www.inkscape.org›\î<\Z\0\0CIDATxœ\í\Ý}°gw]\Øñ÷\Þ,\Èf‡ d`\ä!!H¤aHj}\à¡(2¢N€©ŒŒ\ÚÊ¨\ÅvZªV\nØ–Ú¢6V§¢\È*PEf!8…			¡\É&$d³\é\ç\îr÷\æ\î\Ýûðûs\ï\Þ\×k\æ\Ì\Ùûûó=Ÿý\ëóù}\Î÷{Î®¶‡Vûªs÷ûª3«=Õ©‹û=\Õ\ÉSÀŽpGu`q»uq]µq»jqÿ•©\\«]SpgTV-\î=m8\0°.\×VWT—/î¯Ÿ6œ{\ÛJÀ9\Õ\Å\Õªó\'Ž\0f\é\Ê\êÕ›««\'Ž¥š¾\0xPõ\â\ê%\ÕS&Ž\0\Æð‘\ê\Ò\ê÷ª/O\ÄTÀiÕ¿ª~<÷\íØ™\î¨\ÞX½¦ºyì‹Ÿ4òõN®^Yý~Ã½ý\Ý#_\0¶Š\Ý\ÕÓ«—W÷TU\ë\âcu\0ª—V¿P=b¤kÀvòù\ê\ßV¿]š÷\Å\Æ(\0ž[½¶:o„kÀv÷\É\êU\Õ;\çy‘y\0Oª\ÞP=sŽ\×\0€\ÕûªŸª>>Á\çU\0¼´º¤ºßœ\Æ€\àÎ†9¿=\ëg=	p¡zý\âf‚\0l\Î\î†\ç\ã\ìix¨\Ð=³\Zx–€½\Õ\ïV\ß5\Ã1€ÁW\ß_\Ý2‹ÁfU\0œU]V=nF\ã\0÷ö÷\Õóªk6;\Ð\Â\æc\é\Â\ê£Iþ\00okÈ¹nv \Í\Îø±\ê­\Õ)›\r\0X“ûW?X\ÝXý\åF\ÙLðcÕ¯5›.\0°v\Õsª\Ú`°\Ñ9\0Vš™þ\00¥ƒÕ·7¼rx]6R\0œ\Õpÿ\áA8\0˜­/W´Î‰\ëm\ß\ïm˜\í/ùÀ\Öð †Ü¼w=\'­§\0XhX\ço¶?\0l-k\È\Ñk\Î\ë\ë™øú†Gü\0[\ÏcV\å½g-¯µ\0xiC\0\0l]O¯>W}\âx®e\à“ª\æ\Å>\0°\Ü\ÙP¬úÁµ\Ü+xC’?\0l÷k\ÈÝ«:^ð\Ü\ê™3	\0\Ë3rø1­v`¡ú\Û\ê¼YF\0Œ\â“\Õ7U‡VúrµÀK“ü`»:¯UV\ï«prõ\é\êóˆ\0\Å\ç–Þ±ü‹cu\0~2\É\0¶»G4\äô{Y©pZõ\Ù\êóŒ\0\ÅWª\ÇT7/ýp¥ýb\Ã\Ûþ\0€\í\ï\ä†|\Ô—w\0T}añ`\0\à\ÄpGõð†7V÷žð\â$\08ÑœÜ\ãX^\0¼d¼X\0€•\ã—\Þ8§\Ú?n,\0ÀˆöUW\×\Ñ€‹§‰\0É‘\\¿´\0xÁ\0\0\ã9’\ë\ß8£ú\â4±\0\0#zXuý\á€uÿ\0°3\\X_¿pÑ„\0\0ã¹¨¾^\0\è\0\0À\Îpa\rs\0Ø²\ç\0\'´\Ó\Z\Ö\0;Ç¾…\êÜ©£\0\0Fu®\0\0\ì<û\0\0°ó\ì[¨Îœ:\n\0`Tg.T{¦Ž\0Õž…\êÔ©£\0\0Fuª\0\0\ì<{\0\0°ó\ìY¨vO\00ª\ÝÕ©£\0\0Fu›\0\0vž[\0\0°óP\0\0À\Îs`!¯€\æ\æ…\ê3SG\0Œ\ê3\Õþ©£\0\0Fµ¡ºj\ê(\0€Q]¥\0\0;\Ïþ]\ÕBuKu\Ê\ÄÁ\0\0ów[µw¡:T½\â`\0€q¼¿:´°ø\Ç\åSF\0Œ\æò\Z\ÚÿGþ\0\0Nx—W\íZücWõ¥\êô\É\Â\0\æ\í¦\ê!\Õ=‡;\0÷T\ï™.\0`\ïi\ÈùGnT½ešX\0€‘\Éõ»–|¸»úBõ\Ð\Ñ\Ã\0\æ\í†\ê\á\ÕÁ:ºp°ú\Ý)\"\0\æ\îw[LþutPué¸±\0\0#9*\Ç//\0>^}`¼X\0€| !\Ç±k…ƒžV}p”p\0€1<½ú\Ð\Ò–w\0Z<\àG	\0˜·?lYò¯•;\0U\çVWV\'\Í3\"\0`®\î®Î¯®Zþ\ÅJ€ü­yF\0\Ì\ÝoµBò¯cw\0ªÎ¬>S=`\0su{uvu\ÝJ_«\Ð\â	o˜GD\0ÀÜ½¡c$ÿZ½Pµ·º¦zð,#\0\æ\ê\Æ\ê¬\ê–cp¼I~w.n\ß9Ã \0€ùú¹\ê}«p¼@\r·	\ÞQ=o\0suYõ‚\ê\Ðj­¥\0¨:µa\r\áy›\n\0˜ŸO6<\Ð\ï\Ö\ã¸\Ö \ê\Ñ\ÕÇª\Ó7\00?7U\ßR]»–ƒW[°Üµ\Õ«»6\00?w5\ä\è5%ÿZÿ“þþ¡º>ó\0`+yEõöõœ°‘GýþUÃ²À6p.\00[o¬þýzOZ\Ï€¥vW\ï®þñ\Ï\06\ï\Ï–\ê\\\ï‰-\0ªN«þ$\0\0˜\ÂG«\ï¨n\Þ\È\É\ë™¸\Ü\ÍÕ³ª·lb\0`ý~§!o(ù\×\æ_÷{°a\ÒÁÕ…m®£\0\0¬\îPõª\ê§\Û@\Û©Y&\ì\ç7tö\ÌpL\0`pKõÕ»f1Ø¬±Ÿ\ßð\ÂG\Íx\\\0\ØÉ®iø¡ý©Y\r¸™9\0+¹²\á)D«¾€\0\0X³+\Z&\Ü\Ï,ù\×\æ\ç\0¬\äö†[§UOÎ¼\0\0Øˆ»«_©^Z\Ý6\ëÁg\Ý8\ì®\ê\'ª\'4£{\0°ƒüQõ\Õ+\Û\äd¿c\ë\×ù³ª\×UO\éz\0°}¨ú\Ù\êó¾Ð¼:\0\ËýEõ\Ô\êE\Õ\Õ#]\0¶‹ý\r/óyz#$ÿš\æþü\î\êGªWWgLp}\0\Ø*¾Xý|õ›Í©\Õ,SN\Ð;¥zyõ²†û\0°Sü]õ¦\ê’\æ0Áo-¶\Êý\'V/ixÀ®\0\0\'¢ë«·V—V3q,[¦\08ì¤†¹-nO­\î;iD\0°1_«>\\]¾¸}¸aiß–°\Õ\n€\åP=£ú\æ\êœê±‹{]\0¶’\ë&¹zqÿ\×\r“ùnŸ2¨\Õlõ\àXöVg.\îO]\Ü\ï­\î\ßöý?°µ\ÝS}µ\á™ü·T·.\î¯[\Ü\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0À‰e\×\Ôl\ÒIÕž%\Û\Émÿÿ\0[\Ó=\ÕÕ%\ÛÝ“F´	\Û!YžV=¡\ÚW»¸\ßWY\ÝÂ¸\0\à«\Õu\Õþ\Å\íª\Åý\'ª›\'Œë¸¶b°·ú\Ö\ê\Â\ê\Ù\r\ÉaÒˆ\0`}5ï­®¨\Þ_\Ý2iD\Ël•\à”\ê…\Õ\Å\rIÿ¤i\Ã€™º»¡xsõ\ÕmÓ†3}paõ²\ê{\ZŠ\0\08\Ñ\ÝV½½zSCw`S\0O«^_=c¢\ëÀVð\êg«}\á±ï­Ÿ\ÛPõ|0\É\0žÑ\ßÞ#G3VpfuIueõ\Ý#]\0¶‹\ïnÈ‘—4\äÌ¹›÷-€½\r­Ÿª0\çkÀ‰\àö\ê\r\r·\Ê\ç¶r`žÀU¯­<\Çk\0À‰\ê\Æ\êU\Õo\Ícðy,·\Û]ýjõù\Õ\0õ€\êù\ÕÃª?mx¶À\ÌÌºpzõ¶†µü\0Àl¼·zQuÓ¬œeðøêª³f8&\00¸¦¡#ð©Y6«U\0\ÏiX\Ã(ùÀ|œÕkŸ3‹Áf1\àg\Z&(œ<ƒ±\0€c»_õâ†—}p3m\æÀ}ªß¬^²™\0\0€\r¹´ú\áê®œ¼™À¯6,õ\0\Æ÷„\ê!Õ»6ròF€WT¯\Þ\à¹\0Àl<¹úRõ±õž¸‘[\0Ï®þ¬a½?\00­ƒ\Õ?iX*¸f\ë-\0S}´a½?\0°5\ÜT]P}v­\'¬g\à©\r\ëü%\0\ØZNo\ÈÑ§®õ„µ\0\Õ[ªó6\00\ç5\ä\ê5\åöµN|MfüÀV·¯\áY—\ïÀµ\Ìxnu\Ùf#\0Fó¼ê«p¼`wueCE\0lû«óV¬\èx÷	~(\É\0¶›}\ç\Öýj€Sª\Ï4¼‡\0\Ø^¾X]Ý¶Ò—«u\0^™\ä\0\Û\Õ\Ã\ZrùŠŽ\ÕxH\Ã{‡×¼ž\0\Ørnmxð—–q¬e€¯«¾už\0sw¿\êþÕ»—±R\à\ì\êS\r¯û\0¶·»ª\Ç7\Ì\ë;b¥9\0¿”\ä\0\'Šû4\äö£,\ï\0<º\á\ÞÿF\Þ\0lM÷4\Ì¸öð\Ë;\0\'ùÀ‰fWCŽ?êƒ¥®®;Z8\0ÀX>]sø¥€§&ùÀ‰\ê±\r¹¾:º\0¸ø\Þ\Ç\0\'#¹~\é-€\ÏU=\0`,ÿP=ª¾\ÞxL’?\0œ\èÙó\0M\00¢‹J\0\0;\ÍEõõ9\0\×W.\0`$7Tg\ìjx]\àu\0Œ\çÌ…j\ß\ÔQ\0\0£Ú·P;u\0À¨\Î\Õ\0€gŸ\0\0vž}Õƒ§Ž\0Õƒª=SG\0Œj\0\0v\0\0\ì@{vUwV÷:\0`4_[8þ1\0À‰f¡:0u\0À¨(\0\0`\çQ\0\0À¤\0\0€\èÀBu\ã\ÔQ\0\0£ºq¡\Ú?u\0À¨ö+\0\0`\çÙ¿P]5u\0À¨®\ÚU=¬ºn\êH\0€Ñœ¹kñ\×W2\0`7Tg~ð{§Œ\0\Í{kxp\Õ\å\0Œ\çòR\0\0ÀNsyÕ®%|®z\ä$¡\0\0cø‡\êQõõ@Õ»&	\0Ë‘\\¿´\0xó\0\0\ã9’\ëw-û\â\ê\ê±\ã\Æ\0Œ\à\Ó\Õ9‡ÿXXö\å\ïŒ\00’£rüòÀ£«kVø\0Ø¾\î©Îª®=üÁòÀµ\Õ\ÛÆŒ\0˜»·µ$ù\×Ê¿ôÏ®>U\ÝgŒˆ\0€¹º«z|õ™¥.\ï\0´xÀ%cD\0\Ì\Ý%-Kþu\ì{ýi˜p\ê<#\0\æ\êÖ†{ÿ_Zþ\ÅI\Ç8\áöjwõ\ì9\0\Ì\×/U\ï^\é‹\ÕfûŸ\Ò\Ð2x\Ø<\"\0\æ\ê‹\róún[\é\Ëcu\0j˜4p z\î‚\0\æë§«\ë\Ë\ã­÷\ß]]Y\í›eD\0À\\\í¯Î¯ë€•V,u°¡‚\0\0¶Ÿn•\ä_«\ß8\ì\ê\ê\ä\ê³ˆ\0˜«\×V¿~¼ƒ\Öú\Èß…\ê\Õó6\00W—U/¨\ïÀõ<óÿÔ†\É\çm0(\0`~>Y=­a\íÿq­÷¥?©>Z¾\Îó\0€ù¹©º ú\ìZO8\Þ$À\å>[½¨\ãL,\0\0Fs°!7¯9ù\×\Ú&.÷¹†J\ã98\0˜­Ÿhoò\ÝHPõ±†\'>yƒ\ç\0›÷ß«·‘7Z\0TýYõ\È\ê	›\0Ø˜K«k\r3þW²™\àP\Ã\ÒÀÛ«‹Zÿ„B\0`ýU?»¸m(ù\×\ì’ösª·V{g4\0poÿ¯úþŽñ†¿õ˜\å¯ö\ÇW\Ôð\Þa\0`¶>]=¿ºjƒ­w\àj>U=¥z\ï\Ç\0\ê\Ïr\ìL’mnÀJ¾Z½¥zhV\0À,ü\×\ê\â†9w33\ë †		\ïª>_=½zÀ®\0\'ºªWT¯«\î™õ\àó(\0û\ëê’†‚\à\É\Õ}\æx-\08Q\Ü\ÖðF¿\ïkx\î\Î\\Ì³\0¨º³º¢úŸ\r/zb³w\0\0\'Šƒ\ÕoT\ßS½³ú\Ú</6ö\Úýs«\×T\ß=òu`+{{õs\Õ\Õc]pª‡÷<­z}õŒ‰®\0[ÁªŸ©><ö…§~zß…\Õ\Ë\Z\Ú§L\n\0Œâ¶†_üoj¸M>‰©€\ÃN©^Ø°\Ì\á\Ù\Ín\0Œ\é\î†\çä¼¹úƒ†\"`R[¥\0Xjoõ­\rÝg7¼l\È\ÄA\0¶“C\Õ\'\Z’þ\Õû«[&h™­X\0,wZC°¯a\á¾\Å\í\Ì\êþ\Æ\0_­®«ö/nW-\î?Q\Ý<a\\Çµ\n€ÕœT\íY²\Üöÿ?°5\ÝS\ÝQX²\Ý=iD\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\00O»¦`ƒöVg.\îO]\Ü\ï­\î\ßöý?°µ\ÝS}µºeq»uq\Ý\â~[\Ù\ê\Éò\Õ3ªo®Î©»¸?cÊ \0`™ë«««O/\îÿºú@uû”A­f«\0\'UO­.ZÜžZ\ÝwÒˆ\0`c¾V}¸º|qûpu÷¤-±U\n€\'V/©~ ¿\î81]_½µº´ú›‰c™´\08¥zyõ²\ê\'Œ\0\ÆöwÕ›ªKªÛ¦`Š`wõ#Õ«ók€\íú\ê\ç«ÿQó\Âc\0\ß[ýR\ÃD>\0`puõ¯«\ß\ë‚c\0Ïª^W=e¤\ëÀvô‘\ê_V1\ïÍ»\08¿zmõœ9_\0N$\ïª^U]9¯Ì«\0¸OõŸ«WTsº\0œ\ÈU¿V½²ºkÖƒÏ£\0xpõ\Õ3\ç06\0\ì4\ï«^X\Ý8\ËAg]\0œ_]V=j\Æ\ãÀNö¹\êy\Íð–À,\ÛóÏ¯>”\ä\0³ö¨†ûüY\rxÒŒ\ÆyUõ\Õýf4\0p´ûV\ß\×ðˆ\álv°\Í\Þ8¹ú\Í\ê7\0°fo©~¸ºc£l¦\08­ú“\ê‚MŒ\0l\ÌG«\ï¨n\Þ\È\É°»ú_Iþ\00•\Zrñîœ¼\Ñ9\0¿R½xƒ\ç\0³ñ˜\êAÕ»\×{\âF\n€­~q\ç\0³wAu]õW\ë9i½s\0žU½§\áI\0À\ÖpWõm­\ã\ë)\0]}¬:}A\0ówSõ-Õµk9x­“\0OmxÂŸ\ä\0[\Ó\é\r¹úÔµ¼–`¡a½\áy›\n\0˜¿ó\ZröqóûZ&þDõ\Ï7\00Š}Õ—«¬v\Ðñ\æ\0ì­®ix\Ã\0°=\ÜXU\Ýr¬Ž\×ø7\rO\0¶T‡ª+ŽuÀj€3«\Ï,\0l/·Wg7<#\à^V\ë\0ü§\ê©óˆ\0˜»û4¬x\çJ_«pnue³{]0\00¾»«ó««–q¬e¯Iò€\íî¤†œ~/+u\0žV}p®\á\0\0czzõ¡¥¬\Ôxý8±\0\0#¹Wn_\ÞxR\ë|›\0°-ü£\ê\ã‡ÿX\ÞxÉ¸±\0\0#9*\Ç/\í\0ì®¾P=t\Ôp\0€1\ÜP=¼:XGw\0¾#\É\0NTm\É\Ó}—\0?8~,\0ÀˆŽ\äú]Kö_jx—0\0pbº©zHu\Ï\áÀ“ü\àDwzC\Î?r\à¢\éb\0FtQ)\0\0`§¹¨†{ÿ\Õ-\Õ)“†\0Œ\á¶j\ïBõ\rIþ\0°SœR}\ÃBµo\êH\0€Q\í[¨Î:\n\0`T\ç\ê\0\0ÀÎ³o¡:{\ê(\0€Q½P6u\0À¨N[¨öL\00ª=\n\0\0\Øy\0\0°º«º«\Ú=u$\0Àh.T§Ž\0\ÕÁ…\êÀ\ÔQ\0\0£: \0\0€\çÀBu\ë\ÔQ\0\0£ºU\0\0vž\ÕuSG\0Œêº…jÿ\ÔQ\0\0£Ú¯\0\0€gÿBu\Õ\ÔQ\0\0£ºjWõÀ\ê\æ©#\0Fs\ÚBõ•\êÚ©#\0Fqmõ•…\Å?®˜2\0`4WT.\0.Ÿ0\0`<—W\íZü\ãŒ\ê‹\Ó\Å\0Œ\äa\Õõ‡;\0\×WWN\00W6\äü#·\0ª\Þ1M,\0ÀHŽ\äú]K><\'€Ù¾\ê\ê:ºpuõ‘I\Â\0\æ\í#-&ÿ:º\0¨ºt\ÜX\0€‘•\ãw-ûòA\Õª“G\0˜·;ª‡W_>üÁòÀ—«7Ž\00wolIò¯{w\0ªN«>\ÛðŽ\0\0`{ûJõ˜–½÷\ç¤¼£º§ú¶‚\0\æ\ëÕ­ð\Äß•:\05\ÌøtõˆyF\0\Ì\Õ\ç«\Ç6ü¸?\ÊJ€ªƒ\r-ƒ:Ç \0€ùú\Õ_®ôÅ±:\05Lü\Û\ê¼yD\0\Ì\Õ\'«oª­ô\åòU\0Kª^5ˆ\0€¹{U\ÇHþµzà°¿¨ž9³p\0€y{_õ¬\ÕXKð¤\êƒ\Õýf\00WwVO¯>¾\ÚA«\Ý8\ì\ã\Õ\Ëg\00w/\ï8É¿Ž½\n`¹OT{\Z*\n\0`kú\Õ/¯\åÀµ\Ü8l¡º¬ú®D\0\Ì\ÕW\Ïk•‰K­§\0¨\Ú[}¸z\Ü:\Ï\0\æ\çï«§V·¬õ„õ\0UgUmxs \00­/WT×¬ç¤µL\\\îš\êE\rO\0¦s°!\'¯+ù\×\Ú\'.wmucõœ\rž\0lÞWo\ÛÈ‰-\0jx¶ð\rÕ··±N\0°1’ÿ¯ot€\ÌX\îÂ†\êÃœ\0\0˜¿›ª\ï­þ÷f™EP\Ã\ÄÀË²:\0\0\æ\é“\Õó«\Ïnv Yµ\î¯iX~ð\Ç3\Z\08\Úe\ÕÓšAò¯\Í\ÍX\î\Î\ê÷ªSò\Ä@\0˜¥ÿPýhC®‰Y\0U÷T\ï©>W}gµ{\Æ\ãÀNrGõ\Ò\ê¿4\äØ™™up\Ø\'\Zn<®zäœ®\0\'²+\Z\Öøÿù<Ÿ\çò½7¼‹øy\r“\0€\ãûÛ†÷\î\\\Ôðƒz.\ÆX¿ÿ\Îê›ªV}~„\ëÀvô«—U\ß\\½{\Þ›\Õ2Àµ:¹ú\É\ê\çªŽ|m\0ØŠnn˜\ä÷\ß\Z\îùb^s\0Ž\å`õª\ßX¼ö“2Q€éŽ†\É}/ª.o\äw\ìŒ\ÝX\îAÕ‹«—TO™8\0\ÃGªK–\Îyª ¦.\0–:§º¸zAuþÄ±\0À,]Y½£zsuõÄ±T[«\0XêŒ†w\\´¸ô´\á\0Àº\\Û°Œ\ïò\ÅýõÓ†so[µ\0X\îÕ¾\ê\Ü\Åý¾\ê\ÌjOu\ê\â~O\Ã$C\0˜—;ª‹Û­‹û\ëªý‹\ÛU‹û¯L\àZýcF2ºòyv\0\0\0\0IEND®B`‚',28,21);
+/*!40000 ALTER TABLE `produccion_articulodifucion` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `produccion_articulorevista_AFTER_INSERT` BEFORE INSERT ON `produccion_articulodifucion` FOR EACH ROW BEGIN
+	
+    
+	INSERT INTO `mgps`.`produccionalumnos`(`NO_Publicacion`,`IdActividades`, CODIGO_ES,`Titulo`,`TipoDeProduccion`,`Probatorio`)VALUES(0,
+   new.IdActividades, (Select ID_Est from actividades where idActividades= new.IdActividades), new.Titulo, 'ArtÃ­culo de difusiÃ³n y divulgaciÃ³n', new.Probatorio);
+	
+   set new.ProduccionAlumnos=(select NO_Publicacion from produccionalumnos where Titulo=new.Titulo);
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-01-23 17:18:01

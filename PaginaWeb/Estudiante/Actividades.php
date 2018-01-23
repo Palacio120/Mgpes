@@ -5,55 +5,6 @@
   }
 
   include('../php/Actividades/Produccion1.php');
-
-  if (isset($_POST["submitVinculacion"])) {
-    Include_once('../php/conf_tab.php');
-    $DB= new ConfigDB();
-    $DB->Mysql();
-    
-    $Id_Act=$_SESSION["Primer_informe"];
-    $Ambito=$_POST["Ambito"];
-    $ProductoObtenido=$_POST["ProductoObtenido"];
-    $Sector=$_POST["Sector"];
-    $Institucion=$_POST["Institucion"];
-    $Objetivo=$_POST["Objetivo"];
-    $Fecha_Inicio=$_POST["Fecha_Inicio"];
-    $Fecha_Final=$_POST["Fecha_Final"];
-    $TipoVinc=$_POST["TipoVinc"];
-    $Pais=$_POST['Pais'];
-    $Mecanismo=$_POST["Mecanismo"];
-    $Beneficio=$_POST["Beneficio"];
-    $Probatorio=$_FILES['Probatorio']["tmp_name"];
-    switch ($_SESSION["LíneasAplicaciónDelConocimiento"]) {
-      case 'Calidad y mejoramiento en la educación superior':
-        $LGAC='CYMLES';
-        break;
-      case 'Gestión y planeación de la educación superio':
-        $LGAC='GYPLES';
-        break;
-      case 'Nuevos paradigmas de educación superior':
-        $LGAC='NPDES';
-        break;
-      case 'Políticas públicas y cambio institucional en la educación superior':
-        $LGAC='PPCIES';
-        break;
-      
-    }
-    $tamnio_rep=$_FILES['Probatorio']["size"];
-    $nombre_Rep=$_FILES["Probatorio"]["name"];
-    $Tipo_Rep=$_FILES["Probatorio"]["type"];
-    $Resultado=$_POST["Resultado"];
-
-    if ( $Probatorio != "none" ){
-         $fp = fopen($Probatorio, "r+");
-         $contenido = fread($fp, $tamnio_rep);
-         $contenido = addslashes($contenido);
-         fclose($fp);
-
-
-         $query=$DB->CONSULTA("INSERT INTO `mgps`.`vinculaciones` VALUES(0,'$Fecha_Inicio','$Ambito','$ProductoObtenido','$contenido','$Sector','$Mecanismo','$TipoVinc','$Institucion','$Pais','$LGAC','$Fecha_Final','$Id_Act','$Objetivo','$Resultado','$Beneficio');");
-     }
-}
     
 ?>
 <!Doctype html>
@@ -761,32 +712,36 @@
                           <form enctype="multipart/form-data"  id="form-apoyo" action=<?php  echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
                             <div class="form-group">
                               <div class="row">
-                                <div class="" style="align-content: center;">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6 " style="align-content: center;">
                                   <label>Descripcción</label>
-                                  <textarea name="Descripccion" id="Descripccion_Apoyo" rows="10" required class="form-control"></textarea>
+                                  <textarea name="Descripccion" id="Descripccion_Apoyo" rows="10" required class="form-control" style="margin: auto; display: block;"></textarea>
                                 </div>
+                                <div class="col-md-3"></div>
                               </div>
                               <div class="row">
-                                <div class="col-md-12">
-                                  <label>Probatorio</label>
-                                  <input type="File" id="File_Apoyo" name="Probatorio" required class="form-control">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6" >                              
+                                    <label>Probatorio</label>
+                                    <input type="File" id="File_Apoyo" name="Probatorio" required class="form-control">
                                 </div>
+                                <div class="col-md-3"></div>
                               </div>
                               <div class="row">
-                                <div class="">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
                                   <input type="submit" name="Submit" id="Submit_Apoyo" value="Guardar">
-                                </div>
-                                <div class="">
                                   <input type="button" name="Cancelar" value="Cancelar" onclick="cancelar_Actvidades();" class="Botones">
                                 </div>
+                                <div class="col-md-3"></div>
                               </div>
                             </div>
                           </form>
                         </div>
                       </div>
                 </div>
-                <div class="Semestre" >
-                  <a href="#"  id="Pon1" onclick="Desplegar('Ponentes1')" ><p>Asistencia a eventos académicos como ponente</p></a>
+               <div class="Semestre" >
+                  <a href="#"  id="Pon1" onclick="Desplegar('Ponentes1')" ><p>Asistencia a eventos academicos como ponente</p></a>
                     <div class="desplegar" id="Ponentes1" style="display: none;">
                       <div class="contenido" id="contenidoPrincipalProduccion" style="display:block;">
                         <?php
@@ -872,7 +827,7 @@
                                   <option>Participante en mesa redonda</option>
                                   <option>Ponencia</option>
                                   <option>Poster</option>
-                                  <option>Presentación de articulo en extenso</option>
+                                  <option>Presentaci de articulo en extenso</option>
                                   <option>Asistencia</option>
                                 </select>
                               </div>
@@ -895,7 +850,6 @@
                               <input type="submit" name="Submit_Congreso1" id="Submit_Congreso1" value="Guardar">
                               <input type="button" name="cancelar" onclick="cancelar_Actvidades()" value="Cancelar">
                             </div>
-                            
                           </div>
                         </form>
                       </div>
@@ -1034,18 +988,18 @@
                 <div class="Semestre" >
                   <a href="#"  id="Movi1" onclick="Desplegar('MovilidadAca1')" ><p>Movilidad académica</p></a>
                     <div class="desplegar" id="MovilidadAca1" style="display: none;">
-                      <div class="contenido" id="contenidoPrincipalProduccion" style="display:block;">
+                      <div class="contenido" id="contenidoPrincipalMovilidad" style="display:block;">
                         <?php
                           require_once('../php/conf_tab.php');
 
                           $DB= new ConfigDB();
                           $DB->Mysql();
-                          $codigo=$_SESSION["CODIGO_ES"];
+                          $codigo=$_SESSION["Primer_informe"];
                           $bandera=FALSE;
 
-                           $Consulta=$DB->CONSULTA("SELECT * FROM produccionAlumnos  where  CODIGO_ES = '$codigo'");
+                           $Consulta=$DB->CONSULTA("SELECT * FROM movilidadestudiantes  where  Id_act = '$codigo'");
                            while ($rs= $DB->Obtener_filas($Consulta)) {
-                              $NumeroPublicacion=$rs['NO_Publicacion'];
+                              $NumeroPublicacion=$rs['RegistroMovilidadEs'];
                               $bandera=TRUE;
                            }
                            if ($bandera==FALSE) {
@@ -1058,9 +1012,9 @@
                                       <tbody>
                                         <tr>
                                           <th>No.</th>
-                                          <th>Titulo</th>
-                                          <th>Tipo de Produccion</th>
-                                          <th>Documento probatorio</th>
+                                          <th>Tipo de Movilidad</th>
+                                          <th>Institucion</th>
+                                          <th>Periodo</th>
                                           <th>Acciones</th>
                                         </tr>
                                     <?php
@@ -1068,23 +1022,21 @@
 
                                   $DB=new ConfigDB();
                                   $DB->Mysql();
-                                  $codigo=$_SESSION["CODIGO_ES"];
                                   $Id_Act =$_SESSION["Primer_informe"];
                                   $contador=0;
 
-                                $Consulta=$DB->CONSULTA("");
+                                $Consulta=$DB->CONSULTA("SELECT * FROM movilidadestudiantes  where  Id_act = '$Id_Act'");
                                  while ($rs= $DB->Obtener_filas($Consulta)) {
                                  $contador++; ?>
 
                                         <tr>
                                           <td><?php echo $contador; ?> </td>
-                                          <td><?php echo $rs["Titulo"]; ?></td>
-                                          <td><?php echo $rs["TipoDeProduccion"]; ?></td>
-                                          <td><?php if (isset($rs["probatorio"])){echo "Si";}else{echo "No";}; ?></td>
-
+                                          <td><?php echo $rs["Tipo_Movilidad"]; ?></td>
+                                          <td><?php echo $rs["Institucion"]; ?></td>
+                                          <td><?php echo $rs["Fecha_Inicio"]; ?><br><?php echo $rs["Facha_Termino"]; ?></td>
                                           <td>
-                                            <a href="#" onclick="Editar_proyectos(<?php echo $rs['Id_tesis'];?>)">Editar</a><br>
-                                            <a href="#" onclick="Eliminar_proyectos(<?php echo $rs['Id_tesis'];?>)">Eliminar</a>
+                                            <a href="#" onclick="Editar_Movilidad(<?php echo $rs['RegistroMovilidadEs'];?>)">Editar</a><br>
+                                            <a href="#" onclick="Eliminar_Movilidad(<?php echo $rs['RegistroMovilidadEs'];?>)">Eliminar</a>
                                           </td>
 
                                         </tr>
@@ -1092,15 +1044,88 @@
                                 <?php } ?>
                                 </tbody>
                               </table>
-                              <input type='button' value='Agrega Produccion' onclick="NuevaProduccion(1)" style="margin: 10px;">
+                              <input type='button' value='Agrega Produccion' onclick="NuevaMovilidad(1)" style="margin: 10px;">
                           <?php } ?>
+                        </div>
+                        <div id="form_Movilidad" style="display: none;">
+                          <form method="post" id="FormVinculacion" enctype='multipart/form-data' action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> >
+                            <div class="form-group">
+                              <input type="hidden" name="id_Movilidad1" id="Id_Movilidad1">
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <label>Tipo de Movilidad</label>
+                                  <select name="Tipo_Movilidad" class="form-control" required>
+                                    <option>Sector Educativo</option>
+                                    <option>Organizaciones Promotoras</option>
+                                    <option>Sector Empresarial</option>
+                                    <option>Sector Gubernamental</option>
+                                  </select>
+                                </div>
+                                <div class="col-md-4">
+                                  <label>Ambito</label>
+                                  <select name="Ambito" id="ambito_Mov" required class="form-control">
+                                    <option>Nacional</option>
+                                    <option>Internacional</option>
+                                  </select>
+                                </div>
+                                <?php formPais(); ?>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <label>Institucion</label>
+                                  <input type="text" name="Institucion" id="Institucion_movilidad" class="form-control maxlength="255" required>
+                                </div>
+                                <div class="col-md-4">
+                                  <label>Objetivo</label>
+                                  <textarea name="Objetivo" id="Objetivo_Movilidad" class="form-control" rows="1" required></textarea>
+                                </div>
+                                <div class="col-md-4">
+                                  <label>Producto</label>
+                                  <input type="text" name="Producto" class="form-control" maxlength="255" required>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <label>Fecha de Inicio</label>
+                                  <input type="date" name="Fecha_Inicio" id="Fecha_Inicio_Movilidad" class="form-control" required>
+                                </div>
+                                <div class="col-md-4">
+                                  <label>Fecha de Termino</label>
+                                  <input type="date" name="Fecha_Final" id="Fecha_Final_Movilidad"  class="form-control" required>
+                                </div>
+                                <div class="col-md-4">
+                                  <label>Institucion de apoyo</label>
+                                  <textarea name="Institucion_apoyo" id="Inst_Apoy_Movil" class="form-control" rows="1"></textarea>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <label>Apoyo Economico</label>
+                                  <input type="number" name="ApoyoEconomico"  id="ApoyoEconomico_Movilidad" class="form-control">
+                                </div>
+                                <div class="col-md-4">
+                                  <label>Plan de trabajo</label>
+                                  <input type="file" name="Planes_Trabajo_Movilidad" id="Planes_Trabajo_Movilidad" class="form-control" required>
+                                </div>
+                                <div class="col-md-4">
+                                  <label>Constancia</label>
+                                  <input type="File" name="Constancia" id="Constancia_Movildad" class="form-control" required>
+                                </div>
+                              </div>
+                              <div style="margin: 10px;">
+                                <input type="submit" name="Submit_Movilidad" id="Submit_Movilidad" value="Guardar">
+                                <input type="button" name="Cancelar" onclick="cancelar_Actvidades()" value="Cancelar" >
+                              </div>
+                              
+                            </div>
+                          </form>
                         </div>
                       </div>
                 </div>
                 <div class="Semestre" >
                   <a href="#"  id="Vincu1" onclick="Desplegar('VinculacionAcade1')" ><p>Vinculación académica</p></a>
                     <div class="desplegar" id="VinculacionAcade1" style="display: none;">
-                      <div class="contenido" id="contenidoPrincipalVinculacion" style="display:block;">
+                      <div class="contenido" id="contenidoPrincipalVinculacion1" style="display:block;">
                         <?php
                           require_once('../php/conf_tab.php');
 
@@ -1145,11 +1170,11 @@
                                           <td><?php echo $contador; ?> </td>
                                           <td><?php echo $rs["ProductoObtenido"]; ?></td>
                                           <td><?php echo $rs["Ambito"]; ?></td>
-                                          <td><?php echo $rs["Fecha_Inicio"];?> <br><?php echo $rs["Fecha_Final"]; ?></td>
+                                          <td><?php echo $rs["Fecha_Inicio"];?><br><?php echo $rs["Fecha_Final"]; ?></td>
 
                                           <td>
-                                            <a href="#" onclick="Editar_proyectos(<?php echo $rs['Id_tesis'];?>)">Editar</a><br>
-                                            <a href="#" onclick="Eliminar_proyectos(<?php echo $rs['Id_tesis'];?>)">Eliminar</a>
+                                            <a href="#" onclick="Editar_Vinculacion(<?php echo $rs['No_vinculacion'];?>)">Editar</a><br>
+                                            <a href="#" onclick="Eliminar_Vinculacion(<?php echo $rs['No_vinculacion'];?>)">Eliminar</a>
                                           </td>
 
                                         </tr>
@@ -1160,9 +1185,10 @@
                               <input type='button' value='Agrega Produccion' onclick="NuevaVinculacion(1)" style="margin: 10px;">
                           <?php } ?>
                       </div>
-                      <div class="" id="Forms_Vinculacion" style="display: none;">
-                        <form method="post" id="FormVinculacion" enctype='multipart/form-data' action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>  >
+                      <div class="" id="Forms_Vinculacion1" style="display: none;">
+                        <form method="post" id="FormVinculacion1" enctype='multipart/form-data' action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>  >
                           <div class="form-group">
+                            <input type="hidden" name="Id_Vinculacion1" id="Id_Vinculacion1">
                             <div class="row">
                               <div class="col-md-4">
                                 <label>Ambito</label>
