@@ -7,7 +7,10 @@
   <body>
 
 
+
+
       <?php
+
         Include_once('../php/conf_tab.php');
 
         $DB= new ConfigDB();
@@ -800,6 +803,7 @@
 
                              $query=$DB->CONSULTA("UPDATE `mgps`.`vinculaciones` SET `Fecha_Inicio` = '$Fecha_Inicio', `Ambito` = '$Ambito', `ProductoObtenido` = '$ProductoObtenido', `Evidencias` = '$Probatorio', `Sector` = '$Sector', `Mecanismo` = '$Mecanismo', `TipoVinculacion` = '$TipoVinc', `Institucion` = '$Institucion', `pais` = '$Pais', `Fecha_Final` = '$Fecha_Final', `Objetivo` = '$Objetivo', `Resultado` = '$Resultado', `Beneficio` = '$Beneficio' WHERE `No_vinculacion` = 'Id_Vinculacion'; ");
 
+                             echo "<Script>window.location('Confirmacion.php')</script>";
                            }
                   }
                         Include_once('../php/conf_tab.php');
@@ -893,6 +897,8 @@
                              fclose($fp1);
                              fclose($fp2);
 
+                            
+                            
 
                           }
 

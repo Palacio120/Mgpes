@@ -10,7 +10,7 @@
 <!Doctype html>
 <html>
   <head>
-    <meta charset="utf-8" http-equiv="content-type">
+    <meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″>
     <title>MGPES</title>
     <link href="../Styles/Default.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../Styles/menus.css" type="text/css">
@@ -582,23 +582,22 @@
                 <div class="Semestre" >
                   <a href="#"  id="Extra1" onclick="Desplegar('Extracurriculares1')" ><p>Actividades Extracurriculares</p></a>
                     <div class="desplegar" id="Extracurriculares1" style="display: none;">
-                      <div class="contenido" id="contenidoPrincipalProduccion" style="display:block;">
+                      <div class="contenido" id="contenidoPrincipalExtracurriculares1" style="display:block;">
                         <?php
                           require_once('../php/conf_tab.php');
 
                           $DB= new ConfigDB();
                           $DB->Mysql();
-                          $codigo=$_SESSION["CODIGO_ES"];
+                          $Id_Act =$_SESSION["Primer_informe"];
                           $bandera=FALSE;
 
-                           $Consulta=$DB->CONSULTA("SELECT * FROM produccionAlumnos  where  CODIGO_ES = '$codigo'");
+                           $Consulta=$DB->CONSULTA("SELECT * FROM actividades_extracurriculares  where  Id_Act = '$Id_Act'");
                            while ($rs= $DB->Obtener_filas($Consulta)) {
-                              $NumeroPublicacion=$rs['NO_Publicacion'];
                               $bandera=TRUE;
                            }
                            if ($bandera==FALSE) {
                             ?>
-                            <input type='button' value='Agrega Produccion' onclick="NuevaProduccion(1)" style="margin: 10px;">
+                            <input type='button' value='Agrega Produccion' onclick="NuevaExtracurricular(1)" style="margin: 10px;">
                             <?php
                              }else{
                             ?>
@@ -620,7 +619,7 @@
                                   $Id_Act =$_SESSION["Primer_informe"];
                                   $contador=0;
 
-                                $Consulta=$DB->CONSULTA("");
+                                $Consulta=$DB->CONSULTA("SELECT * FROM actividades_extracurriculares  where  Id_Act = '$Id_Act'");
                                  while ($rs= $DB->Obtener_filas($Consulta)) {
                                  $contador++; ?>
 
@@ -640,8 +639,63 @@
                                 <?php } ?>
                                 </tbody>
                               </table>
-                              <input type='button' value='Agrega Produccion' onclick="NuevaProduccion(1)" style="margin: 10px;">
+                              <input type='button' value='Agrega Produccion' onclick="NuevaExtracurricular(1)" style="margin: 10px;">
                           <?php } ?>
+                        </div>
+                        <div id="form_Extracurriculares1" style="display: none;">
+                          <form enctype="multipart/form-data" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
+                            <div class="form-group">
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <label>Tipo Activiadad</label>
+                                  <select name="Activiadad_Extra" class="form-control" required>
+                                    <option>Seminario</option>
+                                    <option>Taller</option>
+                                    <option>Curso</option>
+                                    <option>Conferencia</option>
+                                  </select>
+                                </div>
+                                <div class="col-md-4">
+                                  <label>Nombre del profesor encargado</label>
+                                  <input type="text" name="Profesor_Act" class="form-control" maxlength="255" required>
+                                </div>
+                                <?php echo formPais(); ?>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <label>Ciudad</label>
+                                  <input type="text" name="Ciudad" class="form-control" maxlength="255" required>
+                                </div>
+                                <div class="col-md-4">
+                                  <label>Ambito</label>
+                                  <select name="Ambito" class="form-control" required>
+                                    <option>Nacional</option>
+                                    <option>Internacional</option>
+                                  </select>
+                                </div>
+                                <div class="col-md-4">
+                                  <label>Continente</label>
+                                  <select name="Continente" class="form-control" required>
+                                    <option>Asia</option>
+                                    <option>Africa</option>
+                                    <option>America</option>
+                                    <option>Europa</option>
+                                    <option>Ociania</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <label>Consatancia</label>
+                                  <input type="file" name="Constancia" class="form-control" required>
+                                </div>
+                              </div>
+                              <div style="margin: 10px;">
+                                <input type="submit" name="Submit_Extracurriculares1" value="Guardar">
+                                <input type="button" name="Cancelar" value="Cancelar" onclick="cancelar_Actvidades()">
+                              </div>
+                            </div>
+                          </form>
                         </div>
                       </div>
                 </div>
@@ -743,7 +797,7 @@
                <div class="Semestre" >
                   <a href="#"  id="Pon1" onclick="Desplegar('Ponentes1')" ><p>Asistencia a eventos academicos como ponente</p></a>
                     <div class="desplegar" id="Ponentes1" style="display: none;">
-                      <div class="contenido" id="contenidoPrincipalProduccion" style="display:block;">
+                      <div class="contenido" id="contenidoPrincipalCongresos1" style="display:block;">
                         <?php
                           require_once('../php/conf_tab.php');
 
@@ -759,7 +813,7 @@
                            }
                            if ($bandera==FALSE) {
                             ?>
-                            <input type='button' value='Agrega Produccion' onclick="NuevaProduccion(1)" style="margin: 10px;">
+                            <input type='button' value='Agrega Produccion' onclick="NuevoCongreso(1)" style="margin: 10px;">
                             <?php
                              }else{
                             ?>
@@ -767,9 +821,9 @@
                                       <tbody>
                                         <tr>
                                           <th>No.</th>
-                                          <th>Titulo</th>
-                                          <th>Tipo de Produccion</th>
-                                          <th>Documento probatorio</th>
+                                          <th>Nombre del congreso</th>
+                                          <th>Titulo del congreso</th>
+                                          <th>Periodo</th>
                                           <th>Acciones</th>
                                         </tr>
                                     <?php
@@ -787,13 +841,13 @@
 
                                         <tr>
                                           <td><?php echo $contador; ?> </td>
-                                          <td><?php echo $rs["Titulo"]; ?></td>
-                                          <td><?php echo $rs["TipoDeProduccion"]; ?></td>
-                                          <td><?php if (isset($rs["probatorio"])){echo "Si";}else{echo "No";}; ?></td>
+                                          <td><?php echo $rs["NombreCongreso"]; ?></td>
+                                          <td><?php echo $rs["Titulo_del_Trabajo"]; ?></td>
+                                          <td><?php echo $rs["Fecha_inicio"]; ?><br><?php echo $rs["Fecha_Termino"]; ?></td>
 
                                           <td>
-                                            <a href="#" onclick="Editar_proyectos(<?php echo $rs['Id_tesis'];?>)">Editar</a><br>
-                                            <a href="#" onclick="Eliminar_proyectos(<?php echo $rs['Id_tesis'];?>)">Eliminar</a>
+                                            <a href="#" onclick="Editar_proyectos(<?php echo $rs['id_Congresos_Ponente'];?>)">Editar</a><br>
+                                            <a href="#" onclick="Eliminar_proyectos(<?php echo $rs['id_Congresos_Ponente'];?>)">Eliminar</a>
                                           </td>
 
                                         </tr>
@@ -801,11 +855,10 @@
                                 <?php } ?>
                                 </tbody>
                               </table>
-                              <input type='button' value='Agrega Produccion' onclick="NuevaProduccion(1)" style="margin: 10px;">
+                              <input type='button' value='Agrega Produccion' onclick="NuevoCongreso(1)" style="margin: 10px;">
                           <?php } ?>
                         </div>
-                      </div>
-                      <div id="forms_congresos1" style="display: none;">
+                        <div id="forms_congresos1" style="display: none;">
                         <form action="">
                           <div class="form-group">
                           <input type="hidden" name="Id_congresos1" id="Id_congresos1">
@@ -853,27 +906,29 @@
                           </div>
                         </form>
                       </div>
+                      </div>
+                     
                 </div>
                 <div class="Semestre" >
                   <a href="#"  id="Asesoria1" onclick="Desplegar('AsesoriaEsp1')" ><p>Asesoría especializada</p></a>
                     <div class="desplegar" id="AsesoriaEsp1" style="display: none;">
-                      <div class="contenido" id="contenidoPrincipalProduccion" style="display:block;">
+                      <div class="contenido" id="contenidoPrincipalEspecializada1" style="display:block;">
                         <?php
                           require_once('../php/conf_tab.php');
 
                           $DB= new ConfigDB();
                           $DB->Mysql();
-                          $codigo=$_SESSION["CODIGO_ES"];
+                          $Id_Act =$_SESSION["Primer_informe"];
                           $bandera=FALSE;
 
-                           $Consulta=$DB->CONSULTA("SELECT * FROM produccionAlumnos  where  CODIGO_ES = '$codigo'");
+                           $Consulta=$DB->CONSULTA("SELECT * FROM asesoria_especializada  where  Id_Act = '$Id_Act'");
                            while ($rs= $DB->Obtener_filas($Consulta)) {
                               $NumeroPublicacion=$rs['NO_Publicacion'];
                               $bandera=TRUE;
                            }
                            if ($bandera==FALSE) {
                             ?>
-                            <input type='button' value='Agrega Produccion' onclick="NuevaProduccion(1)" style="margin: 10px;">
+                            <input type='button' value='Agrega Produccion' onclick="NuevaEspecialiZada(1)" style="margin: 10px;">
                             <?php
                              }else{
                             ?>
@@ -915,24 +970,80 @@
                                 <?php } ?>
                                 </tbody>
                               </table>
-                              <input type='button' value='Agrega Produccion' onclick="NuevaProduccion(1)" style="margin: 10px;">
+                              <input type='button' value='Agrega Produccion' onclick="NuevaEspecialiZada(1)" style="margin: 10px;">
                           <?php } ?>
+                        </div>
+                        <div id="Form_Especializada1" style="display: none;">
+                          <form method="post" enctype="multipart/form-data" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
+                            <div class="form-group">
+                              <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                  <label>Fecha del Reporte</label>
+                                  <input type="date" name="Fech_Reporte" class="form-control" required>
+                                </div>
+                                <div class="col-md-3"></div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                  <label>Actividades realizadas</label>
+                                  <textarea name="Actividades" class="form-control" rows="2" required></textarea>
+                                </div>
+                                <div class="col-md-3"></div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                  <label>Tareas realizadas</label>
+                                  <textarea name="Tareas" class="form-control" rows="2" required></textarea>
+                                </div>
+                                <div class="col-md-3"></div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                  <label>Observaciones</label>
+                                  <textarea name="Observaciones" class="form-control" rows="2" required></textarea>
+                                </div>
+                                <div class="col-md-3"></div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                  <label>Fecha de la Siguiente asesorìa</label>
+                                  <input type="DATE" name="Fecha_Siguiente" class="form-control" required>
+                                </div>
+                                <div class="col-md-3"></div>
+                                
+                                
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-3"></div>
+                                  <div class="col-md-6" style="margin: 10px;">
+                                    <input type="submit" name="Submit_Especializada1" value="Gardar">
+                                    <input type="button" name="Cancelar" value="Cancelar" onclick="cancelar_Actvidades()">
+                                  </div>
+                                  <div class="col-md-3"></div>
+                              </div>
+                            </div>
+                          </form>
                         </div>
                       </div>
                 </div>
                 <div class="Semestre" >
                   <a href="#"  id="Tutorias1" onclick="Desplegar('NecesidadesTuto1')" ><p>Necesidades tutoriales</p></a>
                     <div class="desplegar" id="NecesidadesTuto1" style="display: none;">
-                      <div class="contenido" id="contenidoPrincipalProduccion" style="display:block;">
+                      <div class="contenido" id="contenidoPrincipalTutorias1" style="display:block;">
                         <?php
                           require_once('../php/conf_tab.php');
 
                           $DB= new ConfigDB();
                           $DB->Mysql();
-                          $codigo=$_SESSION["CODIGO_ES"];
+                          $Id_Act =$_SESSION["Primer_informe"];
                           $bandera=FALSE;
 
-                           $Consulta=$DB->CONSULTA("SELECT * FROM produccionAlumnos  where  CODIGO_ES = '$codigo'");
+                           $Consulta=$DB->CONSULTA("SELECT * FROM reporte_asesorias  where  Id_act = '$Id_Act'");
                            while ($rs= $DB->Obtener_filas($Consulta)) {
                               $NumeroPublicacion=$rs['NO_Publicacion'];
                               $bandera=TRUE;
@@ -946,9 +1057,10 @@
                                     <table>
                                       <tbody>
                                         <tr>
-                                          <th>No. de reporte</th>
+                                          <th>No.</th>
+                                          <th>Numero de reporte</th>
                                           <th>Fecha</th>
-                                          <th>Documento probatorio</th>
+                                          <th>Calendario Escolar</th>
                                           <th>Acciones</th>
                                         </tr>
                                     <?php
@@ -960,15 +1072,15 @@
                                   $Id_Act =$_SESSION["Primer_informe"];
                                   $contador=0;
 
-                                $Consulta=$DB->CONSULTA("");
+                                $Consulta=$DB->CONSULTA("SELECT * FROM reporte_asesorias  where  Id_act = '$Id_Act'");
                                  while ($rs= $DB->Obtener_filas($Consulta)) {
                                  $contador++; ?>
 
                                         <tr>
                                           <td><?php echo $contador; ?> </td>
-                                          <td><?php echo $rs["Titulo"]; ?></td>
-                                          <td><?php echo $rs["TipoDeProduccion"]; ?></td>
-                                          <td><?php if (isset($rs["probatorio"])){echo "Si";}else{echo "No";}; ?></td>
+                                          <td><?php echo $rs["Numero_Reporte"]; ?></td>
+                                          <td><?php echo $rs["Fecha"]; ?></td>
+                                          <td><?php echo $rs["Calendario_Escolar"]?> </td>
 
                                           <td>
                                             <a href="#" onclick="Editar_proyectos(<?php echo $rs['Id_tesis'];?>)">Editar</a><br>
@@ -980,15 +1092,71 @@
                                 <?php } ?>
                                 </tbody>
                               </table>
-                              <input type='button' value='Agrega Produccion' onclick="NuevaProduccion(1)" style="margin: 10px;">
+                              <input type='button' value='Agrega Produccion' onclick="NuevaTutoria(1)" style="margin: 10px;">
                           <?php } ?>
+                        </div>
+                        <div id="Form_Tutoriar1" style="display: none;">
+                          <form method="post" enctype="multipart/form-data" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
+                            <div class="form-group">
+                              <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                  <label>Fecha del Reporte</label>
+                                  <input type="date" name="Fech_Reporte" class="form-control" required>
+                                </div>
+                                <div class="col-md-3"></div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                  <label>Actividades realizadas</label>
+                                  <textarea name="Actividades" class="form-control" rows="2" required></textarea>
+                                </div>
+                                <div class="col-md-3"></div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                  <label>Tareas realizadas</label>
+                                  <textarea name="Tareas" class="form-control" rows="2" required></textarea>
+                                </div>
+                                <div class="col-md-3"></div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                  <label>Observaciones</label>
+                                  <textarea name="Observaciones" class="form-control" rows="2" required></textarea>
+                                </div>
+                                <div class="col-md-3"></div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                  <label>Fecha de la Siguiente asesorìa</label>
+                                  <input type="DATE" name="Fecha_Siguiente" class="form-control" required>
+                                </div>
+                                <div class="col-md-3"></div>
+                                
+                                
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-3"></div>
+                                  <div class="col-md-6" style="margin: 10px;">
+                                    <input type="submit" name="Submit_Asesorias1" value="Gardar">
+                                    <input type="button" name="Cancelar" value="Cancelar" onclick="cancelar_Actvidades()">
+                                  </div>
+                                  <div class="col-md-3"></div>
+                              </div>
+                            </div>
+                          </form>
                         </div>
                       </div>
                 </div>
                 <div class="Semestre" >
                   <a href="#"  id="Movi1" onclick="Desplegar('MovilidadAca1')" ><p>Movilidad académica</p></a>
                     <div class="desplegar" id="MovilidadAca1" style="display: none;">
-                      <div class="contenido" id="contenidoPrincipalMovilidad" style="display:block;">
+                      <div class="contenido" id="contenidoPrincipalMovilidad1" style="display:block;">
                         <?php
                           require_once('../php/conf_tab.php');
 
@@ -1047,7 +1215,7 @@
                               <input type='button' value='Agrega Produccion' onclick="NuevaMovilidad(1)" style="margin: 10px;">
                           <?php } ?>
                         </div>
-                        <div id="form_Movilidad" style="display: none;">
+                        <div id="form_Movilidad1" style="display: none;">
                           <form method="post" id="FormVinculacion" enctype='multipart/form-data' action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> >
                             <div class="form-group">
                               <input type="hidden" name="id_Movilidad1" id="Id_Movilidad1">
@@ -1073,7 +1241,7 @@
                               <div class="row">
                                 <div class="col-md-4">
                                   <label>Institucion</label>
-                                  <input type="text" name="Institucion" id="Institucion_movilidad" class="form-control maxlength="255" required>
+                                  <input type="text" name="Institucion" id="Institucion_movilidad" class="form-control" maxlength="255" required>
                                 </div>
                                 <div class="col-md-4">
                                   <label>Objetivo</label>
@@ -1151,7 +1319,7 @@
                                           <th>No.</th>
                                           <th>Producto Obtenido</th>
                                           <th>Ambito</th>
-                                          <th>Documento probatorio</th>
+                                          <th>Periodo</th>
                                           <th>Acciones</th>
                                         </tr>
                                     <?php

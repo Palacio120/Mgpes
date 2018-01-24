@@ -372,47 +372,7 @@ function Materias_Semestres(num){
 	}
 }
 
-function NuevaMovilidad(num){
-	switch (num){
-		case 1:
-			document.getElementById('form_Movilidad').style.display=('block');
-			document.getElementById('contenidoPrincipalMovilidad').style.display=('none');
-			break;
-		case 2:
-			window.location='../php/actividades/Produccion2.php';
-			break;
-		case 3:
-			window.location='../php/actividades/Produccion3.php';
-			break;
-		case 4:
-			window.location='../php/actividades/Produccion4.php';
-			break;
-		default:
-			alert('Error de inserción');
-			window.location.reload();
-	}
-}
 
-function NuevaProduccion(num){
-	switch (num){
-		case 1:
-			document.getElementById('Forms_Produccion').style.display=('block');
-			document.getElementById('contenidoPrincipalProduccion').style.display=('none');
-			break;
-		case 2:
-			window.location='../php/actividades/Produccion2.php';
-			break;
-		case 3:
-			window.location='../php/actividades/Produccion3.php';
-			break;
-		case 4:
-			window.location='../php/actividades/Produccion4.php';
-			break;
-		default:
-			alert('Error de inserción');
-			window.location.reload();
-	}
-}
 
 function nueva_materia1(){
 	document.getElementById('formatos_primero').style.display=('block');
@@ -608,11 +568,58 @@ function Editar_Produccion(Tipo, Id_value){
 }
 
 function Editar_Vinculacion(Id_value){
-	document.getElementById('contenidoPrincipalVinculacion').style.display=('none');
+	document.getElementById('contenidoPrincipalVinculacion1').style.display=('none');
 	document.getElementById('Forms_Vinculacion1').style.display=('block');
 	document.getElementById('Id_Vinculacion1').value=Id_value;
 }
 
+function Editar_Movilidad(Id_value){
+	document.getElementById('contenidoPrincipalMovilidad1').style.display=('none');
+	document.getElementById('form_Movilidad1').style.display=('block');
+	document.getElementById('Id_Movilidad1').value=Id_value;
+}
+
+function NuevaMovilidad(num){
+	switch (num){
+		case 1:
+			document.getElementById('form_Movilidad').style.display=('block');
+			document.getElementById('contenidoPrincipalMovilidad').style.display=('none');
+			break;
+		case 2:
+			window.location='../php/actividades/Produccion2.php';
+			break;
+		case 3:
+			window.location='../php/actividades/Produccion3.php';
+			break;
+		case 4:
+			window.location='../php/actividades/Produccion4.php';
+			break;
+		default:
+			alert('Error de inserción');
+			window.location.reload();
+	}
+}
+
+function NuevaProduccion(num){
+	switch (num){
+		case 1:
+			document.getElementById('Forms_Produccion').style.display=('block');
+			document.getElementById('contenidoPrincipalProduccion').style.display=('none');
+			break;
+		case 2:
+			window.location='../php/actividades/Produccion2.php';
+			break;
+		case 3:
+			window.location='../php/actividades/Produccion3.php';
+			break;
+		case 4:
+			window.location='../php/actividades/Produccion4.php';
+			break;
+		default:
+			alert('Error de inserción');
+			window.location.reload();
+	}
+}
 function NuevaVinculacion(num){
 		switch (num){
 		case 1:
@@ -639,6 +646,91 @@ function NuevoApoyo(num){
 		case 1:
 			document.getElementById('Forms_apoyo').style.display=('block');
 			document.getElementById('contenidoPrincipalapoyo').style.display=('none');
+			break;
+		case 2:
+			window.location='../php/actividades/Produccion2.php';
+			break;
+		case 3:
+			window.location='../php/actividades/Produccion3.php';
+			break;
+		case 4:
+			window.location='../php/actividades/Produccion4.php';
+			break;
+		default:
+			alert('Error de inserción');
+			window.location.reload();
+	}
+}
+
+
+function NuevoCongreso(num){
+	switch (num){
+		case 1:
+			document.getElementById('forms_congresos1').style.display=('block');
+			document.getElementById('contenidoPrincipalCongresos1').style.display=('none');
+			break;
+		case 2:
+			window.location='../php/actividades/Produccion2.php';
+			break;
+		case 3:
+			window.location='../php/actividades/Produccion3.php';
+			break;
+		case 4:
+			window.location='../php/actividades/Produccion4.php';
+			break;
+		default:
+			alert('Error de inserción');
+			window.location.reload();
+	}
+}
+
+function NuevaTutoria(num){
+	switch (num){
+		case 1:
+			document.getElementById('Form_Tutoriar1').style.display=('block');
+			document.getElementById('contenidoPrincipalTutorias1').style.display=('none');
+			break;
+		case 2:
+			window.location='../php/actividades/Produccion2.php';
+			break;
+		case 3:
+			window.location='../php/actividades/Produccion3.php';
+			break;
+		case 4:
+			window.location='../php/actividades/Produccion4.php';
+			break;
+		default:
+			alert('Error de inserción');
+			window.location.reload();
+	}
+}
+
+function NuevaEspecialiZada(num){
+	switch (num){
+		case 1:
+			document.getElementById('Form_Especializada1').style.display=('block');
+			document.getElementById('contenidoPrincipalEspecializada1').style.display=('none');
+			break;
+		case 2:
+			window.location='../php/actividades/Produccion2.php';
+			break;
+		case 3:
+			window.location='../php/actividades/Produccion3.php';
+			break;
+		case 4:
+			window.location='../php/actividades/Produccion4.php';
+			break;
+		default:
+			alert('Error de inserción');
+			window.location.reload();
+	}
+}
+
+function NuevaExtracurricular(num){
+	switch (num){
+		case 1:
+			document.getElementById('form_Extracurriculares1').style.display=('block');
+			document.getElementById('contenidoPrincipalExtracurriculares1').style.display=('none');
 			break;
 		case 2:
 			window.location='../php/actividades/Produccion2.php';
