@@ -116,8 +116,38 @@
 
                         if (isset($_POST["id"])) {
                             $id=$_POST["id"];
-                            # code...
-                        }
+                            
+                            $Id_Act=$_SESSION["Primer_informe"];
+                            $Autor=$_POST['Autores'];
+                            $Titulo=$_POST['Titulo'];
+                            $Estado=$_POST['Estado'];
+                            $Revista=$_POST['REVISTA'];
+                            $Pagina_inicio=$_POST['DelaPagina'];
+                            $Pagina_final=$_POST['ALAPAGINA'];
+                            $Pais=$_POST['Pais'];
+                            $Editorial=$_POST['EDITORIAL'];
+                            $Volumen=$_POST['VOLUMEN'];
+                            $ISBN=$_POST['ISBN'];
+                            $Anio=$_POST['ANIO'];
+                            $Proposito=$_POST['PROPOSITO'];
+                            $Probatorio=$_FILES['Probatorio']["tmp_name"];
+                            $tamnio_rep=$_FILES['Probatorio']["size"];
+                            $nombre_Rep=$_FILES["Probatorio"]["name"];
+                            $Tipo_Rep=$_FILES["Probatorio"]["type"];
+
+                            
+
+                            if ( $Probatorio != "none" ){
+                               $fp = fopen($Probatorio, "r+");
+                               $contenido = fread($fp, $tamnio_rep);
+                               $contenido = addslashes($contenido);
+                               fclose($fp);
+
+                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_articulodifucion` SET `Autores` = '$Autor',`Titulo` = '$Titulo',`Estado` = '$Estado',`NombreRevista` = '$Revista',`dePagina` = '$Pagina_inicio',`aPagina` = '$Pagina_final',`Pais` = '$Pais',`Editorial` = '$Editorial',`Volumen` = '$Volumen',`ISSN` = '$ISBN',`FechaPublicacion` = '$Anio',`Proposito` = '$Proposito',`Probatorio` = '$contenido', `IdActividades` = '$Id_Act' WHERE `id_Articulo` = '$id';");
+
+                                }
+                                break;
+                        }else{
 
                         $Id_Act=$_SESSION["Primer_informe"];
                         $Autor=$_POST['Autores'];
@@ -148,14 +178,45 @@
                            $query=$DB->CONSULTA("INSERT INTO `produccion_articulodifucion` VALUES (0,'$Autor', '$Titulo', '$Estado','$Revista','$Pagina_inicio','$Pagina_final','$Pais', '$Editorial', '$Volumen', '$ISBN', '$Anio', '$Proposito', '$contenido', 0, '$Id_Act')");
 
                             }
+                          }
                            
                     break;
                   case  '2':
 
                         if (isset($_POST["id"])) {
                             $id=$_POST["id"];
-                            # code...
-                        }
+                            $Id_Act=$_SESSION["Primer_informe"];
+                            $Autor=$_POST['AUTORES'];
+                            $Titulo=$_POST['Titulo'];
+                            $Estado=$_POST['Estado'];
+                            $Revista=$_POST['REVISTA'];
+                            $Pagina_inicio=$_POST['DELAPAGINA'];
+                            $Pagina_final=$_POST['ALAPAGINA'];
+                            $Pais=$_POST['Pais'];
+                            $Editorial=$_POST['EDITORIAL'];
+                            $Volumen=$_POST['VOLUMEN'];
+                            $ISBN=$_POST['ISBN'];
+                            $Anio=$_POST['ANIO'];
+                            $Descripcion=$_POST['Descripcion'];
+                            $Proposito=$_POST['selPROPOSITO'];
+                            $Probatorio=$_FILES['Probatorio']["tmp_name"];
+                            $tamnio_rep=$_FILES['Probatorio']["size"];
+                            $nombre_Rep=$_FILES["Probatorio"]["name"];
+                            $Tipo_Rep=$_FILES["Probatorio"]["type"];
+
+
+
+                            if ( $Probatorio != "none" ){
+                               $fp = fopen($Probatorio, "r+");
+                               $contenido = fread($fp, $tamnio_rep);
+                               $contenido = addslashes($contenido);
+                               fclose($fp);
+
+                                $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_articuloarbitrado` SET `Autores` = '$Autor', `Titulo` = '$Titulo', `Estado` = '$Estado', `NombreRevista` = '$Revista', `dePagina` = '$Pagina_inicio', `aPagina` = '$Pagina_final', `Pais` = '$Pais', `Editorial` = '$Editorial', `Volumen` = '$Volumen', `ISSN` = '$ISBN', `FechaPublicacion` = '$Anio', `Proposito` = '$Proposito', `Descripccion` = '$Descripcion', `Probatorio` = '$contenido' WHERE `id_Articulo` = '$id'; ");
+                               
+                       }
+                       break;
+                      }else{
 
 
                         $Id_Act=$_SESSION["Primer_informe"];
@@ -185,16 +246,46 @@
                            $contenido = addslashes($contenido);
                            fclose($fp);
 
-
-                           $query=$DB->CONSULTA("INSERT INTO `produccion_articuloarbitrado`  VALUES (0,'$Autor', '$Titulo', '$Estado','$Revista','$Pagina_inicio','$Pagina_final','$Pais', '$Editorial', '$Volumen', '$ISBN', '$Anio', '$Proposito', '$Descripcion', '$contenido', 0, '$Id_Act')");
+                          $query=$DB->CONSULTA("INSERT INTO `produccion_articuloarbitrado`  VALUES (0,'$Autor', '$Titulo', '$Estado','$Revista','$Pagina_inicio','$Pagina_final','$Pais', '$Editorial', '$Volumen', '$ISBN', '$Anio', '$Proposito', '$Descripcion', '$contenido', 0, '$Id_Act')");
+                                                     
                        }
+                     }
                     break;
                   case '3':
 
                         if (isset($_POST["id"])) {
                             $id=$_POST["id"];
-                            # code...
-                        }
+                            $Id_Act=$_SESSION["Primer_informe"];
+                            $Autor=$_POST['AUTORES'];
+                            $Titulo=$_POST['TITULO'];
+                            $Estado=$_POST['ESTADOACTUAL'];
+                            $Revista=$_POST['REVISTA'];
+                            $Pagina_inicio=$_POST['DELAPAGINA'];
+                            $Pagina_final=$_POST['ALAPAGINA'];
+                            $Descripcion=$_POST['COMENTARIOS'];
+                            $Pais=$_POST['Pais'];
+                            $Editorial=$_POST['EDITORIAL'];
+                            $Volumen=$_POST['VOLUMEN'];
+                            $ISBN=$_POST['ISBN'];
+                            $Indice=$_POST['Indice'];
+                            $Anio=$_POST['ANIO'];
+                            $Proposito=$_POST['selPROPOSITO'];
+                            $Probatorio=$_FILES['Probatorio']["tmp_name"];
+                            $tamnio_rep=$_FILES['Probatorio']["size"];
+                            $nombre_Rep=$_FILES["Probatorio"]["name"];
+                            $Tipo_Rep=$_FILES["Probatorio"]["type"];
+
+                        if ( $Probatorio != "none" ){
+                           $fp = fopen($Probatorio, "r+");
+                           $contenido = fread($fp, $tamnio_rep);
+                           $contenido = addslashes($contenido);
+                           fclose($fp);
+
+
+                           $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_revistaindexada` SET `Autores` = '$Auto', `Titulo` = '$Titulo', `Estado` = '$Estado', `NombreRevista` = '$Revista', `dePagina` = '$Pagina_inicio', `aPagina` = '$Pagina_final', `Descripccion` = '$Descripcion', `Pais` = '$Pais', `Editorial` = '$Editorial', `Volumen` = '$Volumen', `ISSN` = '$ISBN', `IndiceDeRegistro` = '$Indice', `FechaPublicacion` = '$Anio', `Proposito` = '$Proposito', `Probatorio` = '$contenido',  WHERE `id_Articulo` = '$id'; ");
+                       }
+                       break;
+                      }else{
 
 
                         $Id_Act=$_SESSION["Primer_informe"];
@@ -226,13 +317,42 @@
 
                            $query=$DB->CONSULTA("INSERT INTO `mgps`.`produccion_revistaindexada` VALUES (0,'$Autor','$Titulo','$Estado','$Revista','$Pagina_inicio','$Pagina_final','$Descripcion','$Pais','$Editorial','$Volumen','$ISBN','$Indice','$Anio','$Proposito','$contenido',0,'$Id_Act')");
                        }
+                     }
                     break;
                   case '4':
 
                         if (isset($_POST["id"])) {
                             $id=$_POST["id"];
-                            # code...
-                        }
+                            $Id_Act=$_SESSION["Primer_informe"];
+                            $Autor=$_POST['AUTORES'];
+                            $Cap_Autor=$_POST['AUTORESCAP'];
+                            $Titulo=$_POST['TITULO'];
+                            $Estado=$_POST['selESTADOACTUAL'];
+                            $Edicion=$_POST['NOEDICIONES'];
+                            $Pagina_inicio=$_POST['DELAPAGINA'];
+                            $Pagina_final=$_POST['ALAPAGINA'];
+                            $Capitulo=$_POST['TITULOCAPITULO'];
+                            $Pais=$_POST['Pais'];
+                            $Editorial=$_POST['EDITORIAL'];
+                            $ISBN=$_POST['ISBN'];
+                            $Tiraje=$_POST['TOTALEJEMPLARES'];
+                            $Anio=$_POST['ANIO'];
+                            $Proposito=$_POST['selPROPOSITO'];
+                            $Probatorio=$_FILES['Probatorio']["tmp_name"];
+                            $tamnio_rep=$_FILES['Probatorio']["size"];
+                            $nombre_Rep=$_FILES["Probatorio"]["name"];
+                            $Tipo_Rep=$_FILES["Probatorio"]["type"];
+
+                            if ( $Probatorio != "none" ){
+                               $fp = fopen($Probatorio, "r+");
+                               $contenido = fread($fp, $tamnio_rep);
+                               $contenido = addslashes($contenido);
+                               fclose($fp);
+
+                                 $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_capitulodelibro` SET`id_Articulo` = '$Id_Act' ,`Autores` = '$Autor' ,`Titulo` = '$Titulo' ,`Estado` = '$Estado' ,`Pais` = '$Pais' ,`Editorial` = '$Editorial' ,`Edicion` = '$Edicion' ,`tiraje` =  '$Tiraje' ,`ISBN` = '$ISBN',`FechaPublicacion` = '$Anio' ,`Proposito` = '$Proposito' ,`TituloDelCapitulo` = '$Capitulo',`AutorDeCapitulo` = '$Cap_Autor' ,`dePagina` = '$Pagina_inicio' ,`aPagina` = '$Pagina_final' ,`Probatorio` = '$contenido' ,WHERE `id_Articulo` = '$id';");
+                            }
+                        break;
+                        }else{
 
                         $Id_Act=$_SESSION["Primer_informe"];
                         $Autor=$_POST['AUTORES'];
@@ -262,13 +382,40 @@
 
                              $query=$DB->CONSULTA("INSERT INTO `mgps`.`produccion_capitulodelibro` VALUES (0, '$Autor', '$Titulo', '$Estado', '$Pais', '$Editorial','$Edicion','$Tiraje','$ISBN','$Anio','$Proposito','$Capitulo','$Cap_Autor','$Pagina_inicio','$Pagina_final','$contenido',0,'$Id_Act')");
                         }
+                      }
                     break;
                   case '5':
 
                         if (isset($_POST["id"])) {
                             $id=$_POST["id"];
-                            # code...
-                        }
+                            $Id_Act=$_SESSION["Primer_informe"];
+                            $Alcance=$_POST['COMENTARIOS'];
+                            $Titulo=$_POST['TITULO'];
+                            $Estado=$_POST['selESTADOACTUAL'];
+                            $Usuario=$_POST['USUARIOPAT'];
+                            $Autores=$_POST['AUTORES'];
+                            $Beneficio=$_POST['USO'];
+                            $Pais=$_POST['Pais'];
+                            $Anio=$_POST['ANIO'];
+                            $Probatorio=$_FILES['Probatorio']["tmp_name"];
+                            $tamnio_rep=$_FILES['Probatorio']["size"];
+                            $nombre_Rep=$_FILES["Probatorio"]["name"];
+                            $Tipo_Rep=$_FILES["Probatorio"]["type"];
+
+                            if ( $Probatorio != "none" ){
+                               $fp = fopen($Probatorio, "r+");
+                               $contenido = fread($fp, $tamnio_rep);
+                               $contenido = addslashes($contenido);
+                               fclose($fp);
+
+
+                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_consultoria` SET `Estudio` ='$Titulo' ,`Alcance` ='$Alcance' ,`EmpresaBeneficiaria` ='$Usuario' ,`Pais` ='$Pais' ,`EstadoActual` ='$Estado' ,`FechaInicio` ='$Anio' ,`InvestigadoresParticipantes` ='$Autores' ,`BeneficiosEconomicos` ='$Beneficio' ,`Probatorio` ='$contenido' WHERE `id_Articulo` = '$id';");
+                               
+
+                           }
+                        break;
+                            
+                        }else{
 
                         $Id_Act=$_SESSION["Primer_informe"];
                         $Alcance=$_POST['COMENTARIOS'];
@@ -293,13 +440,39 @@
 
                            $query=$DB->CONSULTA("INSERT INTO `mgps`.`produccion_consultoria` VALUES (0,'$Titulo','$Alcance', '$Usuario','$Pais','$Estado','$Anio','$Autores','$Beneficio','$contenido',0,'$Id_Act');");
                        }
+                     }
                     break;
                   case '6':
 
                         if (isset($_POST["id"])) {
                             $id=$_POST["id"];
-                            # code...
-                        }
+                            $Id_Act=$_SESSION["Primer_informe"];
+                            $Alcance=$_POST['COMENTARIOS'];
+                            $Titulo=$_POST['TITULO'];
+                            $Estado=$_POST['selESTADOACTUAL'];
+                            $Usuario=$_POST['USUARIOPAT'];
+                            $Autores=$_POST['AUTORES'];
+                            $Beneficio=$_POST['USO'];
+                            $Pais=$_POST['Pais'];
+                            $Anio=$_POST['ANIO'];
+                            $Probatorio=$_FILES['REGISTROPAT']["tmp_name"];
+                            $tamnio_rep=$_FILES['REGISTROPAT']["size"];
+                            $nombre_Rep=$_FILES["REGISTROPAT"]["name"];
+                            $Tipo_Rep=$_FILES["REGISTROPAT"]["type"];
+
+                            if ( $Probatorio != "none" ){
+                               $fp = fopen($Probatorio, "r+");
+                               $contenido = fread($fp, $tamnio_rep);
+                               $contenido = addslashes($contenido);
+                               fclose($fp);
+
+
+                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_informetecnico` SET `Titulo` = '$Titulo' , `Alcance` = '$Alcance' , `EmpresaBeneficiaria` = '$Usuario' , `EstadoActual` = '$Estado' , `Pais` = '$Pais' , `FechaInicio` = '$Anio' , `InvestigadoresParticipantes` = '$Autores' , `BeneficiosEconomicos` = '$Beneficio' , `Probatorio` = '$contenido'  WHERE `id_Articulo` = '$id';"); 
+                               
+
+                           }
+                          break;
+                        }else{
 
                       $Id_Act=$_SESSION["Primer_informe"];
                         $Alcance=$_POST['COMENTARIOS'];
@@ -324,50 +497,108 @@
 
                            $query=$DB->CONSULTA("INSERT INTO `mgps`.`produccion_informetecnico` VALUES (0,'$Titulo','$Alcance','$Usuario','$Estado','$Pais','$Anio','$Autores','$Beneficio','$contenido',0,'$Id_Act');");
                        }
+                     }
                     break;
                   case '7':
 
                         if (isset($_POST["id"])) {
                             $id=$_POST["id"];
-                            # code...
-                        }
+                            $Id_Act=$_SESSION["Primer_informe"];
+                            $Titulo=$_POST['TITULO'];
+                            $Participa=$_POST["ESTADO"];
+                            $Estado=$_POST['selESTADOACTUAL'];
+                            $Editorial=$_POST["EDITORIAL"];
+                            $Paginas=$_POST["PAGINAS"];
+                            $Edicion=$_POST["NOEDICIONES"];
+                            $Tiraje=$_POST["TOTALEJEMPLARES"];
+                            $isbn=$_POST["ISBN"];
+                            
+                            $Autores=$_POST['AUTORES'];
 
-                      $Id_Act=$_SESSION["Primer_informe"];
-                        $Titulo=$_POST['TITULO'];
-                        $Participa=$_POST["ESTADO"];
-                        $Estado=$_POST['selESTADOACTUAL'];
-                        $Editorial=$_POST["EDITORIAL"];
-                        $Paginas=$_POST["PAGINAS"];
-                        $Edicion=$_POST["NOEDICIONES"];
-                        $Tiraje=$_POST["TOTALEJEMPLARES"];
-                        $isbn=$_POST["ISBN"];
-                        
-                        $Autores=$_POST['AUTORES'];
+                            $Proposito=$_POST["selPROPOSITO"];
+                            $Pais=$_POST['Pais'];
+                            $Anio=$_POST['ANIO'];
+                            $Probatorio=$_FILES['REGISTROPAT']["tmp_name"];
+                            $tamnio_rep=$_FILES['REGISTROPAT']["size"];
+                            $nombre_Rep=$_FILES["REGISTROPAT"]["name"];
+                            $Tipo_Rep=$_FILES["REGISTROPAT"]["type"];
 
-                        $Proposito=$_POST["selPROPOSITO"];
-                        $Pais=$_POST['Pais'];
-                        $Anio=$_POST['ANIO'];
-                        $Probatorio=$_FILES['REGISTROPAT']["tmp_name"];
-                        $tamnio_rep=$_FILES['REGISTROPAT']["size"];
-                        $nombre_Rep=$_FILES["REGISTROPAT"]["name"];
-                        $Tipo_Rep=$_FILES["REGISTROPAT"]["type"];
-
-                        if ( $Probatorio != "none" ){
-                           $fp = fopen($Probatorio, "r+");
-                           $contenido = fread($fp, $tamnio_rep);
-                           $contenido = addslashes($contenido);
-                           fclose($fp);
+                            if ( $Probatorio != "none" ){
+                               $fp = fopen($Probatorio, "r+");
+                               $contenido = fread($fp, $tamnio_rep);
+                               $contenido = addslashes($contenido);
+                               fclose($fp);
 
 
-                           $query=$DB->CONSULTA("INSERT INTO `mgps`.`produccion_libro` VALUES (0,'$Autores','$Titulo','$Participa','$Estado','$Pais','$Editorial','$Paginas','$Edicion','$Tiraje','$isbn','$Anio','$Proposito','$contenido',0,'$Id_Act');");
+                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_libro` SET `Autor` = '$Autores' ,`Titulo` = '$Titulo' ,`Participacion` = '$Participa' ,`EstadoActual` = '$Estado' ,`Pais` = '$Pais' ,`Editorial` = '$Editorial' ,`Paginas` = '$Paginas' ,`Edicion` = '$Edicion' ,`Tiraje` = '$Tiraje' ,`ISBN` = '$isbn' ,`FechaPublicacion` = '$Anio' ,`Proposito` = '$Proposito' ,`Probatorio` = '$contenido' WHERE `id_Articulo` = '$id';");
+                               
+                           }
+                        break;
+                        }else{
+
+                          $Id_Act=$_SESSION["Primer_informe"];
+                          $Titulo=$_POST['TITULO'];
+                          $Participa=$_POST["ESTADO"];
+                          $Estado=$_POST['selESTADOACTUAL'];
+                          $Editorial=$_POST["EDITORIAL"];
+                          $Paginas=$_POST["PAGINAS"];
+                          $Edicion=$_POST["NOEDICIONES"];
+                          $Tiraje=$_POST["TOTALEJEMPLARES"];
+                          $isbn=$_POST["ISBN"];
+                          
+                          $Autores=$_POST['AUTORES'];
+
+                          $Proposito=$_POST["selPROPOSITO"];
+                          $Pais=$_POST['Pais'];
+                          $Anio=$_POST['ANIO'];
+                          $Probatorio=$_FILES['REGISTROPAT']["tmp_name"];
+                          $tamnio_rep=$_FILES['REGISTROPAT']["size"];
+                          $nombre_Rep=$_FILES["REGISTROPAT"]["name"];
+                          $Tipo_Rep=$_FILES["REGISTROPAT"]["type"];
+
+                          if ( $Probatorio != "none" ){
+                             $fp = fopen($Probatorio, "r+");
+                             $contenido = fread($fp, $tamnio_rep);
+                             $contenido = addslashes($contenido);
+                             fclose($fp);
+
+
+                             $query=$DB->CONSULTA("INSERT INTO `mgps`.`produccion_libro` VALUES (0,'$Autores','$Titulo','$Participa','$Estado','$Pais','$Editorial','$Paginas','$Edicion','$Tiraje','$isbn','$Anio','$Proposito','$contenido',0,'$Id_Act');");
+                         }
                        }
                     break;
                   case '8':
 
                         if (isset($_POST["id"])) {
                             $id=$_POST["id"];
-                            # code...
-                        }
+                            $Id_Act=$_SESSION["Primer_informe"];
+                            $Alcance=$_POST['COMENTARIOS'];
+                            $Titulo=$_POST['TITULO'];
+                            $Estado=$_POST['selESTADOACTUAL'];
+                            $Usuario=$_POST['USUARIOPAT'];
+                            $Autores=$_POST['AUTORES'];
+                            $Beneficio=$_POST['USO'];
+                            $proposito=$_POST["selPROPOSITO"];
+                            $Pais=$_POST['Pais'];
+                            $Anio=$_POST['ANIO'];
+                            $Probatorio=$_FILES['Probatorio']["tmp_name"];
+                            $tamnio_rep=$_FILES['Probatorio']["size"];
+                            $nombre_Rep=$_FILES["Probatorio"]["name"];
+                            $Tipo_Rep=$_FILES["Probatorio"]["type"];
+
+                            if ( $Probatorio != "none" ){
+                               $fp = fopen($Probatorio, "r+");
+                               $contenido = fread($fp, $tamnio_rep);
+                               $contenido = addslashes($contenido);
+                               fclose($fp);
+
+
+                               $query=$DB->CONSULTA(" UPDATE `mgps`.`produccion_manualdeoperaciones` SET `Autor` = '$Autores', `Titulo` = '$Titulo', `Descripccion` = '$Alcance', `EmpresaBeneficiaria` = '$Usuario', `Pais` = '$Pais', `FechaPublicacion` = '$Anio', `Proposito` = '$proposito', `Probatorio` = '$contenido' WHERE `id_Articulo` = '$id'; ");
+
+                              
+                           }
+                        break;
+                        }else{
 
                       $Id_Act=$_SESSION["Primer_informe"];
                         $Alcance=$_POST['COMENTARIOS'];
@@ -393,13 +624,41 @@
 
                            $query=$DB->CONSULTA("INSERT INTO `mgps`.`produccion_manualdeoperaciones` VALUES (0,'$Autores','$Titulo','$Alcance','$Usuario','$Pais','$Anio','$proposito','$contenido',0,'$Id_Act');");
                        }
+                     }
                     break;
                   case '9':
 
                         if (isset($_POST["id"])) {
                             $id=$_POST["id"];
-                            # code...
-                        }
+                            $Id_Act=$_SESSION["Primer_informe"];
+                            $Alcance=$_POST['COMENTARIOS'];
+                            $Titulo=$_POST['TITULO'];
+                            $Estado=$_POST['selESTADOACTUAL'];
+                            $Usuario=$_POST['USUARIOPAT'];
+                            $Autores=$_POST['AUTORES'];
+                            $Beneficio=$_POST['USO'];
+                            $Proposito=$_POST¨["selPROPOSITO"];
+                            $Pais=$_POST['Pais'];
+                            $Anio=$_POST['ANIO'];
+                            $Probatorio=$_FILES['Probatorio']["tmp_name"];
+                            $tamnio_rep=$_FILES['Probatorio']["size"];
+                            $nombre_Rep=$_FILES["Probatorio"]["name"];
+                            $Tipo_Rep=$_FILES["Probatorio"]["type"];
+
+                            if ( $Probatorio != "none" ){
+                               $fp = fopen($Probatorio, "r+");
+                               $contenido = fread($fp, $tamnio_rep);
+                               $contenido = addslashes($contenido);
+                               fclose($fp);
+
+
+                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_materialdeapoyo` SET `id_Articulo` = <{id_Articulo: }>,`Autor` ='$Autores' ,`Titulo` ='$Titulo' ,`Descripccion` ='$Alcance' ,`EmpresaBeneficiaria` ='$Usuario' ,`Pais` ='$Pais' ,`FechaPublicacion` ='$Anio' ,`Proposito` ='$Proposito' ,`Probatorio` ='$contenido' WHERE `id_Articulo`='$id';");
+
+                               
+
+                           }
+                        break;
+                        }else{
 
                       $Id_Act=$_SESSION["Primer_informe"];
                         $Alcance=$_POST['COMENTARIOS'];
@@ -425,6 +684,7 @@
 
                            $query=$DB->CONSULTA("INSERT INTO `mgps`.`produccion_materialdeapoyo` VALUES (0,'$Autores','$Titulo','$Alcance','$Usuario','$Pais','$Anio','$Proposito','$contenido',0,'$Id_Act');");
                        }
+                     }
                     break;
                   case '10':
 
@@ -454,7 +714,7 @@
                                $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_materialdidactico` set `Autor` ='$Autores', `Titulo` ='$Titulo', `Descripccion` ='$Alcance', `EmpresaBeneficiaria` = '$Usuario', `Pais` ='$Pais', `FechaPublicacion` ='$Anio', `Proposito` ='$proposito', `Probatorio` ='$contenido') where `id_Articulo` ='$id';");
                            }
                         break;
-                        }
+                        }else{
 
                       $Id_Act=$_SESSION["Primer_informe"];
                         $Alcance=$_POST['COMENTARIOS'];
@@ -480,6 +740,7 @@
 
                            $query=$DB->CONSULTA("INSERT INTO `mgps`.`produccion_materialdidactico` VALUES (0,'$Autores','$Titulo','$Alcance','$Usuario','$Pais','$Anio','$proposito','$contenido',0,'$IdAct');");
                        }
+                     }
                     break;
                   case '11':
 
@@ -513,7 +774,7 @@
                                $query=$DB->CONSULTA("UPDATE`mgps`.`produccion_memorias` set `Autor` ='$Autor',`Titulo` ='$Titulo', `Congreso` ='$Congreso', `EstadoActual` ='$EstadoActual', `dePagina` ='$dePagina', `aPagina` ='$aPagina', `Pais` = '$Pais', `Estado` ='$Estado',`Ciudad` ='$Ciudad', `FechaPublicacion` ='$Anio', `Proposito` ='$proposito', `Probatorio` ='$contenido') where  `id_Articulo` ='$id';");
                            }
                         break;
-                        }
+                        }else{
 
                       $Id_Act=$_SESSION["Primer_informe"];                        
                         $Autor=$_POST["AUTORES"];
@@ -542,6 +803,7 @@
 
                            $query=$DB->CONSULTA("INSERT INTO `mgps`.`produccion_memorias` VALUES (0,'$Autor','$Titulo','$Congreso','$EstadoActual','$dePagina','$aPagina','$Pais','$Estado','$Ciudad','$Anio','$proposito','$contenido',0,'Id_Act');");
                        }
+                     }
                     break;
                   case '12':
 
@@ -577,7 +839,7 @@
                                $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_inovadora` SET `Autor` = '$Autor', `Tipo` ='$Tipo', `Titulo` = '$Titulo', `Descripccion` ='$Descripccion', `Clacificacion` ='$Clacificacion', `Uso` ='$Uso', `EstadoActual` ='$EstadoActual', `NumeroDeRegistro` ='$NumeroDeRegistro', `Usuario` ='$Usuario', `Pais` ='$Pais', `FechaPublicacion` ='$FechaPublicacion', `Probatorio` ='$contenido', `Proposito` ='$proposito') where `id_Articulo`= '$id';");
                                }
                         break;
-                        }
+                        }else{
 
                       $Id_Act=$_SESSION["Primer_informe"];
                         
@@ -608,6 +870,7 @@
 
                            $query=$DB->CONSULTA("INSERT INTO `mgps`.`produccion_inovadora` VALUES(0,'$Autor','$Tipo','$Titulo','$Descripccion','$Clacificacion','$Uso','$EstadoActual','$NumeroDeRegistro','$Usuario','$Pais','$FechaPublicacion','$contenido','$proposito',0,'$Id_Act');");
                            }
+                         }
                     break;
                   case '13':
 
@@ -644,7 +907,7 @@
                            }
                         break;
 
-                        }
+                        }else{
 
                       $Id_Act=$_SESSION["Primer_informe"];
               
@@ -674,6 +937,7 @@
 
                            $query=$DB->CONSULTA("INSERT INTO `mgps`.`produccion_artística` VALUES(0,'$Tipo','$Autor','$Titulo','$Descripccion','$impacto','$Metodologia','$Diseño','$innovacion','$Pais','$Anio','$Lugares','$contenido','$Proposito',0,'$IdAct');");
                        }
+                     }
                     break;
                   case '14':
 
@@ -707,7 +971,7 @@
                             } 
                             break;   
 
-                        }
+                        }else{
 
                       $Id_Act=$_SESSION["Primer_informe"];
                         $Autor=$_POST["AUTORES"];
@@ -736,6 +1000,7 @@
 
                            $query=$DB->CONSULTA("INSERT INTO `mgps`.`produccion_prototipo` VALUES (0,'$Autor','$Tipo','$Estado','$Titulo','$Objetivo','$Caracteristicas','$InstitucionBeneficiaria','$Pais','$Anio','$contenido','$Proposito',0,'$IdAct');");
                        }
+                     }
                     break;
                   case '15':
 
@@ -762,7 +1027,7 @@
                             $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_otro` set `Autor` ='$Autor', `Titulo` ='$Titulo', `Descripccion` = '$Descripccion', `Pais` ='$Pais', `FechaPublicacion` ='$Anio', `Proposito` ='$Proposito', `Probatorio` ='$contenido' WHERE `id_Articulo`='$id' ;");
                             }
                             break;
-                        }
+                        }else{
 
                       $Id_Act=$_SESSION["Primer_informe"];
                         $Autor=$_POST["AUTORES"];
@@ -786,6 +1051,7 @@
 
                            $query=$DB->CONSULTA("INSERT INTO `mgps`.`produccion_otro` VALUES(0,'$Autor','$Titulo','$Descripccion','$Pais','$Anio','$Proposito','$contenido',0,'$Id_Act');");
                        }
+                     }
                       break;
 
                 }
@@ -793,7 +1059,7 @@
 
           if(isset($_POST["Submit_Extracurriculares1"])){
 
-            if (isset($_POST["id_Extracurriculares1"])) {
+            if (isset($_POST["Submit_Extracurriculares1"])&&isset($_POST["id_Extracurriculares1"])) {
               Include_once('../php/conf_tab.php');
               $DB= new ConfigDB();
               $DB->Mysql();
@@ -976,10 +1242,12 @@
           }
 
           if (isset($_POST["Submit_Especializada1"])) {
-            if (isset($_POST["id_Especializada1"])) {
-              Include_once('../php/conf_tab.php');
+            Include_once('../php/conf_tab.php');
                         $DB= new ConfigDB();
                         $DB->Mysql();
+            
+            if (isset($_POST["id_Especializada1"])) {
+              
               
               $id_Especializada1=$_POST["id_Especializada1"];
               $Fech_Reporte=$_POST["Fech_Reporte"];
@@ -1010,12 +1278,7 @@
 
               $id_Especializada1=$_POST["id_Especializada1"];
               $Fech_Reporte=$_POST["Fech_Reporte"];
-              if (date('m')>6) {
-                $cal='A';
-              }else{
-                $cal='B';
-              }
-              $CalendarioEsc=date('Y').$cal;
+              $CalendarioEsc=date('Y');
               $Nombre_Es=$_SESSION["NombreCompleto"];
               $CODIGO_ES=$_SESSION["CODIGO_ES"];
               $Titulo_de_Tesis=$_SESSION["TemaTesis"];
@@ -1535,7 +1798,7 @@
 
         function ArticuloDifucion(){?>
                <form name="form1" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> id='Produccion1' method='post' enctype='multipart/form-data'>
-               <input type="hidden" id="Alter1" name="id" value="">
+               <input type="hidden" id="Alter1" name="id" value= >
                 <div class="form-group">
                   			<div class="row">
                   				<div class="col-md-8">

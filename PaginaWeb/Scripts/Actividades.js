@@ -684,8 +684,8 @@ function NuevaVinculacion(num){
 function NuevoApoyo(num){
 	switch (num){
 		case 1:
-			document.getElementById('Forms_apoyo').style.display=('block');
-			document.getElementById('contenidoPrincipalapoyo').style.display=('none');
+			document.getElementById('Forms_apoyo1').style.display=('block');
+			document.getElementById('contenidoPrincipalapoyo1').style.display=('none');
 			break;
 		case 2:
 			window.location='../php/actividades/Produccion2.php';
