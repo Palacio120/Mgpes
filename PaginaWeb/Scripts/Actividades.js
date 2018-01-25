@@ -558,6 +558,16 @@ function Eliminar_Produccion(Tipo, Id_value){
 	}
 }
 
+function Eliminar_varios(Id_value, num){
+	if (confirm('¿Desea borrar este informe de proyecto?')) {
+			document.getElementById("id_Eliminar_1").value=Id_value;
+			document.getElementById("Tipo_Eliminar1").value=num;
+			document.getElementById("form_Eliminar_varios").submit();
+		}else {
+			return false;
+		}
+}
+
 function Editar_Produccion(Tipo, Id_value){
 	document.getElementById('1').style.display=('none');
 	document.getElementById('contenidoPrincipalProduccion').style.display=('none');
@@ -579,11 +589,41 @@ function Editar_Movilidad(Id_value){
 	document.getElementById('Id_Movilidad1').value=Id_value;
 }
 
+function Editar_Asesoria(Id_value){
+	document.getElementById('contenidoPrincipalTutorias1').style.display=('none');
+	document.getElementById('Form_Tutoriar1').style.display=('block');
+	document.getElementById('Id_Reporte_tutoria1').value=Id_value;
+}
+
+function Editar_Especialidad(Id_value){
+	document.getElementById('contenidoPrincipalEspecializada1').style.display=('none');
+	document.getElementById('Form_Especializada1').style.display=('block');
+	document.getElementById('id_Especializada1').value=Id_value;
+}
+
+function Editar_Congreso(Id_value){
+	document.getElementById('contenidoPrincipalCongresos1').style.display=('none');
+	document.getElementById('forms_congresos1').style.display=('block');
+	document.getElementById('Id_congresos1').value=Id_value;
+}
+
+function Editar_Gestion(Id_value){
+	document.getElementById('contenidoPrincipalapoyo1').style.display=('none');
+	document.getElementById('Forms_apoyo1').style.display=('block');
+	document.getElementById('id_Apoyo1').value=Id_value;
+}
+
+function Editar_Extracurriculares(Id_value){
+	document.getElementById('contenidoPrincipalExtracurriculares1').style.display=('none');
+	document.getElementById('form_Extracurriculares1').style.display=('block');
+	document.getElementById('id_Extracurriculares1').value=Id_value;
+}
+
 function NuevaMovilidad(num){
 	switch (num){
 		case 1:
-			document.getElementById('form_Movilidad').style.display=('block');
-			document.getElementById('contenidoPrincipalMovilidad').style.display=('none');
+			document.getElementById('form_Movilidad1').style.display=('block');
+			document.getElementById('contenidoPrincipalMovilidad1').style.display=('none');
 			break;
 		case 2:
 			window.location='../php/actividades/Produccion2.php';

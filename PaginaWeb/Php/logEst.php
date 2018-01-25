@@ -112,6 +112,7 @@
                     $_SESSION["LíneasAplicaciónDelConocimiento"]=$row["LineasAplicacionDelConocimiento"];
                     $_SESSION["Orientación"]=$row["Orientación"];
                     $_SESSION["DireccionTesis"]=$row["DireccionTesis"];
+                    $_SESSION["TemaTesis"]=$row["Tema_Tesis"];
                     $_SESSION["Vocal_1"]=$row["Vocal_1"];
                     $_SESSION["Vocal_2"]=$row["Vocal_2"];
                     //Datos Egresado

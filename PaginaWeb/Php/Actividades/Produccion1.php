@@ -79,6 +79,32 @@
                 }
             }
 
+            if (isset($_POST["id_Eliminar_1"])) {
+              switch ($_POST["Tipo_Eliminar1"]) {
+                case 1:
+                  Eliminar_Actividades_Extr();
+                  break;
+                case 2:
+                  Eliminar_Gestion_apoyo();
+                  break;
+                case 3:
+                  Eliminar_Asistencia_Eventos();
+                  break;
+                case 4:
+                  Eliminar_Asesoria_esp();
+                  break;
+                case 5:
+                  Eliminar_Necesidades_tut();
+                  break;
+                case 6:
+                  Eliminar_Movilidad();
+                  break;
+                case 7:
+                  Eliminar_Vinculaciones();
+                  break;
+              }
+            }
+
           function form($num){
                 Include_once('../php/conf_tab.php');
 
@@ -765,17 +791,331 @@
                 }
           }
 
+          if(isset($_POST["Submit_Extracurriculares1"])){
 
-            if (isset($_POST["submitVinculacion"])) {
+            if (isset($_POST["id_Extracurriculares1"])) {
+              Include_once('../php/conf_tab.php');
+              $DB= new ConfigDB();
+              $DB->Mysql();
 
-                  if (isset($_POST['Id_Vinculacion'])) {
-                    Include_once('../php/conf_tab.php');
+              $id_Extracurriculares1=$_POST["id_Extracurriculares1"];
+              $Activiadad_Extra=$_POST["Activiadad_Extra"];
+              $Profesor_Act=$_POST["Profesor_Act"];
+              $Institucion_Organizadora=$_POST["Institucion_Organizadora"];
+              $Pais=$_POST["Pais"];
+              $Fecha_Inicio=$_POST["Fecha_Inicio"];
+              $Fecha_Final=$_POST["Fecha_Final"];
+              $Ciudad=$_POST["Ciudad"];
+              $Ambito=$_POST["Ambito"];
+              $Continente=$_POST["Continente"];
+              $Probatorio=$_FILES['Constancia']["tmp_name"];
+              $tamnio_rep=$_FILES['Constancia']["size"];
+              $nombre_Rep=$_FILES["Constancia"]["name"];
+              $Tipo_Rep=$_FILES["Constancia"]["type"];
+
+                if ( $Probatorio != "none" ){
+                     $fp = fopen($Probatorio, "r+");
+                     $contenido = fread($fp, $tamnio_rep);
+                     $contenido = addslashes($contenido);
+                     fclose($fp);
+
+
+                     $query=$DB->CONSULTA(" UPDATE `mgps`.`actividades_extracurriculares` SET `Tipo_Actividad` = '$Activiadad_Extra',`Nombre_DelProfesor` = '$Profesor_Act',`Institucion_Organizadora` = '$Institucion_Organizadora',`Pais` = '$Pais',`Ciudad` = '$Ciudad',`Ambito` = '$Ambito',`Continente` = '$Continente',`Fecha_Inicio` = '$Fecha_Inicio',`Fecha_Termino` = '$Fecha_Final', `Constancia`='$contenido' WHERE `idActividades_Extracurriculares` = '$id_Extracurriculares1';");
+
+                     
+                   }
+                 }else{
+
+            Include_once('../php/conf_tab.php');
+              $DB= new ConfigDB();
+              $DB->Mysql();
+
+             $Activiadad_Extra=$_POST["Activiadad_Extra"];
+              $Profesor_Act=$_POST["Profesor_Act"];
+              $Institucion_Organizadora=$_POST["Institucion_Organizadora"];
+              $Pais=$_POST["Pais"];
+              $Fecha_Inicio=$_POST["Fecha_Inicio"];
+              $Fecha_Final=$_POST["Fecha_Final"];
+              $Ciudad=$_POST["Ciudad"];
+              $Ambito=$_POST["Ambito"];
+              $Continente=$_POST["Continente"];
+              $Probatorio=$_FILES['Constancia']["tmp_name"];
+              $tamnio_rep=$_FILES['Constancia']["size"];
+              $nombre_Rep=$_FILES["Constancia"]["name"];
+              $Tipo_Rep=$_FILES["Constancia"]["type"];
+              $Id_Act =$_SESSION["Primer_informe"];
+
+              if ( $Probatorio != "none" ){
+                     $fp = fopen($Probatorio, "r+");
+                     $contenido = fread($fp, $tamnio_rep);
+                     $contenido = addslashes($contenido);
+                     fclose($fp);
+
+
+                     $query=$DB->CONSULTA("INSERT INTO `mgps`.`actividades_extracurriculares` VALUES(0,'$Activiadad_Extra','$Profesor_Act','$Institucion_Organizadora', '$Pais','$Ciudad','$Ambito','$Continente','$Fecha_Inicio','$Fecha_Final','$Id_Act','$contenido');");
+
+                     
+                   }
+              }
+            }
+            
+          
+
+          if (isset($_POST["Submit_Apoyo1"])) {
+
+            if (isset($_POST["id_Apoyo1"])) {
+              Include_once('../php/conf_tab.php');
+              $DB= new ConfigDB();
+              $DB->Mysql();
+              $id_Apoyo=$_POST["id_Apoyo1"];
+              $Descripccion=$_POST["Descripccion"];
+              $Probatorio=$_FILES['Probatorio']["tmp_name"];
+              $tamnio_rep=$_FILES['Probatorio']["size"];
+              $nombre_Rep=$_FILES["Probatorio"]["name"];
+              $Tipo_Rep=$_FILES["Probatorio"]["type"];
+              $Id_Act =$_SESSION["Primer_informe"];
+
+              if ( $Probatorio != "none" ){
+                     $fp = fopen($Probatorio, "r+");
+                     $contenido = fread($fp, $tamnio_rep);
+                     $contenido = addslashes($contenido);
+                     fclose($fp);
+
+
+                     $query=$DB->CONSULTA("UPDATE `mgps`.`gestionapoyoinv` SET `Descripccion` = '$Descripccion',`Probatorio` = '$contenido' WHERE `idgestionapoyoinv` = '$id_Apoyo';");
+
+                     
+                   }
+
+            }else{
+
+            Include_once('../php/conf_tab.php');
+              $DB= new ConfigDB();
+              $DB->Mysql();
+
+            $Descripccion=$_POST["Descripccion"];
+              $Probatorio=$_FILES['Probatorio']["tmp_name"];
+              $tamnio_rep=$_FILES['Probatorio']["size"];
+              $nombre_Rep=$_FILES["Probatorio"]["name"];
+              $Tipo_Rep=$_FILES["Probatorio"]["type"];
+              $Id_Act =$_SESSION["Primer_informe"];
+
+              if ( $Probatorio != "none" ){
+                     $fp = fopen($Probatorio, "r+");
+                     $contenido = fread($fp, $tamnio_rep);
+                     $contenido = addslashes($contenido);
+                     fclose($fp);
+
+
+                     $query=$DB->CONSULTA("INSERT INTO `mgps`.`gestionapoyoinv` VALUES(0,'$Descripccion','$contenido','$Id_Act');");
+
+                     
+                   }
+                 }
+          }
+
+          if (isset($_POST["Submit_Congreso1"])) {
+            if (isset($_POST["Id_congresos1"])) {
+              Include_once('../php/conf_tab.php');
                         $DB= new ConfigDB();
                         $DB->Mysql();
-                        
+
+                        $Id_congresos1=$_POST["Id_congresos1"];
+                        $Nombre=$_POST["Nombre"];
+                        $Titulo=$_POST["Titulo"];
+                        $Tipo_Congreso=$_POST["Tipo_Congreso"];
+                        $pais=$_POST["Pais"];
+                        $Fecha_Inicio_Congreso=$_POST["Fecha_Inicio_Congreso"];
+                        $Fecha_Final_Congreso=$_POST["Fecha_Final_Congreso"];
+                        $Probatorio=$_FILES['constancia_Congreso']["tmp_name"];
+                        $tamnio_rep=$_FILES['constancia_Congreso']["size"];
+                        $nombre_Rep=$_FILES["constancia_Congreso"]["name"];
+                        $Tipo_Rep=$_FILES["constancia_Congreso"]["type"];
+                        $Id_Act =$_SESSION["Primer_informe"];
+
+                        if ( $Probatorio != "none" ){
+                         $fp = fopen($Probatorio, "r+");
+                         $contenido = fread($fp, $tamnio_rep);
+                         $contenido = addslashes($contenido);
+                         fclose($fp);
 
 
-                        $Id_Vinculacion=$_POST['Id_Vinculacion'];
+                         $query=$DB->CONSULTA("UPDATE `mgps`.`congresos_como_ponente` SET `NombreCongreso` = '$Nombre',`Titulo_del_Trabajo` =  '$Titulo',`TipoDeParticipaciion` = '$Tipo_Congreso',`Pais` = '$pais',`Fecha_inicio` = '$Fecha_Inicio_Congreso',`Fecha_Termino` = '$Fecha_Final_Congreso',`Constancia` = '$contenido' WHERE `id_Congresos_Ponente` = '$Id_congresos1';");
+
+                         
+                       }
+            }else{
+
+            Include_once('../php/conf_tab.php');
+                        $DB= new ConfigDB();
+                        $DB->Mysql();
+
+             $Nombre=$_POST["Nombre"];
+              $Titulo=$_POST["Titulo"];
+              $Tipo_Congreso=$_POST["Tipo_Congreso"];
+              $pais=$_POST["Pais"];
+              $Fecha_Inicio_Congreso=$_POST["Fecha_Inicio_Congreso"];
+              $Fecha_Final_Congreso=$_POST["Fecha_Final_Congreso"];
+              $Probatorio=$_FILES['constancia_Congreso']["tmp_name"];
+              $tamnio_rep=$_FILES['constancia_Congreso']["size"];
+              $nombre_Rep=$_FILES["constancia_Congreso"]["name"];
+              $Tipo_Rep=$_FILES["constancia_Congreso"]["type"];
+              $Id_Act =$_SESSION["Primer_informe"];
+
+                if ( $Probatorio != "none" ){
+                 $fp = fopen($Probatorio, "r+");
+                 $contenido = fread($fp, $tamnio_rep);
+                 $contenido = addslashes($contenido);
+                 fclose($fp);
+
+
+                 $query=$DB->CONSULTA("INSERT INTO `mgps`.`congresos_como_ponente` VALUES(0,'$Nombre','$Titulo','$Tipo_Congreso','$pais','$Fecha_Inicio_Congreso','$Fecha_Final_Congreso','$contenido','$Id_Act');");
+               }
+             }
+
+          }
+
+          if (isset($_POST["Submit_Especializada1"])) {
+            if (isset($_POST["id_Especializada1"])) {
+              Include_once('../php/conf_tab.php');
+                        $DB= new ConfigDB();
+                        $DB->Mysql();
+              
+              $id_Especializada1=$_POST["id_Especializada1"];
+              $Fech_Reporte=$_POST["Fech_Reporte"];
+              $Actividades=$_POST["Actividades"];
+              $Tareas=$_POST["Tareas"];
+              $Observaciones=$_POST["Observaciones"];
+              $Fecha_Siguiente=$_POST["Fecha_Siguiente"];
+              $Probatorio=$_FILES['Probatorio']["tmp_name"];
+              $tamnio_rep=$_FILES['Probatorio']["size"];
+              $nombre_Rep=$_FILES["Probatorio"]["name"];
+              $Tipo_Rep=$_FILES["Probatorio"]["type"];
+              $Id_Act =$_SESSION["Primer_informe"];
+
+              if ( $Probatorio != "none" ){
+                 $fp = fopen($Probatorio, "r+");
+                 $contenido = fread($fp, $tamnio_rep);
+                 $contenido = addslashes($contenido);
+                 fclose($fp);
+
+
+                 $query=$DB->CONSULTA("UPDATE `mgps`.`asesoria_especializada` SET `Fecha` = '$Fech_Reporte', `Activiadades_realiadas` = '$Actividades', `Tareas` = '$Tareas', `Observaciones` = '$Observaciones', `SiguienteAsesoria` = '$Fecha_Siguiente', `Probatorio` = '$contenido' WHERE `idAsesoria_Especializada` = '$id_Especializada1'; ");
+               }
+            }else{
+
+            Include_once('../php/conf_tab.php');
+            $DB= new ConfigDB();
+            $DB->Mysql();
+
+              $id_Especializada1=$_POST["id_Especializada1"];
+              $Fech_Reporte=$_POST["Fech_Reporte"];
+              if (date('m')>6) {
+                $cal='A';
+              }else{
+                $cal='B';
+              }
+              $CalendarioEsc=date('Y').$cal;
+              $Nombre_Es=$_SESSION["NombreCompleto"];
+              $CODIGO_ES=$_SESSION["CODIGO_ES"];
+              $Titulo_de_Tesis=$_SESSION["TemaTesis"];
+              
+              $Actividades=$_POST["Actividades"];
+              $Tareas=$_POST["Tareas"];
+              $Observaciones=$_POST["Observaciones"];
+              $Fecha_Siguiente=$_POST["Fecha_Siguiente"];
+              $Probatorio=$_FILES['Probatorio']["tmp_name"];
+              $tamnio_rep=$_FILES['Probatorio']["size"];
+              $nombre_Rep=$_FILES["Probatorio"]["name"];
+              $Tipo_Rep=$_FILES["Probatorio"]["type"];
+              $Id_Act =$_SESSION["Primer_informe"];
+
+              if ( $Probatorio != "none" ){
+                 $fp = fopen($Probatorio, "r+");
+                 $contenido = fread($fp, $tamnio_rep);
+                 $contenido = addslashes($contenido);
+                 fclose($fp);
+
+
+                 $query=$DB->CONSULTA("INSERT INTO `mgps`.`asesoria_especializada` VALUES (0, '$Fech_Reporte', '$CalendarioEsc', '$Nombre_Es', '$CODIGO_ES', '$Titulo_de_Tesis', '$Actividades', '$Tareas', '$Observaciones', '$Fecha_Siguiente', '$Id_Act', '$contenido'); ");
+               }
+             }
+          }
+
+          if (isset($_POST["Submit_Asesorias1"])) {
+            if (isset($_POST["Id_Reporte_tutoria1"])) {
+              Include_once('../php/conf_tab.php');
+                        $DB= new ConfigDB();
+                        $DB->Mysql();
+              
+              $Id_Reporte_tutoria1=$_POST["Id_Reporte_tutoria1"];
+              $Fech_Reporte=$_POST["Fech_Reporte"];
+              $Actividades=$_POST["Actividades"];
+              $Tareas=$_POST["Tareas"];
+              $Observaciones=$_POST["Observaciones"];
+              $Fecha_Siguiente=$_POST["Fecha_Siguiente"];
+              $Probatorio=$_FILES['Probatorio']["tmp_name"];
+              $tamnio_rep=$_FILES['Probatorio']["size"];
+              $nombre_Rep=$_FILES["Probatorio"]["name"];
+              $Tipo_Rep=$_FILES["Probatorio"]["type"];
+              $Id_Act =$_SESSION["Primer_informe"];
+
+              if ( $Probatorio != "none" ){
+                 $fp = fopen($Probatorio, "r+");
+                 $contenido = fread($fp, $tamnio_rep);
+                 $contenido = addslashes($contenido);
+                 fclose($fp);
+
+
+                 $query=$DB->CONSULTA("UPDATE `mgps`.`reporte_asesorias` SET `Fecha` = '$Fech_Reporte', `Activiadades_realiadas` = '$Actividades', `Tareas` = '$Tareas', `Observaciones` = '$Observaciones', `SiguienteAsesoria` = '$Fecha_Siguiente', `Probatorio` = '$contenido' WHERE `idReporte_Asesorias` = '$Id_Reporte_tutoria1'; ");
+               }
+            }else{
+
+
+            Include_once('../php/conf_tab.php');
+            $DB= new ConfigDB();
+            $DB->Mysql();
+
+              $Fech_Reporte=$_POST["Fech_Reporte"];
+              $CalendarioEsc=date('Y');
+              $Nombre_Es=$_SESSION["NombreCompleto"];
+              $CODIGO_ES=$_SESSION["CODIGO_ES"];
+              $Titulo_de_Tesis=$_SESSION["TemaTesis"];
+              
+              $Actividades=$_POST["Actividades"];
+              $Tareas=$_POST["Tareas"];
+              $Observaciones=$_POST["Observaciones"];
+              $Fecha_Siguiente=$_POST["Fecha_Siguiente"];
+              $Probatorio=$_FILES['Probatorio']["tmp_name"];
+              $tamnio_rep=$_FILES['Probatorio']["size"];
+              $nombre_Rep=$_FILES["Probatorio"]["name"];
+              $Tipo_Rep=$_FILES["Probatorio"]["type"];
+              $Id_Act =$_SESSION["Primer_informe"];
+
+              if ( $Probatorio != "none" ){
+                 $fp = fopen($Probatorio, "r+");
+                 $contenido = fread($fp, $tamnio_rep);
+                 $contenido = addslashes($contenido);
+                 fclose($fp);
+
+
+                 $query=$DB->CONSULTA("INSERT INTO `mgps`.`reporte_asesorias` VALUES (0,'$Fech_Reporte', '$CalendarioEsc', '$Nombre_Es', '$CODIGO_ES', '$Titulo_de_Tesis', '$Actividades', '$Tareas', '$Observaciones', '$Fecha_Siguiente', '$Id_Act', '$contenido'); ");
+               }
+             }
+
+          }
+
+
+
+
+            if (isset($_POST["submitVinculacion1"])) {
+                Include_once('../php/conf_tab.php');
+                        $DB= new ConfigDB();
+                        $DB->Mysql();
+
+                  if (isset($_POST['Id_Vinculacion1'])) {
+
+                        $Id_Vinculacion=$_POST['Id_Vinculacion1'];
                         $Ambito=$_POST["Ambito"];
                         $ProductoObtenido=$_POST["ProductoObtenido"];
                         $Sector=$_POST["Sector"];
@@ -803,9 +1143,10 @@
 
                              $query=$DB->CONSULTA("UPDATE `mgps`.`vinculaciones` SET `Fecha_Inicio` = '$Fecha_Inicio', `Ambito` = '$Ambito', `ProductoObtenido` = '$ProductoObtenido', `Evidencias` = '$Probatorio', `Sector` = '$Sector', `Mecanismo` = '$Mecanismo', `TipoVinculacion` = '$TipoVinc', `Institucion` = '$Institucion', `pais` = '$Pais', `Fecha_Final` = '$Fecha_Final', `Objetivo` = '$Objetivo', `Resultado` = '$Resultado', `Beneficio` = '$Beneficio' WHERE `No_vinculacion` = 'Id_Vinculacion'; ");
 
-                             echo "<Script>window.location('Confirmacion.php')</script>";
+                             
                            }
-                  }
+                  }else{
+
                         Include_once('../php/conf_tab.php');
                         $DB= new ConfigDB();
                         $DB->Mysql();
@@ -838,14 +1179,14 @@
                             break;
                           
                         }
-                        $Probatorio=$_FILES['Probatorio']["tmp_name"];
+                        $Probatorio1=$_FILES['Probatorio']["tmp_name"];
                         $tamnio_rep=$_FILES['Probatorio']["size"];
                         $nombre_Rep=$_FILES["Probatorio"]["name"];
                         $Tipo_Rep=$_FILES["Probatorio"]["type"];
                         $Resultado=$_POST["Resultado"];
 
-                        if ( $Probatorio != "none" ){
-                             $fp = fopen($Probatorio, "r+");
+                        if ( $Probatorio1 != "none" ){
+                             $fp = fopen($Probatorio1, "r+");
                              $contenido = fread($fp, $tamnio_rep);
                              $contenido = addslashes($contenido);
                              fclose($fp);
@@ -853,9 +1194,11 @@
 
                              $query=$DB->CONSULTA("INSERT INTO `mgps`.`vinculaciones` VALUES(0,'$Fecha_Inicio','$Ambito','$ProductoObtenido','$contenido','$Sector','$Mecanismo','$TipoVinc','$Institucion','$Pais','$LGAC','$Fecha_Final','$Id_Act','$Objetivo','$Resultado','$Beneficio');");
                          }
-            }
+                  }
+                }
+            
 
-            if (isset($_POST["Submit_Movilidad"])) {
+            if (isset($_POST["Submit_Movilidad1"])) {
                 Include_once('../php/conf_tab.php');
                     $DB= new ConfigDB();
                     $DB->Mysql();
@@ -863,6 +1206,7 @@
               if(isset($_POST["id_Movilidad1"])){
 
                 $id=$_POST["id_Movilidad1"];
+                $Id_Act=$_SESSION["Primer_informe"];
                 $Nombre=$_SESSION["NombreCompleto"];
                 $Pais=$_POST["Pais"];
                 $Tipo_Movilidad=$_POST["Tipo_Movilidad"];
@@ -887,7 +1231,7 @@
                 $Constancia_nombre_Rep=$_FILES["Constancia"]["name"];
                 $Constancia_Tipo_Rep=$_FILES["Constancia"]["type"];
 
-                          if ( $Planes_Trabajo_Probatorio != "none" || $Constancia_Probatorio!="none" ){
+                          if ( $Planes_Trabajo_Probatorio != "none" && $Constancia_Probatorio!="none" ){
                              $fp1 = fopen($Planes_Trabajo_Probatorio, "r+");
                              $fp2 = fopen($Constancia_Probatorio, "r+");
                              $contenido1 = fread($fp1, $Planes_Trabajo_tamnio_rep);
@@ -898,11 +1242,11 @@
                              fclose($fp2);
 
                             
-                            
+                            $query=$DB->CONSULTA("UPDATE `mgps`.`movilidadestudiantes` SET `Id_act` = '$Id_Act', `NombreEs` = '$Nombre', `Tipo_Movilidad` = '$Tipo_Movilidad', `Ambito` = '$Ambito', `Pais` = '$Pais', `Institucion` = '$Institucion', `Objetivo` = '$Objetivo', `Fecha_Inicio` = '$Fecha_Inicio', `Facha_Termino` = '$Fecha_Final', `Apoyo_Economico` = '$ApoyoEconomico', `Institucion_Apoyo` = Institucion_apoyo, `Plan_Trabajo` = '$contenido1', `Constancial` = '$contenido2' WHERE `RegistroMovilidadEs` = '$id'; ");
 
                           }
 
-              }
+              }else{
                 $Id_Act=$_SESSION["Primer_informe"];
                 $Nombre=$_SESSION["NombreCompleto"];
                 $Pais=$_POST["Pais"];
@@ -940,7 +1284,7 @@
                                  $query=$DB->CONSULTA("INSERT INTO `mgps`.`movilidadestudiantes` VALUES(0,'$Id_Act',' $Nombre','$Tipo_Movilidad','$Ambito','$Pais','$Institucion','$Objetivo','$Fecha_Inicio','$Fecha_Final','$ApoyoEconomico','$Institucion_apoyo','$contenido2','$contenido2');");
                             }
                              
-
+                }
             }
 
           function formPais(){
@@ -2684,6 +3028,77 @@
             $query=$DB->CONSULTA("DELETE FROM `mgps`.`produccion_otro` WHERE `ProduccionAlumnos`='$id'");
             
         }
+
+        function Eliminar_Actividades_Extr(){
+          Include_once('../php/conf_tab.php');
+
+            $DB= new ConfigDB();
+            $DB->Mysql();
+
+            $id=$_POST["id_Eliminar_1"];
+            $query=$DB->CONSULTA("DELETE FROM `mgps`.`actividades_extracurriculares` WHERE idActividades_Extracurriculares= '$id';");
+        }
+
+        function Eliminar_Gestion_apoyo(){
+          Include_once('../php/conf_tab.php');
+
+            $DB= new ConfigDB();
+            $DB->Mysql();
+
+            $id=$_POST["id_Eliminar_1"];
+            $query=$DB->CONSULTA("DELETE FROM `mgps`.`gestionapoyoinv` WHERE id_Congresos_Ponente ='$id'; ");
+        }
+
+        function Eliminar_Asistencia_Eventos(){
+          Include_once('../php/conf_tab.php');
+
+            $DB= new ConfigDB();
+            $DB->Mysql();
+
+            $id=$_POST["id_Eliminar_1"];
+            $query=$DB->CONSULTA("DELETE FROM `mgps`.`congresos_como_ponente` WHERE id_Congresos_Ponente='$id'; ");
+        }
+
+        function Eliminar_Asesoria_esp(){
+          Include_once('../php/conf_tab.php');
+
+            $DB= new ConfigDB();
+            $DB->Mysql();
+
+            $id=$_POST["id_Eliminar_1"];
+            $query=$DB->CONSULTA("DELETE FROM `mgps`.`asesoria_especializada` WHERE idAsesoria_Especializada='$id'; ");
+        }
+
+        function Eliminar_Necesidades_tut(){
+          Include_once('../php/conf_tab.php');
+
+            $DB= new ConfigDB();
+            $DB->Mysql();
+
+            $id=$_POST["id_Eliminar_1"];
+            $query=$DB->CONSULTA("DELETE FROM `mgps`.`reporte_asesorias` WHERE idReporte_Asesorias=$id; ");
+        }
+
+        function Eliminar_Movilidad(){
+          Include_once('../php/conf_tab.php');
+
+            $DB= new ConfigDB();
+            $DB->Mysql();
+
+            $id=$_POST["id_Eliminar_1"];
+            $query=$DB->CONSULTA("DELETE FROM `mgps`.`movilidadestudiantes` WHERE `RegistroMovilidadEs` ='$id'; ");
+        }
+
+        function Eliminar_Vinculaciones(){
+          Include_once('../php/conf_tab.php');
+
+            $DB= new ConfigDB();
+            $DB->Mysql();
+
+            $id=$_POST["id_Eliminar_1"];
+            $query=$DB->CONSULTA("DELETE FROM `mgps`.`vinculaciones` WHERE No_vinculacion='$id'; ");
+        }
+
         ?>
 
 

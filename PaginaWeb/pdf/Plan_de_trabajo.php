@@ -114,7 +114,7 @@
 				</tr>
 				<tr>
 					<th>Título de la tesis</th>
-					<td colspan="3"><?php echo	$_SESSION["Tema_Tesis"];?></td>
+					<td colspan="3"><?php echo	$_SESSION["TemaTesis"];?></td>
 				</tr>
 				<tr>
 					<th >Nombre del(la) director(a) de tesis</th>

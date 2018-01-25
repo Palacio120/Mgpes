@@ -605,9 +605,9 @@
                                       <tbody>
                                         <tr>
                                           <th>No.</th>
-                                          <th>Titulo</th>
-                                          <th>Tipo de Produccion</th>
-                                          <th>Documento probatorio</th>
+                                          <th>Tipo de Actividad</th>
+                                          <th>Institucion Organizadora</th>
+                                          <th>Periodo</th>
                                           <th>Acciones</th>
                                         </tr>
                                     <?php
@@ -625,13 +625,13 @@
 
                                         <tr>
                                           <td><?php echo $contador; ?> </td>
-                                          <td><?php echo $rs["Titulo"]; ?></td>
-                                          <td><?php echo $rs["TipoDeProduccion"]; ?></td>
-                                          <td><?php if (isset($rs["probatorio"])){echo "Si";}else{echo "No";}; ?></td>
+                                          <td><?php echo $rs["Tipo_Actividad"]; ?></td>
+                                          <td><?php echo $rs["Institucion_Organizadora"]; ?></td>
+                                          <td><?php echo $rs["Fecha_Inicio"]; ?><br><?php echo $rs["Fecha_Termino"]; ?></td>
 
                                           <td>
-                                            <a href="#" onclick="Editar_proyectos(<?php echo $rs['Id_tesis'];?>)">Editar</a><br>
-                                            <a href="#" onclick="Eliminar_proyectos(<?php echo $rs['Id_tesis'];?>)">Eliminar</a>
+                                            <a href="#" onclick="Editar_Extracurriculares(<?php echo $rs['idActividades_Extracurriculares'];?>)">Editar</a><br>
+                                            <a href="#" onclick="Eliminar_varios(<?php echo $rs['idActividades_Extracurriculares'];?>, 1)">Eliminar</a>
                                           </td>
 
                                         </tr>
@@ -645,6 +645,7 @@
                         <div id="form_Extracurriculares1" style="display: none;">
                           <form enctype="multipart/form-data" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
                             <div class="form-group">
+                              <input type="hidden" name="id_Extracurriculares1" id="id_Extracurriculares1">
                               <div class="row">
                                 <div class="col-md-4">
                                   <label>Tipo Activiadad</label>
@@ -686,6 +687,20 @@
                               </div>
                               <div class="row">
                                 <div class="col-md-4">
+                                  <label>Fecha de inicio</label>
+                                  <input type="date" name="Fecha_Inicio" class="form-control" max="<?php echo date('Y-m-d');?>" required>
+                                </div>
+                                <div class="col-md-4">
+                                  <label>Fecha de termino</label>
+                                  <input type="date" name="Fecha_Final" class="form-control" max="<?php echo date('Y-m-d');?>" required>
+                                </div>
+                                <div class="col-md-4">
+                                  <label>Institucion Organizadora</label>
+                                  <input type="text" name="Institucion_Organizadora" class="form-control" maxlength="255" required>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-4">
                                   <label>Consatancia</label>
                                   <input type="file" name="Constancia" class="form-control" required>
                                 </div>
@@ -702,7 +717,7 @@
                 <div class="Semestre" >
                   <a href="#"  id="Investi1" onclick="Desplegar('ApoyoInvestigacion1')" ><p>Gestión de apoyo externo para la investigación</p></a>
                     <div class="desplegar" id="ApoyoInvestigacion1" style="display: none;">
-                      <div class="contenido" id="contenidoPrincipalapoyo" style="display:block;">
+                      <div class="contenido" id="contenidoPrincipalapoyo1" style="display:block;">
                         <?php
                           require_once('../php/conf_tab.php');
 
@@ -713,7 +728,6 @@
 
                            $Consulta=$DB->CONSULTA("SELECT * FROM gestionapoyoinv  where  Id_Actividades = '$codigo'");
                            while ($rs= $DB->Obtener_filas($Consulta)) {
-                              $NumeroPublicacion=$rs['NO_Publicacion'];
                               $bandera=TRUE;
                            }
                            if ($bandera==FALSE) {
@@ -726,8 +740,7 @@
                                       <tbody>
                                         <tr>
                                           <th>No.</th>
-                                          <th>Titulo</th>
-                                          <th>Tipo de Produccion</th>
+                                          <th>Descripccion</th>
                                           <th>Documento probatorio</th>
                                           <th>Acciones</th>
                                         </tr>
@@ -745,13 +758,12 @@
 
                                         <tr>
                                           <td><?php echo $contador; ?> </td>
-                                          <td><?php echo $rs["Titulo"]; ?></td>
-                                          <td><?php echo $rs["TipoDeProduccion"]; ?></td>
-                                          <td><?php if (isset($rs["probatorio"])){echo "Si";}else{echo "No";}; ?></td>
+                                          <td><?php echo $rs["Descripccion"]; ?></td>
+                                          <td><?php if (isset($rs["Probatorio"])){echo "Si";}else{echo "No";}; ?></td>
 
                                           <td>
-                                            <a href="#" onclick="Editar_proyectos(<?php echo $rs['Id_tesis'];?>)">Editar</a><br>
-                                            <a href="#" onclick="Eliminar_proyectos(<?php echo $rs['Id_tesis'];?>)">Eliminar</a>
+                                            <a href="#" onclick="Editar_Gestion(<?php echo $rs['idgestionapoyoinv'];?>)">Editar</a><br>
+                                            <a href="#" onclick="Eliminar_varios(<?php echo $rs['idgestionapoyoinv'];?>, 2)">Eliminar</a>
                                           </td>
 
                                         </tr>
@@ -762,9 +774,10 @@
                               <input type='button' value='Agrega Produccion' onclick="NuevaProduccion(1)" style="margin: 10px;">
                           <?php } ?>
                         </div>
-                        <div class="" id="Forms_apoyo" style="display: none;">
-                          <form enctype="multipart/form-data"  id="form-apoyo" action=<?php  echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
+                        <div class="" id="Forms_apoyo1" style="display: none;">
+                          <form enctype="multipart/form-data" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
                             <div class="form-group">
+                            <input type="hidden" name="id_Apoyo1" id="id_Apoyo1" >
                               <div class="row">
                                 <div class="col-md-3"></div>
                                 <div class="col-md-6 " style="align-content: center;">
@@ -784,7 +797,7 @@
                               <div class="row">
                                 <div class="col-md-3"></div>
                                 <div class="col-md-6">
-                                  <input type="submit" name="Submit" id="Submit_Apoyo" value="Guardar">
+                                  <input type="submit" name="Submit_Apoyo1" id="Submit_Apoyo1" value="Guardar">
                                   <input type="button" name="Cancelar" value="Cancelar" onclick="cancelar_Actvidades();" class="Botones">
                                 </div>
                                 <div class="col-md-3"></div>
@@ -806,14 +819,13 @@
                           $codigo=$_SESSION["Primer_informe"];
                           $bandera=FALSE;
 
-                           $Consulta=$DB->CONSULTA("SELECT * FROM congresos_como_ponente  where  id_Actividades = '$codigo'");
+                           $Consulta=$DB->CONSULTA("SELECT * FROM `mgps`.`congresos_como_ponente` WHERE id_Actividades='$codigo';");
                            while ($rs= $DB->Obtener_filas($Consulta)) {
-                              $NumeroPublicacion=$rs['NO_Publicacion'];
                               $bandera=TRUE;
                            }
                            if ($bandera==FALSE) {
                             ?>
-                            <input type='button' value='Agrega Produccion' onclick="NuevoCongreso(1)" style="margin: 10px;">
+                            <input type='button' value='Agrega Evento' onclick="NuevoCongreso(1)" style="margin: 10px;">
                             <?php
                              }else{
                             ?>
@@ -831,11 +843,10 @@
 
                                   $DB=new ConfigDB();
                                   $DB->Mysql();
-                                  $codigo=$_SESSION["CODIGO_ES"];
                                   $Id_Act =$_SESSION["Primer_informe"];
                                   $contador=0;
 
-                                $Consulta=$DB->CONSULTA("SELECT * FROM congresos_como_ponente  where  id_Actividades = '$Id_Act");
+                                $Consulta=$DB->CONSULTA("SELECT * FROM `mgps`.`congresos_como_ponente` WHERE id_Actividades='$Id_Act';");
                                  while ($rs= $DB->Obtener_filas($Consulta)) {
                                  $contador++; ?>
 
@@ -846,8 +857,8 @@
                                           <td><?php echo $rs["Fecha_inicio"]; ?><br><?php echo $rs["Fecha_Termino"]; ?></td>
 
                                           <td>
-                                            <a href="#" onclick="Editar_proyectos(<?php echo $rs['id_Congresos_Ponente'];?>)">Editar</a><br>
-                                            <a href="#" onclick="Eliminar_proyectos(<?php echo $rs['id_Congresos_Ponente'];?>)">Eliminar</a>
+                                            <a href="#" onclick="Editar_Congreso(<?php echo $rs['id_Congresos_Ponente'];?>)">Editar</a><br>
+                                            <a href="#" onclick="Eliminar_varios(<?php echo $rs['id_Congresos_Ponente'];?>, 3)">Eliminar</a>
                                           </td>
 
                                         </tr>
@@ -859,7 +870,7 @@
                           <?php } ?>
                         </div>
                         <div id="forms_congresos1" style="display: none;">
-                        <form action="">
+                        <form enctype="multipart/form-data" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
                           <div class="form-group">
                           <input type="hidden" name="Id_congresos1" id="Id_congresos1">
                             <div class="row">
@@ -894,6 +905,9 @@
                                 <label>Fecha termino</label>
                                 <input type="date" name="Fecha_Final_Congreso" class="form-control" required>
                               </div>
+                              <?php formPais(); ?>
+                            </div>
+                            <div class="row">
                               <div class="col-md-4">
                                 <label>Constancia</label>
                                 <input type="file" name="constancia_Congreso" class="form-control" required>
@@ -923,7 +937,6 @@
 
                            $Consulta=$DB->CONSULTA("SELECT * FROM asesoria_especializada  where  Id_Act = '$Id_Act'");
                            while ($rs= $DB->Obtener_filas($Consulta)) {
-                              $NumeroPublicacion=$rs['NO_Publicacion'];
                               $bandera=TRUE;
                            }
                            if ($bandera==FALSE) {
@@ -936,8 +949,8 @@
                                       <tbody>
                                         <tr>
                                           <th>No.</th>
-                                          <th>Titulo</th>
-                                          <th>Tipo de Produccion</th>
+                                          <th>Fecha</th>
+                                          <th>Calendario escolar</th>
                                           <th>Documento probatorio</th>
                                           <th>Acciones</th>
                                         </tr>
@@ -950,19 +963,19 @@
                                   $Id_Act =$_SESSION["Primer_informe"];
                                   $contador=0;
 
-                                $Consulta=$DB->CONSULTA("");
+                                $Consulta=$DB->CONSULTA("SELECT * FROM asesoria_especializada  where  Id_Act = '$Id_Act'");
                                  while ($rs= $DB->Obtener_filas($Consulta)) {
                                  $contador++; ?>
 
                                         <tr>
                                           <td><?php echo $contador; ?> </td>
-                                          <td><?php echo $rs["Titulo"]; ?></td>
-                                          <td><?php echo $rs["TipoDeProduccion"]; ?></td>
+                                          <td><?php echo $rs["Fecha"]; ?></td>
+                                          <td><?php echo $rs["Calendario_Escolar"]; ?></td>
                                           <td><?php if (isset($rs["probatorio"])){echo "Si";}else{echo "No";}; ?></td>
 
                                           <td>
-                                            <a href="#" onclick="Editar_proyectos(<?php echo $rs['Id_tesis'];?>)">Editar</a><br>
-                                            <a href="#" onclick="Eliminar_proyectos(<?php echo $rs['Id_tesis'];?>)">Eliminar</a>
+                                            <a href="#" onclick="Editar_Especialidad(<?php echo $rs['idAsesoria_Especializada'];?>)">Editar</a><br>
+                                            <a href="#" onclick="Eliminar_varios(<?php echo $rs['idAsesoria_Especializada'];?>, 4)">Eliminar</a>
                                           </td>
 
                                         </tr>
@@ -974,8 +987,9 @@
                           <?php } ?>
                         </div>
                         <div id="Form_Especializada1" style="display: none;">
-                          <form method="post" enctype="multipart/form-data" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
+                          <form enctype="multipart/form-data" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
                             <div class="form-group">
+                            <input type="hidden" name="id_Especializada1" id="id_Especializada1">
                               <div class="row">
                                 <div class="col-md-3"></div>
                                 <div class="col-md-6">
@@ -1015,8 +1029,14 @@
                                   <input type="DATE" name="Fecha_Siguiente" class="form-control" required>
                                 </div>
                                 <div class="col-md-3"></div>
-                                
-                                
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                  <label>Probatorio</label>
+                                  <input type="file" name="Probatorio" class="form-control" required>
+                                </div>
+                                <div class="col-md-3"></div>
                               </div>
                               <div class="row">
                                   <div class="col-md-3"></div>
@@ -1045,7 +1065,6 @@
 
                            $Consulta=$DB->CONSULTA("SELECT * FROM reporte_asesorias  where  Id_act = '$Id_Act'");
                            while ($rs= $DB->Obtener_filas($Consulta)) {
-                              $NumeroPublicacion=$rs['NO_Publicacion'];
                               $bandera=TRUE;
                            }
                            if ($bandera==FALSE) {
@@ -1057,8 +1076,7 @@
                                     <table>
                                       <tbody>
                                         <tr>
-                                          <th>No.</th>
-                                          <th>Numero de reporte</th>
+                                          <th>No.</th>                                        
                                           <th>Fecha</th>
                                           <th>Calendario Escolar</th>
                                           <th>Acciones</th>
@@ -1078,13 +1096,12 @@
 
                                         <tr>
                                           <td><?php echo $contador; ?> </td>
-                                          <td><?php echo $rs["Numero_Reporte"]; ?></td>
                                           <td><?php echo $rs["Fecha"]; ?></td>
                                           <td><?php echo $rs["Calendario_Escolar"]?> </td>
 
                                           <td>
-                                            <a href="#" onclick="Editar_proyectos(<?php echo $rs['Id_tesis'];?>)">Editar</a><br>
-                                            <a href="#" onclick="Eliminar_proyectos(<?php echo $rs['Id_tesis'];?>)">Eliminar</a>
+                                            <a href="#" onclick="Editar_Asesoria(<?php echo $rs['idReporte_Asesorias'];?>)">Editar</a><br>
+                                            <a href="#" onclick="Eliminar_varios(<?php echo $rs['idReporte_Asesorias'];?>, 5)">Eliminar</a>
                                           </td>
 
                                         </tr>
@@ -1098,6 +1115,7 @@
                         <div id="Form_Tutoriar1" style="display: none;">
                           <form method="post" enctype="multipart/form-data" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
                             <div class="form-group">
+                              <input type="hidden" name="Id_Reporte_tutoria1" id="Id_Reporte_tutoria1" >
                               <div class="row">
                                 <div class="col-md-3"></div>
                                 <div class="col-md-6">
@@ -1137,8 +1155,14 @@
                                   <input type="DATE" name="Fecha_Siguiente" class="form-control" required>
                                 </div>
                                 <div class="col-md-3"></div>
-                                
-                                
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                  <label>Probatorio</label>
+                                  <input type="file" name="Probatorio" class="form-control" required>
+                                </div>
+                                <div class="col-md-3"></div>
                               </div>
                               <div class="row">
                                   <div class="col-md-3"></div>
@@ -1204,7 +1228,7 @@
                                           <td><?php echo $rs["Fecha_Inicio"]; ?><br><?php echo $rs["Facha_Termino"]; ?></td>
                                           <td>
                                             <a href="#" onclick="Editar_Movilidad(<?php echo $rs['RegistroMovilidadEs'];?>)">Editar</a><br>
-                                            <a href="#" onclick="Eliminar_Movilidad(<?php echo $rs['RegistroMovilidadEs'];?>)">Eliminar</a>
+                                            <a href="#" onclick="Eliminar_varios(<?php echo $rs['RegistroMovilidadEs'];?>, 6)">Eliminar</a>
                                           </td>
 
                                         </tr>
@@ -1281,7 +1305,7 @@
                                 </div>
                               </div>
                               <div style="margin: 10px;">
-                                <input type="submit" name="Submit_Movilidad" id="Submit_Movilidad" value="Guardar">
+                                <input type="submit" name="Submit_Movilidad1" id="Submit_Movilidad1" value="Guardar">
                                 <input type="button" name="Cancelar" onclick="cancelar_Actvidades()" value="Cancelar" >
                               </div>
                               
@@ -1342,7 +1366,7 @@
 
                                           <td>
                                             <a href="#" onclick="Editar_Vinculacion(<?php echo $rs['No_vinculacion'];?>)">Editar</a><br>
-                                            <a href="#" onclick="Eliminar_Vinculacion(<?php echo $rs['No_vinculacion'];?>)">Eliminar</a>
+                                            <a href="#" onclick="Eliminar_varios(<?php echo $rs['No_vinculacion'];?>, 7)">Eliminar</a>
                                           </td>
 
                                         </tr>
@@ -1441,7 +1465,7 @@
                                 <input type="file" name="Probatorio" class="form-control" required>
                               </div>
                             </div>
-                            <input type="submit" value="Guardar" name="submitVinculacion" id="Submit_Vinculacion">
+                            <input type="submit" value="Guardar" name="submitVinculacion1" id="Submit_Vinculacion">
                             <input type="button" value="Cancelar" name="cancelar" onclick="cancelar_Actvidades();" class='Botones' >
                           </div>
                         </form>
@@ -1449,6 +1473,13 @@
                     </div>
                 </div>
 
+                <div id="form_Eliminar" style="display: none;">
+                  <form method="post" id="form_Eliminar_varios" enctype='multipart/form-data' action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
+                    <input type="hidden" name="id_Eliminar_1" id="id_Eliminar_1" value="">
+                    <input type="hidden" name="Tipo_Eliminar1" id="Tipo_Eliminar1" value="">
+                  </form>
+                </div>
+    
 
                 
                 <input type="button" value="gener Informe de Actividades" onclick="" style="display: block; margin-top: 10px;" id="Boton">
