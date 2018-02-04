@@ -574,49 +574,49 @@ function Editar_Produccion(Tipo, Id_value){
 	document.getElementById('Vizualisador').style.display=('none');
 	document.getElementById('Forms_Produccion').style.display=('block');
 	document.getElementById(Tipo).style.display=('block');
-	document.getElementById("Alter".concat(Tipo)).value=Id_value;
+	document.getElementById("Alter".concat(Tipo)).action='/MGPES/Mgpes/paginaweb/Estudiante/actividades.php.?id'+Tipo+'='+Id_value;
 }
 
 function Editar_Vinculacion(Id_value){
 	document.getElementById('contenidoPrincipalVinculacion1').style.display=('none');
 	document.getElementById('Forms_Vinculacion1').style.display=('block');
-	document.getElementById('Id_Vinculacion1').value=Id_value;
+	document.getElementById('Id_Vinculacion1').action='/MGPES/Mgpes/paginaweb/Estudiante/actividades.php.?id_vin1='+Id_value;
 }
 
 function Editar_Movilidad(Id_value){
 	document.getElementById('contenidoPrincipalMovilidad1').style.display=('none');
 	document.getElementById('form_Movilidad1').style.display=('block');
-	document.getElementById('Id_Movilidad1').value=Id_value;
+	document.getElementById('Id_Movilidad1').action='/MGPES/Mgpes/paginaweb/Estudiante/actividades.php.?id_Mov1='+Id_value;
 }
 
 function Editar_Asesoria(Id_value){
 	document.getElementById('contenidoPrincipalTutorias1').style.display=('none');
 	document.getElementById('Form_Tutoriar1').style.display=('block');
-	document.getElementById('Id_Reporte_tutoria1').value=Id_value;
+	document.getElementById('Id_Reporte_tutoria1').action= '/MGPES/Mgpes/paginaweb/Estudiante/actividades.php.?id_Tut1='+Id_value;
 }
 
 function Editar_Especialidad(Id_value){
 	document.getElementById('contenidoPrincipalEspecializada1').style.display=('none');
 	document.getElementById('Form_Especializada1').style.display=('block');
-	document.getElementById('id_Especializada1').value=Id_value;
+	document.getElementById('id_Especializada1').action= '/MGPES/Mgpes/paginaweb/Estudiante/actividades.php.?id_Especial1='+Id_value;
 }
 
 function Editar_Congreso(Id_value){
 	document.getElementById('contenidoPrincipalCongresos1').style.display=('none');
 	document.getElementById('forms_congresos1').style.display=('block');
-	document.getElementById('Id_congresos1').value=Id_value;
+	document.getElementById('Form_Cong1').action='/MGPES/Mgpes/paginaweb/Estudiante/actividades.php.?id_cong1='+Id_value;
 }
 
 function Editar_Gestion(Id_value){
 	document.getElementById('contenidoPrincipalapoyo1').style.display=('none');
 	document.getElementById('Forms_apoyo1').style.display=('block');
-	document.getElementById('id_Apoyo1').value=Id_value;
+	document.getElementById('Form_apoyo1').action='/MGPES/Mgpes/paginaweb/Estudiante/actividades.php.?id_apoyo1='+Id_value;
 }
 
 function Editar_Extracurriculares(Id_value){
 	document.getElementById('contenidoPrincipalExtracurriculares1').style.display=('none');
 	document.getElementById('form_Extracurriculares1').style.display=('block');
-	document.getElementById('id_Extracurriculares1').value=Id_value;
+	document.getElementById('form_Extra1').action='/MGPES/Mgpes/paginaweb/Estudiante/actividades.php.?id_Extra='+Id_value;
 }
 
 function NuevaMovilidad(num){

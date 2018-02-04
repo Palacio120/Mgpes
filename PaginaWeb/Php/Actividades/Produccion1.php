@@ -113,9 +113,11 @@
 
                 switch ($num) {
                   case '1':
+                        $verdad=isset($_GET['id1']);
+                        if ($verdad && $verdad==1) {
 
-                        if (isset($_POST["id"])) {
-                            $id=$_POST["id"];
+                            $id=$_GET['id1'];
+                            
                             
                             $Id_Act=$_SESSION["Primer_informe"];
                             $Autor=$_POST['Autores'];
@@ -135,7 +137,7 @@
                             $nombre_Rep=$_FILES["Probatorio"]["name"];
                             $Tipo_Rep=$_FILES["Probatorio"]["type"];
 
-                            
+                                                  
 
                             if ( $Probatorio != "none" ){
                                $fp = fopen($Probatorio, "r+");
@@ -143,10 +145,12 @@
                                $contenido = addslashes($contenido);
                                fclose($fp);
 
-                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_articulodifucion` SET `Autores` = '$Autor',`Titulo` = '$Titulo',`Estado` = '$Estado',`NombreRevista` = '$Revista',`dePagina` = '$Pagina_inicio',`aPagina` = '$Pagina_final',`Pais` = '$Pais',`Editorial` = '$Editorial',`Volumen` = '$Volumen',`ISSN` = '$ISBN',`FechaPublicacion` = '$Anio',`Proposito` = '$Proposito',`Probatorio` = '$contenido', `IdActividades` = '$Id_Act' WHERE `id_Articulo` = '$id';");
+                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_articulodifucion` SET `Autores` = '$Autor',`Titulo` = '$Titulo',`Estado` = '$Estado',`NombreRevista` = '$Revista',`dePagina` = '$Pagina_inicio',`aPagina` = '$Pagina_final',`Pais` = '$Pais',`Editorial` = '$Editorial',`Volumen` = '$Volumen',`ISSN` = '$ISBN',`FechaPublicacion` = '$Anio',`Proposito` = '$Proposito',`Probatorio` = '$contenido' WHERE `id_Articulo` = '$id';");
+
+                               
 
                                 }
-                                break;
+                                
                         }else{
 
                         $Id_Act=$_SESSION["Primer_informe"];
@@ -167,7 +171,7 @@
                         $nombre_Rep=$_FILES["Probatorio"]["name"];
                         $Tipo_Rep=$_FILES["Probatorio"]["type"];
 
-                        
+                        echo "incercion 1";
 
                         if ( $Probatorio != "none" ){
                            $fp = fopen($Probatorio, "r+");
@@ -177,14 +181,17 @@
 
                            $query=$DB->CONSULTA("INSERT INTO `produccion_articulodifucion` VALUES (0,'$Autor', '$Titulo', '$Estado','$Revista','$Pagina_inicio','$Pagina_final','$Pais', '$Editorial', '$Volumen', '$ISBN', '$Anio', '$Proposito', '$contenido', 0, '$Id_Act')");
 
+                              echo "Inscercion 2";
                             }
                           }
                            
                     break;
                   case  '2':
 
-                        if (isset($_POST["id"])) {
-                            $id=$_POST["id"];
+                          $verdad=isset($_GET['id2']);
+                        if ($verdad && $verdad==1) {
+
+                            $id=$_GET['id2'];
                             $Id_Act=$_SESSION["Primer_informe"];
                             $Autor=$_POST['AUTORES'];
                             $Titulo=$_POST['Titulo'];
@@ -215,7 +222,7 @@
                                 $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_articuloarbitrado` SET `Autores` = '$Autor', `Titulo` = '$Titulo', `Estado` = '$Estado', `NombreRevista` = '$Revista', `dePagina` = '$Pagina_inicio', `aPagina` = '$Pagina_final', `Pais` = '$Pais', `Editorial` = '$Editorial', `Volumen` = '$Volumen', `ISSN` = '$ISBN', `FechaPublicacion` = '$Anio', `Proposito` = '$Proposito', `Descripccion` = '$Descripcion', `Probatorio` = '$contenido' WHERE `id_Articulo` = '$id'; ");
                                
                        }
-                       break;
+                       
                       }else{
 
 
@@ -253,8 +260,10 @@
                     break;
                   case '3':
 
-                        if (isset($_POST["id"])) {
-                            $id=$_POST["id"];
+                          $verdad=isset($_GET['id3']);
+                        if ($verdad && $verdad==1) {
+
+                            $id=$_GET['id3'];
                             $Id_Act=$_SESSION["Primer_informe"];
                             $Autor=$_POST['AUTORES'];
                             $Titulo=$_POST['TITULO'];
@@ -284,7 +293,7 @@
 
                            $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_revistaindexada` SET `Autores` = '$Auto', `Titulo` = '$Titulo', `Estado` = '$Estado', `NombreRevista` = '$Revista', `dePagina` = '$Pagina_inicio', `aPagina` = '$Pagina_final', `Descripccion` = '$Descripcion', `Pais` = '$Pais', `Editorial` = '$Editorial', `Volumen` = '$Volumen', `ISSN` = '$ISBN', `IndiceDeRegistro` = '$Indice', `FechaPublicacion` = '$Anio', `Proposito` = '$Proposito', `Probatorio` = '$contenido',  WHERE `id_Articulo` = '$id'; ");
                        }
-                       break;
+                       
                       }else{
 
 
@@ -320,9 +329,9 @@
                      }
                     break;
                   case '4':
-
-                        if (isset($_POST["id"])) {
-                            $id=$_POST["id"];
+                        $verdad=isset($_GET['id4']);
+                        if ($verdad && $verdad==1) {
+                            $id=$_GET['id4'];
                             $Id_Act=$_SESSION["Primer_informe"];
                             $Autor=$_POST['AUTORES'];
                             $Cap_Autor=$_POST['AUTORESCAP'];
@@ -351,7 +360,7 @@
 
                                  $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_capitulodelibro` SET`id_Articulo` = '$Id_Act' ,`Autores` = '$Autor' ,`Titulo` = '$Titulo' ,`Estado` = '$Estado' ,`Pais` = '$Pais' ,`Editorial` = '$Editorial' ,`Edicion` = '$Edicion' ,`tiraje` =  '$Tiraje' ,`ISBN` = '$ISBN',`FechaPublicacion` = '$Anio' ,`Proposito` = '$Proposito' ,`TituloDelCapitulo` = '$Capitulo',`AutorDeCapitulo` = '$Cap_Autor' ,`dePagina` = '$Pagina_inicio' ,`aPagina` = '$Pagina_final' ,`Probatorio` = '$contenido' ,WHERE `id_Articulo` = '$id';");
                             }
-                        break;
+                        
                         }else{
 
                         $Id_Act=$_SESSION["Primer_informe"];
@@ -386,8 +395,10 @@
                     break;
                   case '5':
 
-                        if (isset($_POST["id"])) {
-                            $id=$_POST["id"];
+                          $verdad=isset($_GET['id5']);
+                        if ($verdad && $verdad==1) {
+
+                            $id=$_GET['id5'];
                             $Id_Act=$_SESSION["Primer_informe"];
                             $Alcance=$_POST['COMENTARIOS'];
                             $Titulo=$_POST['TITULO'];
@@ -413,7 +424,7 @@
                                
 
                            }
-                        break;
+                        
                             
                         }else{
 
@@ -444,8 +455,9 @@
                     break;
                   case '6':
 
-                        if (isset($_POST["id"])) {
-                            $id=$_POST["id"];
+                       $verdad=isset($_GET['id6']);
+                        if ($verdad && $verdad==1) {
+                            $id=$_GET['id6'];
                             $Id_Act=$_SESSION["Primer_informe"];
                             $Alcance=$_POST['COMENTARIOS'];
                             $Titulo=$_POST['TITULO'];
@@ -471,7 +483,7 @@
                                
 
                            }
-                          break;
+                          
                         }else{
 
                       $Id_Act=$_SESSION["Primer_informe"];
@@ -501,8 +513,9 @@
                     break;
                   case '7':
 
-                        if (isset($_POST["id"])) {
-                            $id=$_POST["id"];
+                        $verdad=isset($_GET['id7']);
+                        if ($verdad && $verdad==1) {
+                            $id=$_GET['id7'];
                             $Id_Act=$_SESSION["Primer_informe"];
                             $Titulo=$_POST['TITULO'];
                             $Participa=$_POST["ESTADO"];
@@ -533,7 +546,7 @@
                                $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_libro` SET `Autor` = '$Autores' ,`Titulo` = '$Titulo' ,`Participacion` = '$Participa' ,`EstadoActual` = '$Estado' ,`Pais` = '$Pais' ,`Editorial` = '$Editorial' ,`Paginas` = '$Paginas' ,`Edicion` = '$Edicion' ,`Tiraje` = '$Tiraje' ,`ISBN` = '$isbn' ,`FechaPublicacion` = '$Anio' ,`Proposito` = '$Proposito' ,`Probatorio` = '$contenido' WHERE `id_Articulo` = '$id';");
                                
                            }
-                        break;
+                        
                         }else{
 
                           $Id_Act=$_SESSION["Primer_informe"];
@@ -569,8 +582,9 @@
                     break;
                   case '8':
 
-                        if (isset($_POST["id"])) {
-                            $id=$_POST["id"];
+                        $verdad=isset($_GET['id8']);
+                        if ($verdad && $verdad==1) {
+                            $id=$_GET['id8'];
                             $Id_Act=$_SESSION["Primer_informe"];
                             $Alcance=$_POST['COMENTARIOS'];
                             $Titulo=$_POST['TITULO'];
@@ -597,7 +611,7 @@
 
                               
                            }
-                        break;
+                        
                         }else{
 
                       $Id_Act=$_SESSION["Primer_informe"];
@@ -628,8 +642,9 @@
                     break;
                   case '9':
 
-                        if (isset($_POST["id"])) {
-                            $id=$_POST["id"];
+                        $verdad=isset($_GET['id9']);
+                        if ($verdad && $verdad==1) {
+                            $id=$_GET['id9'];
                             $Id_Act=$_SESSION["Primer_informe"];
                             $Alcance=$_POST['COMENTARIOS'];
                             $Titulo=$_POST['TITULO'];
@@ -657,7 +672,7 @@
                                
 
                            }
-                        break;
+                        
                         }else{
 
                       $Id_Act=$_SESSION["Primer_informe"];
@@ -688,8 +703,9 @@
                     break;
                   case '10':
 
-                        if (isset($_POST["id"])) {
-                            $id=$_POST["id"];
+                        $verdad=isset($_GET['id10']);
+                        if ($verdad && $verdad==1) {
+                            $id=$_GET['id10'];
                             $Id_Act=$_SESSION["Primer_informe"];
                             $Alcance=$_POST['COMENTARIOS'];
                             $Titulo=$_POST['TITULO'];
@@ -713,7 +729,7 @@
 
                                $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_materialdidactico` set `Autor` ='$Autores', `Titulo` ='$Titulo', `Descripccion` ='$Alcance', `EmpresaBeneficiaria` = '$Usuario', `Pais` ='$Pais', `FechaPublicacion` ='$Anio', `Proposito` ='$proposito', `Probatorio` ='$contenido') where `id_Articulo` ='$id';");
                            }
-                        break;
+                        
                         }else{
 
                       $Id_Act=$_SESSION["Primer_informe"];
@@ -744,8 +760,9 @@
                     break;
                   case '11':
 
-                        if (isset($_POST["id"])) {
-                            $id=$_POST["id"];
+                        $verdad=isset($_GET['id11']);
+                        if ($verdad && $verdad==1) {
+                            $id=$_GET['id11'];
                             $Id_Act=$_SESSION["Primer_informe"];                        
                             $Autor=$_POST["AUTORES"];
                             $Titulo=$_POST["TITULO"];
@@ -773,7 +790,7 @@
 
                                $query=$DB->CONSULTA("UPDATE`mgps`.`produccion_memorias` set `Autor` ='$Autor',`Titulo` ='$Titulo', `Congreso` ='$Congreso', `EstadoActual` ='$EstadoActual', `dePagina` ='$dePagina', `aPagina` ='$aPagina', `Pais` = '$Pais', `Estado` ='$Estado',`Ciudad` ='$Ciudad', `FechaPublicacion` ='$Anio', `Proposito` ='$proposito', `Probatorio` ='$contenido') where  `id_Articulo` ='$id';");
                            }
-                        break;
+                        
                         }else{
 
                       $Id_Act=$_SESSION["Primer_informe"];                        
@@ -807,8 +824,9 @@
                     break;
                   case '12':
 
-                        if (isset($_POST["id"])) {
-                            $id=$_POST["id"];
+                        $verdad=isset($_GET['id12']);
+                        if ($verdad && $verdad==1) {
+                            $id=$_GET['id12'];
                             $Id_Act=$_SESSION["Primer_informe"];
                         
                             $Autor=$_POST["AUTORES"];
@@ -838,7 +856,7 @@
 
                                $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_inovadora` SET `Autor` = '$Autor', `Tipo` ='$Tipo', `Titulo` = '$Titulo', `Descripccion` ='$Descripccion', `Clacificacion` ='$Clacificacion', `Uso` ='$Uso', `EstadoActual` ='$EstadoActual', `NumeroDeRegistro` ='$NumeroDeRegistro', `Usuario` ='$Usuario', `Pais` ='$Pais', `FechaPublicacion` ='$FechaPublicacion', `Probatorio` ='$contenido', `Proposito` ='$proposito') where `id_Articulo`= '$id';");
                                }
-                        break;
+                        
                         }else{
 
                       $Id_Act=$_SESSION["Primer_informe"];
@@ -874,8 +892,9 @@
                     break;
                   case '13':
 
-                        if (isset($_POST["id"])) {
-                            $id=$_POST["id"];
+                        $verdad=isset($_GET['id13']);
+                        if ($verdad && $verdad==1) {
+                            $id=$_GET['id13'];
                             $Id_Act=$_SESSION["Primer_informe"];
                             $Tipo=$_POST["ESTADO"];
                             $Autor=$_POST["AUTORES"];
@@ -905,7 +924,7 @@
 
                                $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_artística` set  `Tipo` ='$Tipo', `Autor` ='$Autor', `Titulo` ='$Titulo',`Descripccion` ='$Descripccion', `impacto` ='$impacto', `Metodologia` ='$Metodologia', `Diseño` ='$Diseño', `innovacion` ='$innovacion', `Pais` ='$Pais', `FechaPublicacion` ='$Anio', `Lugares` ='$Lugares',  `Probatorio` ='$contenido', `Proposito` ='$Proposito') where id_Articulo`= '$id';");
                            }
-                        break;
+                        
 
                         }else{
 
@@ -941,8 +960,9 @@
                     break;
                   case '14':
 
-                        if (isset($_POST["id"])) {
-                            $id=$_POST["id"];
+                        $verdad=isset($_GET['id14']);
+                        if ($verdad && $verdad==1) {
+                            $id=$_GET['id14'];
                             $Autor=$_POST["AUTORES"];
                             $Tipo=$_POST["PAGINAS"];
                             $Estado=$_POST["selESTADOACTUAL"];
@@ -969,7 +989,7 @@
                                 $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_prototipo` set  `Autor` ='$Autor', `Tipo` = '$Tipo', `Estado` ='$Estado', `Titulo` ='$Titulo', `Objetivo` ='$Objetivo', `Caracteristicas` ='$Caracteristicas', `InstitucionBeneficiaria` ='$InstitucionBeneficiaria', `Pais` ='$Pais', `FechaPublicacion` ='$Anio', `Probatorio` = '$contenido', `Proposito` = '$Proposito')WHERE id_Articulo='$id';");
 
                             } 
-                            break;   
+                               
 
                         }else{
 
@@ -1004,8 +1024,9 @@
                     break;
                   case '15':
 
-                        if (isset($_POST["id"])) {
-                            $id=$_POST["id"];
+                        $verdad=isset($_GET['id15']);
+                        if ($verdad && $verdad==1) {
+                            $id=$_GET['id15'];
                             $Id_Act=$_SESSION["Primer_informe"];
                             $Autor=$_POST["AUTORES"];
                             $Titulo=$_POST["TITULO"];
@@ -1026,7 +1047,7 @@
 
                             $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_otro` set `Autor` ='$Autor', `Titulo` ='$Titulo', `Descripccion` = '$Descripccion', `Pais` ='$Pais', `FechaPublicacion` ='$Anio', `Proposito` ='$Proposito', `Probatorio` ='$contenido' WHERE `id_Articulo`='$id' ;");
                             }
-                            break;
+                            
                         }else{
 
                       $Id_Act=$_SESSION["Primer_informe"];
@@ -1059,12 +1080,13 @@
 
           if(isset($_POST["Submit_Extracurriculares1"])){
 
-            if (isset($_POST["Submit_Extracurriculares1"])&&isset($_POST["id_Extracurriculares1"])) {
+            $verdad=isset($_GET["id_Extra"]);
+            if ($verdad && $verdad==1) {
               Include_once('../php/conf_tab.php');
               $DB= new ConfigDB();
               $DB->Mysql();
 
-              $id_Extracurriculares1=$_POST["id_Extracurriculares1"];
+              $id_Extracurriculares1=$_GET["id_Extra"];
               $Activiadad_Extra=$_POST["Activiadad_Extra"];
               $Profesor_Act=$_POST["Profesor_Act"];
               $Institucion_Organizadora=$_POST["Institucion_Organizadora"];
@@ -1129,11 +1151,12 @@
 
           if (isset($_POST["Submit_Apoyo1"])) {
 
-            if (isset($_POST["id_Apoyo1"])) {
+            $verdad=isset($_GET["id_apoyo1"]);
+            if ($verdad && $verdad==1) {
               Include_once('../php/conf_tab.php');
               $DB= new ConfigDB();
               $DB->Mysql();
-              $id_Apoyo=$_POST["id_Apoyo1"];
+              $id_Apoyo=$_GET["id_apoyo1"];
               $Descripccion=$_POST["Descripccion"];
               $Probatorio=$_FILES['Probatorio']["tmp_name"];
               $tamnio_rep=$_FILES['Probatorio']["size"];
@@ -1181,12 +1204,13 @@
           }
 
           if (isset($_POST["Submit_Congreso1"])) {
-            if (isset($_POST["Id_congresos1"])) {
+            $verdad=isset($_GET["id_cong1"]);
+            if ($verdad && $verdad==1) {
               Include_once('../php/conf_tab.php');
                         $DB= new ConfigDB();
                         $DB->Mysql();
 
-                        $Id_congresos1=$_POST["Id_congresos1"];
+                        $Id_congresos1=$_GET["id_cong1"];
                         $Nombre=$_POST["Nombre"];
                         $Titulo=$_POST["Titulo"];
                         $Tipo_Congreso=$_POST["Tipo_Congreso"];
@@ -1245,11 +1269,11 @@
             Include_once('../php/conf_tab.php');
                         $DB= new ConfigDB();
                         $DB->Mysql();
-            
-            if (isset($_POST["id_Especializada1"])) {
+
+            $verdad=isset($_GET["id_Especial1"]);
+            if ($verdad && $verdad==1) {              
               
-              
-              $id_Especializada1=$_POST["id_Especializada1"];
+              $id_Especializada1=$_GET["id_Especial1"];
               $Fech_Reporte=$_POST["Fech_Reporte"];
               $Actividades=$_POST["Actividades"];
               $Tareas=$_POST["Tareas"];
@@ -1276,7 +1300,6 @@
             $DB= new ConfigDB();
             $DB->Mysql();
 
-              $id_Especializada1=$_POST["id_Especializada1"];
               $Fech_Reporte=$_POST["Fech_Reporte"];
               $CalendarioEsc=date('Y');
               $Nombre_Es=$_SESSION["NombreCompleto"];
@@ -1306,12 +1329,13 @@
           }
 
           if (isset($_POST["Submit_Asesorias1"])) {
-            if (isset($_POST["Id_Reporte_tutoria1"])) {
+            $verdad=isset($_GET["id_Tut1"]);
+            if ($verdad && $verdad==1) { 
               Include_once('../php/conf_tab.php');
                         $DB= new ConfigDB();
                         $DB->Mysql();
               
-              $Id_Reporte_tutoria1=$_POST["Id_Reporte_tutoria1"];
+              $Id_Reporte_tutoria1=$_GET["id_Tut1"];
               $Fech_Reporte=$_POST["Fech_Reporte"];
               $Actividades=$_POST["Actividades"];
               $Tareas=$_POST["Tareas"];
@@ -1376,9 +1400,10 @@
                         $DB= new ConfigDB();
                         $DB->Mysql();
 
-                  if (isset($_POST['Id_Vinculacion1'])) {
+                $verdad=isset($_GET['id_vin1']);
+                if ($verdad && $verdad==1) { 
 
-                        $Id_Vinculacion=$_POST['Id_Vinculacion1'];
+                        $Id_Vinculacion=$_GET['id_vin1'];
                         $Ambito=$_POST["Ambito"];
                         $ProductoObtenido=$_POST["ProductoObtenido"];
                         $Sector=$_POST["Sector"];
@@ -1458,58 +1483,59 @@
                              $query=$DB->CONSULTA("INSERT INTO `mgps`.`vinculaciones` VALUES(0,'$Fecha_Inicio','$Ambito','$ProductoObtenido','$contenido','$Sector','$Mecanismo','$TipoVinc','$Institucion','$Pais','$LGAC','$Fecha_Final','$Id_Act','$Objetivo','$Resultado','$Beneficio');");
                          }
                   }
-                }
+            }
             
 
             if (isset($_POST["Submit_Movilidad1"])) {
                 Include_once('../php/conf_tab.php');
                     $DB= new ConfigDB();
                     $DB->Mysql();
+                
+                  $verdad=isset($_GET['id_Mov1']);
+                  if ($verdad && $verdad==1) { 
 
-              if(isset($_POST["id_Movilidad1"])){
+                  $id=$_GET["id_Mov1"];
+                  $Id_Act=$_SESSION["Primer_informe"];
+                  $Nombre=$_SESSION["NombreCompleto"];
+                  $Pais=$_POST["Pais"];
+                  $Tipo_Movilidad=$_POST["Tipo_Movilidad"];
+                  $Ambito=$_POST["Ambito"];
 
-                $id=$_POST["id_Movilidad1"];
-                $Id_Act=$_SESSION["Primer_informe"];
-                $Nombre=$_SESSION["NombreCompleto"];
-                $Pais=$_POST["Pais"];
-                $Tipo_Movilidad=$_POST["Tipo_Movilidad"];
-                $Ambito=$_POST["Ambito"];
+                  $Institucion=$_POST["Institucion"];
+                  $Objetivo=$_POST["Objetivo"];
+                  $Producto=$_POST["Producto"];
+                  $Fecha_Inicio=$_POST["Fecha_Inicio"];
+                  $Fecha_Final=$_POST["Fecha_Final"];
+                  $Institucion_apoyo=$_POST["Institucion_apoyo"];
+                  $ApoyoEconomico=$_POST["ApoyoEconomico"];
+                  $Planes_Trabajo_Movilidad=$_FILES["Planes_Trabajo_Movilidad"];
 
-                $Institucion=$_POST["Institucion"];
-                $Objetivo=$_POST["Objetivo"];
-                $Producto=$_POST["Producto"];
-                $Fecha_Inicio=$_POST["Fecha_Inicio"];
-                $Fecha_Final=$_POST["Fecha_Final"];
-                $Institucion_apoyo=$_POST["Institucion_apoyo"];
-                $ApoyoEconomico=$_POST["ApoyoEconomico"];
-                $Planes_Trabajo_Movilidad=$_FILES["Planes_Trabajo_Movilidad"];
+                  $Planes_Trabajo_Probatorio=$_FILES['Planes_Trabajo_Movilidad']["tmp_name"];
+                  $Planes_Trabajo_tamnio_rep=$_FILES['Planes_Trabajo_Movilidad']["size"];
+                  $Planes_Trabajo_nombre_Rep=$_FILES["Planes_Trabajo_Movilidad"]["name"];
+                  $Planes_Trabajo_Tipo_Rep=$_FILES["Planes_Trabajo_Movilidad"]["type"];
+                          
+                  $Constancia_Probatorio=$_FILES['Constancia']["tmp_name"];
+                  $Constancia_tamnio_rep=$_FILES['Constancia']["size"];
+                  $Constancia_nombre_Rep=$_FILES["Constancia"]["name"];
+                  $Constancia_Tipo_Rep=$_FILES["Constancia"]["type"];
 
-                $Planes_Trabajo_Probatorio=$_FILES['Planes_Trabajo_Movilidad']["tmp_name"];
-                $Planes_Trabajo_tamnio_rep=$_FILES['Planes_Trabajo_Movilidad']["size"];
-                $Planes_Trabajo_nombre_Rep=$_FILES["Planes_Trabajo_Movilidad"]["name"];
-                $Planes_Trabajo_Tipo_Rep=$_FILES["Planes_Trabajo_Movilidad"]["type"];
-                        
-                $Constancia_Probatorio=$_FILES['Constancia']["tmp_name"];
-                $Constancia_tamnio_rep=$_FILES['Constancia']["size"];
-                $Constancia_nombre_Rep=$_FILES["Constancia"]["name"];
-                $Constancia_Tipo_Rep=$_FILES["Constancia"]["type"];
+                            if ( $Planes_Trabajo_Probatorio != "none" && $Constancia_Probatorio!="none" ){
+                               $fp1 = fopen($Planes_Trabajo_Probatorio, "r+");
+                               $fp2 = fopen($Constancia_Probatorio, "r+");
+                               $contenido1 = fread($fp1, $Planes_Trabajo_tamnio_rep);
+                               $contenido2 = fread($fp2, $Constancia_tamnio_rep);
+                               $contenido1 = addslashes($contenido1);
+                               $contenido2 = addslashes($contenido2);
+                               fclose($fp1);
+                               fclose($fp2);
 
-                          if ( $Planes_Trabajo_Probatorio != "none" && $Constancia_Probatorio!="none" ){
-                             $fp1 = fopen($Planes_Trabajo_Probatorio, "r+");
-                             $fp2 = fopen($Constancia_Probatorio, "r+");
-                             $contenido1 = fread($fp1, $Planes_Trabajo_tamnio_rep);
-                             $contenido2 = fread($fp2, $Constancia_tamnio_rep);
-                             $contenido1 = addslashes($contenido1);
-                             $contenido2 = addslashes($contenido2);
-                             fclose($fp1);
-                             fclose($fp2);
+                              
+                              $query=$DB->CONSULTA("UPDATE `mgps`.`movilidadestudiantes` SET `Id_act` = '$Id_Act', `NombreEs` = '$Nombre', `Tipo_Movilidad` = '$Tipo_Movilidad', `Ambito` = '$Ambito', `Pais` = '$Pais', `Institucion` = '$Institucion', `Objetivo` = '$Objetivo', `Fecha_Inicio` = '$Fecha_Inicio', `Facha_Termino` = '$Fecha_Final', `Apoyo_Economico` = '$ApoyoEconomico', `Institucion_Apoyo` = Institucion_apoyo, `Plan_Trabajo` = '$contenido1', `Constancial` = '$contenido2' WHERE `RegistroMovilidadEs` = '$id'; ");
 
-                            
-                            $query=$DB->CONSULTA("UPDATE `mgps`.`movilidadestudiantes` SET `Id_act` = '$Id_Act', `NombreEs` = '$Nombre', `Tipo_Movilidad` = '$Tipo_Movilidad', `Ambito` = '$Ambito', `Pais` = '$Pais', `Institucion` = '$Institucion', `Objetivo` = '$Objetivo', `Fecha_Inicio` = '$Fecha_Inicio', `Facha_Termino` = '$Fecha_Final', `Apoyo_Economico` = '$ApoyoEconomico', `Institucion_Apoyo` = Institucion_apoyo, `Plan_Trabajo` = '$contenido1', `Constancial` = '$contenido2' WHERE `RegistroMovilidadEs` = '$id'; ");
+                            }
 
-                          }
-
-              }else{
+                }else{
                 $Id_Act=$_SESSION["Primer_informe"];
                 $Nombre=$_SESSION["NombreCompleto"];
                 $Pais=$_POST["Pais"];
@@ -1797,8 +1823,8 @@
           }
 
         function ArticuloDifucion(){?>
-               <form name="form1" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> id='Produccion1' method='post' enctype='multipart/form-data'>
-               <input type="hidden" id="Alter1" name="id" value= >
+               <form name="form1" id="Alter1" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> id='Produccion1' method='post' enctype='multipart/form-data'>
+  
                 <div class="form-group">
                   			<div class="row">
                   				<div class="col-md-8">
@@ -1893,8 +1919,8 @@
 
 
         function articuloArbitrado(){?>
-           <form name="form2" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> id='Movilidad1' method='post' enctype='multipart/form-data'>
-           <input type="hidden" id="Alter2" name="id" value="">
+           <form name="form2" id="Alter2" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> id='Movilidad1' method='post' enctype='multipart/form-data'>
+           
              <div class="form-group">
                         <div class="row">
                             <div class="col-md-8">
@@ -1993,8 +2019,8 @@
         
         <?php  }
         function RevistaIndexada(){?>
-            <form name="form3" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_"  enctype='multipart/form-data'>
-            <input type="hidden" id="Alter3" name="id" value="">
+            <form name="form3" id="Alter3" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_"  enctype='multipart/form-data'>
+            
               <div class="form-group">
                 <div class="row">
                     <div class="col-md-8">
@@ -2092,12 +2118,12 @@
                 <input type='submit' name="Submit3" value='Guardar' class='Botones' >
                 <input type='button' value='cancelar' onclick='cancelar_Actvidades()' class='Botones'>
             </div>
-          </form>
+            </form>
 
         <?php }
         function CapituloDeLibro(){?>
-            <form name="form4" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_"  enctype='multipart/form-data'>
-            <input type="hidden" id="Alter4" name="id" value="">
+            <form name="form4" id="Alter4" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_"  enctype='multipart/form-data'>
+           
               <div class="form-group">
                   <div class="row">
                       <div class="col-md-8">
@@ -2213,7 +2239,7 @@
 
         <?php }
         function consultoria(){ ?>
-            <form name="forma5" method="post" enctype="multipart/form-data" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_">
+            <form name="forma5" id="Alter5" method="post" enctype="multipart/form-data" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_">
               <div class="row">
                 <div class="col-md-8">
                     <h3>Consultoría</h3>
@@ -2222,7 +2248,6 @@
                     <hr class="red">
                 </div>
               </div>
-                <input type="hidden" id="Alter5" name="id" value="">
               <div class="form-group">
                     <div class="row" style="margin-bottom: 25px;">
                       <div class="col-md-4">
@@ -2282,7 +2307,7 @@
 
         <?php }
         function InformeTecnico(){?>
-            <form name="forma6" method="post" enctype="multipart/form-data" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_">
+            <form name="forma6" id="Alter6" method="post" enctype="multipart/form-data" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_">
              <div class="row">
                 <div class="col-md-8">
                     <h3>Informe técnico</h3>
@@ -2291,7 +2316,6 @@
                     <hr class="red">
                 </div>
              </div>
-             <input type="hidden" id="Alter6" name="id" value="">
                 
               <div class="form-group">
                 <div class="row" style="margin-bottom: 25px;">
@@ -2341,11 +2365,11 @@
                     <input type='submit' name="Submit6" value='Guardar' class='Botones' >
                     <input type='button' value='cancelar' onclick='cancelar_Actvidades()' class='Botones'>
             </div>
-          </form>
+            </form>
 
         <?php }
         function Libro(){?>
-            <form name="forma7" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_"  enctype='multipart/form-data'>
+            <form name="forma7" id="Alter7" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_"  enctype='multipart/form-data'>
                 <div class="row">
                 <div class="col-md-8">
                   <h3>libro</h3>
@@ -2354,7 +2378,6 @@
                         <hr class="red">
                     </div>
               </div>
-              <input type="hidden" id="Alter7" name="id" value="">
                 <div class="form-group">
               <div class="row" style="margin-bottom: 25px;">
                   <div class="col-md-4">
@@ -2440,11 +2463,11 @@
                     <input type='submit' name="Submit7" value='Guardar' class='Botones' >
                     <input type='button' value='cancelar' onclick='cancelar_Actvidades()' class='Botones'>
                 </div>
-          </form>
+            </form>
 
         <?php }
         function ManualesDeOperacion(){?>
-            <form name="forma8" method="post" enctype="multipart/form-data" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>class="ns_">
+            <form name="forma8" id="Alter8" method="post" enctype="multipart/form-data" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>class="ns_">
             <div class="row">
                 <div class="col-md-8">
                     <h3>Manuales de operación</h3>
@@ -2453,7 +2476,6 @@
                     <hr class="red">
                 </div>
             </div>
-            <input type="hidden" id="Alter8" name="id" value="">
             
                 <div class="form-group">
                     <div class="row" style="margin-bottom: 25px;">
@@ -2508,7 +2530,7 @@
 
         <?php }
         function MaterialDeApoyo(){?>
-            <form name="forma9" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_"  enctype='multipart/form-data'>
+            <form name="forma9" id="Alter9" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_"  enctype='multipart/form-data'>
                 <div class="row">
                     <div class="col-md-8">
                         <h3>Material de apoyo</h3>
@@ -2517,7 +2539,6 @@
                         <hr class="red">
                     </div>
                 </div>
-                <input type="hidden" id="Alter9" name="id" value="">
                 <div class="form-group">
                 <div class="row" style="margin-bottom: 25px;">
                     <div class="col-md-4">
@@ -2574,7 +2595,7 @@
 
         <?php }
         function MaterialDidactico(){?>
-            <form name="forma10" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_"  enctype='multipart/form-data'>
+            <form name="forma10" id="Alter10" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_"  enctype='multipart/form-data'>
                 <div class="row">
                     <div class="col-md-8">
                         <h3>material didáctico</h3>
@@ -2582,7 +2603,6 @@
                     <div class="col-md-12">
                         <hr class="red"></div>
                     </div>
-                    <input type="hidden" id="Alter10" name="id" value="">
                 <div class="form-group">
                 
                 <div class="row" style="margin-bottom: 25px;">
@@ -2638,7 +2658,7 @@
 
         <?php }
         function Memorias(){?>
-          <form name="forma11" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_"  enctype='multipart/form-data'>
+          <form name="forma11" id="Alter11" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_"  enctype='multipart/form-data'>
             <div class="row">
                 <div class="col-md-8">
                     <h3>memorias</h3>
@@ -2647,7 +2667,6 @@
                     <hr class="red">
                 </div>
             </div>
-            <input type="hidden" id="Alter11" name="id" value="">
             <div class="form-group">
             
             <div class="row" style="margin-bottom: 25px;">
@@ -2723,7 +2742,7 @@
 
         <?php }
         function ProductividadInnovadora(){?>
-            <form name="forma12" method="post" enctype="multipart/form-data" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_">
+            <form name="forma12" id="Alter12" method="post" enctype="multipart/form-data" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_">
                 <div class="row">
                     <div class="col-md-8">
                         <h3>productividad Innovadora</h3>
@@ -2732,7 +2751,6 @@
                         <hr class="red">
                     </div>
                 </div>
-                <input type="hidden" id="Alter12" name="id" value="">
               <div class="form-group">
                 
                 <div class="row" style="margin-bottom: 25px;">
@@ -2833,7 +2851,7 @@
         <?php }
         function ProduccionArtistica(){?>
 
-                <form name="forma13" method="post" enctype="multipart/form-data" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_">
+                <form name="forma13" id="Alter13" method="post" enctype="multipart/form-data" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_">
                     <div class="row">
                         <div class="col-md-8">
                             <h3>producción artística</h3>
@@ -2842,7 +2860,6 @@
                             <hr class="red">
                         </div>
                     </div>
-                  <input type="hidden" id="Alter13" name="id" value="">
                   <div class="form-group">
                     <div class="row" style="margin-bottom: 25px;">
                         <div class="col-md-4">
@@ -2935,7 +2952,7 @@
 
         <?php }
         function Prototipo(){?>
-            <form name="forma14" method="post" enctype="multipart/form-data" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_">
+            <form name="forma14" id="Alter14" method="post" enctype="multipart/form-data" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_">
                 <div class="row">
                     <div class="col-md-8">
                         <h3>Prototipo</h3>
@@ -2944,7 +2961,6 @@
                         <hr class="red">
                     </div>
                 </div>
-              <input type="hidden" id="Alter14" name="id" value="">
               <div class="form-group">
                 <div class="row" style="margin-bottom: 25px;">
                     <div class="col-md-4">
@@ -3021,7 +3037,7 @@
 
         <?php }
         function Otra(){?>
-            <form name="forma15" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_"  enctype='multipart/form-data'>
+            <form name="forma15" id="Alter15" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_"  enctype='multipart/form-data'>
             <div class="row">
                 <div class="col-md-8">
                     <h3>otra</h3>
@@ -3030,7 +3046,6 @@
                     <hr class="red">
                 </div>
             </div>
-              <input type="hidden" id="Alter15" name="id" value="">
               <div class="form-group">
                   <div class="row" style="margin-bottom: 25px;">
                       <div class="col-md-4">
@@ -3076,7 +3091,7 @@
                     <input type='submit' name="Submit15" value='Guardar' class='Botones' >
                     <input type='button' value='cancelar' onclick='cancelar_Actvidades()' class='Botones'>
             </div>
-          </form>
+            </form>
 
         <?php }
 

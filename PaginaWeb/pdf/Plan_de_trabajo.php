@@ -108,7 +108,7 @@
 			<table style="width: 100%; " cellspacing="0">
 				<tr>
 					<th style="width: 20%; border-top: 1px solid;">Nombre de (la) estudiante</th>
-					<td style="width: 30%; border-top: 1px solid;"><?php echo $nombre; ?></td>
+					<td style="width: 30%; border-top: 1px solid;"> <?php echo $nombre; ?></td>
 					<th style="width: 20%; border-top: 1px solid;">Codigo</th>
 					<td style="width: 30%; border-top: 1px solid;"><?php echo $_SESSION["CodigoSIIAU"]; ?></td>
 				</tr>

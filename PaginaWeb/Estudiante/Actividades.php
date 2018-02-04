@@ -643,9 +643,8 @@
                           <?php } ?>
                         </div>
                         <div id="form_Extracurriculares1" style="display: none;">
-                          <form enctype="multipart/form-data" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
+                          <form enctype="multipart/form-data" method="post" id="form_Extra1" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> >
                             <div class="form-group">
-                              <input type="hidden" name="id_Extracurriculares1" id="id_Extracurriculares1">
                               <div class="row">
                                 <div class="col-md-4">
                                   <label>Tipo Activiadad</label>
@@ -771,11 +770,11 @@
                                 <?php } ?>
                                 </tbody>
                               </table>
-                              <input type='button' value='Agrega Produccion' onclick="NuevaProduccion(1)" style="margin: 10px;">
+                              <input type='button' value='Agrega Produccion' onclick="NuevoApoyo(1)" style="margin: 10px;">
                           <?php } ?>
                         </div>
                         <div class="" id="Forms_apoyo1" style="display: none;">
-                          <form enctype="multipart/form-data" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
+                          <form enctype="multipart/form-data" method="post" id="Form_apoyo1" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
                             <div class="form-group">
                             <input type="hidden" name="id_Apoyo1" id="id_Apoyo1" >
                               <div class="row">
@@ -870,7 +869,7 @@
                           <?php } ?>
                         </div>
                         <div id="forms_congresos1" style="display: none;">
-                        <form enctype="multipart/form-data" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
+                        <form enctype="multipart/form-data" method="post" id="Form_Cong1" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
                           <div class="form-group">
                           <input type="hidden" name="Id_congresos1" id="Id_congresos1">
                             <div class="row">
@@ -987,9 +986,8 @@
                           <?php } ?>
                         </div>
                         <div id="Form_Especializada1" style="display: none;">
-                          <form enctype="multipart/form-data" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
+                          <form enctype="multipart/form-data" method="post" id="id_Especializada1" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
                             <div class="form-group">
-                            <input type="hidden" name="id_Especializada1" id="id_Especializada1">
                               <div class="row">
                                 <div class="col-md-3"></div>
                                 <div class="col-md-6">
@@ -1113,9 +1111,8 @@
                           <?php } ?>
                         </div>
                         <div id="Form_Tutoriar1" style="display: none;">
-                          <form method="post" enctype="multipart/form-data" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
+                          <form method="post" enctype="multipart/form-data" id="Id_Reporte_tutoria1"  action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>>
                             <div class="form-group">
-                              <input type="hidden" name="Id_Reporte_tutoria1" id="Id_Reporte_tutoria1" >
                               <div class="row">
                                 <div class="col-md-3"></div>
                                 <div class="col-md-6">
@@ -1240,9 +1237,8 @@
                           <?php } ?>
                         </div>
                         <div id="form_Movilidad1" style="display: none;">
-                          <form method="post" id="FormVinculacion" enctype='multipart/form-data' action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> >
+                          <form method="post" id="Id_Movilidad1" enctype='multipart/form-data' action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> >
                             <div class="form-group">
-                              <input type="hidden" name="id_Movilidad1" id="Id_Movilidad1">
                               <div class="row">
                                 <div class="col-md-4">
                                   <label>Tipo de Movilidad</label>
@@ -1378,9 +1374,8 @@
                           <?php } ?>
                       </div>
                       <div class="" id="Forms_Vinculacion1" style="display: none;">
-                        <form method="post" id="FormVinculacion1" enctype='multipart/form-data' action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>  >
+                        <form method="post" id="Id_Vinculacion1" enctype='multipart/form-data' action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>  >
                           <div class="form-group">
-                            <input type="hidden" name="Id_Vinculacion1" id="Id_Vinculacion1">
                             <div class="row">
                               <div class="col-md-4">
                                 <label>Ambito</label>
