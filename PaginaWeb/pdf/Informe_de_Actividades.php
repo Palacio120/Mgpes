@@ -79,28 +79,21 @@
  	</page_header>
 
 		<?php
-			include('../php/conf_tab.php');
-			$DB=new ConfigDB;
-			$conn=$DB->Mysql();
-			$id=$_POST["Id_Seleccionado"];
+			
+			$id_actividades=$_SESSION["Primer_informe"];
 			$nombre=$_SESSION["nombre"];
 
-
-			$consulta=$DB->CONSULTA("SELECT * from Plan_de_trabajo where id='$id'");
-
-			while ($rs=$DB->obtener_filas($consulta)) {
-		 ?>
-
+			?>
 		<div class="head">
 	      <img src="../image/logo_udg-gris2.png"  id="img">
 	      <div class="contenedor">
 	        <h1 style="font-size:20px;">MAESTRÍA EN GESTIÓN Y POLÍTICAS DE LA EDUCACIÓN SUPERIOR</h1>
-	        <h3 style="font-size: 14px;">PLAN DE TRABAJO</h3>
+	        <h3 style="font-size: 14px;">INFORME DE ACTIVIDADES</h3>
 	      </div>
 		</div>
 		<div class='semestre'  style="text-align: right; margin-right:10px;">
 			<p>Semestre: <?php echo $rs['Semestre']; ?></p>
-			<p>Calendario escolar: <?php $fecha=date('M'); if ($fecha<06) {
+			*<p>Calendario escolar: <?php $fecha=date('M'); if ($fecha<06) {
 			  echo date('Y')."B";
 			}else {
 			  			  echo date('Y')."A";
@@ -111,13 +104,13 @@
 			<table style="width: 100%; " cellspacing="0">
 				<tr>
 					<th style="width: 20%; border-top: 1px solid;">Nombre de (la) estudiante</th>
-					<td style="width: 30%; border-top: 1px solid;"> <?php echo $nombre; ?></td>
+					<td style="width: 30%; border-top: 1px solid;"><?php echo $nombre; ?></td>
 					<th style="width: 20%; border-top: 1px solid;">Codigo</th>
 					<td style="width: 30%; border-top: 1px solid;"><?php echo $_SESSION["CodigoSIIAU"]; ?></td>
 				</tr>
 				<tr>
 					<th>Título de la tesis</th>
-					<td colspan="3"><?php echo	$_SESSION["TemaTesis"];?></td>
+					<td colspan="3"><?php echo	$_SESSION["Tema_Tesis"];?></td>
 				</tr>
 				<tr>
 					<th >Nombre del(la) director(a) de tesis</th>
@@ -130,7 +123,19 @@
 			<table style="width: 100%; border-top: 1px solid;" cellspacing="0">
 				<tr>
 					<th style="width:50%;">1.	 Materias curriculares</th>
-					<td style="width: 50%;"><p><?php echo $rs['Materias'];  ?></p></td>
+					<td style="width: 50%;">
+						<?php   
+							include_once('../php/conf_tab.php');
+							$DB=new ConfigDB;
+							$conn=$DB->Mysql();
+
+
+							$SQL=$DB->CONSULTA("SELECT `materias_cursadas`.`Nombre_Curso`, FROM `mgps`.`materias_cursadas` where Id_Materias=(SELECT Id_Materias From materias_semestres where Id_actividades = '$id_actividades' );");
+							 while ($rs= $DB->Obtener_filas($sql)) {
+			                    echo $rs["Nombre_Curso"]."<br>";
+			                 }
+					 	?>
+					 </td>
 				</tr>
 				<tr>
 					<th style=" width:50%;">2.	Proyecto de tesis</th>
@@ -169,7 +174,6 @@
 					<td style="width: 50%; border-bottom:none;"><?php echo $rs['Vinculacion']; ?></td>
 				</tr>
 			</table>
-			<?php } ?>
 		</div>
 		<div class="fecha" style="display: inline;">
 			<p style="text-align: center;" >Atentamente</p>

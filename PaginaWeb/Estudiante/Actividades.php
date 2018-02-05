@@ -1475,9 +1475,11 @@
                   </form>
                 </div>
     
-
+                <form action="../pdf/Informe_de_Actividades.php" id="Form_Generacion1" method="post" enctype="multipart/form-data" target="_blank">
+                  <input type="submit" value="Gener informe de Actividades" style="display: block; margin: 10px;" id="Boton">
+                </form>
                 
-                <input type="button" value="gener Informe de Actividades" onclick="" style="display: block; margin-top: 10px;" id="Boton">
+                
 
                     
                 </div>
