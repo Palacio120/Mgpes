@@ -4,9 +4,6 @@
     echo "<script> window.location= '../index.Php'</script>";
   }
   ob_start();
-  error_reporting(E_ALL & ~E_NOTICE);
-  ini_set('display_errors', 0);
-  ini_set('log_errors', 1);
  ?>
 
 
@@ -92,7 +89,7 @@
 		 ?>
 
 		<div class="head">
-	      <img src="../image/logo_udg-gris2.png"  id="img">
+	      <img src="../image/logo_udg-gris.png"  id="img">
 	      <div class="contenedor">
 	        <h1 style="font-size:20px;">MAESTRÍA EN GESTIÓN Y POLÍTICAS DE LA EDUCACIÓN SUPERIOR</h1>
 	        <h3 style="font-size: 14px;">PLAN DE TRABAJO</h3>
@@ -111,13 +108,13 @@
 			<table style="width: 100%; " cellspacing="0">
 				<tr>
 					<th style="width: 20%; border-top: 1px solid;">Nombre de (la) estudiante</th>
-					<td style="width: 30%; border-top: 1px solid;"> <?php echo $nombre; ?></td>
+					<td style="width: 30%; border-top: 1px solid;"><?php echo $nombre; ?></td>
 					<th style="width: 20%; border-top: 1px solid;">Codigo</th>
 					<td style="width: 30%; border-top: 1px solid;"><?php echo $_SESSION["CodigoSIIAU"]; ?></td>
 				</tr>
 				<tr>
 					<th>Título de la tesis</th>
-					<td colspan="3"><?php echo	$_SESSION["TemaTesis"];?></td>
+					<td colspan="3"><?php echo	$_SESSION["Tema_Tesis"];?></td>
 				</tr>
 				<tr>
 					<th >Nombre del(la) director(a) de tesis</th>

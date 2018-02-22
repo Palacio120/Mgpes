@@ -112,7 +112,6 @@
                     $_SESSION["LíneasAplicaciónDelConocimiento"]=$row["LineasAplicacionDelConocimiento"];
                     $_SESSION["Orientación"]=$row["Orientación"];
                     $_SESSION["DireccionTesis"]=$row["DireccionTesis"];
-                    $_SESSION["TemaTesis"]=$row["Tema_Tesis"];
                     $_SESSION["Vocal_1"]=$row["Vocal_1"];
                     $_SESSION["Vocal_2"]=$row["Vocal_2"];
                     //Datos Egresado
@@ -144,7 +143,7 @@
                   }
                 $rs1=$DB->CONSULTA("SELECT * from actividades where ID_Est= '$CODIGO_ES' and Semestre='Segundo Semestre'");
                   while ($i=$DB->Obtener_filas($rs1)) {
-                    $_SESSION["Segund_informe"]=$i["idActividades"];
+                    $_SESSION["Segundo_informe"]=$i["idActividades"];
                   }
                 $rs1=$DB->CONSULTA("SELECT * from actividades where ID_Est= '$CODIGO_ES' and Semestre='Tercer Semestre'");
                   while ($i=$DB->Obtener_filas($rs1)) {
@@ -155,12 +154,31 @@
                     $_SESSION["Cuarto_informe"]=$i["idActividades"];
                   }
 
-                  $rs1=$DB->CONSULTA("SELECT * FROM materias_semestres WHERE Id_Est= '$CODIGO_ES'; ");
+                  $rs1=$DB->CONSULTA("SELECT * FROM materias_semestres WHERE Id_Est= '$CODIGO_ES' and Semestre='Primer Semestre'");
 
-                    while ($i=$DB->Obtener_filas($rs1)) {
-                      $_SESSION["M_Primero"]=$i["Id_Materias"];
-                    }
-                   $Id_Act =$_SESSION["Primer_informe"];
+                  while ($i=$DB->Obtener_filas($rs1)) {
+                    $_SESSION["M_Primero"]=$i["Id_Materias"];
+                  }
+
+                  $rs1=$DB->CONSULTA("SELECT * FROM materias_semestres WHERE Id_Est= '$CODIGO_ES' and Semestre='Segundo Semestre'");
+
+                  while ($i=$DB->Obtener_filas($rs1)) {
+                    $_SESSION["M_Segundo"]=$i["Id_Materias"];
+                  }
+
+                  $rs1=$DB->CONSULTA("SELECT * FROM materias_semestres WHERE Id_Est= '$CODIGO_ES' and Semestre='Tercer Semestre'");
+
+                  while ($i=$DB->Obtener_filas($rs1)) {
+                    $_SESSION["M_Tercero"]=$i["Id_Materias"];
+                  }
+
+
+                  $rs1=$DB->CONSULTA("SELECT * FROM materias_semestres WHERE Id_Est= '$CODIGO_ES' and Semestre='Cuarto Semestre'");
+                  while ($i=$DB->Obtener_filas($rs1)) {
+                    $_SESSION["M_Cuarto"]=$i["Id_Materias"];
+                  }
+                   
+
 
               }
 

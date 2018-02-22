@@ -92,8 +92,8 @@
 	      </div>
 		</div>
 		<div class='semestre'  style="text-align: right; margin-right:10px;">
-			<p>Semestre: <?php echo $rs['Semestre']; ?></p>
-			*<p>Calendario escolar: <?php $fecha=date('M'); if ($fecha<06) {
+			<p>Semestre: Primer Semestre</p>
+			<p>*Calendario escolar: <?php $fecha=date('M'); if ($fecha<06) {
 			  echo date('Y')."B";
 			}else {
 			  			  echo date('Y')."A";
@@ -110,7 +110,7 @@
 				</tr>
 				<tr>
 					<th>Título de la tesis</th>
-					<td colspan="3"><?php echo	$_SESSION["Tema_Tesis"];?></td>
+					<td colspan="3"><?php echo	$_SESSION["TemaTesis"];?></td>
 				</tr>
 				<tr>
 					<th >Nombre del(la) director(a) de tesis</th>
@@ -123,55 +123,161 @@
 			<table style="width: 100%; border-top: 1px solid;" cellspacing="0">
 				<tr>
 					<th style="width:50%;">1.	 Materias curriculares</th>
-					<td style="width: 50%;">
+					<td style="width: 50%; text-align: center;">
 						<?php   
 							include_once('../php/conf_tab.php');
 							$DB=new ConfigDB;
 							$conn=$DB->Mysql();
 
 
-							$SQL=$DB->CONSULTA("SELECT `materias_cursadas`.`Nombre_Curso`, FROM `mgps`.`materias_cursadas` where Id_Materias=(SELECT Id_Materias From materias_semestres where Id_actividades = '$id_actividades' );");
-							 while ($rs= $DB->Obtener_filas($sql)) {
+							$SQL=$DB->CONSULTA("SELECT * FROM `mgps`.`materias_cursadas` where Id_Materias=(SELECT Id_Materias From materias_semestres where Id_actividades = '$id_actividades' );");
+							 
+							 while ($rs= $DB->Obtener_filas($SQL)) {
 			                    echo $rs["Nombre_Curso"]."<br>";
+			               
 			                 }
 					 	?>
 					 </td>
 				</tr>
 				<tr>
 					<th style=" width:50%;">2.	Proyecto de tesis</th>
-					<td style="width: 50%;"> <?php echo $rs['Proyecto_tesis']; ?></td>
+					<td style="width: 50%; text-align: center;"> 
+						<?php 
+							echo $_SESSION["TemaTesis"];
+						?>
+							
+					</td>
 				</tr>
 				<tr>
 					<th style=" width:50%;">3.	Producción académica</th>
-					<td style="width: 50%;"><?php echo $rs['Produccion']; ?></td>
+					<td style="width: 50%; text-align: center;">
+						<?php
+							include_once('../php/conf_tab.php');
+							$DB=new ConfigDB;
+							$conn=$DB->Mysql();
+							$Id_Act =$_SESSION["Primer_informe"];
+
+
+							$SQL=$DB->CONSULTA("SELECT * FROM `mgps`.`produccionAlumnos` where IdActividades='$Id_Act'");
+							 
+							 while ($rs= $DB->Obtener_filas($SQL)) {
+			                    echo $rs["Titulo"].", ".$rs["TipoDeProduccion"].". "."<br>";
+			                 }
+						?>		
+					</td>
 				</tr>
 				<tr>
 					<th style=" width:50%;">4.	Actividades extracurriculares</th>
-					<td style="width: 50%;"><?php echo $rs['extracurriculares']; ?></td>
+					<td style="width: 50%; text-align: center;">
+						<?php
+							include_once('../php/conf_tab.php');
+							$DB= new ConfigDB();
+		                    $DB->Mysql();
+		                    $Id_Act =$_SESSION["Primer_informe"];
+
+		                     $Consulta=$DB->CONSULTA("SELECT * FROM actividades_extracurriculares  where  Id_Act = '$Id_Act'");
+		                     while ($rs= $DB->Obtener_filas($Consulta)) {
+		                        echo $rs["Tipo_Actividad"].", ".$rs["Nombre_DelProfesor"].", ".$rs["Institucion_Organizadora"].", ".$rs["Pais"].", ".$rs["Ciudad"].", ".$rs["Ambito"].", ".$rs["Continente"].", ".$rs["Fecha_Inicio"].", ".$rs["Fecha_Termino"].". "."<br>" ;
+		                     }
+						?>
+					</td>
 				</tr>
 				<tr>
 					<th style=" width:50%;">5.	Gestión de apoyo externo para la investigación</th>
-					<td style="width: 50%;"><?php echo $rs['Gestión_de_apoyo']; ?></td>
+					<td style="width: 50%; text-align: center;">
+						<?php 
+							include_once('../php/conf_tab.php');
+							$DB= new ConfigDB();
+                         	$DB->Mysql();
+                         	$codigo=$_SESSION["Primer_informe"];
+                         	
+
+                          	$Consulta=$DB->CONSULTA("SELECT * FROM gestionapoyoinv  where  Id_Actividades = '$codigo'");
+                          	while ($rs= $DB->Obtener_filas($Consulta)) {
+                             	echo $rs["Descripccion"]."<br>";
+                          	}
+						?>
+					</td>
 				</tr>
 				<tr>
 					<th style=" width:50%;">6.	Asistencia a eventos académicos como ponente</th>
-					<td style="width: 50%;"><?php echo $rs['Asistencia_eventos']; ?></td>
+					<td style="width: 50%; text-align: center;">
+						<?php 
+							include_once('../php/conf_tab.php');
+							$DB= new ConfigDB();
+                         	$DB->Mysql();
+                         	$codigo=$_SESSION["Primer_informe"];
+
+                          	$Consulta=$DB->CONSULTA("SELECT * FROM `mgps`.`congresos_como_ponente` WHERE id_Actividades='$codigo';");
+                          	while ($rs= $DB->Obtener_filas($Consulta)) {
+                             	echo $rs["NombreCongreso"].", ".$rs["Titulo_del_Trabajo"].", ".$rs["TipoDeParticipaciion"].", ".$rs["Pais"].", ".$rs["Fecha_inicio"].", ".$rs["Fecha_Termino"]."."."<br>";
+                          	} 
+						?>
+					</td>
 				</tr>
 				<tr>
 					<th style=" width:50%;">7.	Asesoría especializada</th>
-					<td style="width: 50%;"><?php echo $rs['Asesoria_esp']; ?></td>
+					<td style="width: 50%; text-align: center;">
+						<?php 
+							include_once('../php/conf_tab.php');
+							$DB= new ConfigDB();
+                         	$DB->Mysql();
+                         	$Id_Act =$_SESSION["Primer_informe"];                         	
+
+                          	$Consulta=$DB->CONSULTA("SELECT * FROM asesoria_especializada  where  Id_Act = '$Id_Act'");
+                          	while ($rs= $DB->Obtener_filas($Consulta)) {
+                             	echo $rs["Fecha"].", ".$rs["Titulo_de_Tesis"].", ".$rs["Activiadades_realiadas"].", ". $rs["SiguienteAsesoria"]."."."<br>";
+                          	} 
+						?>
+					</td>
 				</tr>
 				<tr>
 					<th style=" width:50%;">8.	Necesidades tutoriales</th>
-					<td style="width: 50%;"><?php echo $rs['Necesidades_tut']; ?></td>
+					<td style="width: 50%; text-align: center;">
+						<?php 
+							include_once('../php/conf_tab.php');
+							$DB= new ConfigDB();
+                         	$DB->Mysql();
+                         	$Id_Act =$_SESSION["Primer_informe"];                         	
+
+                          	$Consulta=$DB->CONSULTA("SELECT * FROM reporte_asesorias  where  Id_act = '$Id_Act'");
+                          	while ($rs= $DB->Obtener_filas($Consulta)) {
+                             	echo $rs["Fecha"].", ".$rs["Titulo_de_Tesis"].", ".$rs["Activiadades_realiadas"].", ". $rs["SiguienteAsesoria"]."."."<br>";
+                          	}
+						?>
+					</td>
 				</tr>
 				<tr>
 					<th style=" width:50%;">9.	Movilidad académica</th>
-					<td style="width: 50%;"><?php echo $rs['Movilidad']; ?></td>
+					<td style="width: 50%; text-align: center;">
+						<?php 
+							include_once('../php/conf_tab.php');
+							$DB= new ConfigDB();
+                         	$DB->Mysql();
+                         	$codigo=$_SESSION["Primer_informe"];                         	
+
+                          	$Consulta=$DB->CONSULTA("SELECT * FROM movilidadestudiantes  where  Id_act = '$codigo'");
+                           	while ($rs= $DB->Obtener_filas($Consulta)) {
+                             	echo $rs["Tipo_Movilidad"].", ".$rs["Ambito"].", ".$rs["Pais"].", ". $rs["Institucion"].", ".$rs["Objetivo"].", ".$rs["Fecha_Inicio"].", ".$rs["Facha_Termino"].", ".$rs["Institucion_Apoyo"]."."."<br>";
+                            }
+						?>
+					</td>
 				</tr>
 				<tr>
 					<th style=" width:50%;border-bottom:none;">10.	Vinculación académica</th>
-					<td style="width: 50%; border-bottom:none;"><?php echo $rs['Vinculacion']; ?></td>
+					<td style="width: 50%; border-bottom:none; text-align: center;">
+						<?php 
+							include_once('../php/conf_tab.php');
+							$DB= new ConfigDB();
+                         	$DB->Mysql();
+                         	$codigo=$_SESSION["Primer_informe"];
+
+                          	$Consulta=$DB->CONSULTA("SELECT * FROM vinculaciones  where  Id_Actividades = '$codigo'");
+                          	while ($rs= $DB->Obtener_filas($Consulta)) {
+                             	echo $rs["Institucion"].", ".$rs["Ambito"].", ".$rs["ProductoObtenido"].", ". $rs["Sector"].", ".$rs["Mecanismo"].", ".$rs["TipoVinculacion"].", ".$rs["Fecha_Inicio"].", ".$rs["Fecha_Final"]."."."<br>";;
+                          	}
+						?>
+					</td>
 				</tr>
 			</table>
 		</div>
@@ -189,6 +295,25 @@
 		  			</div>
 		      </div>
 		</div>
+		<?php 
+
+			include_once('../php/conf_tab.php');
+			$DB=new ConfigDB;
+			$conn=$DB->Mysql();
+
+
+			$SQL=$DB->CONSULTA("SELECT Id_Materias From materias_semestres where Id_actividades = '$id_actividades';");
+			 
+			 while ($rs= $DB->Obtener_filas($SQL)) {
+                $id=$rs['Id_Materias'];
+                $NOMBRE=$rs['NombreArchivo'];
+                $enlace=$rs['kardex'];           		
+             }
+           	 header("Content-type: application/pdf ");
+           	 readfile($NOMBRE);
+		 ?>
+
+		
  </page>
  
 <?php
