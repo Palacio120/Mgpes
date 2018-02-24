@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: mgps
+-- Host: localhost    Database: mgps
 -- ------------------------------------------------------
--- Server version	5.7.20-log
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,37 +25,29 @@ DROP TABLE IF EXISTS `direcciondetesis`;
 CREATE TABLE `direcciondetesis` (
   `No_Tesis` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `DirectorTesis` varchar(255) DEFAULT '',
-  `CodigoEmp` char(9) DEFAULT NULL,
   `Co_Director` varchar(255) DEFAULT '',
-  `CodigoEmp_Co` char(9) DEFAULT NULL,
   `NombreALUMNO` varchar(255) DEFAULT '',
   `CODIGO_ES` char(9) DEFAULT NULL,
   `GRADO` longtext,
-  `TemaTesis` longtext,
+  `TemaTesis` varchar(255) DEFAULT NULL,
   `Periodo` char(10) DEFAULT '',
   `Aprovacion_TR` enum('espera','SI') DEFAULT 'espera',
-  `lector_1` int(10) unsigned DEFAULT NULL,
-  `lector_2` int(10) unsigned DEFAULT NULL,
+  `lector_1` varchar(255) DEFAULT NULL,
+  `lector_2` varchar(255) DEFAULT NULL,
   `LGAC` char(6) DEFAULT NULL,
   `Semestre` enum('Primer Semestre','Segundo Semestre','Tercer Semestre','Cuarto Semestre') DEFAULT NULL,
   PRIMARY KEY (`No_Tesis`),
   KEY `lector_1` (`lector_1`),
   KEY `lector_2` (`lector_2`),
   KEY `LGAC` (`LGAC`),
-  KEY `CodigoEmp_Co` (`CodigoEmp_Co`),
   KEY `NombreALUMNO` (`NombreALUMNO`),
   KEY `CODIGO_ES` (`CODIGO_ES`),
-  KEY `CodigoEmp` (`CodigoEmp`),
   KEY `Director` (`DirectorTesis`),
   KEY `Co-director` (`Co_Director`),
-  CONSTRAINT `direcciondetesis_ibfk_1` FOREIGN KEY (`lector_1`) REFERENCES `lectores` (`No_Lector`) ON UPDATE CASCADE,
   CONSTRAINT `direcciondetesis_ibfk_10` FOREIGN KEY (`LGAC`) REFERENCES `estudiante` (`LGAC`) ON UPDATE CASCADE,
-  CONSTRAINT `direcciondetesis_ibfk_2` FOREIGN KEY (`lector_2`) REFERENCES `lectores` (`No_Lector`) ON UPDATE CASCADE,
   CONSTRAINT `direcciondetesis_ibfk_3` FOREIGN KEY (`LGAC`) REFERENCES `lgac` (`LGAC`) ON UPDATE CASCADE,
-  CONSTRAINT `direcciondetesis_ibfk_5` FOREIGN KEY (`CodigoEmp_Co`) REFERENCES `empleados` (`CodigoEmp`) ON UPDATE CASCADE,
   CONSTRAINT `direcciondetesis_ibfk_7` FOREIGN KEY (`NombreALUMNO`) REFERENCES `estudiante` (`NombreCompleto`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `direcciondetesis_ibfk_8` FOREIGN KEY (`CODIGO_ES`) REFERENCES `estudiante` (`CODIGO_ES`) ON UPDATE CASCADE,
-  CONSTRAINT `direcciondetesis_ibfk_9` FOREIGN KEY (`CodigoEmp`) REFERENCES `empleados` (`CodigoEmp`) ON UPDATE CASCADE
+  CONSTRAINT `direcciondetesis_ibfk_8` FOREIGN KEY (`CODIGO_ES`) REFERENCES `estudiante` (`CODIGO_ES`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -65,7 +57,7 @@ CREATE TABLE `direcciondetesis` (
 
 LOCK TABLES `direcciondetesis` WRITE;
 /*!40000 ALTER TABLE `direcciondetesis` DISABLE KEYS */;
-INSERT INTO `direcciondetesis` VALUES (2,'Ricardo Palacio Alvarez','prueba002',NULL,NULL,'Alejandro Palacio Alvarez','Prueba001','NULL','Prueba','2017B','espera',1,2,'CYMLES','Primer Semestre');
+INSERT INTO `direcciondetesis` VALUES (2,'BB','BB','Alejandro Palacio Alvarez','Prueba001','NULL','BB','2017B','espera','BB','BB','CYMLES','Segundo Semestre');
 /*!40000 ALTER TABLE `direcciondetesis` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -79,14 +71,7 @@ UNLOCK TABLES;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `mgps`.`direcciondetesis_BEFORE_INSERT` BEFORE INSERT ON `direcciondetesis` FOR EACH ROW
 BEGIN
-	declare nombreDirector varchar(255);
-    declare nombreCodirector varchar(255);
-	
-		select NombreEmpleado from empleados where codigoEmp=new.codigoEmp into nombreDirector;
-        select NombreEmpleado from empleados where codigoEmp=new.CodigoEmp_Co into nombreCodirector;
-        
-        set new.DirectorTesis =nombreDirector;
-        set new.Co_Director=nombreCodirector;
+
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -104,14 +89,7 @@ DELIMITER ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `mgps`.`direcciondetesis_BEFORE_UPDATE` BEFORE UPDATE ON `direcciondetesis` FOR EACH ROW
 BEGIN
-	declare nombreDirector varchar(255);
-    declare nombreCodirector varchar(255);
-	
-		select NombreEmpleado from empleados where codigoEmp=new.codigoEmp into nombreDirector;
-        select NombreEmpleado from empleados where codigoEmp=new.CodigoEmp_Co into nombreCodirector;
-        
-        set new.DirectorTesis =nombreDirector;
-        set new.Co_Director=nombreCodirector;
+
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -128,4 +106,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-24  0:01:12
+-- Dump completed on 2018-02-24 14:35:24

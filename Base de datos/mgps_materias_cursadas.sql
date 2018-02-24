@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: mgps
+-- Host: localhost    Database: mgps
 -- ------------------------------------------------------
--- Server version	5.7.20-log
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -32,7 +32,7 @@ CREATE TABLE `materias_cursadas` (
   PRIMARY KEY (`Id`),
   KEY `materias_cursadas_ibfk_2_idx` (`Id_Materias`),
   CONSTRAINT `materias_cursadas_ibfk_2` FOREIGN KEY (`Id_Materias`) REFERENCES `materias_semestres` (`Id_Materias`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `materias_cursadas` (
 
 LOCK TABLES `materias_cursadas` WRITE;
 /*!40000 ALTER TABLE `materias_cursadas` DISABLE KEYS */;
-INSERT INTO `materias_cursadas` VALUES (9,'Prueba 002','2017-11-21',3,100,'Nombre del profesor');
+INSERT INTO `materias_cursadas` VALUES (5,'Nombre del curso','2018-02-13',3,100,'Nombre del profesor'),(10,'Nombre del curso','2018-02-13',3,100,'Nombre del profesor'),(12,'Nombre del curso 2','2018-02-13',4,1,'Nombre del profesor'),(13,'Nombre del curso','2018-02-16',9,100,'Nombre del profesor'),(14,'Nombre del curso','2018-02-16',5,100,'Nombre del profesor'),(15,'Nombre del curso','2018-02-16',4,100,'Nombre del profesor');
 /*!40000 ALTER TABLE `materias_cursadas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-24  0:01:09
+-- Dump completed on 2018-02-24 14:35:08

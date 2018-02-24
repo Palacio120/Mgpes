@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: mgps
+-- Host: localhost    Database: mgps
 -- ------------------------------------------------------
--- Server version	5.7.20-log
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,7 +29,7 @@ CREATE TABLE `actividades` (
   PRIMARY KEY (`idActividades`),
   KEY `Estudiante_idx` (`ID_Est`),
   CONSTRAINT `Estudiante` FOREIGN KEY (`ID_Est`) REFERENCES `estudiante` (`CODIGO_ES`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COMMENT='Tabla de registro para el reporte de actividades';
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='Tabla de registro para el reporte de actividades';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `actividades` (
 
 LOCK TABLES `actividades` WRITE;
 /*!40000 ALTER TABLE `actividades` DISABLE KEYS */;
-INSERT INTO `actividades` VALUES (21,'Prueba001','Primer Semestre');
+INSERT INTO `actividades` VALUES (21,'Prueba001','Primer Semestre'),(22,'Prueba001','Segundo Semestre'),(23,'Prueba001','Tercer Semestre'),(24,'Prueba001','Cuarto Semestre');
 /*!40000 ALTER TABLE `actividades` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-24  0:01:08
+-- Dump completed on 2018-02-24 14:34:53

@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: mgps
+-- Host: localhost    Database: mgps
 -- ------------------------------------------------------
--- Server version	5.7.20-log
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -42,8 +42,6 @@ CREATE TABLE `produccion_articuloarbitrado` (
   `IdActividades` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id_Articulo`),
   KEY `Id_actividades_idx` (`IdActividades`),
-  KEY `Id_Produccion_idx` (`ProduccionAlumnos`),
-  CONSTRAINT `Id_Produccion` FOREIGN KEY (`ProduccionAlumnos`) REFERENCES `produccionalumnos` (`NO_Publicacion`) ON UPDATE CASCADE,
   CONSTRAINT `Id_actividades` FOREIGN KEY (`IdActividades`) REFERENCES `actividades` (`idActividades`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Produccion de alumnos de un articulo arbitrado';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -65,13 +63,37 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `mgps`.`produccion_articuloarbitrado_AFTER_INSERT` AFTER INSERT ON `produccion_articuloarbitrado` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `mgps`.`produccion_articuloarbitrado_BEFORE_INSERT` BEFORE INSERT ON `produccion_articuloarbitrado` FOR EACH ROW
 BEGIN
-
 	INSERT INTO `mgps`.`produccionalumnos`(`NO_Publicacion`,`IdActividades`,`Titulo`,`TipoDeProduccion`,`Probatorio`)VALUES(0,
-   new.IdActividades,new.Titulo, 'Artículo de difusión y divulgación', new.Probatorio);
+   new.IdActividades,new.Titulo, 'Artículo Arbitrado', new.Probatorio);
 
+	set new.ProduccionAlumnos=(select NO_Publicacion from produccionalumnos where IdActividades=new.IdActividades and Titulo=new.Titulo and TipoDeProduccion= 'Artículo Arbitrado' );
 
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `mgps`.`produccion_articuloarbitrado_BEFORE_UPDATE` BEFORE UPDATE ON `produccion_articuloarbitrado` FOR EACH ROW
+BEGIN
+set new.ProduccionAlumnos=(select NO_Publicacion from produccionalumnos where Titulo=old.Titulo and IdActividades= old.idActividades and TipoDeProduccion= 'Artículo Arbitrado');
+	
+    UPDATE `mgps`.`produccionalumnos`
+SET
+`Titulo` = new.Titulo,
+`Probatorio` = new.Probatorio
+WHERE `NO_Publicacion` = new.ProduccionAlumnos;
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -88,4 +110,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-24  0:01:06
+-- Dump completed on 2018-02-24 14:34:38

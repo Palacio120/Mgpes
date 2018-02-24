@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: mgps
+-- Host: localhost    Database: mgps
 -- ------------------------------------------------------
--- Server version	5.7.20-log
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -38,15 +38,11 @@ CREATE TABLE `agenda_examen_grado` (
   KEY `agenda_examen_grado_ibfk_2` (`salon_examen`),
   KEY `agenda_examen_grado_ibfk_3` (`Edificio_Examen`),
   KEY `agenda_examen_grado_ibfk_7_idx` (`No_Tesis`,`Lector_2`,`Lector_1`),
-  KEY `agenda_examen_grado_ibfk_6_idx` (`Lector_2`),
-  KEY `agenda_examen_grado_ibfk_7_idx1` (`Lector_1`),
   CONSTRAINT `agenda_examen_grado_ibfk_1` FOREIGN KEY (`hora_examen`) REFERENCES `horarios_glo` (`Hora`) ON UPDATE CASCADE,
   CONSTRAINT `agenda_examen_grado_ibfk_2` FOREIGN KEY (`salon_examen`) REFERENCES `salones_glo` (`Salon`) ON UPDATE CASCADE,
   CONSTRAINT `agenda_examen_grado_ibfk_3` FOREIGN KEY (`Edificio_Examen`) REFERENCES `salones_glo` (`Edificios`) ON UPDATE CASCADE,
   CONSTRAINT `agenda_examen_grado_ibfk_4` FOREIGN KEY (`Director`) REFERENCES `plantaacademica` (`No_profesor`) ON UPDATE CASCADE,
-  CONSTRAINT `agenda_examen_grado_ibfk_5` FOREIGN KEY (`No_Tesis`) REFERENCES `direcciondetesis` (`No_Tesis`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `agenda_examen_grado_ibfk_6` FOREIGN KEY (`Lector_2`) REFERENCES `direcciondetesis` (`lector_2`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `agenda_examen_grado_ibfk_7` FOREIGN KEY (`Lector_1`) REFERENCES `direcciondetesis` (`lector_1`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `agenda_examen_grado_ibfk_5` FOREIGN KEY (`No_Tesis`) REFERENCES `direcciondetesis` (`No_Tesis`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -68,4 +64,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-24  0:01:15
+-- Dump completed on 2018-02-24 14:35:51
