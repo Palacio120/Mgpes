@@ -19,8 +19,8 @@
           $codigo= $_SESSION["CODIGO_ES"];
           $Id_Act=$_SESSION["Tercer_informe"];
 
-            for ($i=301; $i <317 ; $i++) { 
-              $submit=isset($_POST['Submit'.$i]);  
+            for ($i=301; $i <317 ; $i++) {
+              $submit=isset($_POST['Submit'.$i]);
               if ($submit && $submit==1){
                 form3($i);
               }
@@ -28,7 +28,7 @@
 
 
 
-            
+
           function form3($num){
                 Include_once('../php/conf_tab.php');
 
@@ -37,12 +37,12 @@
 
                 switch ($num) {
                   case '301':
-                        $verdad=isset($_GET['id1']);
+                        $verdad=isset($_GET['id301']);
                         if ($verdad && $verdad==1) {
 
-                            $id=$_GET['id1'];
-                            
-                            
+                            $id=$_GET['id301'];
+
+
                             $Id_Act=$_SESSION["Tercer_informe"];
                             $Autor=$_POST['Autores'];
                             $Titulo=$_POST['Titulo'];
@@ -61,7 +61,7 @@
                             $nombre_Rep=$_FILES["Probatorio"]["name"];
                             $Tipo_Rep=$_FILES["Probatorio"]["type"];
 
-                                                  
+
 
                             if ( $Probatorio != "none" ){
                                $fp = fopen($Probatorio, "r+");
@@ -69,12 +69,12 @@
                                $contenido = addslashes($contenido);
                                fclose($fp);
 
-                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_articulodifucion` SET `Autores` = '$Autor',`Titulo` = '$Titulo',`Estado` = '$Estado',`NombreRevista` = '$Revista',`dePagina` = '$Pagina_inicio',`aPagina` = '$Pagina_final',`Pais` = '$Pais',`Editorial` = '$Editorial',`Volumen` = '$Volumen',`ISSN` = '$ISBN',`FechaPublicacion` = '$Anio',`Proposito` = '$Proposito',`Probatorio` = '$contenido' WHERE `id_Articulo` = '$id';");
+                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_articulodifucion` SET `Autores` = '$Autor',`Titulo` = '$Titulo',`Estado` = '$Estado',`NombreRevista` = '$Revista',`dePagina` = '$Pagina_inicio',`aPagina` = '$Pagina_final',`Pais` = '$Pais',`Editorial` = '$Editorial',`Volumen` = '$Volumen',`ISSN` = '$ISBN',`FechaPublicacion` = '$Anio',`Proposito` = '$Proposito',`Probatorio` = '$contenido' WHERE `ProduccionAlumnos` = '$id';");
 
-                               
+
 
                                 }
-                                
+
                         }else{
 
                         $Id_Act=$_SESSION["Tercer_informe"];
@@ -95,7 +95,6 @@
                         $nombre_Rep=$_FILES["Probatorio"]["name"];
                         $Tipo_Rep=$_FILES["Probatorio"]["type"];
 
-                        echo "incercion 1";
 
                         if ( $Probatorio != "none" ){
                            $fp = fopen($Probatorio, "r+");
@@ -105,17 +104,16 @@
 
                            $query=$DB->CONSULTA("INSERT INTO `produccion_articulodifucion` VALUES (0,'$Autor', '$Titulo', '$Estado','$Revista','$Pagina_inicio','$Pagina_final','$Pais', '$Editorial', '$Volumen', '$ISBN', '$Anio', '$Proposito', '$contenido', 0, '$Id_Act')");
 
-                              echo "Inscercion 2";
                             }
                           }
-                           
+
                     break;
                   case  '302':
 
                           $verdad=isset($_GET['id2']);
                         if ($verdad && $verdad==1) {
 
-                            $id=$_GET['id2'];
+                            $id=$_GET['id302'];
                             $Id_Act=$_SESSION["Tercer_informe"];
                             $Autor=$_POST['AUTORES'];
                             $Titulo=$_POST['Titulo'];
@@ -143,10 +141,10 @@
                                $contenido = addslashes($contenido);
                                fclose($fp);
 
-                                $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_articuloarbitrado` SET `Autores` = '$Autor', `Titulo` = '$Titulo', `Estado` = '$Estado', `NombreRevista` = '$Revista', `dePagina` = '$Pagina_inicio', `aPagina` = '$Pagina_final', `Pais` = '$Pais', `Editorial` = '$Editorial', `Volumen` = '$Volumen', `ISSN` = '$ISBN', `FechaPublicacion` = '$Anio', `Proposito` = '$Proposito', `Descripccion` = '$Descripcion', `Probatorio` = '$contenido' WHERE `id_Articulo` = '$id'; ");
-                               
+                                $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_articuloarbitrado` SET `Autores` = '$Autor', `Titulo` = '$Titulo', `Estado` = '$Estado', `NombreRevista` = '$Revista', `dePagina` = '$Pagina_inicio', `aPagina` = '$Pagina_final', `Pais` = '$Pais', `Editorial` = '$Editorial', `Volumen` = '$Volumen', `ISSN` = '$ISBN', `FechaPublicacion` = '$Anio', `Proposito` = '$Proposito', `Descripccion` = '$Descripcion', `Probatorio` = '$contenido' WHERE `ProduccionAlumnos` = '$id'; ");
+
                        }
-                       
+
                       }else{
 
 
@@ -178,16 +176,16 @@
                            fclose($fp);
 
                           $query=$DB->CONSULTA("INSERT INTO `produccion_articuloarbitrado`  VALUES (0,'$Autor', '$Titulo', '$Estado','$Revista','$Pagina_inicio','$Pagina_final','$Pais', '$Editorial', '$Volumen', '$ISBN', '$Anio', '$Proposito', '$Descripcion', '$contenido', 0, '$Id_Act')");
-                                                     
+
                        }
                      }
                     break;
                   case '303':
 
-                          $verdad=isset($_GET['id3']);
+                          $verdad=isset($_GET['id303']);
                         if ($verdad && $verdad==1) {
 
-                            $id=$_GET['id3'];
+                            $id=$_GET['id303'];
                             $Id_Act=$_SESSION["Tercer_informe"];
                             $Autor=$_POST['AUTORES'];
                             $Titulo=$_POST['TITULO'];
@@ -215,9 +213,9 @@
                            fclose($fp);
 
 
-                           $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_revistaindexada` SET `Autores` = '$Auto', `Titulo` = '$Titulo', `Estado` = '$Estado', `NombreRevista` = '$Revista', `dePagina` = '$Pagina_inicio', `aPagina` = '$Pagina_final', `Descripccion` = '$Descripcion', `Pais` = '$Pais', `Editorial` = '$Editorial', `Volumen` = '$Volumen', `ISSN` = '$ISBN', `IndiceDeRegistro` = '$Indice', `FechaPublicacion` = '$Anio', `Proposito` = '$Proposito', `Probatorio` = '$contenido',  WHERE `id_Articulo` = '$id'; ");
+                           $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_revistaindexada` SET `Autores` = '$Auto', `Titulo` = '$Titulo', `Estado` = '$Estado', `NombreRevista` = '$Revista', `dePagina` = '$Pagina_inicio', `aPagina` = '$Pagina_final', `Descripccion` = '$Descripcion', `Pais` = '$Pais', `Editorial` = '$Editorial', `Volumen` = '$Volumen', `ISSN` = '$ISBN', `IndiceDeRegistro` = '$Indice', `FechaPublicacion` = '$Anio', `Proposito` = '$Proposito', `Probatorio` = '$contenido',  WHERE `ProduccionAlumnos` = '$id'; ");
                        }
-                       
+
                       }else{
 
 
@@ -253,9 +251,9 @@
                      }
                     break;
                   case '304':
-                        $verdad=isset($_GET['id4']);
+                        $verdad=isset($_GET['id304']);
                         if ($verdad && $verdad==1) {
-                            $id=$_GET['id4'];
+                            $id=$_GET['id304'];
                             $Id_Act=$_SESSION["Tercer_informe"];
                             $Autor=$_POST['AUTORES'];
                             $Cap_Autor=$_POST['AUTORESCAP'];
@@ -282,9 +280,9 @@
                                $contenido = addslashes($contenido);
                                fclose($fp);
 
-                                 $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_capitulodelibro` SET`id_Articulo` = '$Id_Act' ,`Autores` = '$Autor' ,`Titulo` = '$Titulo' ,`Estado` = '$Estado' ,`Pais` = '$Pais' ,`Editorial` = '$Editorial' ,`Edicion` = '$Edicion' ,`tiraje` =  '$Tiraje' ,`ISBN` = '$ISBN',`FechaPublicacion` = '$Anio' ,`Proposito` = '$Proposito' ,`TituloDelCapitulo` = '$Capitulo',`AutorDeCapitulo` = '$Cap_Autor' ,`dePagina` = '$Pagina_inicio' ,`aPagina` = '$Pagina_final' ,`Probatorio` = '$contenido' ,WHERE `id_Articulo` = '$id';");
+                                 $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_capitulodelibro` SET `Autores` = '$Autor' ,`Titulo` = '$Titulo' ,`Estado` = '$Estado' ,`Pais` = '$Pais' ,`Editorial` = '$Editorial' ,`Edicion` = '$Edicion' ,`tiraje` =  '$Tiraje' ,`ISBN` = '$ISBN',`FechaPublicacion` = '$Anio' ,`Proposito` = '$Proposito' ,`TituloDelCapitulo` = '$Capitulo',`AutorDeCapitulo` = '$Cap_Autor' ,`dePagina` = '$Pagina_inicio' ,`aPagina` = '$Pagina_final' ,`Probatorio` = '$contenido' ,WHERE `ProduccionAlumnos` = '$id';");
                             }
-                        
+
                         }else{
 
                         $Id_Act=$_SESSION["Tercer_informe"];
@@ -319,10 +317,10 @@
                     break;
                   case '305':
 
-                          $verdad=isset($_GET['id5']);
+                          $verdad=isset($_GET['id305']);
                         if ($verdad && $verdad==1) {
 
-                            $id=$_GET['id5'];
+                            $id=$_GET['id305'];
                             $Id_Act=$_SESSION["Tercer_informe"];
                             $Alcance=$_POST['COMENTARIOS'];
                             $Titulo=$_POST['TITULO'];
@@ -344,12 +342,12 @@
                                fclose($fp);
 
 
-                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_consultoria` SET `Estudio` ='$Titulo' ,`Alcance` ='$Alcance' ,`EmpresaBeneficiaria` ='$Usuario' ,`Pais` ='$Pais' ,`EstadoActual` ='$Estado' ,`FechaInicio` ='$Anio' ,`InvestigadoresParticipantes` ='$Autores' ,`BeneficiosEconomicos` ='$Beneficio' ,`Probatorio` ='$contenido' WHERE `id_Articulo` = '$id';");
-                               
+                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_consultoria` SET `Estudio` ='$Titulo' ,`Alcance` ='$Alcance' ,`EmpresaBeneficiaria` ='$Usuario' ,`Pais` ='$Pais' ,`EstadoActual` ='$Estado' ,`FechaInicio` ='$Anio' ,`InvestigadoresParticipantes` ='$Autores' ,`BeneficiosEconomicos` ='$Beneficio' ,`Probatorio` ='$contenido' WHERE `ProduccionAlumnos` = '$id';");
+
 
                            }
-                        
-                            
+
+
                         }else{
 
                         $Id_Act=$_SESSION["Tercer_informe"];
@@ -379,9 +377,9 @@
                     break;
                   case '306':
 
-                       $verdad=isset($_GET['id6']);
+                       $verdad=isset($_GET['id306']);
                         if ($verdad && $verdad==1) {
-                            $id=$_GET['id6'];
+                            $id=$_GET['id306'];
                             $Id_Act=$_SESSION["Tercer_informe"];
                             $Alcance=$_POST['COMENTARIOS'];
                             $Titulo=$_POST['TITULO'];
@@ -403,11 +401,11 @@
                                fclose($fp);
 
 
-                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_informetecnico` SET `Titulo` = '$Titulo' , `Alcance` = '$Alcance' , `EmpresaBeneficiaria` = '$Usuario' , `EstadoActual` = '$Estado' , `Pais` = '$Pais' , `FechaInicio` = '$Anio' , `InvestigadoresParticipantes` = '$Autores' , `BeneficiosEconomicos` = '$Beneficio' , `Probatorio` = '$contenido'  WHERE `id_Articulo` = '$id';"); 
-                               
+                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_informetecnico` SET `Titulo` = '$Titulo' , `Alcance` = '$Alcance' , `EmpresaBeneficiaria` = '$Usuario' , `EstadoActual` = '$Estado' , `Pais` = '$Pais' , `FechaInicio` = '$Anio' , `InvestigadoresParticipantes` = '$Autores' , `BeneficiosEconomicos` = '$Beneficio' , `Probatorio` = '$contenido'  WHERE `ProduccionAlumnos` = '$id';");
+
 
                            }
-                          
+
                         }else{
 
                       $Id_Act=$_SESSION["Tercer_informe"];
@@ -437,9 +435,9 @@
                     break;
                   case '307':
 
-                        $verdad=isset($_GET['id7']);
+                        $verdad=isset($_GET['id307']);
                         if ($verdad && $verdad==1) {
-                            $id=$_GET['id7'];
+                            $id=$_GET['id307'];
                             $Id_Act=$_SESSION["Tercer_informe"];
                             $Titulo=$_POST['TITULO'];
                             $Participa=$_POST["ESTADO"];
@@ -449,7 +447,7 @@
                             $Edicion=$_POST["NOEDICIONES"];
                             $Tiraje=$_POST["TOTALEJEMPLARES"];
                             $isbn=$_POST["ISBN"];
-                            
+
                             $Autores=$_POST['AUTORES'];
 
                             $Proposito=$_POST["selPROPOSITO"];
@@ -467,10 +465,10 @@
                                fclose($fp);
 
 
-                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_libro` SET `Autor` = '$Autores' ,`Titulo` = '$Titulo' ,`Participacion` = '$Participa' ,`EstadoActual` = '$Estado' ,`Pais` = '$Pais' ,`Editorial` = '$Editorial' ,`Paginas` = '$Paginas' ,`Edicion` = '$Edicion' ,`Tiraje` = '$Tiraje' ,`ISBN` = '$isbn' ,`FechaPublicacion` = '$Anio' ,`Proposito` = '$Proposito' ,`Probatorio` = '$contenido' WHERE `id_Articulo` = '$id';");
-                               
+                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_libro` SET `Autor` = '$Autores' ,`Titulo` = '$Titulo' ,`Participacion` = '$Participa' ,`EstadoActual` = '$Estado' ,`Pais` = '$Pais' ,`Editorial` = '$Editorial' ,`Paginas` = '$Paginas' ,`Edicion` = '$Edicion' ,`Tiraje` = '$Tiraje' ,`ISBN` = '$isbn' ,`FechaPublicacion` = '$Anio' ,`Proposito` = '$Proposito' ,`Probatorio` = '$contenido' WHERE `ProduccionAlumnos` = '$id';");
+
                            }
-                        
+
                         }else{
 
                           $Id_Act=$_SESSION["Tercer_informe"];
@@ -482,7 +480,7 @@
                           $Edicion=$_POST["NOEDICIONES"];
                           $Tiraje=$_POST["TOTALEJEMPLARES"];
                           $isbn=$_POST["ISBN"];
-                          
+
                           $Autores=$_POST['AUTORES'];
 
                           $Proposito=$_POST["selPROPOSITO"];
@@ -506,9 +504,9 @@
                     break;
                   case '308':
 
-                        $verdad=isset($_GET['id8']);
+                        $verdad=isset($_GET['id308']);
                         if ($verdad && $verdad==1) {
-                            $id=$_GET['id8'];
+                            $id=$_GET['id308'];
                             $Id_Act=$_SESSION["Tercer_informe"];
                             $Alcance=$_POST['COMENTARIOS'];
                             $Titulo=$_POST['TITULO'];
@@ -531,11 +529,11 @@
                                fclose($fp);
 
 
-                               $query=$DB->CONSULTA(" UPDATE `mgps`.`produccion_manualdeoperaciones` SET `Autor` = '$Autores', `Titulo` = '$Titulo', `Descripccion` = '$Alcance', `EmpresaBeneficiaria` = '$Usuario', `Pais` = '$Pais', `FechaPublicacion` = '$Anio', `Proposito` = '$proposito', `Probatorio` = '$contenido' WHERE `id_Articulo` = '$id'; ");
+                               $query=$DB->CONSULTA(" UPDATE `mgps`.`produccion_manualdeoperaciones` SET `Autor` = '$Autores', `Titulo` = '$Titulo', `Descripccion` = '$Alcance', `EmpresaBeneficiaria` = '$Usuario', `Pais` = '$Pais', `FechaPublicacion` = '$Anio', `Proposito` = '$proposito', `Probatorio` = '$contenido' WHERE `ProduccionAlumnos` = '$id'; ");
 
-                              
+
                            }
-                        
+
                         }else{
 
                       $Id_Act=$_SESSION["Tercer_informe"];
@@ -566,9 +564,9 @@
                     break;
                   case '309':
 
-                        $verdad=isset($_GET['id9']);
+                        $verdad=isset($_GET['id309']);
                         if ($verdad && $verdad==1) {
-                            $id=$_GET['id9'];
+                            $id=$_GET['id309'];
                             $Id_Act=$_SESSION["Tercer_informe"];
                             $Alcance=$_POST['COMENTARIOS'];
                             $Titulo=$_POST['TITULO'];
@@ -591,12 +589,12 @@
                                fclose($fp);
 
 
-                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_materialdeapoyo` SET `id_Articulo` = <{id_Articulo: }>,`Autor` ='$Autores' ,`Titulo` ='$Titulo' ,`Descripccion` ='$Alcance' ,`EmpresaBeneficiaria` ='$Usuario' ,`Pais` ='$Pais' ,`FechaPublicacion` ='$Anio' ,`Proposito` ='$Proposito' ,`Probatorio` ='$contenido' WHERE `id_Articulo`='$id';");
+                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_materialdeapoyo` SET `Autor` ='$Autores' ,`Titulo` ='$Titulo' ,`Descripccion` ='$Alcance' ,`EmpresaBeneficiaria` ='$Usuario' ,`Pais` ='$Pais' ,`FechaPublicacion` ='$Anio' ,`Proposito` ='$Proposito' ,`Probatorio` ='$contenido' WHERE `ProduccionAlumnos`='$id';");
 
-                               
+
 
                            }
-                        
+
                         }else{
 
                       $Id_Act=$_SESSION["Tercer_informe"];
@@ -627,9 +625,9 @@
                     break;
                   case '310':
 
-                        $verdad=isset($_GET['id10']);
+                        $verdad=isset($_GET['id310']);
                         if ($verdad && $verdad==1) {
-                            $id=$_GET['id10'];
+                            $id=$_GET['id310'];
                             $Id_Act=$_SESSION["Tercer_informe"];
                             $Alcance=$_POST['COMENTARIOS'];
                             $Titulo=$_POST['TITULO'];
@@ -651,9 +649,9 @@
                                $contenido = addslashes($contenido);
                                fclose($fp);
 
-                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_materialdidactico` set `Autor` ='$Autores', `Titulo` ='$Titulo', `Descripccion` ='$Alcance', `EmpresaBeneficiaria` = '$Usuario', `Pais` ='$Pais', `FechaPublicacion` ='$Anio', `Proposito` ='$proposito', `Probatorio` ='$contenido') where `id_Articulo` ='$id';");
+                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_materialdidactico` set `Autor` ='$Autores', `Titulo` ='$Titulo', `Descripccion` ='$Alcance', `EmpresaBeneficiaria` = '$Usuario', `Pais` ='$Pais', `FechaPublicacion` ='$Anio', `Proposito` ='$proposito', `Probatorio` ='$contenido') where `ProduccionAlumnos` ='$id';");
                            }
-                        
+
                         }else{
 
                       $Id_Act=$_SESSION["Tercer_informe"];
@@ -684,10 +682,10 @@
                     break;
                   case '311':
 
-                        $verdad=isset($_GET['id11']);
+                        $verdad=isset($_GET['id311']);
                         if ($verdad && $verdad==1) {
-                            $id=$_GET['id11'];
-                            $Id_Act=$_SESSION["Tercer_informe"];                        
+                            $id=$_GET['id311'];
+                            $Id_Act=$_SESSION["Tercer_informe"];
                             $Autor=$_POST["AUTORES"];
                             $Titulo=$_POST["TITULO"];
                             $Congreso=$_POST["COMENTARIOS"];
@@ -712,12 +710,12 @@
                                fclose($fp);
 
 
-                               $query=$DB->CONSULTA("UPDATE`mgps`.`produccion_memorias` set `Autor` ='$Autor',`Titulo` ='$Titulo', `Congreso` ='$Congreso', `EstadoActual` ='$EstadoActual', `dePagina` ='$dePagina', `aPagina` ='$aPagina', `Pais` = '$Pais', `Estado` ='$Estado',`Ciudad` ='$Ciudad', `FechaPublicacion` ='$Anio', `Proposito` ='$proposito', `Probatorio` ='$contenido') where  `id_Articulo` ='$id';");
+                               $query=$DB->CONSULTA("UPDATE`mgps`.`produccion_memorias` set `Autor` ='$Autor',`Titulo` ='$Titulo', `Congreso` ='$Congreso', `EstadoActual` ='$EstadoActual', `dePagina` ='$dePagina', `aPagina` ='$aPagina', `Pais` = '$Pais', `Estado` ='$Estado',`Ciudad` ='$Ciudad', `FechaPublicacion` ='$Anio', `Proposito` ='$proposito', `Probatorio` ='$contenido') where  `ProduccionAlumnos` ='$id';");
                            }
-                        
+
                         }else{
 
-                      $Id_Act=$_SESSION["Tercer_informe"];                        
+                      $Id_Act=$_SESSION["Tercer_informe"];
                         $Autor=$_POST["AUTORES"];
                         $Titulo=$_POST["TITULO"];
                         $Congreso=$_POST["COMENTARIOS"];
@@ -748,11 +746,11 @@
                     break;
                   case '312':
 
-                        $verdad=isset($_GET['id12']);
+                        $verdad=isset($_GET['id312']);
                         if ($verdad && $verdad==1) {
-                            $id=$_GET['id12'];
+                            $id=$_GET['id312'];
                             $Id_Act=$_SESSION["Tercer_informe"];
-                        
+
                             $Autor=$_POST["AUTORES"];
                             $Tipo=$_POST["PAGINAS"];
                             $Titulo=$_POST["TITULO"];
@@ -778,13 +776,13 @@
                                fclose($fp);
 
 
-                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_inovadora` SET `Autor` = '$Autor', `Tipo` ='$Tipo', `Titulo` = '$Titulo', `Descripccion` ='$Descripccion', `Clacificacion` ='$Clacificacion', `Uso` ='$Uso', `EstadoActual` ='$EstadoActual', `NumeroDeRegistro` ='$NumeroDeRegistro', `Usuario` ='$Usuario', `Pais` ='$Pais', `FechaPublicacion` ='$FechaPublicacion', `Probatorio` ='$contenido', `Proposito` ='$proposito') where `id_Articulo`= '$id';");
+                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_inovadora` SET `Autor` = '$Autor', `Tipo` ='$Tipo', `Titulo` = '$Titulo', `Descripccion` ='$Descripccion', `Clacificacion` ='$Clacificacion', `Uso` ='$Uso', `EstadoActual` ='$EstadoActual', `NumeroDeRegistro` ='$NumeroDeRegistro', `Usuario` ='$Usuario', `Pais` ='$Pais', `FechaPublicacion` ='$FechaPublicacion', `Probatorio` ='$contenido', `Proposito` ='$proposito') where `ProduccionAlumnos`= '$id';");
                                }
-                        
+
                         }else{
 
                       $Id_Act=$_SESSION["Tercer_informe"];
-                        
+
                         $Autor=$_POST["AUTORES"];
                         $Tipo=$_POST["PAGINAS"];
                         $Titulo=$_POST["TITULO"];
@@ -816,9 +814,9 @@
                     break;
                   case '313':
 
-                        $verdad=isset($_GET['id13']);
+                        $verdad=isset($_GET['id313']);
                         if ($verdad && $verdad==1) {
-                            $id=$_GET['id13'];
+                            $id=$_GET['id313'];
                             $Id_Act=$_SESSION["Tercer_informe"];
                             $Tipo=$_POST["ESTADO"];
                             $Autor=$_POST["AUTORES"];
@@ -846,14 +844,14 @@
                                fclose($fp);
 
 
-                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_artística` set  `Tipo` ='$Tipo', `Autor` ='$Autor', `Titulo` ='$Titulo',`Descripccion` ='$Descripccion', `impacto` ='$impacto', `Metodologia` ='$Metodologia', `Diseño` ='$Diseño', `innovacion` ='$innovacion', `Pais` ='$Pais', `FechaPublicacion` ='$Anio', `Lugares` ='$Lugares',  `Probatorio` ='$contenido', `Proposito` ='$Proposito') where id_Articulo`= '$id';");
+                               $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_artística` set  `Tipo` ='$Tipo', `Autor` ='$Autor', `Titulo` ='$Titulo',`Descripccion` ='$Descripccion', `impacto` ='$impacto', `Metodologia` ='$Metodologia', `Diseño` ='$Diseño', `innovacion` ='$innovacion', `Pais` ='$Pais', `FechaPublicacion` ='$Anio', `Lugares` ='$Lugares',  `Probatorio` ='$contenido', `Proposito` ='$Proposito') where ProduccionAlumnos= '$id';");
                            }
-                        
+
 
                         }else{
 
                       $Id_Act=$_SESSION["Tercer_informe"];
-              
+
                         $Tipo=$_POST["ESTADO"];
                         $Autor=$_POST["AUTORES"];
                         $Titulo=$_POST["TITULO"];
@@ -884,9 +882,9 @@
                     break;
                   case '314':
 
-                        $verdad=isset($_GET['id14']);
+                        $verdad=isset($_GET['id314']);
                         if ($verdad && $verdad==1) {
-                            $id=$_GET['id14'];
+                            $id=$_GET['id314'];
                             $Autor=$_POST["AUTORES"];
                             $Tipo=$_POST["PAGINAS"];
                             $Estado=$_POST["selESTADOACTUAL"];
@@ -910,10 +908,10 @@
 
 
 
-                                $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_prototipo` set  `Autor` ='$Autor', `Tipo` = '$Tipo', `Estado` ='$Estado', `Titulo` ='$Titulo', `Objetivo` ='$Objetivo', `Caracteristicas` ='$Caracteristicas', `InstitucionBeneficiaria` ='$InstitucionBeneficiaria', `Pais` ='$Pais', `FechaPublicacion` ='$Anio', `Probatorio` = '$contenido', `Proposito` = '$Proposito')WHERE id_Articulo='$id';");
+                                $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_prototipo` set  `Autor` ='$Autor', `Tipo` = '$Tipo', `Estado` ='$Estado', `Titulo` ='$Titulo', `Objetivo` ='$Objetivo', `Caracteristicas` ='$Caracteristicas', `InstitucionBeneficiaria` ='$InstitucionBeneficiaria', `Pais` ='$Pais', `FechaPublicacion` ='$Anio', `Probatorio` = '$contenido', `Proposito` = '$Proposito')WHERE ProduccionAlumnos='$id';");
 
-                            } 
-                               
+                            }
+
 
                         }else{
 
@@ -969,9 +967,9 @@
                                $contenido = addslashes($contenido);
                                fclose($fp);
 
-                            $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_otro` set `Autor` ='$Autor', `Titulo` ='$Titulo', `Descripccion` = '$Descripccion', `Pais` ='$Pais', `FechaPublicacion` ='$Anio', `Proposito` ='$Proposito', `Probatorio` ='$contenido' WHERE `id_Articulo`='$id' ;");
+                            $query=$DB->CONSULTA("UPDATE `mgps`.`produccion_otro` set `Autor` ='$Autor', `Titulo` ='$Titulo', `Descripccion` = '$Descripccion', `Pais` ='$Pais', `FechaPublicacion` ='$Anio', `Proposito` ='$Proposito', `Probatorio` ='$contenido' WHERE `ProduccionAlumnos`='$id' ;");
                             }
-                            
+
                         }else{
 
                       $Id_Act=$_SESSION["Tercer_informe"];
@@ -1004,13 +1002,13 @@
 
           if(isset($_POST["Submit_Extracurriculares3"])){
 
-            $verdad=isset($_GET["id_Extra"]);
+            $verdad=isset($_GET["id_Extra3"]);
             if ($verdad && $verdad==1) {
               Include_once('../php/conf_tab.php');
               $DB= new ConfigDB();
               $DB->Mysql();
 
-              $id_Extracurriculares1=$_GET["id_Extra"];
+              $id_Extracurriculares1=$_GET["id_Extra3"];
               $Activiadad_Extra=$_POST["Activiadad_Extra"];
               $Profesor_Act=$_POST["Profesor_Act"];
               $Institucion_Organizadora=$_POST["Institucion_Organizadora"];
@@ -1034,7 +1032,7 @@
 
                      $query=$DB->CONSULTA(" UPDATE `mgps`.`actividades_extracurriculares` SET `Tipo_Actividad` = '$Activiadad_Extra',`Nombre_DelProfesor` = '$Profesor_Act',`Institucion_Organizadora` = '$Institucion_Organizadora',`Pais` = '$Pais',`Ciudad` = '$Ciudad',`Ambito` = '$Ambito',`Continente` = '$Continente',`Fecha_Inicio` = '$Fecha_Inicio',`Fecha_Termino` = '$Fecha_Final', `Constancia`='$contenido' WHERE `idActividades_Extracurriculares` = '$id_Extracurriculares1';");
 
-                     
+
                    }
                  }else{
 
@@ -1066,12 +1064,12 @@
 
                      $query=$DB->CONSULTA("INSERT INTO `mgps`.`actividades_extracurriculares` VALUES(0,'$Activiadad_Extra','$Profesor_Act','$Institucion_Organizadora', '$Pais','$Ciudad','$Ambito','$Continente','$Fecha_Inicio','$Fecha_Final','$Id_Act','$contenido');");
 
-                     
+
                    }
               }
             }
-            
-          
+
+
 
           if (isset($_POST["Submit_Apoyo3"])) {
 
@@ -1097,7 +1095,7 @@
 
                      $query=$DB->CONSULTA("UPDATE `mgps`.`gestionapoyoinv` SET `Descripccion` = '$Descripccion',`Probatorio` = '$contenido' WHERE `idgestionapoyoinv` = '$id_Apoyo';");
 
-                     
+
                    }
 
             }else{
@@ -1122,7 +1120,7 @@
 
                      $query=$DB->CONSULTA("INSERT INTO `mgps`.`gestionapoyoinv` VALUES(0,'$Descripccion','$contenido','$Id_Act');");
 
-                     
+
                    }
                  }
           }
@@ -1156,7 +1154,7 @@
 
                          $query=$DB->CONSULTA("UPDATE `mgps`.`congresos_como_ponente` SET `NombreCongreso` = '$Nombre',`Titulo_del_Trabajo` =  '$Titulo',`TipoDeParticipaciion` = '$Tipo_Congreso',`Pais` = '$pais',`Fecha_inicio` = '$Fecha_Inicio_Congreso',`Fecha_Termino` = '$Fecha_Final_Congreso',`Constancia` = '$contenido' WHERE `id_Congresos_Ponente` = '$Id_congresos1';");
 
-                         
+
                        }
             }else{
 
@@ -1195,8 +1193,8 @@
                         $DB->Mysql();
 
             $verdad=isset($_GET["id_Especial3"]);
-            if ($verdad && $verdad==1) {              
-              
+            if ($verdad && $verdad==1) {
+
               $id_Especializada1=$_GET["id_Especial3"];
               $Fech_Reporte=$_POST["Fech_Reporte"];
               $Actividades=$_POST["Actividades"];
@@ -1229,7 +1227,7 @@
               $Nombre_Es=$_SESSION["NombreCompleto"];
               $CODIGO_ES=$_SESSION["CODIGO_ES"];
               $Titulo_de_Tesis=$_SESSION["TemaTesis"];
-              
+
               $Actividades=$_POST["Actividades"];
               $Tareas=$_POST["Tareas"];
               $Observaciones=$_POST["Observaciones"];
@@ -1254,11 +1252,11 @@
 
           if (isset($_POST["Submit_Asesorias3"])) {
             $verdad=isset($_GET["id_Tut3"]);
-            if ($verdad && $verdad==1) { 
+            if ($verdad && $verdad==1) {
               Include_once('../php/conf_tab.php');
                         $DB= new ConfigDB();
                         $DB->Mysql();
-              
+
               $Id_Reporte_tutoria1=$_GET["id_Tut3"];
               $Fech_Reporte=$_POST["Fech_Reporte"];
               $Actividades=$_POST["Actividades"];
@@ -1292,7 +1290,7 @@
               $Nombre_Es=$_SESSION["NombreCompleto"];
               $CODIGO_ES=$_SESSION["CODIGO_ES"];
               $Titulo_de_Tesis=$_SESSION["TemaTesis"];
-              
+
               $Actividades=$_POST["Actividades"];
               $Tareas=$_POST["Tareas"];
               $Observaciones=$_POST["Observaciones"];
@@ -1325,7 +1323,7 @@
                         $DB->Mysql();
 
                 $verdad=isset($_GET['id_vin3']);
-                if ($verdad && $verdad==1) { 
+                if ($verdad && $verdad==1) {
 
                         $Id_Vinculacion=$_GET['id_vin3'];
                         $Ambito=$_POST["Ambito"];
@@ -1355,14 +1353,14 @@
 
                              $query=$DB->CONSULTA("UPDATE `mgps`.`vinculaciones` SET `Fecha_Inicio` = '$Fecha_Inicio', `Ambito` = '$Ambito', `ProductoObtenido` = '$ProductoObtenido', `Evidencias` = '$Probatorio', `Sector` = '$Sector', `Mecanismo` = '$Mecanismo', `TipoVinculacion` = '$TipoVinc', `Institucion` = '$Institucion', `pais` = '$Pais', `Fecha_Final` = '$Fecha_Final', `Objetivo` = '$Objetivo', `Resultado` = '$Resultado', `Beneficio` = '$Beneficio' WHERE `No_vinculacion` = 'Id_Vinculacion'; ");
 
-                             
+
                            }
                   }else{
 
                         Include_once('../php/conf_tab.php');
                         $DB= new ConfigDB();
                         $DB->Mysql();
-                        
+
                         $Id_Act=$_SESSION["Tercer_informe"];
                         $Ambito=$_POST["Ambito"];
                         $ProductoObtenido=$_POST["ProductoObtenido"];
@@ -1375,7 +1373,7 @@
                         $Pais=$_POST['Pais'];
                         $Mecanismo=$_POST["Mecanismo"];
                         $Beneficio=$_POST["Beneficio"];
-                        
+
                         switch ($_SESSION["LíneasAplicaciónDelConocimiento"]) {
                           case 'Calidad y mejoramiento en la educación superior':
                             $LGAC='CYMLES';
@@ -1389,7 +1387,7 @@
                           case 'Políticas públicas y cambio institucional en la educación superior':
                             $LGAC='PPCIES';
                             break;
-                          
+
                         }
                         $Probatorio1=$_FILES['Probatorio']["tmp_name"];
                         $tamnio_rep=$_FILES['Probatorio']["size"];
@@ -1408,15 +1406,15 @@
                          }
                   }
             }
-            
+
 
             if (isset($_POST["Submit_Movilidad3"])) {
                 Include_once('../php/conf_tab.php');
                     $DB= new ConfigDB();
                     $DB->Mysql();
-                
+
                   $verdad=isset($_GET['id_Mov3']);
-                  if ($verdad && $verdad==1) { 
+                  if ($verdad && $verdad==1) {
 
                   $id=$_GET["id_Mov3"];
                   $Id_Act=$_SESSION["Tercer_informe"];
@@ -1438,7 +1436,7 @@
                   $Planes_Trabajo_tamnio_rep=$_FILES['Planes_Trabajo_Movilidad']["size"];
                   $Planes_Trabajo_nombre_Rep=$_FILES["Planes_Trabajo_Movilidad"]["name"];
                   $Planes_Trabajo_Tipo_Rep=$_FILES["Planes_Trabajo_Movilidad"]["type"];
-                          
+
                   $Constancia_Probatorio=$_FILES['Constancia']["tmp_name"];
                   $Constancia_tamnio_rep=$_FILES['Constancia']["size"];
                   $Constancia_nombre_Rep=$_FILES["Constancia"]["name"];
@@ -1454,7 +1452,7 @@
                                fclose($fp1);
                                fclose($fp2);
 
-                              
+
                               $query=$DB->CONSULTA("UPDATE `mgps`.`movilidadestudiantes` SET `Id_act` = '$Id_Act', `NombreEs` = '$Nombre', `Tipo_Movilidad` = '$Tipo_Movilidad', `Ambito` = '$Ambito', `Pais` = '$Pais', `Institucion` = '$Institucion', `Objetivo` = '$Objetivo', `Fecha_Inicio` = '$Fecha_Inicio', `Facha_Termino` = '$Fecha_Final', `Apoyo_Economico` = '$ApoyoEconomico', `Institucion_Apoyo` = Institucion_apoyo, `Plan_Trabajo` = '$contenido1', `Constancial` = '$contenido2' WHERE `RegistroMovilidadEs` = '$id'; ");
 
                             }
@@ -1473,12 +1471,12 @@
                 $Fecha_Final=$_POST["Fecha_Final"];
                 $Institucion_apoyo=$_POST["Institucion_apoyo"];
                 $ApoyoEconomico=$_POST["ApoyoEconomico"];
-                
+
                 $Planes_Trabajo_Probatorio=$_FILES['Planes_Trabajo_Movilidad']["tmp_name"];
                 $Planes_Trabajo_tamnio_rep=$_FILES['Planes_Trabajo_Movilidad']["size"];
                 $Planes_Trabajo_nombre_Rep=$_FILES["Planes_Trabajo_Movilidad"]["name"];
                 $Planes_Trabajo_Tipo_Rep=$_FILES["Planes_Trabajo_Movilidad"]["type"];
-                        
+
                 $Constancia_Probatorio=$_FILES['Constancia']["tmp_name"];
                 $Constancia_tamnio_rep=$_FILES['Constancia']["size"];
                 $Constancia_nombre_Rep=$_FILES["Constancia"]["name"];
@@ -1496,16 +1494,16 @@
 
                                  $query=$DB->CONSULTA("INSERT INTO `mgps`.`movilidadestudiantes` VALUES(0,'$Id_Act',' $Nombre','$Tipo_Movilidad','$Ambito','$Pais','$Institucion','$Objetivo','$Fecha_Inicio','$Fecha_Final','$ApoyoEconomico','$Institucion_apoyo','$contenido2','$contenido2');");
                             }
-                             
+
                 }
             }
 
 
-          
+
 
         function ArticuloDifucion3(){?>
                <form name="form1" id="Alter301" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> id='Produccion1' method='post' enctype='multipart/form-data'>
-  
+
                 <div class="form-group">
                   			<div class="row">
                   				<div class="col-md-8">
@@ -1522,7 +1520,7 @@
                   				</div>
                   				<div class="col-md-4">
                   					<label>Título del artículo</label>
-                  					<input type="text" name="Titulo" id="Titulo1" class="form-control" maxlength="255" required > 
+                  					<input type="text" name="Titulo" id="Titulo1" class="form-control" maxlength="255" required >
                   				</div>
                   				<div class="col-md-4">
                   					<label class="control-label">Estado actual</label>
@@ -1548,7 +1546,7 @@
                   				</div>
                   			</div>
                           <div class="row" style="margin-bottom: 25px;">
-                            <?php 
+                            <?php
                                 echo formPais();
                              ?>
 
@@ -1586,13 +1584,13 @@
                   					</select>
                   				</div>
                   			</div>
-                            <div class="row" style="margin-bottom: 25px;";">
+                            <div class="row" style="margin-bottom: 25px;";>
                                 <div class="col-md-4">
                                     <label>Probatorio</label>
                                     <input class="form-control" type="file" name="Probatorio" id="Probatorio2" required>
                                 </div>
                             </div>
-                        <input type='submit' value='Guardar' class='Botones' name="Submit1" >
+                        <input type='submit' value='Guardar' class='Botones' name="Submit301" >
                         <input type='button' value='cancelar' onclick='cancelar_Actvidades()' class='Botones'>
                     </div>
                 </form>
@@ -1601,7 +1599,7 @@
 
         function articuloArbitrado3(){?>
            <form name="form2" id="Alter302" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> id='Movilidad1' method='post' enctype='multipart/form-data'>
-           
+
              <div class="form-group">
                         <div class="row">
                             <div class="col-md-8">
@@ -1644,7 +1642,7 @@
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: 25px;">
-                            <?php 
+                            <?php
                                 echo formPais();
                              ?>
 
@@ -1692,16 +1690,16 @@
                             </div>
 
                         </div>
-                        
-                            <input type='submit' name="Submit2" value='Guardar' class='Botones' >
+
+                            <input type='submit' name="Submit302" value='Guardar' class='Botones' >
                             <input type='button' value='cancelar' onclick='cancelar_Actvidades()' class='Botones'>
                 </div>
             </form>
-        
+
         <?php  }
         function RevistaIndexada3(){?>
             <form name="form3" id="Alter303" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_"  enctype='multipart/form-data'>
-            
+
               <div class="form-group">
                 <div class="row">
                     <div class="col-md-8">
@@ -1718,14 +1716,14 @@
                     </div>
                     <div class="col-md-4">
                         <label class="control-label">Título del artículo</label>
-                        <input class="form-control ns_" type="text" name="TITULO" id="TITULO3" maxlength="255" required>   
+                        <input class="form-control ns_" type="text" name="TITULO" id="TITULO3" maxlength="255" required>
                     </div>
                     <div class="col-md-4">
                         <label class="control-label">Estado actual</label>
                         <select id="ESTADOACTUAL3" name="ESTADOACTUAL" class="form-control" required>
                             <option value="0">Selecciona el estado actual</option>
                             <option value="1">Aceptado</option>
-                            <option value="2">Publicado</option> 
+                            <option value="2">Publicado</option>
                         </select>
                     </div>
                 </div>
@@ -1743,7 +1741,7 @@
                         <input class="form-control ns_" type="number" name="ALAPAGINA" id="ALAPAGINA3" required="">
                     </div>
                 </div>
-                <div class="row" style="margin-bottom: 25px;";">
+                <div class="row" style="margin-bottom: 25px;";>
                     <div class="col-md-4">
                         <label class="control-label">Descripción</label>
                         <textarea name="COMENTARIOS" id="COMENTARIOS3" cols="30" rows="1" class="form-control" required></textarea>
@@ -1753,7 +1751,7 @@
 
                     <div class="col-md-4">
                         <label class="control-label">Editorial</label>
-                        <input class="form-control ns_" type="text" name="EDITORIAL" id="EDITORIAL3" maxlength="255" required>    
+                        <input class="form-control ns_" type="text" name="EDITORIAL" id="EDITORIAL3" maxlength="255" required>
                     </div>
 
                 </div>
@@ -1768,7 +1766,7 @@
                     </div>
                     <div class="col-md-4">
                         <label class="control-label">Índice de registro de la revista</label>
-                        <input class="form-control ns_" type="text" name="Indice" id="Indice" maxlength="64">      
+                        <input class="form-control ns_" type="text" name="Indice" id="Indice" maxlength="64">
                     </div>
                 </div>
                 <div class="row" style="margin-bottom: 25px;">
@@ -1789,14 +1787,14 @@
                             <option value="5">Asimilación de tecnología</option>
                             <option value="8">Creación</option>
                             <option value="9">Desarrollo tecnológico</option>
-                            <option value="1">Difusión</option> 
+                            <option value="1">Difusión</option>
                             <option value="7">Generación de conocimiento</option>
                             <option value="2">Investigación aplicada</option>
                             <option value="6">Transferencia de tecnología</option>
                         </select>
                     </div>
                   </div>
-                <input type='submit' name="Submit3" value='Guardar' class='Botones' >
+                <input type='submit' name="Submit303" value='Guardar' class='Botones' >
                 <input type='button' value='cancelar' onclick='cancelar_Actvidades()' class='Botones'>
             </div>
             </form>
@@ -1804,7 +1802,7 @@
         <?php }
         function CapituloDeLibro3(){?>
             <form name="form4" id="Alter304" method="post" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> class="ns_"  enctype='multipart/form-data'>
-           
+
               <div class="form-group">
                   <div class="row">
                       <div class="col-md-8">
@@ -1827,7 +1825,7 @@
                       <div class="col-md-4">
                           <label class="control-label">Estado actual del Libro</label>
                           <select id="selESTADOACTUAL4" name="selESTADOACTUAL" class="form-control" required>
-                              <option value="0">Selecciona el estado actual</option>  
+                              <option value="0">Selecciona el estado actual</option>
                               <option value="1">Aceptado</option>
                               <option value="2">Publicado</option>
                           </select>
@@ -1869,7 +1867,7 @@
                               <option value="5">Asimilación de tecnología</option>
                               <option value="8">Creación</option>
                               <option value="9">Desarrollo tecnológico</option>
-                              <option value="1">Difusión</option> 
+                              <option value="1">Difusión</option>
                               <option value="7">Generación de conocimiento</option>
                               <option value="2">Investigación aplicada</option>
                               <option value="6">Transferencia de tecnología</option>
@@ -1913,7 +1911,7 @@
                           </div>
                       </div>
 
-                <input type='submit' name="Submit4" value='Guardar' class='Botones' >
+                <input type='submit' name="Submit304" value='Guardar' class='Botones' >
                 <input type='button' value='cancelar' onclick='cancelar_Actvidades()' class='Botones'>
                 </div>
             </form>
@@ -1934,7 +1932,7 @@
                       <div class="col-md-4">
                           <label class="control-label">Nombre del estudio o proyecto <br>realizado</label>
                           <input class="form-control ns_" type="text" name="TITULO" id="TITULO5" maxlength="255" required>
-                          
+
                       </div>
                       <div class="col-md-4">
                           <br><label class="control-label">Alcance/Objetivo</label>
@@ -1943,7 +1941,7 @@
                       <div class="col-md-4">
                           <br><label class="control-label">Empresa o dependencia beneficiaria</label>
                           <input class="form-control ns_" type="text" name="USUARIOPAT" id="USUARIOPAT5" maxlength="255" required>
-                          
+
                       </div>
                     </div>
                       <div class="row" style="margin-bottom: 25px;">
@@ -1978,11 +1976,11 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                               <input type='submit' name="Submit5" value='Guardar' class='Botones' >
+                               <input type='submit' name="Submit305" value='Guardar' class='Botones' >
                                <input type='button' value='cancelar' onclick='cancelar_Actvidades()' class='Botones'>
                             </div>
                         </div>
-                        
+
                     </div>
             </form>
 
@@ -1997,7 +1995,7 @@
                     <hr class="red">
                 </div>
              </div>
-                
+
               <div class="form-group">
                 <div class="row" style="margin-bottom: 25px;">
                     <div class="col-md-4">
@@ -2018,7 +2016,7 @@
                     <label class="control-label">Estado actual</label>
                     <select id="selESTADOACTUAL6" name="selESTADOACTUAL" class="form-control" required>
                       <option value="6">Terminado</option>
-                      <option value="5">En proceso</option> 
+                      <option value="5">En proceso</option>
                     </select>
                   </div>
                   <?php echo formPais(); ?>
@@ -2043,7 +2041,7 @@
                     <input class="form-control" type="file" name="REGISTROPAT" id="REGISTROPAT6" required>
                   </div>
                 </div>
-                    <input type='submit' name="Submit6" value='Guardar' class='Botones' >
+                    <input type='submit' name="Submit306" value='Guardar' class='Botones' >
                     <input type='button' value='cancelar' onclick='cancelar_Actvidades()' class='Botones'>
             </div>
             </form>
@@ -2071,19 +2069,19 @@
                   </div>
                   <div class="col-md-4">
                     <label class="control-label">Tipo de participación</label>
-                    <select name="ESTADO" id="ESTADO7" class="form-control" required>  
+                    <select name="ESTADO" id="ESTADO7" class="form-control" required>
                       <option value="Autor">Autor</option>
                       <option value="Compilador">Compilador</option>
                       <option value="Editor">Editor</option>
                       <option value="Coordinador">Coordinador</option>
-                      <option value="Traductor">Traductor</option>      
+                      <option value="Traductor">Traductor</option>
                     </select>
                   </div>
               </div>
               <div class="row" style="margin-bottom: 25px;">
                   <div class="col-md-4">
                     <label class="control-label">Estado actual</label>
-                    <select name="selESTADOACTUAL" id="selESTADOACTUAL7" class="form-control" required>  
+                    <select name="selESTADOACTUAL" id="selESTADOACTUAL7" class="form-control" required>
                         <option value="0">Selecciona el estado actual</option>
                         <option value="1">Aceptado</option>
                         <option value="2">Publicado</option>
@@ -2122,26 +2120,26 @@
                 </div>
                 <div class="col-md-4">
                   <label class="control-label">Propósito</label>
-                  <select id="selPROPOSITO7" name="selPROPOSITO" class="form-control" required>  
+                  <select id="selPROPOSITO7" name="selPROPOSITO" class="form-control" required>
                     <option value="0" selected="selected">Seleccione el propósito</option>
                     <option value="5">Asimilación de tecnología</option>
                     <option value="8">Creación</option>
                     <option value="9">Desarrollo tecnológico</option>
-                    <option value="1">Difusión</option> 
+                    <option value="1">Difusión</option>
                     <option value="7">Generación de conocimiento</option>
                     <option value="2">Investigación aplicada</option>
-                    <option value="6">Transferencia de tecnología</option>  
+                    <option value="6">Transferencia de tecnología</option>
                   </select>
-                  
+
                 </div>
               </div>
-              <div class="row" style="margin-bottom: 25px;";">
+              <div class="row" style="margin-bottom: 25px;";>
                   <div class="col-md-4">
                         <label class="control-label">Probatorio</label>
                         <input class="form-control" type="file" name="REGISTROPAT" id="REGISTROPAT5" required>
                   </div>
                 </div>
-                    <input type='submit' name="Submit7" value='Guardar' class='Botones' >
+                    <input type='submit' name="Submit307" value='Guardar' class='Botones' >
                     <input type='button' value='cancelar' onclick='cancelar_Actvidades()' class='Botones'>
                 </div>
             </form>
@@ -2157,7 +2155,7 @@
                     <hr class="red">
                 </div>
             </div>
-            
+
                 <div class="form-group">
                     <div class="row" style="margin-bottom: 25px;">
                         <div class="col-md-4">
@@ -2193,7 +2191,7 @@
                         <option value="5">Asimilación de tecnología</option>
                         <option value="8">Creación</option>
                         <option value="9">Desarrollo tecnológico</option>
-                        <option value="1">Difusión</option> 
+                        <option value="1">Difusión</option>
                         <option value="7">Generación de conocimiento</option>
                         <option value="2">Investigación aplicada</option>
                         <option value="6">Transferencia de tecnología</option>
@@ -2204,7 +2202,7 @@
                         <input class="form-control" type="file" name="REGISTROPAT" id="REGISTROPAT8" required>
                     </div>
                 </div>
-                    <input type='submit' name="Submit8" value='Guardar' class='Botones' >
+                    <input type='submit' name="Submit308" value='Guardar' class='Botones' >
                     <input type='button' value='cancelar' onclick='cancelar_Actvidades()' class='Botones'>
                 </div>
             </form>
@@ -2248,7 +2246,7 @@
                         </div>
                     </div>
                 </div>
-            
+
                 <div class="row" style="margin-bottom: 25px;">
                     <div class="col-md-4">
                       <label class="control-label">Propósito</label>
@@ -2257,18 +2255,18 @@
                         <option value="5">Asimilación de tecnología</option>
                         <option value="8">Creación</option>
                         <option value="9">Desarrollo tecnológico</option>
-                        <option value="1">Difusión</option> 
+                        <option value="1">Difusión</option>
                         <option value="7">Generación de conocimiento</option>
                         <option value="2">Investigación aplicada</option>
                         <option value="6">Transferencia de tecnología</option>
-                      </select>     
+                      </select>
                     </div>
                     <div class="col-md-4">
                         <label class="control-label">Probatorio</label>
                         <input class="form-control" type="file" name="REGISTROPAT" id="REGISTROPAT9" required>
                     </div>
                 </div>
-                    <input type='submit' name="Submit9" value='Guardar' class='Botones' >
+                    <input type='submit' name="Submit309" value='Guardar' class='Botones' >
                     <input type='button' value='cancelar' onclick='cancelar_Actvidades()' class='Botones'>
                 </div>
             </form>
@@ -2280,12 +2278,12 @@
                 <div class="row">
                     <div class="col-md-8">
                         <h3>material didáctico</h3>
-                    </div> 
+                    </div>
                     <div class="col-md-12">
                         <hr class="red"></div>
                     </div>
                 <div class="form-group">
-                
+
                 <div class="row" style="margin-bottom: 25px;">
                     <div class="col-md-4">
                       <label class="control-label">Autor(es)</label>
@@ -2308,10 +2306,10 @@
                     <?php formPais(); ?>
                     <div class="col-md-4">
                         <label class="control-label">Fecha Publicación</label>
-                        <input class="form-control ns_" id="ANIO10" name="ANIO" type="date" required">
+                        <input class="form-control ns_" id="ANIO10" name="ANIO" type="date" required>
                     </div>
                 </div>
-                
+
                 <div class="row" style="margin-bottom: 25px;">
                     <div class="col-md-4">
                       <label class="control-label">Propósito</label>
@@ -2320,7 +2318,7 @@
                         <option value="5">Asimilación de tecnología</option>
                         <option value="8">Creación</option>
                         <option value="9">Desarrollo tecnológico</option>
-                        <option value="1">Difusión</option> 
+                        <option value="1">Difusión</option>
                         <option value="7">Generación de conocimiento</option>
                         <option value="2">Investigación aplicada</option>
                         <option value="6">Transferencia de tecnología</option>
@@ -2331,7 +2329,7 @@
                         <input class="form-control" type="file" name="REGISTROPAT" id="REGISTROPAT10" required>
                     </div>
                 </div>
-                <input type='submit' name="Submit10" value='Guardar' class='Botones' >
+                <input type='submit' name="Submit310" value='Guardar' class='Botones' >
                 <input type='button' value='cancelar' onclick='cancelar_Actvidades()' class='Botones'>
             </div>
             </form>
@@ -2349,7 +2347,7 @@
                 </div>
             </div>
             <div class="form-group">
-            
+
             <div class="row" style="margin-bottom: 25px;">
                 <div class="col-md-4">
                   <br><label class="control-label">Autor(es)</label>
@@ -2405,18 +2403,18 @@
                     <option value="5">Asimilación de tecnología</option>
                     <option value="8">Creación</option>
                     <option value="9">Desarrollo tecnológico</option>
-                    <option value="1">Difusión</option> 
+                    <option value="1">Difusión</option>
                     <option value="7">Generación de conocimiento</option>
                     <option value="2">Investigación aplicada</option>
                     <option value="6">Transferencia de tecnología</option>
-                  </select>         
+                  </select>
                 </div>
                 <div class="col-md-4">
                     <label class="control-label">Probatorio</label>
                     <input class="form-control" type="file" name="REGISTROPAT" id="REGISTROPAT11" required>
                 </div>
             </div>
-                <input type='submit' name="Submit11" value='Guardar' class='Botones' >
+                <input type='submit' name="Submit311" value='Guardar' class='Botones' >
                 <input type='button' value='cancelar' onclick='cancelar_Actvidades()' class='Botones'>
             </div>
           </form>
@@ -2433,7 +2431,7 @@
                     </div>
                 </div>
               <div class="form-group">
-                
+
                 <div class="row" style="margin-bottom: 25px;">
                     <div class="col-md-4">
                       <label class="control-label">Autor(es)</label>
@@ -2445,9 +2443,9 @@
                         <option value="1" selected="selected">Patente</option>
                         <option value="2">Modelo de utilidad</option>
                         <option value="3">Marca</option>
-                        <option value="4">Denominación de origen</option> 
-                        <option value="5">Diseño de herramientas</option> 
-                      </select>         
+                        <option value="4">Denominación de origen</option>
+                        <option value="5">Diseño de herramientas</option>
+                      </select>
                     </div>
                     <div class="col-md-4">
                       <label class="control-label">Título</label>
@@ -2471,7 +2469,7 @@
                         <option value="F. Mecánica; Iluminación; Calefacción; Armamento; Voladura">F. Mecánica; Iluminación; Calefacción; Armamento; Voladura</option>
                         <option value="G. Física</">G. Física</option>
                         <option value="H. Electricidad">H. Electricidad</option>
-                      </select>        
+                      </select>
                     </div>
                     <div class="col-md-4">
                       <label class="control-label">Uso</label>
@@ -2481,7 +2479,7 @@
                 <div class="row" style="margin-bottom: 25px;">
                     <div class="col-md-4">
                       <label class="control-label">Estado actual</label>
-                      <select id="selESTADOACTUAL12" name="selESTADOACTUAL" class="form-control" required>  
+                      <select id="selESTADOACTUAL12" name="selESTADOACTUAL" class="form-control" required>
                         <option value="0">Seleciona el estado actual</option>
                         <option value="3">En trámite</option>
                         <option value="4">Registrada</option>
@@ -2515,15 +2513,15 @@
                         <option value="5">Asimilación de tecnología</option>
                         <option value="8">Creación</option>
                         <option value="9">Desarrollo tecnológico</option>
-                        <option value="1">Difusión</option> 
+                        <option value="1">Difusión</option>
                         <option value="7">Generación de conocimiento</option>
                         <option value="2">Investigación aplicada</option>
                         <option value="6">Transferencia de tecnología</option>
                       </select>
-                      <p style="display:none" id="ok7" class="letra">Este campo es obligatorio</p>      
+                      <p style="display:none" id="ok7" class="letra">Este campo es obligatorio</p>
                     </div>
                 </div>
-                        <input type='submit' name="Submit12" value='Guardar' class='Botones' >
+                        <input type='submit' name="Submit312" value='Guardar' class='Botones' >
                         <input type='button' value='cancelar' onclick='cancelar_Actvidades()' class='Botones'>
               </div>
             </form>
@@ -2547,20 +2545,20 @@
                           <label class="control-label">Tipo de producción</label>
                           <select name="ESTADO" id="TIPOProduccion" class="form-control">
                             <option value="Caricatura e Historia">Caricatura e Historia</option>
-                            <option value="CreaciÃ³n artÃ­stica">Creación artística</option> 
-                            <option value="CoreografÃ­a">Coreografía</option> 
+                            <option value="CreaciÃ³n artÃ­stica">Creación artística</option>
+                            <option value="CoreografÃ­a">Coreografía</option>
                             <option value="ComposiciÃ³n musical">Composición musical</option>
-                            <option value="DirecciÃ³n y guiÃ³n cinematogrÃ¡fico">Dirección y guión cinematográfico</option>    
+                            <option value="DirecciÃ³n y guiÃ³n cinematogrÃ¡fico">Dirección y guión cinematográfico</option>
                             <option value="DiseÃ±o de escenografÃ­a, iluminaciÃ³n y vestuario">Diseño de escenografía, iluminación y vestuario</option>
                             <option value="Dramaturgia">Dramaturgia</option>
                             <option value="Escultura, grÃ¡fica y pintura">Escultura, gráfica y pintura</option>
                             <option value="FotografÃ­a">Fotografía</option>
                             <option value="Letras">Letras</option>
                             <option value="Medios alternativos">Medios alternativos</option>
-                            <option value="Multimedia">Multimedia</option> 
+                            <option value="Multimedia">Multimedia</option>
                             <option value="Programas de radio y televisiÃ³n">Programas de radio y televisión</option>
                             <option value="Puesta en escena">Puesta en escena</option>
-                            <option value="Video">Video</option>      
+                            <option value="Video">Video</option>
                           </select>
                         </div>
                         <div class="col-md-4">
@@ -2583,7 +2581,7 @@
                         </div>
                         <div class="col-md-4">
                           <br><label class="control-label">Describa el impacto en  metodología</label>
-                          <textarea name="METODOLOGIA" id="METODOLOGIA13" cols="30" rows="1" class="form-control" required></textarea> 
+                          <textarea name="METODOLOGIA" id="METODOLOGIA13" cols="30" rows="1" class="form-control" required></textarea>
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 25px;">
@@ -2619,14 +2617,14 @@
                             <option value="5">Asimilación de tecnología</option>
                             <option value="8">Creación</option>
                             <option value="9">Desarrollo tecnológico</option>
-                            <option value="1">Difusión</option> 
+                            <option value="1">Difusión</option>
                             <option value="7">Generación de conocimiento</option>
                             <option value="2">Investigación aplicada</option>
                             <option value="6">Transferencia de tecnología</option>
-                          </select>       
+                          </select>
                         </div>
                     </div>
-                        <input type='submit' name="Submit13" value='Guardar' class='Botones' >
+                        <input type='submit' name="Submit313" value='Guardar' class='Botones' >
                         <input type='button' value='cancelar' onclick='cancelar_Actvidades()' class='Botones'>
                   </div>
                 </form>
@@ -2655,7 +2653,7 @@
                         <option value="1">Arquitectónico</option>
                         <option value="2">Programa de cómputo</option>
                         <option value="3">Diseño Industrial</option>
-                        <option value="4">Desarrollo Industrial</option>            
+                        <option value="4">Desarrollo Industrial</option>
                       </select>
                     </div>
                     <div class="col-md-4">
@@ -2703,14 +2701,14 @@
                         <option value="5">Asimilación de tecnología</option>
                         <option value="8">Creación</option>
                         <option value="9">Desarrollo tecnológico</option>
-                        <option value="1">Difusión</option> 
+                        <option value="1">Difusión</option>
                         <option value="7">Generación de conocimiento</option>
                         <option value="2">Investigación aplicada</option>
                         <option value="6">Transferencia de tecnología</option>
-                      </select>       
+                      </select>
                     </div>
                 </div>
-                    <input type='submit' name="Submit14" value='Guardar' class='Botones' >
+                    <input type='submit' name="Submit314" value='Guardar' class='Botones' >
                     <input type='button' value='cancelar' onclick='cancelar_Actvidades()' class='Botones'>
               </div>
             </form>
@@ -2748,7 +2746,7 @@
                           <label class="control-label">Fecha Publicación</label>
                           <input class="form-control ns_ hasDatepicker" id="ANIO15" name="ANIO" type="date" required>
                       </div>
-                  
+
                       <div class="col-md-4">
                         <label class="control-label">Propósito</label>
                         <select id="selPROPOSITO15" name="selPROPOSITO" class="form-control" required>
@@ -2756,11 +2754,11 @@
                           <option value="5">Asimilación de tecnología</option>
                           <option value="8">Creación</option>
                           <option value="9">Desarrollo tecnológico</option>
-                          <option value="1">Difusión</option> 
+                          <option value="1">Difusión</option>
                           <option value="7">Generación de conocimiento</option>
                           <option value="2">Investigación aplicada</option>
                           <option value="6">Transferencia de tecnología</option>
-                        </select>       
+                        </select>
                       </div>
                   </div>
                   <div class="row">
@@ -2769,7 +2767,7 @@
                           <input class="form-control ns_" type="file" name="Archivo1" id="Archivo14"  required>
                       </div>
                   </div>
-                    <input type='submit' name="Submit15" value='Guardar' class='Botones' >
+                    <input type='submit' name="Submit315" value='Guardar' class='Botones' >
                     <input type='button' value='cancelar' onclick='cancelar_Actvidades()' class='Botones'>
             </div>
             </form>

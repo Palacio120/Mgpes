@@ -177,7 +177,7 @@
                   while ($i=$DB->Obtener_filas($rs1)) {
                     $_SESSION["M_Cuarto"]=$i["Id_Materias"];
                   }
-                   
+
 
 
               }
@@ -225,45 +225,5 @@
 
 
        ?>
-
-       <?php
-        if (isset($_POST['login'])) {
-
-           $numero_lector1= $_SESSION["lector_1"];
-           $numero_lector2= $_SESSION["lector_2"];
-
-               try {
-                 $conn= mysqli_connect("localhost", "MGPES", "BasededatosMGPES1", "mgps");
-               } catch (Exception $e) {
-                 echo $e->getMessage();
-                 exit;
-               }
-
-
-
-                  $query1=("SELECT * FROM `lectores` where No_Lector= '$numero_lector1'");
-                  $rs1=mysqli_query($conn, $query1);
-
-                  $query2=("SELECT * FROM `lectores` where No_Lector= '$numero_lector2'");
-                  $rs2=mysqli_query($conn, $query2);
-
-
-
-
-                   if (mysqli_num_rows($rs2)>0) {
-                     $row=mysqli_fetch_array($rs2);
-                     $_SESSION["NombreLector2"]=$row["NombreCompleto"];
-                   }
-
-
-
-                   if (mysqli_num_rows($rs1)>0) {
-                     $row=mysqli_fetch_array($rs1);
-                     $_SESSION["NombreLector1"]=$row["NombreCompleto"];
-
-                   }
-              }
-        ?>
-
    </body>
  </html>

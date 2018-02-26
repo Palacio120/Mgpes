@@ -9,7 +9,7 @@
   include('../php/Actividades/TercerSemestre/Produccion3.php');
   include('../php/Actividades/CuartoSemestre/Produccion4.php');
 
-    
+
 ?>
 <!Doctype html>
 <html>
@@ -64,7 +64,7 @@
         <div class="centro" id="centro" style="margin-left:0px;">
           <div class="Titulo">
             <h3>Informe de actividades</h3>
-            
+
             <div class="Semestre">
               <a href="#" id="Primero" onclick="desplegar_primero()"><p>Primer Semetre</p></a>
               <a href="#" id="Primero" onclick="desplegar_primero()"><p style="float: right; margin-right: 10px;" >+</p></a>
@@ -156,8 +156,8 @@
                             <input type="button" value="Nueva Materia" onclick="nueva_materia(1)" class="Botones">
                           </div>
                         </div>
-                        
-                        
+
+
 
                         </div>
 
@@ -175,7 +175,7 @@
                                 </div>
                                 <div class="col-md-6">
                                   <label>Calendario</label>
-                                  <input type="date" class="form-control" name="Calendario" max="<?php echo date('Y-m-d');?>" value="<?php  echo date('Y-m-d');?>" title="Fecha requerida" required> 
+                                  <input type="date" class="form-control" name="Calendario" max="<?php echo date('Y-m-d');?>" value="<?php  echo date('Y-m-d');?>" title="Fecha requerida" required>
                                 </div>
                               </div>
                               <div class="row">
@@ -192,7 +192,7 @@
                                   <input type="submit" value="Guardar" >
                                   <input type="button" value="Cancelar" onclick="cancelar_Actvidades()" >
                               </div>
-                                  
+
                           </form>
                           <form action="../php/Actividades/PriemerSemestre/kardex1.php" id="kardex1" method="post" enctype="multipart/form-data" style="display: none;">
 
@@ -324,7 +324,7 @@
                                   <input type="submit" value="Enviar">
                                   <input type="button" value="Cancelar" onclick="cancelar_Actvidades();">
                                 </div>
-                              </div>    
+                              </div>
                               </form>
                               <form id="Eliminar_proyecto" action="../php/Actividades/PriemerSemestre/Eliminar_proyectos1.php" method="post">
                                 <input type="hidden" name="Id_tesis" value="0" id="Id_tesis">
@@ -386,9 +386,9 @@
                                               <td><?php echo $rs["Titulo"]; ?></td>
                                               <td><?php echo $rs["TipoDeProduccion"]; ?></td>
                                               <td><?php if (!$rs["Probatorio"]){echo "No";}else{echo "Si";}; ?></td>
-                                          
+
                                               <td>
-                                                <a href="#" onclick="Editar_Produccion(<?php 
+                                                <a href="#" onclick="Editar_Produccion(<?php
                                                   switch ($rs["TipoDeProduccion"]) {
                                                     case 'Artículo de difusión y divulgación':
                                                       echo "1, {$rs['NO_Publicacion']}";
@@ -436,9 +436,9 @@
                                                       echo "15, {$rs['NO_Publicacion']}";
                                                       break;
                                                     }
-                                                  
+
                                                     ?>)">Editar</a><br>
-                                                <a href="#" onclick="Eliminar_Produccion(<?php 
+                                                <a href="#" onclick="Eliminar_Produccion(<?php
 
                                                   switch ($rs["TipoDeProduccion"]) {
                                                     case 'Artículo de difusión y divulgación':
@@ -500,7 +500,7 @@
                               <?php } ?>
                             </div>
                         <script>
-                            
+
                             function cambiar(){
                               var valor= $("#Vizualisador").val();
                               cambio1(valor);
@@ -527,7 +527,7 @@
                             </select>
 
                             <div id="1" style="display:inline;">
-                              <?php 
+                              <?php
                                 echo ArticuloDifucion();
                                ?>
                             </div>
@@ -791,7 +791,7 @@
                                 </div>
                                 <div class="row">
                                   <div class="col-md-3"></div>
-                                  <div class="col-md-6" >                              
+                                  <div class="col-md-6" >
                                       <label>Probatorio</label>
                                       <input type="File" id="File_Apoyo" name="Probatorio" required class="form-control">
                                   </div>
@@ -902,7 +902,7 @@
                               <div class="row">
                                 <div class="col-md-4">
                                   <label>Fecha de inicio</label>
-                                  <input type="date" name="Fecha_Inicio_Congreso" class="form-control" required> 
+                                  <input type="date" name="Fecha_Inicio_Congreso" class="form-control" required>
                                 </div>
                                 <div class="col-md-4">
                                   <label>Fecha termino</label>
@@ -924,7 +924,7 @@
                           </form>
                         </div>
                         </div>
-                       
+
                   </div>
                   <div class="Semestre" >
                     <a href="#"  id="Asesoria1" onclick="Desplegar('AsesoriaEsp1')" ><p>Asesoría especializada</p></a>
@@ -1078,7 +1078,7 @@
                                       <table>
                                         <tbody>
                                           <tr>
-                                            <th>No.</th>                                        
+                                            <th>No.</th>
                                             <th>Fecha</th>
                                             <th>Calendario Escolar</th>
                                             <th>Acciones</th>
@@ -1308,7 +1308,7 @@
                                   <input type="submit" name="Submit_Movilidad1" id="Submit_Movilidad1" value="Guardar">
                                   <input type="button" name="Cancelar" onclick="cancelar_Actvidades()" value="Cancelar" >
                                 </div>
-                                
+
                               </div>
                             </form>
                           </div>
@@ -1478,15 +1478,15 @@
                       <input type="hidden" name="Tipo_Eliminar1" id="Tipo_Eliminar1" value="">
                     </form>
                   </div>
-      
+
                   <form action="../pdf/Informe_de_Actividades.php" id="Form_Generacion1" method="post" enctype="multipart/form-data" target="_blank" >
                     <input type="submit" value="Gener informe de Actividades" style="float: left; margin: 10px;" id="Boton">
                   </form>
-                    
+
                     <input type="button" style="display: block; margin: 10px;" value="Subir informe de actividades firmado" id="Boton" onclick="ocultarTabla(1)" >
 
                 </div>
-                
+
                 <form action="../Php/Actividades/PriemerSemestre/AgregarFirmado1.php" style="display: none; margin: 5px;" id="Archivo1" enctype="multipart/form-data" method="POST">
                   <label><h3>Subir informe Firmado</h2></label>
                   <input type="file" name="Probatorio" class="form-control">
@@ -1495,12 +1495,12 @@
                   <input type="button" value="cancelar" onclick="cancelar_Actvidades()" class="Botones">
                 </form>
 
-                    
+
                 </div>
 
                 <?php } ?>
               </div>
-              
+
 
             <div class="Semestre">
               <a href="#" id="Segundo" onclick="desplegar_Segundo()"><p>Segundo Semetre</p></a>
@@ -1593,13 +1593,13 @@
                             <input type="button" value="Nueva Materia" onclick="nueva_materia(2)" class="Botones">
                           </div>
                         </div>
-                        
-                        
+
+
 
                         </div>
 
                       <div>
-                        
+
 
                         <form action="../php/Actividades/SegundoSemestre/nuevamateria2.php"  method="post" enctype="multipart/form-data" class="form"  id="formatos_Segundo" style="display: none;">
                             <input type="hidden" name="Id_Materia" id="Id2" value="0" required>
@@ -1610,7 +1610,7 @@
                                 </div>
                                 <div class="col-md-6">
                                   <label>Calendario</label>
-                                  <input type="date" class="form-control" name="Calendario" max="<?php echo date('Y-m-d');?>" value="<?php  echo date('Y-m-d');?>" title="Fecha requerida" required> 
+                                  <input type="date" class="form-control" name="Calendario" max="<?php echo date('Y-m-d');?>" value="<?php  echo date('Y-m-d');?>" title="Fecha requerida" required>
                                 </div>
                               </div>
                               <div class="row">
@@ -1627,7 +1627,7 @@
                                   <input type="submit" value="Guardar" >
                                   <input type="button" value="Cancelar" onclick="cancelar_Actvidades()" >
                               </div>
-                                  
+
                           </form>
                           <form action="../php/Actividades/SegundoSemestre/kardex2.php" id="kardex2" method="post" enctype="multipart/form-data" style="display: none;">
 
@@ -1759,7 +1759,7 @@
                                   <input type="submit" value="Enviar">
                                   <input type="button" value="Cancelar" onclick="cancelar_Actvidades();">
                                 </div>
-                              </div>    
+                              </div>
                               </form>
                               <form id="Eliminar_proyecto2" action="../php/Actividades/SegundoSemestre/Eliminar_proyectos2.php" method="post">
                                 <input type="hidden" name="Id_tesis" value="0" id="Id_tesis2">
@@ -1821,9 +1821,9 @@
                                               <td><?php echo $rs["Titulo"]; ?></td>
                                               <td><?php echo $rs["TipoDeProduccion"]; ?></td>
                                               <td><?php if (!$rs["Probatorio"]){echo "No";}else{echo "Si";}; ?></td>
-                                          
+
                                               <td>
-                                                <a href="#" onclick="Editar_Produccion2(<?php 
+                                                <a href="#" onclick="Editar_Produccion2(<?php
                                                   switch ($rs["TipoDeProduccion"]) {
                                                     case 'Artículo de difusión y divulgación':
                                                       echo "201, {$rs['NO_Publicacion']}";
@@ -1871,9 +1871,9 @@
                                                       echo "215, {$rs['NO_Publicacion']}";
                                                       break;
                                                     }
-                                                  
+
                                                     ?>)">Editar</a><br>
-                                                <a href="#" onclick="Eliminar_Produccion(<?php 
+                                                <a href="#" onclick="Eliminar_Produccion(<?php
 
                                                   switch ($rs["TipoDeProduccion"]) {
                                                     case 'Artículo de difusión y divulgación':
@@ -1935,7 +1935,7 @@
                               <?php } ?>
                             </div>
                         <script>
-                            
+
                             function cambiar2(){
                               var valor= $("#Vizualisador2").val();
                               cambio2(valor);
@@ -1962,7 +1962,7 @@
                             </select>
 
                             <div id="201" style="display:inline;">
-                              <?php 
+                              <?php
                                 echo ArticuloDifucion2();
                                ?>
                             </div>
@@ -2220,7 +2220,7 @@
                                 </div>
                                 <div class="row">
                                   <div class="col-md-3"></div>
-                                  <div class="col-md-6" >                              
+                                  <div class="col-md-6" >
                                       <label>Probatorio</label>
                                       <input type="File" id="File_Apoyo" name="Probatorio" required class="form-control">
                                   </div>
@@ -2331,7 +2331,7 @@
                               <div class="row">
                                 <div class="col-md-4">
                                   <label>Fecha de inicio</label>
-                                  <input type="date" name="Fecha_Inicio_Congreso" class="form-control" required> 
+                                  <input type="date" name="Fecha_Inicio_Congreso" class="form-control" required>
                                 </div>
                                 <div class="col-md-4">
                                   <label>Fecha termino</label>
@@ -2353,7 +2353,7 @@
                           </form>
                         </div>
                         </div>
-                       
+
                   </div>
                   <div class="Semestre" >
                     <a href="#"  id="Asesoria2" onclick="Desplegar('AsesoriaEsp2')" ><p>Asesoría especializada</p></a>
@@ -2507,7 +2507,7 @@
                                       <table>
                                         <tbody>
                                           <tr>
-                                            <th>No.</th>                                        
+                                            <th>No.</th>
                                             <th>Fecha</th>
                                             <th>Calendario Escolar</th>
                                             <th>Acciones</th>
@@ -2737,7 +2737,7 @@
                                   <input type="submit" name="Submit_Movilidad2" id="Submit_Movilidad2" value="Guardar">
                                   <input type="button" name="Cancelar" onclick="cancelar_Actvidades()" value="Cancelar" >
                                 </div>
-                                
+
                               </div>
                             </form>
                           </div>
@@ -2900,7 +2900,7 @@
                         </div>
                       </div>
                   </div>
-      
+
                   <form action="../pdf/Informe_de_Actividades2.php" id="Form_Generacion1" method="post" enctype="multipart/form-data" target="_blank">
                     <input type="submit" value="Gener informe de Actividades" style="float: left; margin: 10px;" id="Boton">
                   </form>
@@ -2909,7 +2909,7 @@
                 </div>
 
 
-                
+
                 <form action="../Php/Actividades/PriemerSemestre/AgregarFirmado2.php" style="display: none; margin: 5px;" id="Archivo2" enctype="multipart/form-data" method="POST">
                   <label><h3>Subir informe Firmado</h2></label>
                   <input type="file" name="Probatorio" class="form-control">
@@ -2918,7 +2918,7 @@
                   <input type="button" value="cancelar" onclick="cancelar_Actvidades()" class="Botones">
                 </form>
 
-                    
+
                 </div>
                 <?php } ?>
             </div>
@@ -3017,13 +3017,13 @@
                               <input type="button" value="Nueva Materia" onclick="nueva_materia(3)" class="Botones">
                             </div>
                           </div>
-                          
-                          
+
+
 
                           </div>
 
                         <div>
-                          
+
 
                           <form action="../php/Actividades/TercerSemestre/nuevamateria3.php"  method="post" enctype="multipart/form-data" class="form"  id="formatos_Tercero" style="display: none;">
                               <input type="hidden" name="Id_Materia" id="Id3" value="0" required>
@@ -3034,7 +3034,7 @@
                                   </div>
                                   <div class="col-md-6">
                                     <label>Calendario</label>
-                                    <input type="date" class="form-control" name="Calendario" max="<?php echo date('Y-m-d');?>" value="<?php  echo date('Y-m-d');?>" title="Fecha requerida" required> 
+                                    <input type="date" class="form-control" name="Calendario" max="<?php echo date('Y-m-d');?>" value="<?php  echo date('Y-m-d');?>" title="Fecha requerida" required>
                                   </div>
                                 </div>
                                 <div class="row">
@@ -3051,7 +3051,7 @@
                                     <input type="submit" value="Guardar" >
                                     <input type="button" value="Cancelar" onclick="cancelar_Actvidades()" >
                                 </div>
-                                    
+
                             </form>
                             <form action="../php/Actividades/TercerSemestre/kardex3.php" id="kardex3" method="post" enctype="multipart/form-data" style="display: none;">
 
@@ -3183,7 +3183,7 @@
                                     <input type="submit" value="Enviar">
                                     <input type="button" value="Cancelar" onclick="cancelar_Actvidades();">
                                   </div>
-                                </div>    
+                                </div>
                                 </form>
                                 <form id="Eliminar_proyecto" action="../php/Actividades/TercerSemestre/Eliminar_proyectos3.php" method="post">
                                   <input type="hidden" name="Id_tesis" value="0" id="Id_tesis">
@@ -3204,7 +3204,7 @@
 
                                 $DB= new ConfigDB();
                                 $DB->Mysql();
-                                $codigo=$_SESSION["Cuarto_informe"];
+                                $codigo=$_SESSION["Tercer_informe"];
                                 $bandera=FALSE;
 
                                  $Consulta=$DB->CONSULTA("SELECT * FROM produccionAlumnos  where  IdActividades = '$codigo'");
@@ -3233,7 +3233,7 @@
                                         $DB=new ConfigDB();
                                         $DB->Mysql();
                                         $codigo=$_SESSION["CODIGO_ES"];
-                                        $Id_Act =$_SESSION["Cuarto_informe"];
+                                        $Id_Act =$_SESSION["Tercer_informe"];
                                         $contador=0;
 
                                       $Consulta=$DB->CONSULTA("SELECT * from produccionAlumnos where IdActividades='$Id_Act'");
@@ -3245,9 +3245,9 @@
                                                 <td><?php echo $rs["Titulo"]; ?></td>
                                                 <td><?php echo $rs["TipoDeProduccion"]; ?></td>
                                                 <td><?php if (!$rs["Probatorio"]){echo "No";}else{echo "Si";}; ?></td>
-                                            
+
                                                 <td>
-                                                  <a href="#" onclick="Editar_Produccion3(<?php 
+                                                  <a href="#" onclick="Editar_Produccion3(<?php
                                                     switch ($rs["TipoDeProduccion"]) {
                                                       case 'Artículo de difusión y divulgación':
                                                         echo "301, {$rs['NO_Publicacion']}";
@@ -3295,9 +3295,9 @@
                                                         echo "315, {$rs['NO_Publicacion']}";
                                                         break;
                                                       }
-                                                    
+
                                                       ?>)">Editar</a><br>
-                                                  <a href="#" onclick="Eliminar_Produccion(<?php 
+                                                  <a href="#" onclick="Eliminar_Produccion(<?php
 
                                                     switch ($rs["TipoDeProduccion"]) {
                                                       case 'Artículo de difusión y divulgación':
@@ -3359,7 +3359,7 @@
                                 <?php } ?>
                               </div>
                             <script>
-                                
+
                                 function cambiar3(){
                                   var valor= $("#Vizualisador3").val();
                                   cambio3(valor);
@@ -3386,58 +3386,58 @@
                               </select>
 
                               <div id="301" style="display:inline;">
-                                <?php 
+                                <?php
                                   echo ArticuloDifucion();
                                  ?>
                               </div>
                               <div id="302" style="display:none;">
-                                <?php   echo articuloArbitrado(); ?>
+                                <?php   echo articuloArbitrado3(); ?>
                               </div>
                               <div id="303" style="display:none;">
-                                <?php echo RevistaIndexada(); ?>
+                                <?php echo RevistaIndexada3(); ?>
                               </div>
                               <div id="304" style="display:none;">
-                                <?php  echo CapituloDeLibro();?>
+                                <?php  echo CapituloDeLibro3();?>
                               </div>
                               <div id="305" style="display:none;">
-                                <?php echo consultoria(); ?>
+                                <?php echo consultoria3(); ?>
                               </div>
                               <div id="306" style="display:none;">
-                                <?php echo InformeTecnico();  ?>
+                                <?php echo InformeTecnico3();  ?>
                               </div>
                               <div id="307" style="display:none;">
-                                <?php echo Libro();?>
+                                <?php echo Libro3();?>
                               </div>
                               <div id="308" style="display:none;">
-                                <?php echo ManualesDeOperacion(); ?>
+                                <?php echo ManualesDeOperacion3(); ?>
                               </div>
                               <div id="309" style="display:none;">
-                                <?php echo MaterialDeApoyo();  ?>
+                                <?php echo MaterialDeApoyo3();  ?>
                               </div>
                               <div id="310" style="display:none;">
-                                <?php echo MaterialDidactico();?>
+                                <?php echo MaterialDidactico3();?>
                               </div>
                               <div id="311" style="display:none;">
-                                <?php echo Memorias(); ?>
+                                <?php echo Memorias3(); ?>
                               </div>
                               <div id="312" style="display:none;">
-                                <?php echo ProductividadInnovadora(); ?>
+                                <?php echo ProductividadInnovadora3(); ?>
                               </div>
                               <div id="313" style="display:none;">
-                                <?php echo ProduccionArtistica(); ?>
+                                <?php echo ProduccionArtistica3(); ?>
                               </div>
                               <div id="314" style="display:none;">
-                                <?php  echo Prototipo();  ?>
+                                <?php  echo Prototipo3();  ?>
                               </div>
                               <div id="315" style="display:none;">
-                                <?php echo Otra(); ?>
+                                <?php echo Otra3(); ?>
                               </div>
                             </div>
-                            
+
                           </div>
                         </div>
 
-                    
+
 
                     <div class="Semestre" >
                       <a href="#"  id="Extra3" onclick="Desplegar('Extracurriculares3')" ><p>Actividades Extracurriculares</p></a>
@@ -3647,7 +3647,7 @@
                                   </div>
                                   <div class="row">
                                     <div class="col-md-3"></div>
-                                    <div class="col-md-6" >                              
+                                    <div class="col-md-6" >
                                         <label>Probatorio</label>
                                         <input type="File" id="File_Apoyo" name="Probatorio" required class="form-control">
                                     </div>
@@ -3758,7 +3758,7 @@
                                   <div class="row">
                                     <div class="col-md-4">
                                       <label>Fecha de inicio</label>
-                                      <input type="date" name="Fecha_Inicio_Congreso" class="form-control" required> 
+                                      <input type="date" name="Fecha_Inicio_Congreso" class="form-control" required>
                                     </div>
                                     <div class="col-md-4">
                                       <label>Fecha termino</label>
@@ -3780,7 +3780,7 @@
                               </form>
                             </div>
                             </div>
-                           
+
                     </div>
                     <div class="Semestre" >
                       <a href="#"  id="Asesoria3" onclick="Desplegar('AsesoriaEsp3')" ><p>Asesoría especializada</p></a>
@@ -3934,7 +3934,7 @@
                                         <table>
                                           <tbody>
                                             <tr>
-                                              <th>No.</th>                                        
+                                              <th>No.</th>
                                               <th>Fecha</th>
                                               <th>Calendario Escolar</th>
                                               <th>Acciones</th>
@@ -4164,7 +4164,7 @@
                                     <input type="submit" name="Submit_Movilidad3" id="Submit_Movilidad3" value="Guardar">
                                     <input type="button" name="Cancelar" onclick="cancelar_Actvidades()" value="Cancelar" >
                                   </div>
-                                  
+
                                 </div>
                               </form>
                             </div>
@@ -4328,7 +4328,7 @@
                         </div>
                     </div>
 
-        
+
                     <form action="../pdf/Informe_de_Actividades3.php" id="Form_Generacion1" method="post" enctype="multipart/form-data" target="_blank">
                       <input type="submit" value="Gener informe de Actividades" style="float: left; margin: 10px;" id="Boton">
                     </form>
@@ -4337,7 +4337,7 @@
                 </div>
 
 
-                
+
                 <form action="../Php/Actividades/PriemerSemestre/AgregarFirmado3.php" style="display: none; margin: 5px;" id="Archivo3" enctype="multipart/form-data" method="POST">
                   <label><h3>Subir informe Firmado</h2></label>
                   <input type="file" name="Probatorio" class="form-control">
@@ -4345,19 +4345,19 @@
                   <input type="Submit" value="Subir archivo" class="Botones">
                   <input type="button" value="cancelar" onclick="cancelar_Actvidades()" class="Botones">
                 </form>
-                
+
               </div>
               <?php } ?>
             </div>
 
-            
+
 
 
             <div class="Semestre">
               <a href="#" id="Cuarto" onclick="desplegar_Cuarto()"><p>Cuarto Semetre</p></a>
               <a href="#" id="Cuarto" onclick="desplegar_Cuarto()"><p style="float: right; margin-right: 10px;">+</p></a>
               <div class="desplegar" style="display: none" id="Cuar">
-                  <div id="tabs4"> 
+                  <div id="tabs4">
                     <?php
                     require_once('../php/conf_tab.php');
 
@@ -4444,13 +4444,13 @@
                               <input type="button" value="Nueva Materia" onclick="nueva_materia(4)" class="Botones">
                             </div>
                           </div>
-                          
-                          
+
+
 
                           </div>
 
                         <div>
-                          
+
 
                           <form action="../php/Actividades/CuartoSemestre/nuevamateria4.php"  method="post" enctype="multipart/form-data" class="form"  id="formatos_Cuarto" style="display: none;">
                               <input type="hidden" name="Id_Materia" id="Id4" value="0" required>
@@ -4461,7 +4461,7 @@
                                   </div>
                                   <div class="col-md-6">
                                     <label>Calendario</label>
-                                    <input type="date" class="form-control" name="Calendario" max="<?php echo date('Y-m-d');?>" value="<?php  echo date('Y-m-d');?>" title="Fecha requerida" required> 
+                                    <input type="date" class="form-control" name="Calendario" max="<?php echo date('Y-m-d');?>" value="<?php  echo date('Y-m-d');?>" title="Fecha requerida" required>
                                   </div>
                                 </div>
                                 <div class="row">
@@ -4478,7 +4478,7 @@
                                     <input type="submit" value="Guardar" >
                                     <input type="button" value="Cancelar" onclick="cancelar_Actvidades()" >
                                 </div>
-                                    
+
                             </form>
                             <form action="../php/Actividades/CuartoSemestre/kardex4.php" id="kardex3" method="post" enctype="multipart/form-data" style="display: none;">
 
@@ -4610,7 +4610,7 @@
                                     <input type="submit" value="Enviar">
                                     <input type="button" value="Cancelar" onclick="cancelar_Actvidades();">
                                   </div>
-                                </div>    
+                                </div>
                                 </form>
                                 <form id="Eliminar_proyecto" action="../php/Actividades/CuartoSemestre/Eliminar_proyectos4.php" method="post">
                                   <input type="hidden" name="Id_tesis" value="0" id="Id_tesis">
@@ -4672,9 +4672,9 @@
                                                 <td><?php echo $rs["Titulo"]; ?></td>
                                                 <td><?php echo $rs["TipoDeProduccion"]; ?></td>
                                                 <td><?php if (!$rs["Probatorio"]){echo "No";}else{echo "Si";}; ?></td>
-                                            
+
                                                 <td>
-                                                  <a href="#" onclick="Editar_Produccion4(<?php 
+                                                  <a href="#" onclick="Editar_Produccion4(<?php
                                                     switch ($rs["TipoDeProduccion"]) {
                                                       case 'Artículo de difusión y divulgación':
                                                         echo "401, {$rs['NO_Publicacion']}";
@@ -4722,9 +4722,9 @@
                                                         echo "415, {$rs['NO_Publicacion']}";
                                                         break;
                                                       }
-                                                    
+
                                                       ?>)">Editar</a><br>
-                                                  <a href="#" onclick="Eliminar_Produccion(<?php 
+                                                  <a href="#" onclick="Eliminar_Produccion(<?php
 
                                                     switch ($rs["TipoDeProduccion"]) {
                                                       case 'Artículo de difusión y divulgación':
@@ -4786,7 +4786,7 @@
                                 <?php } ?>
                               </div>
                           <script>
-                              
+
                               function cambiar4(){
                                 var valor= $("#Vizualisador4").val();
                                 cambio4(valor);
@@ -4813,54 +4813,54 @@
                               </select>
 
                               <div id="401" style="display:inline;">
-                                <?php 
-                                  echo ArticuloDifucion();
+                                <?php
+                                  echo ArticuloDifucion4();
                                  ?>
                               </div>
                               <div id="402" style="display:none;">
-                                <?php   echo articuloArbitrado(); ?>
+                                <?php   echo articuloArbitrado4(); ?>
                               </div>
                               <div id="403" style="display:none;">
-                                <?php echo RevistaIndexada(); ?>
+                                <?php echo RevistaIndexada4(); ?>
                               </div>
                               <div id="404" style="display:none;">
-                                <?php  echo CapituloDeLibro();?>
+                                <?php  echo CapituloDeLibro4();?>
                               </div>
                               <div id="405" style="display:none;">
-                                <?php echo consultoria(); ?>
+                                <?php echo consultoria4(); ?>
                               </div>
                               <div id="406" style="display:none;">
-                                <?php echo InformeTecnico();  ?>
+                                <?php echo InformeTecnico4();  ?>
                               </div>
                               <div id="407" style="display:none;">
-                                <?php echo Libro();?>
+                                <?php echo Libro4();?>
                               </div>
                               <div id="408" style="display:none;">
-                                <?php echo ManualesDeOperacion(); ?>
+                                <?php echo ManualesDeOperacion4(); ?>
                               </div>
                               <div id="409" style="display:none;">
-                                <?php echo MaterialDeApoyo();  ?>
+                                <?php echo MaterialDeApoyo4();  ?>
                               </div>
                               <div id="410" style="display:none;">
-                                <?php echo MaterialDidactico();?>
+                                <?php echo MaterialDidactico4();?>
                               </div>
                               <div id="411" style="display:none;">
-                                <?php echo Memorias(); ?>
+                                <?php echo Memorias4(); ?>
                               </div>
                               <div id="412" style="display:none;">
-                                <?php echo ProductividadInnovadora(); ?>
+                                <?php echo ProductividadInnovadora4(); ?>
                               </div>
                               <div id="413" style="display:none;">
-                                <?php echo ProduccionArtistica(); ?>
+                                <?php echo ProduccionArtistica4(); ?>
                               </div>
                               <div id="414" style="display:none;">
-                                <?php  echo Prototipo();  ?>
+                                <?php  echo Prototipo4();  ?>
                               </div>
                               <div id="415" style="display:none;">
-                                <?php echo Otra(); ?>
+                                <?php echo Otra4(); ?>
                               </div>
                             </div>
-                            
+
                           </div>
                     </div>
 
@@ -5072,7 +5072,7 @@
                                   </div>
                                   <div class="row">
                                     <div class="col-md-3"></div>
-                                    <div class="col-md-6" >                              
+                                    <div class="col-md-6" >
                                         <label>Probatorio</label>
                                         <input type="File" id="File_Apoyo" name="Probatorio" required class="form-control">
                                     </div>
@@ -5091,7 +5091,7 @@
                             </div>
                           </div>
                     </div>
-                   <div class="Semestre" >
+                    <div class="Semestre" >
                       <a href="#"  id="Pon4" onclick="Desplegar('Ponentes4')" ><p>Asistencia a eventos academicos como ponente</p></a>
                         <div class="desplegar" id="Ponentes4" style="display: none;">
                           <div class="contenido" id="contenidoPrincipalCongresos4" style="display:block;">
@@ -5183,7 +5183,7 @@
                                 <div class="row">
                                   <div class="col-md-4">
                                     <label>Fecha de inicio</label>
-                                    <input type="date" name="Fecha_Inicio_Congreso" class="form-control" required> 
+                                    <input type="date" name="Fecha_Inicio_Congreso" class="form-control" required>
                                   </div>
                                   <div class="col-md-4">
                                     <label>Fecha termino</label>
@@ -5205,10 +5205,10 @@
                             </form>
                           </div>
                           </div>
-                         
+
                     </div>
                     <div class="Semestre" >
-                      <a href="#"  id="Asesoria4" onclick="Desplegar('AsesoriaEsp4')" ><p>Asesoría especializada</p></a>
+                       <a href="#"  id="Asesoria4" onclick="Desplegar('AsesoriaEsp4')" ><p>Asesoría especializada</p></a>
                         <div class="desplegar" id="AsesoriaEsp4" style="display: none;">
                           <div class="contenido" id="contenidoPrincipalEspecializada4" style="display:block;">
                             <?php
@@ -5359,7 +5359,7 @@
                                         <table>
                                           <tbody>
                                             <tr>
-                                              <th>No.</th>                                        
+                                              <th>No.</th>
                                               <th>Fecha</th>
                                               <th>Calendario Escolar</th>
                                               <th>Acciones</th>
@@ -5589,7 +5589,7 @@
                                     <input type="submit" name="Submit_Movilidad4" id="Submit_Movilidad4" value="Guardar">
                                     <input type="button" name="Cancelar" onclick="cancelar_Actvidades()" value="Cancelar" >
                                   </div>
-                                  
+
                                 </div>
                               </form>
                             </div>
@@ -5753,7 +5753,7 @@
                         </div>
                     </div>
 
-        
+
                     <form action="../pdf/Informe_de_Actividades4.php" id="Form_Generacion1" method="post" enctype="multipart/form-data" target="_blank">
                       <input type="submit" value="Gener informe de Actividades" style="float: left; margin: 10px;" id="Boton">
                     </form>
@@ -5761,7 +5761,7 @@
                      <input type="button" style="display: block; margin: 10px;" value="Subir infrome de actividades firmado" onclick="ocultarTabla(4)">
                   </div>
 
-                
+
                 <form action="../Php/Actividades/PriemerSemestre/AgregarFirmado4.php" style="display: none; margin: 5px;" id="Archivo4" enctype="multipart/form-data" method="POST">
                   <label><h3>Subir informe Firmado</h3></label>
                   <input type="file" name="Probatorio" class="form-control">
@@ -5769,7 +5769,7 @@
                   <input type="Submit" value="Subir archivo" class="Botones">
                   <input type="button" value="cancelar" onclick="cancelar_Actvidades()" class="Botones">
                 </form>
-                
+
                 </div>
                 <?php } ?>
               </div>

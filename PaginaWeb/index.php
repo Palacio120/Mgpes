@@ -15,6 +15,7 @@ if (isset($_SESSION['user'])) {
   <title>login</title>
   <link href="Styles/Default.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script type="text/javascript" src="Scripts/main.Js"></script>
 </head>
 <body>
     <div class="page">
@@ -23,7 +24,7 @@ if (isset($_SESSION['user'])) {
           <h1><a href="http://mgpes.cucea.udg.mx/">Maestría en Gestion y Politícas de la Educación Superior</a></h1>
         </div>
       </div>
-    <div class="main">
+    <div class="main" id="principal" style="display: block;">
       <div class="center">
         <div id="centrar">
           <input id="tab-1" type="radio" name="tab-group" checked="checked">
@@ -50,11 +51,27 @@ if (isset($_SESSION['user'])) {
          </div>
         </div>
       </div>
-
+      <div class="footer">
+              <button type="button" name="button" class="btn btn-ligth" style="float:right; margin-right:10px;" onclick="NuevoAsp()"> Nuevo aspirante</button>
+      </div>
     </div>
-    <div class="footer">
-            <a href="" style="bottom: 10px; color: black;">Nuevo Aspirante</a>
-    </div>
+    <div class="FormatoAspirante" id="FormatosAsp" style="display:none">
+      <div id="centrar" style="padding-top:5%">
+          <form action="Php/NuevoAsp.php" method="post">
+            <label><h2>Registro de aspirantes</h2></label>
+            <div class="row">
+              <div class="col-md-3">
+                <label>Nombre</label>
+                <input type="text" name="Nombre" class="form-control">
+              </div>
+              <div class="col-md-3">
+                <label></label>
+                <input type="text" name="" value="">
+              </div>
+            </div>
+          </form>
+      </div>
+  </div>
   </div>
 </body>
 </html>

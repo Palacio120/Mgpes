@@ -8,9 +8,9 @@
 }
 
 html{
-  /* 
+  /*
   background-color: #373534;
-  */
+*/
 }
 
 .footer{
@@ -276,6 +276,11 @@ a {
 .title h1{
   resize: horizontal;
 
+}
+
+.centrar{
+  position: absolute;
+  
 }
 
 @media (min-width: 600px) {

@@ -233,11 +233,11 @@
             </div>
             <div class="Elemento_Perfil">
               <label>Primer lector</label>
-              <p><?php echo $_SESSION["NombreLector1"]; ?></p>
+              <p><?php echo $_SESSION["lector_1"]; ?></p>
             </div>
             <div class="Elemento_Perfil">
               <label>Segundo lector </label>
-              <p><?php echo $_SESSION["NombreLector2"]; ?></p>
+              <p><?php echo $_SESSION["lector_2"]; ?></p>
             </div>
           </div>
         </div>
