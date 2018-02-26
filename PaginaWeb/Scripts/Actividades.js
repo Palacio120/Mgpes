@@ -1481,7 +1481,7 @@ function Editar_Produccion2(Tipo, Id_value){
 	document.getElementById('Vizualisador2').style.display=('none');
 	document.getElementById('Forms_Produccion2').style.display=('block');
 	document.getElementById(Tipo).style.display=('block');
-	document.getElementById("Alter2".concat(Tipo)).action='/MGPES/Mgpes/paginaweb/Estudiante/actividades.php.?id'+Tipo+'='+Id_value;
+	document.getElementById("Alter".concat(Tipo)).action='/MGPES/Mgpes/paginaweb/Estudiante/actividades.php.?id'+Tipo+'='+Id_value;
 }
 function Editar_Produccion3(Tipo, Id_value){
 	document.getElementById('301').style.display=('none');
@@ -1489,7 +1489,7 @@ function Editar_Produccion3(Tipo, Id_value){
 	document.getElementById('Vizualisador3').style.display=('none');
 	document.getElementById('Forms_Produccion3').style.display=('block');
 	document.getElementById(Tipo).style.display=('block');
-	document.getElementById("Alter3".concat(Tipo)).action='/MGPES/Mgpes/paginaweb/Estudiante/actividades.php.?id'+Tipo+'='+Id_value;
+	document.getElementById("Alter".concat(Tipo)).action='/MGPES/Mgpes/paginaweb/Estudiante/actividades.php.?id'+Tipo+'='+Id_value;
 }
 function Editar_Produccion4(Tipo, Id_value){
 	document.getElementById('401').style.display=('none');
@@ -1497,7 +1497,7 @@ function Editar_Produccion4(Tipo, Id_value){
 	document.getElementById('Vizualisador4').style.display=('none');
 	document.getElementById('Forms_Produccion4').style.display=('block');
 	document.getElementById(Tipo).style.display=('block');
-	document.getElementById("Alter4".concat(Tipo)).action='/MGPES/Mgpes/paginaweb/Estudiante/actividades.php.?id'+Tipo+'='+Id_value;
+	document.getElementById("Alter".concat(Tipo)).action='/MGPES/Mgpes/paginaweb/Estudiante/actividades.php.?id'+Tipo+'='+Id_value;
 }
 
 function Editar_Vinculacion(Id_value){
@@ -1846,10 +1846,16 @@ function ocultarTabla(num){
 		document.getElementById('tabs1').style.display=('none');
 		break;
 		case 2:
+		document.getElementById('Archivo2').style.display=('block');
+		document.getElementById('tabs2').style.display=('none');
 		break;
 		case 3:
+		document.getElementById('Archivo3').style.display=('block');
+		document.getElementById('tabs3').style.display=('none');
 		break;
 		case 4:
+		document.getElementById('Archivo4').style.display=('block');
+		document.getElementById('tabs4').style.display=('none');
 		break;
 	}
 }

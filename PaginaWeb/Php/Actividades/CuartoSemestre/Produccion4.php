@@ -2146,7 +2146,7 @@
 
         <?php }
         function ManualesDeOperacion4(){?>
-            <form name="forma8" id="Alter40408" method="post" enctype="multipart/form-data" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>class="ns_">
+            <form name="forma8" id="Alter408" method="post" enctype="multipart/form-data" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>class="ns_">
             <div class="row">
                 <div class="col-md-8">
                     <h3>Manuales de operación</h3>
