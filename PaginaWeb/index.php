@@ -62,13 +62,77 @@ if (isset($_SESSION['user'])) {
             <div class="row">
               <div class="col-md-3">
                 <label>Nombre</label>
-                <input type="text" name="Nombre" class="form-control">
+                <input type="text" name="Nombre" class="form-control" required>
+              </div>
+              <div class="col-md-3">
+                <label>Codigo de SIIAU</label>
+                <input type="text" name="Siiau" class="form-control" maxlength="9" required>
+              </div>
+              <div class="col-md-3">
+                <label>CURP</label><a href="https://consultas.curp.gob.mx/CurpSP/inicio2_2.jsp" target="_blank">*</a>
+                <input type="text" name="Curp" class="form-control" maxlength="" required>
               </div>
               <div class="col-md-3">
                 <label></label>
-                <input type="text" name="" value="">
+                <input type="" name="" class="form-control" maxlength="" required>
               </div>
             </div>
+            <div class="row">
+              <div class="col-md-3">
+                <label></label>
+                <input type="" name="" class="form-control" value="">
+              </div>
+              <div class="col-md-3">
+                <label></label>
+                <input type="" name="" class="form-control" value="">
+              </div>
+              <div class="col-md-3">
+                <label></label>
+                <input type="" name="" class="form-control" value="">
+              </div>
+              <div class="col-md-3">
+                <label></label>
+                <input type="" name="" class="form-control" value="">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <label></label>
+                <input type="" name="" class="form-control" value="">
+              </div>
+              <div class="col-md-3">
+                <label></label>
+                <input type="" name="" class="form-control" value="">
+              </div>
+              <div class="col-md-3">
+                <label></label>
+                <input type="" name="" class="form-control" value="">
+              </div>
+              <div class="col-md-3">
+                <label></label>
+                <input type="" name="" class="form-control" value="">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <label></label>
+                <input type="" name="" class="form-control" value="">
+              </div>
+              <div class="col-md-3">
+                <label></label>
+                <input type="" name="" class="form-control" value="">
+              </div>
+              <div class="col-md-3">
+                <label></label>
+                <input type="" name="" class="form-control" value="">
+              </div>
+              <div class="col-md-3">
+                <label></label>
+                <input type="" name="" class="form-control" value="">
+              </div>
+            </div>
+
+
           </form>
       </div>
   </div>
