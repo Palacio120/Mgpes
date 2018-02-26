@@ -16,26 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `departamentos`
+-- Table structure for table `lectores`
 --
 
-DROP TABLE IF EXISTS `departamentos`;
+DROP TABLE IF EXISTS `lectores`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `departamentos` (
-  `CodigoDep` char(9) NOT NULL,
-  `NombreDelDepartamento` longtext,
-  PRIMARY KEY (`CodigoDep`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `lectores` (
+  `No_Lector` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `NombreCompleto` varchar(255) DEFAULT '',
+  `Correo` varchar(255) DEFAULT '',
+  `Telefono` char(8) DEFAULT '',
+  `Telefono_Movil` char(10) DEFAULT '',
+  `CargoAdministrativo` longtext,
+  `Institución` longtext,
+  PRIMARY KEY (`No_Lector`),
+  KEY `Index_1` (`NombreCompleto`),
+  KEY `index_2` (`Correo`),
+  KEY `Index_3` (`Telefono`),
+  KEY `Index_4` (`Telefono_Movil`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `departamentos`
+-- Dumping data for table `lectores`
 --
 
-LOCK TABLES `departamentos` WRITE;
-/*!40000 ALTER TABLE `departamentos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `departamentos` ENABLE KEYS */;
+LOCK TABLES `lectores` WRITE;
+/*!40000 ALTER TABLE `lectores` DISABLE KEYS */;
+INSERT INTO `lectores` VALUES (1,'Prueba Prueba Prueba','Prueba@prueba.com\r\n','12345678','1234567890','prueba','prueba'),(2,'Ricardo Palacio Alvarez','Prueba@prueba.prueba','12345678','0987654321','prueba','prueba');
+/*!40000 ALTER TABLE `lectores` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -47,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-26  0:30:51
+-- Dump completed on 2018-02-26  0:30:30

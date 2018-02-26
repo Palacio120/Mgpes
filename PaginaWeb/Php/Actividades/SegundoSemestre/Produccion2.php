@@ -37,8 +37,7 @@
 
                 switch ($num) {
                   case '201':
-                        $id=$_GET['id201'];
-                        $verdad=isset($id);
+                        $verdad=isset($_GET['id202']);
                         if ($verdad && $verdad==1) {
 
                             

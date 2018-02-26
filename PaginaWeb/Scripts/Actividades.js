@@ -1838,3 +1838,18 @@ function NuevaExtracurricular(num){
 			window.location.reload();
 	}
 }
+
+function ocultarTabla(num){
+	switch (num){
+		case 1:
+		document.getElementById('Archivo1').style.display=('block');
+		document.getElementById('tabs1').style.display=('none');
+		break;
+		case 2:
+		break;
+		case 3:
+		break;
+		case 4:
+		break;
+	}
+}
