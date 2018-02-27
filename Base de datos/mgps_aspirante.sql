@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: mgps
+-- Host: localhost    Database: mgps
 -- ------------------------------------------------------
--- Server version	5.7.20-log
+-- Server version	5.7.18-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -67,8 +67,6 @@ CREATE TABLE `aspirante` (
   `CorreoTrabajo` longtext,
   `AntiguedadPuesto` int(11) DEFAULT '0',
   `AntiguedadEmpresa` int(11) DEFAULT '0',
-  `Firma` longblob,
-  `CedulaRecepccion` longblob,
   PRIMARY KEY (`codigo_Aspirante`),
   KEY `modalidad` (`modalidad`),
   KEY `NombrePrograma` (`NombrePrograma`),
@@ -115,7 +113,7 @@ CREATE TABLE `aspirante` (
 
 LOCK TABLES `aspirante` WRITE;
 /*!40000 ALTER TABLE `aspirante` DISABLE KEYS */;
-INSERT INTO `aspirante` VALUES (1,NULL,'tiempo completo','Nuevos paradigmas','','2017-08-23','2017A','Alejandro Palacio Alvarez',20,'M','','','','','','','','','','','','','','','','','','',90.00,'','Activos','',NULL,'','',1000.00,NULL,NULL,NULL,'','',NULL,0,0,NULL,NULL),(2,NULL,'tiempo completo','Nuevos paradigmas','','2017-08-23','2017A','Alejandro Palacio Alvarez',20,'M','','','','','','','','','','','','','','','','','','',90.00,'','Activos','',NULL,'','',1000.00,NULL,NULL,NULL,'','',NULL,0,0,NULL,NULL);
+INSERT INTO `aspirante` VALUES (1,NULL,'tiempo completo','Nuevos paradigmas','','2017-08-23','2017A','Alejandro Palacio Alvarez',20,'M','','','','','','','','','','','','','','','','','','',90.00,'','Activos','',NULL,'','',1000.00,NULL,NULL,NULL,'','',NULL,0,0),(2,NULL,'tiempo completo','Nuevos paradigmas','','2017-08-23','2017A','Alejandro Palacio Alvarez',20,'M','','','','','','','','','','','','','','','','','','',90.00,'','Activos','',NULL,'','',1000.00,NULL,NULL,NULL,'','',NULL,0,0);
 /*!40000 ALTER TABLE `aspirante` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -156,4 +154,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-26  0:30:34
+-- Dump completed on 2018-02-27 11:57:52

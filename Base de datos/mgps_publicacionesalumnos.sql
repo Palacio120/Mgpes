@@ -16,41 +16,43 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `articuloindexado`
+-- Table structure for table `publicacionesalumnos`
 --
 
-DROP TABLE IF EXISTS `articuloindexado`;
+DROP TABLE IF EXISTS `publicacionesalumnos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `articuloindexado` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `NO_Publicacion` int(10) unsigned NOT NULL,
-  `Autor` varchar(255) DEFAULT NULL,
-  `TituloDeArticulo` longtext,
-  `EstadoActual` enum('Aceptado','Publicado') DEFAULT NULL,
-  `NombreDeRevista` varchar(255) DEFAULT NULL,
-  `DePaguina` int(11) DEFAULT NULL,
-  `APaguina` int(11) DEFAULT NULL,
-  `Pais` varchar(255) DEFAULT NULL,
-  `Editorial` varchar(255) DEFAULT NULL,
-  `Volumen` varchar(255) DEFAULT NULL,
-  `ISSN` varchar(255) DEFAULT NULL,
-  `Fecha` date DEFAULT NULL,
-  `proposito` longtext,
-  `indiceDeRevista` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `produccion_idx` (`NO_Publicacion`),
-  CONSTRAINT `publicacion` FOREIGN KEY (`NO_Publicacion`) REFERENCES `produccionalumnos` (`NO_Publicacion`) ON DELETE NO ACTION ON UPDATE CASCADE
+CREATE TABLE `publicacionesalumnos` (
+  `NO_Publicacion` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `CODIGO_ES` char(9) DEFAULT NULL,
+  `NombreCompleto` varchar(255) DEFAULT '',
+  `TituloPublicacion` varchar(255) DEFAULT '',
+  `Co_autoría` longtext,
+  `TipoPublicacion` enum('libro','capítulo','artículo','otro') DEFAULT 'libro',
+  `NombreLibXRev` longtext,
+  `ISBNXISSN` char(20) DEFAULT NULL,
+  `Editorial` longtext,
+  `Lugar` longtext,
+  `Año` date DEFAULT NULL,
+  `ApoyoEconomico` double(12,2) DEFAULT '0.00',
+  `InstituciónDeApoyo` longtext,
+  `Evidencias` longblob,
+  `Programa_apoyo` longtext,
+  PRIMARY KEY (`NO_Publicacion`),
+  KEY `CODIGO_ES` (`CODIGO_ES`),
+  KEY `publicacionesalumnos_ibfk_2` (`NombreCompleto`),
+  CONSTRAINT `publicacionesalumnos_ibfk_1` FOREIGN KEY (`CODIGO_ES`) REFERENCES `estudiante` (`CODIGO_ES`) ON UPDATE CASCADE,
+  CONSTRAINT `publicacionesalumnos_ibfk_2` FOREIGN KEY (`NombreCompleto`) REFERENCES `estudiante` (`NombreCompleto`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `articuloindexado`
+-- Dumping data for table `publicacionesalumnos`
 --
 
-LOCK TABLES `articuloindexado` WRITE;
-/*!40000 ALTER TABLE `articuloindexado` DISABLE KEYS */;
-/*!40000 ALTER TABLE `articuloindexado` ENABLE KEYS */;
+LOCK TABLES `publicacionesalumnos` WRITE;
+/*!40000 ALTER TABLE `publicacionesalumnos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `publicacionesalumnos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -62,4 +64,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-27 11:58:05
+-- Dump completed on 2018-02-27 11:57:51
