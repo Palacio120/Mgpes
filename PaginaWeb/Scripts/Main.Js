@@ -188,3 +188,7 @@ function NuevoAsp(){
   document.getElementById("principal").style.display="none";
   document.getElementById("FormatosAsp").style.display="block";
 }
+
+function  CancelarNuevoAsp(){
+  location.reload();
+}
