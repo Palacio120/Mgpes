@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: mgps
 -- ------------------------------------------------------
--- Server version	5.7.18-log
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -57,7 +57,7 @@ CREATE TABLE `direcciondetesis` (
 
 LOCK TABLES `direcciondetesis` WRITE;
 /*!40000 ALTER TABLE `direcciondetesis` DISABLE KEYS */;
-INSERT INTO `direcciondetesis` VALUES (2,'BB','BB','Alejandro Palacio Alvarez','Prueba001','NULL','BB','2017B','espera','BB','BB','CYMLES','Segundo Semestre');
+INSERT INTO `direcciondetesis` VALUES (2,'Dra. Sonia Reynaga Obregón','','Alejandro Palacio Alvarez','Prueba001','NULL','La internacionalización de programas de posgrado. El caso del Consejo Mexicano se Estudios de Posgrado','2017B','espera','','','CYMLES','Segundo Semestre');
 /*!40000 ALTER TABLE `direcciondetesis` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -106,4 +106,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-27 11:57:56
+-- Dump completed on 2018-02-28  8:25:02

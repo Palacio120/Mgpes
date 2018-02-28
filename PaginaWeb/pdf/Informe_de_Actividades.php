@@ -23,8 +23,7 @@
         font-weight: normal;
  			}
  			.head{
-				display: inline-block;
-        position: fixed;
+				display: inline;
         width: 100%;
  			}
 
@@ -42,13 +41,16 @@
         border: 1px solid;
         text-align: center;
 			}
-			.actividades{
+			.Actividades{
         border: 1px solid;
         text-align: center;
+        display: block;
+        margin-top: -2px;
+        
 			}
-      .actividades th, .actividades td{
+      .Actividades th, .Actividades td{
         text-align: left;
-        width: 100%;
+        width: 50%;
       }
 
       .contenedor{
@@ -118,12 +120,12 @@
 				</tr>
 			</table>
 		</div>
-		<div class="Actividades" style="background-color: #DFDBDA; margin-top:-2px;" >
-			<label style="width:100%;border-top: 1px solid;";>Actividades a realizar</label>
-			<table style="width: 100%; border-top: 1px solid;" cellspacing="0">
+		<div class="Actividades" style="background-color: #DFDBDA; margin-top:2px;" >
+			<label style="border-top: 1px solid;";>Actividades a realizar</label>
+			<table style=" border-top: 1px solid;" cellspacing="0">
 				<tr>
-					<th style="width:50%;">1.	 Materias curriculares</th>
-					<td style="width: 50%; text-align: center;">
+					<th style="">1.	 Materias curriculares</th>
+					<td style=" text-align: center;">
 						<?php   
 							include_once('../php/conf_tab.php');
 							$DB=new ConfigDB;
@@ -139,18 +141,26 @@
 					 	?>
 					 </td>
 				</tr>
+			</table>
+		</div>
+		<div class="Actividades" style="background-color: #DFDBDA; margin-top:2px;" >
+			<table style=" border-top: 1px solid;" cellspacing="0">
 				<tr>
-					<th style=" width:50%;">2.	Proyecto de tesis</th>
-					<td style="width: 50%; text-align: center;"> 
+					<th style=" ">2.	Proyecto de tesis</th>
+					<td style=" text-align: center;"> 
 						<?php 
 							echo $_SESSION["TemaTesis"];
 						?>
 							
 					</td>
 				</tr>
+			</table>
+		</div>
+		<div class="Actividades" style="background-color: #DFDBDA; margin-top:2px;" >
+			<table style=" border-top: 1px solid;" cellspacing="0">
 				<tr>
-					<th style=" width:50%;">3.	Producción académica</th>
-					<td style="width: 50%; text-align: center;">
+					<th style=" ">3.	Producción académica</th>
+					<td style=" text-align: center;">
 						<?php
 							include_once('../php/conf_tab.php');
 							$DB=new ConfigDB;
@@ -166,9 +176,13 @@
 						?>		
 					</td>
 				</tr>
+			</table>
+		</div>
+		<div class="Actividades" style="background-color: #DFDBDA; margin-top:2px;" >
+			<table style=" border-top: 1px solid;" cellspacing="0">
 				<tr>
-					<th style=" width:50%;">4.	Actividades extracurriculares</th>
-					<td style="width: 50%; text-align: center;">
+					<th style=" ">4.	Actividades extracurriculares</th>
+					<td style=" text-align: center;">
 						<?php
 							include_once('../php/conf_tab.php');
 							$DB= new ConfigDB();
@@ -182,9 +196,13 @@
 						?>
 					</td>
 				</tr>
+			</table>
+		</div>
+		<div class="Actividades" style="background-color: #DFDBDA; margin-top:2px;" >
+			<table style=" border-top: 1px solid;" cellspacing="0">
 				<tr>
-					<th style=" width:50%;">5.	Gestión de apoyo externo para la investigación</th>
-					<td style="width: 50%; text-align: center;">
+					<th style=" ">5.	Gestión de apoyo externo para la investigación</th>
+					<td style=" text-align: center;">
 						<?php 
 							include_once('../php/conf_tab.php');
 							$DB= new ConfigDB();
@@ -199,9 +217,13 @@
 						?>
 					</td>
 				</tr>
+			</table>
+		</div>
+		<div class="Actividades" style="background-color: #DFDBDA; margin-top:2px;" >
+			<table style=" border-top: 1px solid;" cellspacing="0">
 				<tr>
-					<th style=" width:50%;">6.	Asistencia a eventos académicos como ponente</th>
-					<td style="width: 50%; text-align: center;">
+					<th style=" ">6.	Asistencia a eventos académicos como ponente</th>
+					<td style=" text-align: center;">
 						<?php 
 							include_once('../php/conf_tab.php');
 							$DB= new ConfigDB();
@@ -215,9 +237,13 @@
 						?>
 					</td>
 				</tr>
+			</table>
+		</div>
+		<div class="Actividades" style="background-color: #DFDBDA; margin-top:2px;" >
+			<table style=" border-top: 1px solid;" cellspacing="0">
 				<tr>
-					<th style=" width:50%;">7.	Asesoría especializada</th>
-					<td style="width: 50%; text-align: center;">
+					<th style=" ">7.	Asesoría especializada</th>
+					<td style=" text-align: center;">
 						<?php 
 							include_once('../php/conf_tab.php');
 							$DB= new ConfigDB();
@@ -231,9 +257,13 @@
 						?>
 					</td>
 				</tr>
+			</table>
+		</div>
+		<div class="Actividades" style="background-color: #DFDBDA; margin-top:2px;" >
+			<table style=" border-top: 1px solid;" cellspacing="0">
 				<tr>
-					<th style=" width:50%;">8.	Necesidades tutoriales</th>
-					<td style="width: 50%; text-align: center;">
+					<th style=" ">8.	Necesidades tutoriales</th>
+					<td style=" text-align: center;">
 						<?php 
 							include_once('../php/conf_tab.php');
 							$DB= new ConfigDB();
@@ -247,9 +277,13 @@
 						?>
 					</td>
 				</tr>
+			</table>
+		</div>
+		<div class="Actividades" style="background-color: #DFDBDA; margin-top:2px;" >
+			<table style=" border-top: 1px solid;" cellspacing="0">
 				<tr>
-					<th style=" width:50%;">9.	Movilidad académica</th>
-					<td style="width: 50%; text-align: center;">
+					<th style=" ">9.	Movilidad académica</th>
+					<td style=" text-align: center;">
 						<?php 
 							include_once('../php/conf_tab.php');
 							$DB= new ConfigDB();
@@ -263,9 +297,13 @@
 						?>
 					</td>
 				</tr>
+			</table>
+		</div>
+		<div class="Actividades" style="background-color: #DFDBDA; margin-top:2px;" >
+			<table style=" border-top: 1px solid;" cellspacing="0">
 				<tr>
-					<th style=" width:50%;border-bottom:none;">10.	Vinculación académica</th>
-					<td style="width: 50%; border-bottom:none; text-align: center;">
+					<th style=" border-bottom:none;">10.	Vinculación académica</th>
+					<td style="; border-bottom:none text-align: center;">
 						<?php 
 							include_once('../php/conf_tab.php');
 							$DB= new ConfigDB();
@@ -295,23 +333,6 @@
 		  			</div>
 		      </div>
 		</div>
-		<?php 
-
-			include_once('../php/conf_tab.php');
-			$DB=new ConfigDB;
-			$conn=$DB->Mysql();
-
-
-			$SQL=$DB->CONSULTA("SELECT Id_Materias From materias_semestres where Id_actividades = '$id_actividades';");
-			 
-			 while ($rs= $DB->Obtener_filas($SQL)) {
-                $id=$rs['Id_Materias'];
-                $NOMBRE=$rs['NombreArchivo'];
-                $enlace=$rs['kardex'];           		
-             }
-           	 header("Content-type: application/pdf ");
-           	 readfile($NOMBRE);
-		 ?>
 
 		
  </page>

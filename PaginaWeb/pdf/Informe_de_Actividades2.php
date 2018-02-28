@@ -42,11 +42,11 @@
         border: 1px solid;
         text-align: center;
 			}
-			.actividades{
+			.Actividades{
         border: 1px solid;
         text-align: center;
 			}
-      .actividades th, .actividades td{
+      .Actividades th, .Actividades td{
         text-align: left;
         width: 100%;
       }
@@ -119,7 +119,7 @@
 				</tr>
 			</table>
 		</div>
-		<div class="Actividades" style="background-color: #DFDBDA; margin-top:-2px;" >
+		<div class="Actividades" style="background-color: #DFDBDA; margin-top:-2px; float: left" >
 			<label style="width:100%;border-top: 1px solid;";>Actividades a realizar</label>
 			<table style="width: 100%; border-top: 1px solid;" cellspacing="0">
 				<tr>
