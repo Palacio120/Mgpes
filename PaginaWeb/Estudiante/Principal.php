@@ -45,8 +45,8 @@
         </div>
         <div class="menu_principal">
           <!--<div class="cuadro"><a href=""><p>Requisitos de ingresos</p></a></div>
-          <div class="cuadro"><a href=""><p>Beca CONACYT</p></a></div>
           <div class="cuadro"><a href=""><p>Desempeño academico</p></a></div>-->
+          <div class="cuadro"><a href="BecasCONACYT.php"><p>Beca CONACYT</p></a></div>
           <div class="cuadro"><a href="Planes_Trabajo.php"><p>Plan de trabajo</p></a></div>
           <div class="cuadro"><a href="actividades.php"><p>Informes de actividades</p></a></div>
 

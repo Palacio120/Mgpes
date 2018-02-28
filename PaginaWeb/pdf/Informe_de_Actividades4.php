@@ -11,75 +11,77 @@
 
 
  <page>
- 	<page_header>
- 		<style>
-      *{
-        font-style: normal;
+   <page_header>
+     <style>
+       *{
+         font-style: normal;
 
-      }
- 			h1, h3{
- 				color: gray;
- 				font-style: italic;
-        font-weight: normal;
- 			}
- 			.head{
-				display: inline-block;
-        position: fixed;
-        width: 100%;
- 			}
-
-      td, th{
- 				border: solid 1px;
-        border-left: none;
-        border-top: none;
-        border-collapse:collapse;
- 			}
-      table{
-        background-color: #fff;
-      }
-			.datos_generales{
-				margin-top: 10px;
-        border: 1px solid;
-        text-align: center;
-			}
-			.actividades{
-        border: 1px solid;
-        text-align: center;
-			}
-      .actividades th, .actividades td{
-        text-align: left;
-        width: 100%;
-      }
-
-      .contenedor{
+       }
+       h1, h3{
+         color: gray;
+         font-style: italic;
+         font-weight: normal;
+       }
+       .head{
          display: inline;
          width: 100%;
-         z-index: 20;
-         text-align: center;
-         margin-left: -52px;
-      }
-      .Firmas{
-        width:100%;
-        margin-top: 50px;
-      }
-      #firma{
-        display: inline;
-        position: relative;
-        height: auto;
-        width: 25%;
-        text-align: center;
-      }
-      #img{
-        width: 50px;
-        height: 70px;
-        float: left;
+       }
 
-      }
- 		</style>
- 	</page_header>
+       td, th{
+         border: solid 1px;
+         border-left: none;
+         border-top: none;
+         border-collapse:collapse;
+       }
+       table{
+         background-color: #fff;
+       }
+       .datos_generales{
+         margin-top: 10px;
+         border: 1px solid;
+         text-align: center;
+       }
+       .Actividades{
+         border: 1px solid;
+         text-align: center;
+         display: block;
+         margin-top: -2px;
+
+       }
+       .Actividades th, .Actividades td{
+         text-align: left;
+         width: 50%;
+       }
+
+       .contenedor{
+          display: inline;
+          width: 100%;
+          z-index: 20;
+          text-align: center;
+          margin-left: -52px;
+       }
+       .Firmas{
+         width:100%;
+         margin-top: 50px;
+       }
+       #firma{
+         display: inline;
+         position: relative;
+         height: auto;
+         width: 25%;
+         text-align: center;
+       }
+       #img{
+         width: 50px;
+         height: 70px;
+         float: left;
+
+       }
+     </style>
+   </page_header>
 
 		<?php
-			
+
 			$id_actividades=$_SESSION["Cuarto_informe"];
 			$nombre=$_SESSION["nombre"];
 
@@ -124,30 +126,38 @@
 				<tr>
 					<th style="width:50%;">1.	 Materias curriculares</th>
 					<td style="width: 50%; text-align: center;">
-						<?php   
+						<?php
 							include_once('../php/conf_tab.php');
 							$DB=new ConfigDB;
 							$conn=$DB->Mysql();
 
 
 							$SQL=$DB->CONSULTA("SELECT * FROM `mgps`.`materias_cursadas` where Id_Materias=(SELECT Id_Materias From materias_semestres where Id_actividades = '$id_actividades' );");
-							 
+
 							 while ($rs= $DB->Obtener_filas($SQL)) {
 			                    echo $rs["Nombre_Curso"]."<br>";
-			               
+
 			                 }
 					 	?>
 					 </td>
 				</tr>
+      </table>
+    </div>
+    <div class="Actividades" style="background-color: #DFDBDA; margin-top:2px;" >
+			<table style=" border-top: 1px solid;" cellspacing="0">  
 				<tr>
 					<th style=" width:50%;">2.	Proyecto de tesis</th>
-					<td style="width: 50%; text-align: center;"> 
-						<?php 
+					<td style="width: 50%; text-align: center;">
+						<?php
 							echo $_SESSION["TemaTesis"];
 						?>
-							
+
 					</td>
 				</tr>
+      </table>
+    </div>
+    <div class="Actividades" style="background-color: #DFDBDA; margin-top:2px;" >
+			<table style=" border-top: 1px solid;" cellspacing="0">  
 				<tr>
 					<th style=" width:50%;">3.	Producción académica</th>
 					<td style="width: 50%; text-align: center;">
@@ -159,13 +169,17 @@
 
 
 							$SQL=$DB->CONSULTA("SELECT * FROM `mgps`.`produccionAlumnos` where IdActividades='$Id_Act'");
-							 
+
 							 while ($rs= $DB->Obtener_filas($SQL)) {
 			                    echo $rs["Titulo"].", ".$rs["TipoDeProduccion"].". "."<br>";
 			                 }
-						?>		
+						?>
 					</td>
 				</tr>
+      </table>
+    </div>
+    <div class="Actividades" style="background-color: #DFDBDA; margin-top:2px;" >
+			<table style=" border-top: 1px solid;" cellspacing="0">  
 				<tr>
 					<th style=" width:50%;">4.	Actividades extracurriculares</th>
 					<td style="width: 50%; text-align: center;">
@@ -182,15 +196,19 @@
 						?>
 					</td>
 				</tr>
+      </table>
+    </div>
+    <div class="Actividades" style="background-color: #DFDBDA; margin-top:2px;" >
+			<table style=" border-top: 1px solid;" cellspacing="0">  
 				<tr>
 					<th style=" width:50%;">5.	Gestión de apoyo externo para la investigación</th>
 					<td style="width: 50%; text-align: center;">
-						<?php 
+						<?php
 							include_once('../php/conf_tab.php');
 							$DB= new ConfigDB();
                          	$DB->Mysql();
                          	$codigo=$_SESSION["Cuarto_informe"];
-                         	
+
 
                           	$Consulta=$DB->CONSULTA("SELECT * FROM gestionapoyoinv  where  Id_Actividades = '$codigo'");
                           	while ($rs= $DB->Obtener_filas($Consulta)) {
@@ -199,10 +217,14 @@
 						?>
 					</td>
 				</tr>
+      </table>
+    </div>
+    <div class="Actividades" style="background-color: #DFDBDA; margin-top:2px;" >
+			<table style=" border-top: 1px solid;" cellspacing="0">  
 				<tr>
 					<th style=" width:50%;">6.	Asistencia a eventos académicos como ponente</th>
 					<td style="width: 50%; text-align: center;">
-						<?php 
+						<?php
 							include_once('../php/conf_tab.php');
 							$DB= new ConfigDB();
                          	$DB->Mysql();
@@ -211,34 +233,42 @@
                           	$Consulta=$DB->CONSULTA("SELECT * FROM `mgps`.`congresos_como_ponente` WHERE id_Actividades='$codigo';");
                           	while ($rs= $DB->Obtener_filas($Consulta)) {
                              	echo $rs["NombreCongreso"].", ".$rs["Titulo_del_Trabajo"].", ".$rs["TipoDeParticipaciion"].", ".$rs["Pais"].", ".$rs["Fecha_inicio"].", ".$rs["Fecha_Termino"]."."."<br>";
-                          	} 
+                          	}
 						?>
 					</td>
 				</tr>
+      </table>
+    </div>
+    <div class="Actividades" style="background-color: #DFDBDA; margin-top:2px;" >
+			<table style=" border-top: 1px solid;" cellspacing="0">  
 				<tr>
 					<th style=" width:50%;">7.	Asesoría especializada</th>
 					<td style="width: 50%; text-align: center;">
-						<?php 
+						<?php
 							include_once('../php/conf_tab.php');
 							$DB= new ConfigDB();
                          	$DB->Mysql();
-                         	$Id_Act =$_SESSION["Cuarto_informe"];                         	
+                         	$Id_Act =$_SESSION["Cuarto_informe"];
 
                           	$Consulta=$DB->CONSULTA("SELECT * FROM asesoria_especializada  where  Id_Act = '$Id_Act'");
                           	while ($rs= $DB->Obtener_filas($Consulta)) {
                              	echo $rs["Fecha"].", ".$rs["Titulo_de_Tesis"].", ".$rs["Activiadades_realiadas"].", ". $rs["SiguienteAsesoria"]."."."<br>";
-                          	} 
+                          	}
 						?>
 					</td>
 				</tr>
+      </table>
+    </div>
+    <div class="Actividades" style="background-color: #DFDBDA; margin-top:2px;" >
+			<table style=" border-top: 1px solid;" cellspacing="0">  
 				<tr>
 					<th style=" width:50%;">8.	Necesidades tutoriales</th>
 					<td style="width: 50%; text-align: center;">
-						<?php 
+						<?php
 							include_once('../php/conf_tab.php');
 							$DB= new ConfigDB();
                          	$DB->Mysql();
-                         	$Id_Act =$_SESSION["Cuarto_informe"];                         	
+                         	$Id_Act =$_SESSION["Cuarto_informe"];
 
                           	$Consulta=$DB->CONSULTA("SELECT * FROM reporte_asesorias  where  Id_act = '$Id_Act'");
                           	while ($rs= $DB->Obtener_filas($Consulta)) {
@@ -247,14 +277,18 @@
 						?>
 					</td>
 				</tr>
+      </table>
+    </div>
+    <div class="Actividades" style="background-color: #DFDBDA; margin-top:2px;" >
+			<table style=" border-top: 1px solid;" cellspacing="0">  
 				<tr>
 					<th style=" width:50%;">9.	Movilidad académica</th>
 					<td style="width: 50%; text-align: center;">
-						<?php 
+						<?php
 							include_once('../php/conf_tab.php');
 							$DB= new ConfigDB();
                          	$DB->Mysql();
-                         	$codigo=$_SESSION["Cuarto_informe"];                         	
+                         	$codigo=$_SESSION["Cuarto_informe"];
 
                           	$Consulta=$DB->CONSULTA("SELECT * FROM movilidadestudiantes  where  Id_act = '$codigo'");
                            	while ($rs= $DB->Obtener_filas($Consulta)) {
@@ -263,10 +297,14 @@
 						?>
 					</td>
 				</tr>
+      </table>
+    </div>
+    <div class="Actividades" style="background-color: #DFDBDA; margin-top:2px;" >
+			<table style=" border-top: 1px solid;" cellspacing="0">  
 				<tr>
 					<th style=" width:50%;border-bottom:none;">10.	Vinculación académica</th>
 					<td style="width: 50%; border-bottom:none; text-align: center;">
-						<?php 
+						<?php
 							include_once('../php/conf_tab.php');
 							$DB= new ConfigDB();
                          	$DB->Mysql();
@@ -295,7 +333,7 @@
 		  			</div>
 		      </div>
 		</div>
-		<?php 
+		<?php
 
 			include_once('../php/conf_tab.php');
 			$DB=new ConfigDB;
@@ -303,19 +341,19 @@
 
 
 			$SQL=$DB->CONSULTA("SELECT Id_Materias From materias_semestres where Id_actividades = '$id_actividades';");
-			 
+
 			 while ($rs= $DB->Obtener_filas($SQL)) {
                 $id=$rs['Id_Materias'];
                 $NOMBRE=$rs['NombreArchivo'];
-                $enlace=$rs['kardex'];           		
+                $enlace=$rs['kardex'];
              }
            	 header("Content-type: application/pdf ");
            	 readfile($NOMBRE);
 		 ?>
 
-		
+
  </page>
- 
+
 <?php
 	$content= ob_get_clean();
 	require_once('vendor/autoload.php');

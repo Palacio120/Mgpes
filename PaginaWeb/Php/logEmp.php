@@ -30,7 +30,7 @@
              $row=mysqli_fetch_array($rs);
              $_SESSION["user"]=$nombre;
              $_SESSION["nombre"]=$row["nombre"];
-             header("location: ../principalEmp.php");
+             header("location: ../Profesores/principalEmp.php");
            }else {
              echo "<script>
               alert('Usuario o contraseña incorrectos');
@@ -43,6 +43,24 @@
 
          }
 
+         if (isset($_POST['login'])) {
+           $nombre= $_POST['user'];
+           $contraseña=$_POST['password'];
+                 try {
+                   $conn= mysqli_connect("localhost", "MGPES", "BasededatosMGPES1", "mgps");
+                 } catch (Exception $e) {
+                   echo $e->getMessage();
+                   exit;
+                 }
+
+                 $query_Perfil=("SELECT * from Empleados where CodigoEmp= '$nombre' ");
+                 $rs2=mysqli_query($conn, $query_Perfil);
+                 if (mysqli_num_rows($rs2)>0) {
+                   $row=mysqli_fetch_array($rs2);
+
+                   $_SESSION["Fotografia"]=$row["Fotografia"];
+                 }
+               }
       ?>
 
    </body>

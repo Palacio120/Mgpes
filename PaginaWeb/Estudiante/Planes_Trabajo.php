@@ -26,8 +26,8 @@
         <a href="#" class="boton-cerrar" onclick="ocultar2()">×</a>
         <ul class="menu">
           <!--<li><a href="#">Requisitos de ingresos</a></li>
-          <li><a href="#">Beca CONACYT</a></li>
           <li><a href="#">Desempeño academico</a></li>-->
+          <li><a href="BecasCONACYT.php">Beca CONACYT</a></li>
           <li><a href="Actividades.php">Informes de actividades</a></li>
           <li><a class="logout" href="../php/logout.php">Logout</a></li>
         </ul>

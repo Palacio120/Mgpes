@@ -2,7 +2,7 @@
 session_start();
 include "Php/conexion.php";
 if (isset($_SESSION['user'])) {
-  echo "<script>window.location='Estudiante/principalEmp.php'</script>";
+  echo "<script>window.location='Profesores/principalEmp.php'</script>";
 }elseif (isset($_SESSION['usuario'])) {
   echo "<script>window.location='Estudiante/principal.php'</script>";
 }
@@ -30,7 +30,7 @@ if (isset($_SESSION['user'])) {
           <input id="tab-1" type="radio" name="tab-group" checked="checked">
           <label for="tab-1">Estudiantes</label>
           <input id="tab-2" type="radio" name="tab-group">
-          <label for="tab-2">Empleados</label>
+          <label for="tab-2">Administradores</label>
          <div id="Contenido">
            <div class="section" id="contenido-1">
              <form action="php/logEst.php" method="post" class="login">
@@ -42,7 +42,7 @@ if (isset($_SESSION['user'])) {
            </div>
           <div class="section" id="contenido-2">
             <form class="login" action="php/logEmp.php" method="post">
-                <p>login para empleados de la maestria.</p>
+                <p>login para Administradores de la maestria.</p>
                 <div ><label> Username</label><input type="text" name="user" required></div>
                 <div><label>Password</label><input type="password" name="password" required></div>
                 <div><input name="login" type="submit" value="login"></div>
