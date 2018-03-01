@@ -38,7 +38,11 @@
           </div>
         </div>
         <div class="usuario">
-          <?php echo '<img style="width:130px" src="data:image/jpeg;base64,'.base64_encode($_SESSION["Fotografia"]).'" >' ;?>
+          <?php if (isset($_SESSION["Fotografia"])){
+            echo '<img style="width:130px" src="data:image/jpeg;base64,'.base64_encode($_SESSION["Fotografia"]).'" >' ;
+          }else{?>
+            <img  style="width:130px" src="../Image/usuariodefault.png">
+          <?php } ?>
           <p style="margin-top: 5px;"><?php  echo $_SESSION["nombre"]; ?></p>
           <p><b>codigo:  </b><?php echo  $_SESSION["CodigoSIIAU"]; ?></p>
           <p><b>Generacion: </b> <?php echo $_SESSION["Generacion"];  ?></p>

@@ -58,3 +58,18 @@
   display: inline;
   padding-bottom: 10px;
 }
+
+.Ventana{
+  position: fixed;
+  width: 70%;
+  height: 40%;
+  top: 10%;
+  left: 15%;
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  border: #333333 1px solid;
+  background-color: #FFF;
+  color: #000000;
+
+}

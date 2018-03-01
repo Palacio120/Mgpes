@@ -54,7 +54,11 @@
               <label>Datos personales</label>
               <div class="Foto_Perfil" style="max-width:300px">
                   <label>Fotografia</label>
-                  <?php echo '<img style="width:130px" src="data:image/jpeg;base64,'.base64_encode($_SESSION["Fotografia"]).'" >' ;?>
+                  <?php if (isset($_SESSION["Fotografia"])){
+                    echo '<img style="width:130px" src="data:image/jpeg;base64,'.base64_encode($_SESSION["Fotografia"]).'" >' ;
+                  }else{?>
+                    <img  style="width:130px" src="../Image/usuariodefault.png">
+                  <?php } ?>
               </div>
               <div class="Elemento_Perfil">
                   <label>Nombre</label>

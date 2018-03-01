@@ -16,12 +16,14 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="../Scripts/main.Js"></script>
+    <script type="text/javascript" src="../Scripts/Ajax.js"></script>
   </head>
   <body>
-    <div class="page">
+    <div class="page" id="">
       <div id="menu" class="menu_lateral" style="width: 0px; border: hidden;">
         <a href="#" class="boton-cerrar" onclick="ocultar2()">×</a>
         <ul class="menu">
+          <li><a href="Estudiantes.php">Estudiantes</a></li>
           <li><a href="Reportes.php">Reportes de Estudiantes</a></li>
           <li><a class="logout" href="../php/logout.php">Logout</a></li>
         </ul>
@@ -87,7 +89,7 @@
                       <td><?php echo $rs["codigo_Aspirante"]; ?></td>
                       <td><?php echo $rs["NombreCompleto"]; ?></td>
                       <td>
-                         <a href="#"  onclick="DeplegarVentana(<?php echo $rs['codigo_Aspirante'] ?>)" >Desplegar datos</a><br>
+                         <a href="#"  onclick="Consulta(<?php echo $rs["codigo_Aspirante"]; ?>)" >Desplegar datos</a><br>
                          <a href="#" onclick="MoverAEstudiante(<?php echo $rs["codigo_Aspirante"] ?>)">Hacer Estudiante</a>
                       </td>
                     </tr>
@@ -96,13 +98,9 @@
               </table>
             <?php } ?>
             </div>
-
           </div>
-
         </div>
-        <div class="Ventana" id="Ventan" style="display:none;" >
-
-        </div>
+        <div class="Ventana" id="Ventana" style="display:none;"></div>
 
       </div>
     </div>

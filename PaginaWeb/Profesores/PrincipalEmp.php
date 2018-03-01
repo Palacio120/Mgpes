@@ -38,15 +38,21 @@
           </div>
         </div>
         <div class="usuario">
-          <?php echo '<img style="width:130px" src="data:image/jpeg;base64,'.base64_encode($_SESSION["Fotografia"]).'" >' ;?>
+          <?php if (isset($_SESSION["Fotografia"])){
+            echo '<img style="width:130px" src="data:image/jpeg;base64,'.base64_encode($_SESSION["Fotografia"]).'" alt >' ;
+          }else{?>
+            <img src="../Image/usuariodefault.png" style="width:130px">
+          <?php } ?>
+
+          <?php echo '<img style="width:130px" src="data:image/jpeg;base64,'.base64_encode($_SESSION["Fotografia"]).'" alt >' ;?>
           <p style="margin-top: 5px;"><?php  echo $_SESSION["nombre"]; ?></p>
           <p><b>Cargo:</b> Administrador</p>
-          
+
         </div>
         <div class="menu_principal">
           <div class="cuadro"><a href="Aspirantes.php"><p>Aspirantes</p></a></div>
           <div class="cuadro"><a href="Reportes.php"><p>Reportes de Estudiantes</p></a></div>
-
+          <div class="cuadro"><a href="Estudiantes.php"><p>Estudiantes</p></a></div>
 
         </div>
       </div>
