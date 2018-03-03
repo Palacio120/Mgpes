@@ -73,3 +73,7 @@
   color: #000000;
 
 }
+
+.Cuadro{
+  overflow: scroll;
+}

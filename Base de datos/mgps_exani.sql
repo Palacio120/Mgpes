@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: mgps
 -- ------------------------------------------------------
--- Server version	5.7.17-log
+-- Server version	5.7.18-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -38,7 +38,7 @@ CREATE TABLE `exani` (
 
 LOCK TABLES `exani` WRITE;
 /*!40000 ALTER TABLE `exani` DISABLE KEYS */;
-INSERT INTO `exani` VALUES (1,50.00,12.50),(2,0.00,0.00);
+INSERT INTO `exani` VALUES (1,50.00,12.50),(2,0.00,0.00),(4,0.00,0.00);
 /*!40000 ALTER TABLE `exani` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -94,4 +94,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-28  8:25:38
+-- Dump completed on 2018-03-02 18:14:57

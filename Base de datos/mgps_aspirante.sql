@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: mgps
 -- ------------------------------------------------------
--- Server version	5.7.17-log
+-- Server version	5.7.18-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -28,13 +28,11 @@ CREATE TABLE `aspirante` (
   `modalidad` varchar(255) DEFAULT '',
   `Orientacion` varchar(100) DEFAULT '',
   `NombrePrograma` varchar(255) DEFAULT '',
-  `Fecha_SecionInformativa` date DEFAULT NULL,
   `calendario_Escolar` char(20) DEFAULT '',
   `NombreCompleto` varchar(255) DEFAULT '',
   `Edad` int(11) DEFAULT '0',
   `Genero` enum('M','F') DEFAULT 'M',
   `CURP` char(20) DEFAULT '',
-  `RFC` char(20) DEFAULT '',
   `Calle_asp` varchar(255) DEFAULT '',
   `Numero_Calle` varchar(30) DEFAULT '',
   `numero_interior` varchar(10) DEFAULT '',
@@ -46,37 +44,21 @@ CREATE TABLE `aspirante` (
   `Telefono_personal` char(10) DEFAULT '',
   `Correo_Personal` varchar(255) DEFAULT '',
   `Lugar_nacimiento` varchar(255) DEFAULT '',
-  `ViveCon` varchar(255) DEFAULT '',
-  `Dependientes` varchar(255) DEFAULT '',
   `EstadoCivil` varchar(255) DEFAULT '',
   `Licenciatura` varchar(255) DEFAULT '',
   `Universidad` varchar(255) DEFAULT '',
   `Promedio` double(4,2) DEFAULT '0.00',
   `Generacion` char(20) DEFAULT '',
-  `Estudios_act_term` enum('Activos','Terminados') DEFAULT NULL,
-  `Idiomas` varchar(255) DEFAULT '',
-  `Ocupacion` longtext,
-  `Nombre_Empresa` varchar(255) DEFAULT '',
-  `Puesto_desempeñado` varchar(255) DEFAULT '',
-  `IngresoMensual` double(12,2) DEFAULT '0.00',
-  `Domicilio_Trabajo` longtext,
-  `MunicipioTrabajo` longtext,
-  `EstadoTrabajo` longtext,
-  `Telefono_trabajo` char(8) DEFAULT '',
-  `Extencion_trabajo` char(5) DEFAULT '',
-  `CorreoTrabajo` longtext,
-  `AntiguedadPuesto` int(11) DEFAULT '0',
-  `AntiguedadEmpresa` int(11) DEFAULT '0',
+  `CodigoSIIAU` varchar(9) DEFAULT NULL,
+  `TemaTesis` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`codigo_Aspirante`),
   KEY `modalidad` (`modalidad`),
   KEY `NombrePrograma` (`NombrePrograma`),
-  KEY `Fecha_SecionInformativa` (`Fecha_SecionInformativa`),
   KEY `calendario_Escolar` (`calendario_Escolar`),
   KEY `NombreCompleto` (`NombreCompleto`),
   KEY `Edad` (`Edad`),
   KEY `Genero` (`Genero`),
   KEY `CURP` (`CURP`),
-  KEY `RFC` (`RFC`),
   KEY `Calle_asp` (`Calle_asp`),
   KEY `Numero_Calle` (`Numero_Calle`),
   KEY `numero_interior` (`numero_interior`),
@@ -88,23 +70,14 @@ CREATE TABLE `aspirante` (
   KEY `Telefono_personal` (`Telefono_personal`),
   KEY `Correo_Personal` (`Correo_Personal`),
   KEY `Lugar_nacimiento` (`Lugar_nacimiento`),
-  KEY `ViveCon` (`ViveCon`),
-  KEY `Dependientes` (`Dependientes`),
   KEY `EstadoCivil` (`EstadoCivil`),
   KEY `Licenciatura` (`Licenciatura`),
   KEY `Universidad` (`Universidad`),
   KEY `Promedio` (`Promedio`),
   KEY `Generacion` (`Generacion`),
-  KEY `Idiomas` (`Idiomas`),
-  KEY `Puesto_desempeñado` (`Puesto_desempeñado`),
-  KEY `IngresoMensual` (`IngresoMensual`),
-  KEY `Telefono_trabajo` (`Telefono_trabajo`),
-  KEY `AntiguedadPuesto` (`AntiguedadPuesto`),
-  KEY `AntiguedadEmpresa` (`AntiguedadEmpresa`),
-  KEY `Nombre_Empresa` (`Nombre_Empresa`),
   KEY `aspirante_ibfk_1` (`Orientacion`),
   CONSTRAINT `aspirante_ibfk_1` FOREIGN KEY (`Orientacion`) REFERENCES `lgac` (`Orientacion`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -113,7 +86,7 @@ CREATE TABLE `aspirante` (
 
 LOCK TABLES `aspirante` WRITE;
 /*!40000 ALTER TABLE `aspirante` DISABLE KEYS */;
-INSERT INTO `aspirante` VALUES (1,NULL,'tiempo completo','Nuevos paradigmas','','2017-08-23','2017A','Alejandro Palacio Alvarez',20,'M','','','','','','','','','','','','','','','','','','',90.00,'','Activos','',NULL,'','',1000.00,NULL,NULL,NULL,'','',NULL,0,0),(2,NULL,'tiempo completo','Nuevos paradigmas','','2017-08-23','2017A','Alejandro Palacio Alvarez',20,'M','','','','','','','','','','','','','','','','','','',90.00,'','Activos','',NULL,'','',1000.00,NULL,NULL,NULL,'','',NULL,0,0);
+INSERT INTO `aspirante` VALUES (1,NULL,'tiempo completo','Nuevos paradigmas','','2017A','Alejandro Palacio Alvarez',20,'M','','','','','','','','','','','','','','','',90.00,'',NULL,NULL),(2,NULL,'tiempo completo','Nuevos paradigmas','','2017A','Alejandro Palacio Alvarez',20,'M','','','','','','','','','','','','','','','',90.00,'',NULL,NULL),(4,'C:xampp	mpphp8E35.tmp','TIEMPO COMPLETO','Calidad y mejoramiento','Maestría en Gestión y Politicas Publicas de la Educación Superior','2018A','Alejandro Palacio Álvarez',21,'M','PAAA970303HJCLLL02','Andador Dr. Luis Farah','652','0','Los Paraisos','44150','Jalisco','Guadalajara','-','3331174635','alejandropalacio119@gmail.com','Guadalajara Jal. México','Soltero','Tecnologías de la información','UdeG',90.00,'2015B','212546785','Prueba');
 /*!40000 ALTER TABLE `aspirante` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -154,4 +127,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-28  8:24:35
+-- Dump completed on 2018-03-02 18:14:45

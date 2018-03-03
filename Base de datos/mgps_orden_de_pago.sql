@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: mgps
 -- ------------------------------------------------------
--- Server version	5.7.17-log
+-- Server version	5.7.18-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -32,7 +32,7 @@ CREATE TABLE `orden_de_pago` (
   KEY `Estado_orden` (`Estado_orden`),
   KEY `Codigo_ASP` (`Codigo_ASP`),
   CONSTRAINT `orden_de_pago_ibfk_1` FOREIGN KEY (`Codigo_ASP`) REFERENCES `aspirante` (`codigo_Aspirante`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `orden_de_pago` (
 
 LOCK TABLES `orden_de_pago` WRITE;
 /*!40000 ALTER TABLE `orden_de_pago` DISABLE KEYS */;
-INSERT INTO `orden_de_pago` VALUES (1,'Solicitud de aspirante $759.00 Examen de admisión CENEVAL EXANI III, $ 626.00 Curso propedéutico $4,206.00',5591.00,'Espera',1),(2,'Solicitud de aspirante $759.00 Examen de admisión CENEVAL EXANI III, $ 626.00 Curso propedéutico $4,206.00',5591.00,'Espera',2);
+INSERT INTO `orden_de_pago` VALUES (1,'Solicitud de aspirante $759.00 Examen de admisión CENEVAL EXANI III, $ 626.00 Curso propedéutico $4,206.00',5591.00,'Espera',1),(2,'Solicitud de aspirante $759.00 Examen de admisión CENEVAL EXANI III, $ 626.00 Curso propedéutico $4,206.00',5591.00,'Espera',2),(3,'Solicitud de aspirante $759.00 Examen de admisión CENEVAL EXANI III, $ 626.00 Curso propedéutico $4,206.00',5591.00,'Espera',4);
 /*!40000 ALTER TABLE `orden_de_pago` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -77,4 +77,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-28  8:26:08
+-- Dump completed on 2018-03-02 18:14:59

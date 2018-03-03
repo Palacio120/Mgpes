@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: mgps
 -- ------------------------------------------------------
--- Server version	5.7.17-log
+-- Server version	5.7.18-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -114,16 +114,12 @@ CREATE TABLE `estudiante` (
   KEY `LugarTrabajo_comoAspirante` (`LugarTrabajo_comoAspirante`),
   KEY `PuestoDesempeñado_comoAspirante` (`PuestoDesempeñado_comoAspirante`),
   KEY `TeléfonoOficina_comoAspirante` (`TeléfonoOficina_comoAspirante`),
-  KEY `Sueldo_comoAspirante` (`Sueldo_comoAspirante`),
   KEY `Antigüedad_comoAspirante` (`Antigüedad_comoAspirante`),
   KEY `LineasAplicacionDelConocimiento` (`LineasAplicacionDelConocimiento`),
   KEY `NombreCompleto` (`NombreCompleto`),
   KEY `estudiante_ibfk_37` (`DireccionTesis`),
   KEY `LGAC` (`LGAC`,`LineasAplicacionDelConocimiento`,`OrientaciónProy`),
   KEY `estudiante_ibfk_51_idx` (`OrientaciónProy`,`LineasAplicacionDelConocimiento`),
-  CONSTRAINT `estudiante_ibfk_1` FOREIGN KEY (`Codigo_ASP`) REFERENCES `aspirante` (`codigo_Aspirante`) ON UPDATE CASCADE,
-  CONSTRAINT `estudiante_ibfk_33` FOREIGN KEY (`Sueldo_comoAspirante`) REFERENCES `aspirante` (`IngresoMensual`) ON UPDATE CASCADE,
-  CONSTRAINT `estudiante_ibfk_38` FOREIGN KEY (`NombreCompleto`) REFERENCES `aspirante` (`NombreCompleto`) ON UPDATE CASCADE,
   CONSTRAINT `estudiante_ibfk_50` FOREIGN KEY (`LGAC`) REFERENCES `lgac` (`LGAC`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -219,4 +215,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-28  8:24:32
+-- Dump completed on 2018-03-02 18:14:45

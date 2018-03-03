@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: mgps
 -- ------------------------------------------------------
--- Server version	5.7.17-log
+-- Server version	5.7.18-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -43,7 +43,7 @@ CREATE TABLE `anteproyecto` (
   KEY `anteproyecto_ibfk_1` (`LineaInvestigacion`),
   CONSTRAINT `anteproyecto_ibfk_1` FOREIGN KEY (`LineaInvestigacion`) REFERENCES `lgac` (`LGAC`) ON UPDATE CASCADE,
   CONSTRAINT `anteproyecto_ibfk_2` FOREIGN KEY (`codigo_asp`) REFERENCES `aspirante` (`codigo_Aspirante`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -52,7 +52,7 @@ CREATE TABLE `anteproyecto` (
 
 LOCK TABLES `anteproyecto` WRITE;
 /*!40000 ALTER TABLE `anteproyecto` DISABLE KEYS */;
-INSERT INTO `anteproyecto` VALUES (1,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0.00,1,0.00),(2,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0.00,2,0.00);
+INSERT INTO `anteproyecto` VALUES (1,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0.00,1,0.00),(2,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0.00,2,0.00),(3,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0.00,4,0.00);
 /*!40000 ALTER TABLE `anteproyecto` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -109,4 +109,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-28  8:24:35
+-- Dump completed on 2018-03-02 18:14:45

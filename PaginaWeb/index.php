@@ -57,7 +57,7 @@ if (isset($_SESSION['user'])) {
     </div>
     <div class="FormatoAspirante" id="FormatosAsp" style="display:none" >
       <div id="centrar" style="padding-top:5%">
-          <form action="Php/NuevoAsp.php" method="post">
+          <form action="Php/NuevoAsp.php" method="post" enctype="multipart/form-data" >
             <label><h2>Registro de aspirantes</h2></label>
             <fieldset>
               <label><h3>Datos Personales</h3></label>
@@ -68,7 +68,7 @@ if (isset($_SESSION['user'])) {
                 </div>
                 <div class="col-md-3">
                   <label>Edad</label>
-                  <input type="number" name="Edad" class="form-control" required>
+                  <input type="number" name="Edad" class="form-control" max="99" min="0" required>
                 </div>
                 <div class="col-md-3">
                   <label>Codigo de SIIAU</label>
@@ -87,26 +87,26 @@ if (isset($_SESSION['user'])) {
                 <div class="col-md-3">
                   <label>Estado civil</label>
                   <select name="Civil" class="form-control" required>
-                    <option value="">Soltero</option>
-                    <option value="">Casado</option>
+                    <option>Soltero</option>
+                    <option>Casado</option>
                   </select>
                 </div>
                 <div class="col-md-3">
                   <label>Calendario Escolar</label>
                   <select name="Calendario" class="form-control" required>
-                    <option value="">2018A</option>
-                    <option value="">2018B</option>
-                    <option value="">2019A</option>
-                    <option value="">2019B</option>
-                    <option value="">2020A</option>
-                    <option value="">2020B</option>
+                    <option>2018A</option>
+                    <option>2018B</option>
+                    <option>2019A</option>
+                    <option>2019B</option>
+                    <option>2020A</option>
+                    <option>2020B</option>
                   </select>
                 </div>
                 <div class="col-md-3">
                   <label>Genero</label>
                   <select class="form-control" name="Genero" required>
-                    <option>Masculino</option>
-                    <option>Femenino</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
                   </select>
                 </div>
               </div>
@@ -114,6 +114,10 @@ if (isset($_SESSION['user'])) {
                 <div class="col-md-3">
                   <label>Modilidad</label>
                   <input type="text" name="Modalodad" class="form-control" required>
+                </div>
+                <div class="col-md-3">
+                  <label>Fotografia</label>
+                  <input type="file" name="Fotografia" class="form-control" required>
                 </div>
               </div>
             </fieldset>
@@ -189,12 +193,6 @@ if (isset($_SESSION['user'])) {
                   <input type="text" name="Generacion" class="form-control" required>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-md-3">
-                  <label>Idiomas</label>
-                  <input type="text" name="Idioma" class="form-control" required>
-                </div>
-              </div>
 
             </fieldset>
             <fieldset>
@@ -207,10 +205,10 @@ if (isset($_SESSION['user'])) {
                 <div class="col-md-3">
                   <label>LGCA</label>
                   <select class="form-control" name="LGCA" required>
-                    <option value="CYMLES">Calidad y mejoramiento en la educación superior</option>
-                    <option value="GYPLES">Gestión y planeación de la educación superior</option>
-                    <option value="NPDES">Nuevos paradigmas de educación superior</option>
-                    <option value="PPCIES">Políticas públicas y cambio institucional en la educación superior</option>
+                    <option value="Calidad y mejoramiento">Calidad y mejoramiento en la educación superior</option>
+                    <option value="Gestión y planeación">Gestión y planeación de la educación superior</option>
+                    <option value="Nuevos paradigmas">Nuevos paradigmas de educación superior</option>
+                    <option value="Cambio institucional">Políticas públicas y cambio institucional en la educación superior</option>
                   </select>
                 </div>
               </div>

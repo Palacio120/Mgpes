@@ -16,28 +16,46 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tipo_de_movilidad`
+-- Table structure for table `produccion_revistainderxada`
 --
 
-DROP TABLE IF EXISTS `tipo_de_movilidad`;
+DROP TABLE IF EXISTS `produccion_revistainderxada`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tipo_de_movilidad` (
-  `Tipo` char(10) NOT NULL,
-  `Movilidad` varchar(255) DEFAULT NULL,
+CREATE TABLE `produccion_revistainderxada` (
+  `id_Articulo` int(10) unsigned NOT NULL,
+  `Autores` varchar(255) DEFAULT NULL,
+  `Titulo` varchar(255) DEFAULT NULL,
+  `Estado` varchar(255) DEFAULT NULL,
+  `NombreRevista` varchar(255) DEFAULT NULL,
+  `dePagina` int(11) DEFAULT NULL,
+  `aPagina` int(11) DEFAULT NULL,
   `Descripccion` longtext,
-  PRIMARY KEY (`Tipo`),
-  KEY `Movilidad` (`Movilidad`)
+  `Pais` varchar(225) DEFAULT NULL,
+  `Editorial` varchar(64) DEFAULT NULL,
+  `Volumen` varchar(64) DEFAULT NULL,
+  `ISSN` varchar(64) DEFAULT NULL,
+  `IndiceDeRegistro` varchar(64) DEFAULT NULL,
+  `FechaPublicacion` date DEFAULT NULL,
+  `Proposito` varchar(64) DEFAULT NULL,
+  `Probatorio` longblob,
+  `ProduccionAlumnos` int(10) unsigned NOT NULL,
+  `IdActividades` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id_Articulo`),
+  KEY `RevistaInderxada_1_idx` (`IdActividades`),
+  KEY `RevistaInderxada_2_idx` (`ProduccionAlumnos`),
+  CONSTRAINT `RevistaInderxada_1` FOREIGN KEY (`IdActividades`) REFERENCES `actividades` (`idActividades`) ON UPDATE CASCADE,
+  CONSTRAINT `RevistaInderxada_2` FOREIGN KEY (`ProduccionAlumnos`) REFERENCES `produccionalumnos` (`NO_Publicacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tipo_de_movilidad`
+-- Dumping data for table `produccion_revistainderxada`
 --
 
-LOCK TABLES `tipo_de_movilidad` WRITE;
-/*!40000 ALTER TABLE `tipo_de_movilidad` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tipo_de_movilidad` ENABLE KEYS */;
+LOCK TABLES `produccion_revistainderxada` WRITE;
+/*!40000 ALTER TABLE `produccion_revistainderxada` DISABLE KEYS */;
+/*!40000 ALTER TABLE `produccion_revistainderxada` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
