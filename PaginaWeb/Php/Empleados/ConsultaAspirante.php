@@ -75,18 +75,80 @@
                   <div class="row">
 
                     <div class="col-md-3">
-                      <label>Calendario escolar</label><br>
-                      <?php echo $i['calendario_Escolar']; ?>
+                      <label>Calle</label><br>
+                      <?php echo $i['Calle_asp']; ?>
                     </div>
 
                     <div class="col-md-3">
-                      <label>Modalidad</label><br>
-                      <?php echo $i['modalidad']; ?>
+                      <label>Numero</label><br>
+                      <?php echo '#'.$i['Numero_Calle']; ?>
                     </div>
 
                     <div class="col-md-3">
-                      <label>Orientacion</label><br>
-                      <?php echo $i['Orientacion']; ?>
+                      <label>Numero Interior</label><br>
+                      <?php echo '#'.$i['numero_interior']; ?>
+                    </div>
+                    <div class="col-md-3">
+                      <label>Codigo postal</label><br>
+                      <?php echo $i["cp_Asp"]; ?>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label>Colonia</label><br>
+                      <?php echo $i["colonia_Asp"]; ?>
+                    </div>
+                    <div class="col-md-3">
+                      <label>Municipio</label><br>
+                      <?php echo $i["Municipio_asp"]; ?>
+                    </div>
+                    <div class="col-md-3">
+                      <label>Estado</label><br>
+                      <?php echo $i["Estado_Asp"]; ?>
+                    </div>
+                  </div>
+                  <div class="Titulo3">
+                    <label>Datos de contacto</label><br>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label>Telefono de casa</label><br>
+                      <?php echo $i["Telefono_casa_asp"]; ?>
+                    </div>
+                    <div class="col-md-3">
+                      <label>Telefono celular</label><br>
+                      <?php echo $i["Telefono_personal"]; ?>
+                    </div>
+                    <div class="col-md-3">
+                      <label>Correo</label><br>
+                      <?php echo $i["Correo_Personal"]; ?>
+                    </div>
+                  </div>
+                  <div class="Titulo3">
+                    <label>Datos academicos</label><br>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label>Licenciatura</label><br>
+                      <?php echo $i["Licenciatura"]; ?>
+                    </div>
+                    <div class="col-md-3">
+                      <label>Universidad</label><br>
+                      <?php echo $i["Universidad"]; ?>
+                    </div>
+                    <div class="col-md-3">
+                      <label>Promedio</label><br>
+                      <?php echo $i["Promedio"]; ?>
+                    </div>
+                    <div class="col-md-3">
+                      <label>Generación</label><br>
+                      <?php echo $i["Generacion"]; ?>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label>Tema proyecto</label><br>
+                      <?php echo $i["TemaTesis"]; ?>
                     </div>
                   </div>
                 </div>
@@ -94,7 +156,7 @@
                   <div class="col-md-3">
                   </div>
                   <div class="col-md-12">
-                    <button type="button" name="2" class="btn btn-ligth" onclick="agregarEstudiante()" style="display:inline-block; Rigth:10px; bottom:10px;">Mover a Estudiante</button>
+                    <button type="button" name="2" class="btn btn-ligth" onclick="agregarEstudiante(<?php echo $i['codigo_Aspirante']; ?>)" style="display:inline-block; Rigth:10px; bottom:10px;">Mover a Estudiante</button>
                     <button type="button" name="button" class="btn btn-light" onclick="ocultarVentana()" style=" Rigth:10px; bottom:10px;">Cerrar</button>
                   </div>
                 </div>

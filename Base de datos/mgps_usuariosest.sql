@@ -39,7 +39,7 @@ CREATE TABLE `usuariosest` (
 
 LOCK TABLES `usuariosest` WRITE;
 /*!40000 ALTER TABLE `usuariosest` DISABLE KEYS */;
-INSERT INTO `usuariosest` VALUES ('Prueba001','5bc8c567a89112d5f408a8af4f17970d','Alejandro Palacio Alvarez');
+INSERT INTO `usuariosest` VALUES ('0','4c882dcb24bcb1bc225391a602feca7c','Alejandro Palacio Álvarez'),('MG2_APÁ18','4c882dcb24bcb1bc225391a602feca7c','Alejandro Palacio Álvarez'),('Prueba001','5bc8c567a89112d5f408a8af4f17970d','Alejandro Palacio Alvarez');
 /*!40000 ALTER TABLE `usuariosest` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-02 18:15:00
+-- Dump completed on 2018-03-05 15:05:35

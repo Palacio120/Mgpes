@@ -44,6 +44,7 @@ function mostrar_Perfil() {
     document.getElementById("head").style.marginLeft = "300px";
     document.getElementById("abrir_menu").style.display = "none";
     document.getElementById("centro").style.marginLeft="305px";
+    document.getElementById("Ventana").style.Left="20%";
 }
 
 function ocultar2() {

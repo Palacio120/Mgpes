@@ -46,7 +46,7 @@
         <div class="Rigth">
           <div id="opcciones" class="menu_desplegable" style="width: 0px; height: 0px; margin-top: 0px;">
             <ul>
-              <li><a href="PerfilEst.Php"  id="D-letras1" style="color: white" onclick="Buscar_perfil();">Perfil</a></li>
+              <li><a href="PerfilEmp.Php"  id="D-letras1" style="color: white" onclick="Buscar_perfil();">Perfil</a></li>
               <li><a href="../php/logout.php"  id="D-letras3" style="color: white">logout</a></li>
             </ul>
           </div>
@@ -90,7 +90,6 @@
                       <td><?php echo $rs["NombreCompleto"]; ?></td>
                       <td>
                          <a href="#"  onclick="Consulta(<?php echo $rs["codigo_Aspirante"]; ?>)" >Desplegar datos</a><br>
-                         <a href="#" onclick="MoverAEstudiante(<?php echo $rs["codigo_Aspirante"] ?>)">Hacer Estudiante</a>
                       </td>
                     </tr>
                   <?php }?>
@@ -100,8 +99,7 @@
             </div>
           </div>
         </div>
-        <div class="Ventana" id="Ventana" style="display:none;"></div>
-
+        <div class="Ventana" id="Ventana" style="display:none;Left:15%"></div>
       </div>
     </div>
 

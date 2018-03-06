@@ -37,12 +37,10 @@ CREATE TABLE `anteproyecto` (
   `Equivalencia25` double(4,2) DEFAULT '0.00',
   PRIMARY KEY (`No_AnteProyecto`),
   KEY `CalificacionAnteproyecto` (`calificacionAnteproyecto`),
-  KEY `codigo_asp` (`codigo_asp`),
   KEY `nombreAnteproyecto` (`nombreAnteproyecto`),
   KEY `Equivalencia25` (`Equivalencia25`),
   KEY `anteproyecto_ibfk_1` (`LineaInvestigacion`),
-  CONSTRAINT `anteproyecto_ibfk_1` FOREIGN KEY (`LineaInvestigacion`) REFERENCES `lgac` (`LGAC`) ON UPDATE CASCADE,
-  CONSTRAINT `anteproyecto_ibfk_2` FOREIGN KEY (`codigo_asp`) REFERENCES `aspirante` (`codigo_Aspirante`) ON UPDATE CASCADE
+  CONSTRAINT `anteproyecto_ibfk_1` FOREIGN KEY (`LineaInvestigacion`) REFERENCES `lgac` (`LGAC`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -109,4 +107,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-02 18:14:45
+-- Dump completed on 2018-03-05 15:05:21
