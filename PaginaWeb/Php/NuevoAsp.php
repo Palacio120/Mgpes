@@ -46,18 +46,19 @@
 
 
 
-      $Fotografia =$_FILES["Fotografia"]["tmp_name"];
-      $NombreArchivo =$_FILES["Fotografia"]["name"];
-      $Tamaño =$_FILES["Fotografia"]["size"];
-      $Tipo =$_FILES["Fotografia"]["type"];
 
-      if ( $Fotografia != "none" ){
-         $fp = fopen($Fotografia, "rb");
-         $contenido = fread($fp, $Tamaño);
-         $contenido = addslashes($contenido);
-         fclose($fp);
+      if (is_uploaded_file($_FILES["Fotografia"]["tmp_name"])){
+        if ($_FILES["Fotografia"]["type"]=="image/jpeg" || $_FILES["Fotografia"]["type"]=="image/pjpeg" || $_FILES["Fotografia"]["type"]=="image/gif" || $_FILES["Fotografia"]["type"]=="image/bmp" || $_FILES["Fotografia"]["type"]=="image/png"){
 
-            $DB->CONSULTA("INSERT INTO `mgps`.`aspirante` VALUES (0,'$Fotografia','$Modalodad','$LGCA','Maestría en Gestión y Politicas Publicas de la Educación Superior','$Calendario','$Nombre','$Edad','$Genero','$Curp', '$calle','$NumCalle','$NumInt', '$Colonia','$CoPostal','$Municipio','$Estado','$TelCasa','$Celular','$correo','$LNacimiento','$Civil','$Licenciatura','$Univerisdad','$ProemedioLic','$Generacion','$Siiau','$TemaTesis');");
+          $info=getimagesize($_FILES["Fotografia"]["tmp_name"]);
+
+          $imagenEscapes=$mysqli->real_escape_string(file_get_contents($_FILES["Fotografia"]["tmp_name"]));
+
+          $DB->CONSULTA("INSERT INTO `mgps`.`aspirantes` VALUES (0,'$imagenEscapes','.$_FILES["userfile"]["type"].','$Modalodad','$LGCA','Maestría en Gestión y Politicas Publicas de la Educación Superior','$Calendario','$Nombre','$Edad','$Genero','$Curp', '$calle','$NumCalle','$NumInt', '$Colonia','$CoPostal','$Municipio','$Estado','$TelCasa','$Celular','$correo','$LNacimiento','$Civil','$Licenciatura','$Univerisdad','$ProemedioLic','$Generacion','$Siiau','$TemaTesis');");
+        }
+    
+
+            
 
 
             echo "<script>window.location='../index.php'</script>";

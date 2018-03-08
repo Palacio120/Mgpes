@@ -29,6 +29,11 @@
            }else{
               
               $rs=$DB->CONSULTA("INSERT INTO `materias_semestres` VALUES (0,'$CODIGO_ES',NULL, NULL, 'Segundo Semestre', $Id_Act)");
+              $rs1=$DB->CONSULTA("SELECT * FROM materias_semestres WHERE Id_Est= '$CODIGO_ES' and Semestre='Segundo Semestre'");
+
+                  while ($i=$DB->Obtener_filas($rs1)) {
+                    $_SESSION["M_Segundo"]=$i["Id_Materias"];
+                  }
               
             }
              if(isset($rs)){

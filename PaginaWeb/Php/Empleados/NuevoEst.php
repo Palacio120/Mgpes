@@ -124,6 +124,7 @@
                 'Comité_Tutorial',
                 '$LGCA',
                 '$TemaTesis');");
+                
 
               if (isset($rs2)) {
                   echo "<h3>El aspirante ahora es estudiante</h3>";?>
@@ -136,8 +137,6 @@
                   </div>
 
               <?php
-
-                $rs3=$DB->CONSULTA("DELETE FROM Aspirante where codigo_Aspirante= $id");
 
               };
 

@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: mgps
 -- ------------------------------------------------------
--- Server version	5.7.18-log
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,12 +23,11 @@ DROP TABLE IF EXISTS `exani`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `exani` (
+  `Equivalencia25` double(4,2) DEFAULT '0.00',
   `codigo_asp` int(10) unsigned NOT NULL,
   `calificacionExamenExani` double(5,2) DEFAULT '0.00',
-  `Equivalencia25` double(4,2) DEFAULT '0.00',
   PRIMARY KEY (`codigo_asp`),
-  KEY `Equivalencia25` (`Equivalencia25`),
-  CONSTRAINT `exani_ibfk_1` FOREIGN KEY (`codigo_asp`) REFERENCES `aspirante` (`codigo_Aspirante`) ON UPDATE CASCADE
+  KEY `Equivalencia25` (`Equivalencia25`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -38,52 +37,9 @@ CREATE TABLE `exani` (
 
 LOCK TABLES `exani` WRITE;
 /*!40000 ALTER TABLE `exani` DISABLE KEYS */;
-INSERT INTO `exani` VALUES (1,50.00,12.50),(2,0.00,0.00),(4,0.00,0.00);
+INSERT INTO `exani` VALUES (12.50,1,50.00),(0.00,2,0.00),(0.00,4,0.00);
 /*!40000 ALTER TABLE `exani` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = cp850 */ ;
-/*!50003 SET character_set_results = cp850 */ ;
-/*!50003 SET collation_connection  = cp850_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger defaultExani
-before insert on exani
-for each row
-begin
-	set NEW.calificacionExamenExani=0;
-	set New.Equivalencia25=0;
-
-end */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = cp850 */ ;
-/*!50003 SET character_set_results = cp850 */ ;
-/*!50003 SET collation_connection  = cp850_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger EquivalenciaExani
-before update ON exani
-FOR EACH ROW
-BEGIN
-	set new.equivalencia25=(new.calificacionExamenExani* .25);
-	update evaluacion set calificacionDelAspirante=0;
-end */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -94,4 +50,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-05 15:05:31
+-- Dump completed on 2018-03-08  9:05:32

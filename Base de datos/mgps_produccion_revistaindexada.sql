@@ -16,41 +16,44 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `produccion_memorias`
+-- Table structure for table `produccion_revistaindexada`
 --
 
-DROP TABLE IF EXISTS `produccion_memorias`;
+DROP TABLE IF EXISTS `produccion_revistaindexada`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `produccion_memorias` (
+CREATE TABLE `produccion_revistaindexada` (
   `id_Articulo` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `Autor` varchar(255) DEFAULT NULL,
+  `Autores` varchar(255) DEFAULT NULL,
   `Titulo` varchar(255) DEFAULT NULL,
-  `Congreso` varchar(255) DEFAULT NULL,
-  `EstadoActual` varchar(255) DEFAULT NULL,
-  `dePagina` int(11) DEFAULT NULL,
-  `aPagina` int(10) DEFAULT NULL,
-  `Pais` varchar(225) DEFAULT NULL,
   `Estado` varchar(255) DEFAULT NULL,
-  `Ciudad` varchar(255) DEFAULT NULL,
+  `NombreRevista` varchar(255) DEFAULT NULL,
+  `dePagina` int(11) DEFAULT NULL,
+  `aPagina` int(11) DEFAULT NULL,
+  `Descripccion` longtext,
+  `Pais` varchar(225) DEFAULT NULL,
+  `Editorial` varchar(64) DEFAULT NULL,
+  `Volumen` varchar(64) DEFAULT NULL,
+  `ISSN` varchar(64) DEFAULT NULL,
+  `IndiceDeRegistro` varchar(64) DEFAULT NULL,
   `FechaPublicacion` date DEFAULT NULL,
-  `Proposito` varchar(255) DEFAULT NULL,
+  `Proposito` varchar(64) DEFAULT NULL,
   `Probatorio` longblob,
   `ProduccionAlumnos` int(10) unsigned NOT NULL,
   `IdActividades` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id_Articulo`),
-  KEY `Memorias_idx1` (`IdActividades`),
-  CONSTRAINT `Memorias_idx1` FOREIGN KEY (`IdActividades`) REFERENCES `actividades` (`idActividades`) ON UPDATE CASCADE
+  KEY `RevistaInderxada_1_idx` (`IdActividades`),
+  CONSTRAINT `RevistaInderxada_1` FOREIGN KEY (`IdActividades`) REFERENCES `actividades` (`idActividades`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `produccion_memorias`
+-- Dumping data for table `produccion_revistaindexada`
 --
 
-LOCK TABLES `produccion_memorias` WRITE;
-/*!40000 ALTER TABLE `produccion_memorias` DISABLE KEYS */;
-/*!40000 ALTER TABLE `produccion_memorias` ENABLE KEYS */;
+LOCK TABLES `produccion_revistaindexada` WRITE;
+/*!40000 ALTER TABLE `produccion_revistaindexada` DISABLE KEYS */;
+/*!40000 ALTER TABLE `produccion_revistaindexada` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -61,12 +64,12 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `mgps`.`produccion_memorias_BEFORE_INSERT` BEFORE INSERT ON `produccion_memorias` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `mgps`.`produccion_revistainderxada_BEFORE_INSERT` BEFORE INSERT ON `produccion_revistaindexada` FOR EACH ROW
 BEGIN
 		INSERT INTO `mgps`.`produccionalumnos`(`NO_Publicacion`,`IdActividades`, CODIGO_ES,`Titulo`,`TipoDeProduccion`,`Probatorio`)VALUES(0,
-   new.IdActividades, (Select ID_Est from actividades where idActividades= new.IdActividades), new.Titulo, 'Memorias', new.Probatorio);
+   new.IdActividades, (Select ID_Est from actividades where idActividades= new.IdActividades), new.Titulo, 'Artículo revista indexada', new.Probatorio);
 	
-	set new.ProduccionAlumnos=(select NO_Publicacion from produccionalumnos where Titulo=new.Titulo and IdActividades= new.idActividades and TipoDeProduccion= 'Memorias');
+	set new.ProduccionAlumnos=(select NO_Publicacion from produccionalumnos where Titulo=new.Titulo and IdActividades= new.idActividades and TipoDeProduccion='Artículo revista indexada');
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -82,9 +85,9 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `mgps`.`produccion_memorias_BEFORE_UPDATE` BEFORE UPDATE ON `produccion_memorias` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `mgps`.`produccion_revistaindexada_BEFORE_UPDATE` BEFORE UPDATE ON `produccion_revistaindexada` FOR EACH ROW
 BEGIN
-set new.ProduccionAlumnos=(select NO_Publicacion from produccionalumnos where Titulo=old.Titulo and IdActividades= old.idActividades and TipoDeProduccion= 'Memorias');
+set new.ProduccionAlumnos=(select NO_Publicacion from produccionalumnos where Titulo=old.Titulo and IdActividades= old.idActividades and TipoDeProduccion='Artículo revista indexada');
 	
     UPDATE `mgps`.`produccionalumnos`
 SET
@@ -107,4 +110,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-08  9:05:11
+-- Dump completed on 2018-03-08  9:04:48

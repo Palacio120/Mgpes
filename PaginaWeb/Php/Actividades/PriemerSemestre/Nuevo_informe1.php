@@ -3,7 +3,7 @@
  ?>
 
       <?php
-        include('../conf_tab.php');
+        include('../../conf_tab.php');
         
         $DB= new ConfigDB();
         $DB->Mysql();
@@ -23,7 +23,7 @@
               $_SESSION["Primer_informe"]=$i["idActividades"];
             }
              if(isset($rs)){
-              echo "<script>window.location='../../Estudiante/actividades.php'</script>";
+              echo "<script>window.location='../../../Estudiante/actividades.php'</script>";
              }
            }
 

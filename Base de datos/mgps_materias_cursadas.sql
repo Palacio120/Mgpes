@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: mgps
 -- ------------------------------------------------------
--- Server version	5.7.18-log
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -32,7 +32,7 @@ CREATE TABLE `materias_cursadas` (
   PRIMARY KEY (`Id`),
   KEY `materias_cursadas_ibfk_2_idx` (`Id_Materias`),
   CONSTRAINT `materias_cursadas_ibfk_2` FOREIGN KEY (`Id_Materias`) REFERENCES `materias_semestres` (`Id_Materias`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-05 15:05:22
+-- Dump completed on 2018-03-08  9:04:58
