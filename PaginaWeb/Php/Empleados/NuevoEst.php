@@ -134,10 +134,8 @@
                       <button type="button" name="button" class="btn btn-light" onclick="ocultarVentana()" style=" Rigth:10px; bottom:10px;">Cerrar</button>
                     </div>
                   </div>
-
+                  
               <?php
-
-                $rs3=$DB->CONSULTA("DELETE FROM Aspirante where codigo_Aspirante= $id");
 
               };
 
