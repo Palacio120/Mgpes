@@ -134,8 +134,19 @@
                       <button type="button" name="button" class="btn btn-light" onclick="ocultarVentana()" style=" Rigth:10px; bottom:10px;">Cerrar</button>
                     </div>
                   </div>
-                  
+
               <?php
+              $rs2=$DB->CONSULTA("SELECT * from Estudiante where Codigo_ASP='$codigo_Aspirante'");
+
+              while ($i=$DB->Obtener_filas($rs2)) {
+                $bandera=TRUE;
+              }
+
+              if ($bandera==TRUE) {
+                $rs2=$DB->CONSULTA("DELETE from Aspirante where codigo_Aspirante='$id';");
+              }else{ ?>
+                <script type="text/javascript">alert('No se ingrsaron los datos a la base de datos.')</script>
+              <?php } 
 
               };
 

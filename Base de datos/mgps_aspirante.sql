@@ -87,7 +87,6 @@ CREATE TABLE `aspirante` (
 
 LOCK TABLES `aspirante` WRITE;
 /*!40000 ALTER TABLE `aspirante` DISABLE KEYS */;
-INSERT INTO `aspirante` VALUES (1,NULL,'tiempo completo','Nuevos paradigmas','','2017A','Alejandro Palacio Alvarez',20,'M','','','','','','','','','','','','','','','',90.00,'',NULL,NULL,''),(2,NULL,'tiempo completo','Nuevos paradigmas','','2017A','Alejandro Palacio Alvarez',20,'M','','','','','','','','','','','','','','','',90.00,'',NULL,NULL,''),(4,'C:xampp	mpphp8E35.tmp','TIEMPO COMPLETO','Calidad y mejoramiento','Maestría en Gestión y Politicas Publicas de la Educación Superior','2018A','Alejandro Palacio Álvarez',21,'M','PAAA970303HJCLLL02','Andador Dr. Luis Farah','652','0','Los Paraisos','44150','Jalisco','Guadalajara','-','3331174635','alejandropalacio119@gmail.com','Guadalajara Jal. México','Soltero','Tecnologías de la información','UdeG',90.00,'2015B','212546785','Prueba','prueba');
 /*!40000 ALTER TABLE `aspirante` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -128,4 +127,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-05 15:05:21
+-- Dump completed on 2018-03-09 15:31:28

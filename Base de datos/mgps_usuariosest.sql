@@ -27,9 +27,7 @@ CREATE TABLE `usuariosest` (
   `password` varchar(255) DEFAULT 'contraseña',
   `nombre` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`usuario`),
-  KEY `nombre` (`nombre`),
-  CONSTRAINT `usuariosest_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `estudiante` (`CODIGO_ES`),
-  CONSTRAINT `usuariosest_ibfk_2` FOREIGN KEY (`nombre`) REFERENCES `estudiante` (`NombreCompleto`) ON DELETE NO ACTION ON UPDATE CASCADE
+  CONSTRAINT `usuariosest_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `estudiante` (`CODIGO_ES`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -39,7 +37,7 @@ CREATE TABLE `usuariosest` (
 
 LOCK TABLES `usuariosest` WRITE;
 /*!40000 ALTER TABLE `usuariosest` DISABLE KEYS */;
-INSERT INTO `usuariosest` VALUES ('0','4c882dcb24bcb1bc225391a602feca7c','Alejandro Palacio Álvarez'),('MG2_APÁ18','4c882dcb24bcb1bc225391a602feca7c','Alejandro Palacio Álvarez'),('Prueba001','5bc8c567a89112d5f408a8af4f17970d','Alejandro Palacio Alvarez');
+INSERT INTO `usuariosest` VALUES ('MG3_APA18','d51a471dbd44543098515ba37abb7a78','Alejandro Palacio Alvarez'),('Prueba001','5bc8c567a89112d5f408a8af4f17970d','Alejandro Palacio Alvarez');
 /*!40000 ALTER TABLE `usuariosest` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-05 15:05:35
+-- Dump completed on 2018-03-09 15:31:42

@@ -30,7 +30,7 @@ CREATE TABLE `direcciondetesis` (
   `CODIGO_ES` char(9) DEFAULT NULL,
   `GRADO` longtext,
   `TemaTesis` varchar(255) DEFAULT NULL,
-  `Periodo` char(10) DEFAULT '',
+  `Periodo` char(20) DEFAULT '',
   `Aprovacion_TR` enum('espera','SI') DEFAULT 'espera',
   `lector_1` varchar(255) DEFAULT NULL,
   `lector_2` varchar(255) DEFAULT NULL,
@@ -40,15 +40,12 @@ CREATE TABLE `direcciondetesis` (
   KEY `lector_1` (`lector_1`),
   KEY `lector_2` (`lector_2`),
   KEY `LGAC` (`LGAC`),
-  KEY `NombreALUMNO` (`NombreALUMNO`),
   KEY `CODIGO_ES` (`CODIGO_ES`),
   KEY `Director` (`DirectorTesis`),
   KEY `Co-director` (`Co_Director`),
-  CONSTRAINT `direcciondetesis_ibfk_10` FOREIGN KEY (`LGAC`) REFERENCES `estudiante` (`LGAC`) ON UPDATE CASCADE,
   CONSTRAINT `direcciondetesis_ibfk_3` FOREIGN KEY (`LGAC`) REFERENCES `lgac` (`LGAC`) ON UPDATE CASCADE,
-  CONSTRAINT `direcciondetesis_ibfk_7` FOREIGN KEY (`NombreALUMNO`) REFERENCES `estudiante` (`NombreCompleto`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `direcciondetesis_ibfk_8` FOREIGN KEY (`CODIGO_ES`) REFERENCES `estudiante` (`CODIGO_ES`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -57,7 +54,7 @@ CREATE TABLE `direcciondetesis` (
 
 LOCK TABLES `direcciondetesis` WRITE;
 /*!40000 ALTER TABLE `direcciondetesis` DISABLE KEYS */;
-INSERT INTO `direcciondetesis` VALUES (2,'Dra. Sonia Reynaga Obregón','','Alejandro Palacio Alvarez','Prueba001','NULL','La internacionalización de programas de posgrado. El caso del Consejo Mexicano se Estudios de Posgrado','2017B','espera','','','CYMLES','Segundo Semestre');
+INSERT INTO `direcciondetesis` VALUES (2,'Dra. Sonia Reynaga Obregón','','Alejandro Palacio Alvarez','Prueba001','NULL','La internacionalización de programas de posgrado. El caso del Consejo Mexicano se Estudios de Posgrado','2017B','espera','','','CYMLES','Segundo Semestre'),(3,'Alejandro Palacio Alvarez','','Alejandro Palacio Alvarez','MG3_APA18','','Prueba de edición','2017A','espera','P','A','NPDES','Segundo Semestre');
 /*!40000 ALTER TABLE `direcciondetesis` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -69,27 +66,12 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `mgps`.`direcciondetesis_BEFORE_INSERT` BEFORE INSERT ON `direcciondetesis` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `mgps`.`direcciondetesis_AFTER_INSERT` AFTER INSERT ON `direcciondetesis` FOR EACH ROW
 BEGIN
+	UPDATE `mgps`.`estudiante`SET `DireccionTesis` = new.No_Tesis WHERE `CODIGO_ES` = new.CODIGO_ES;
 
-END */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `mgps`.`direcciondetesis_BEFORE_UPDATE` BEFORE UPDATE ON `direcciondetesis` FOR EACH ROW
-BEGIN
 
+    
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -106,4 +88,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-05 15:05:24
+-- Dump completed on 2018-03-09 15:31:31

@@ -32,7 +32,7 @@ CREATE TABLE `materias_cursadas` (
   PRIMARY KEY (`Id`),
   KEY `materias_cursadas_ibfk_2_idx` (`Id_Materias`),
   CONSTRAINT `materias_cursadas_ibfk_2` FOREIGN KEY (`Id_Materias`) REFERENCES `materias_semestres` (`Id_Materias`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `materias_cursadas` (
 
 LOCK TABLES `materias_cursadas` WRITE;
 /*!40000 ALTER TABLE `materias_cursadas` DISABLE KEYS */;
-INSERT INTO `materias_cursadas` VALUES (12,'Nombre del curso 2','2018-02-13',4,1,'Nombre del profesor'),(13,'Nombre del curso','2018-02-16',9,100,'Nombre del profesor'),(14,'Nombre del curso','2018-02-16',5,100,'Nombre del profesor'),(15,'Nombre del curso','2018-02-16',4,100,'Nombre del profesor'),(16,'Estadistica','2017-12-12',3,97,'Profesor'),(17,'Gobierno y gestion de la educacion superior','2017-12-12',3,82,'Profesor'),(18,'Institución y sistemas de educación superior','2017-12-12',3,90,'Profesor'),(19,'Marco Normativo de la educación','2017-12-12',3,95,'Profesor'),(20,'Metodología de la investigación (N)','2017-12-12',3,93,'Profesor');
+INSERT INTO `materias_cursadas` VALUES (12,'Nombre del curso 2','2018-02-13',4,1,'Nombre del profesor'),(13,'Nombre del curso','2018-02-16',9,100,'Nombre del profesor'),(14,'Nombre del curso','2018-02-16',5,100,'Nombre del profesor'),(15,'Nombre del curso','2018-02-16',4,100,'Nombre del profesor'),(16,'Estadistica','2017-12-12',3,97,'Profesor'),(17,'Gobierno y gestion de la educacion superior','2017-12-12',3,82,'Profesor'),(18,'Institución y sistemas de educación superior','2017-12-12',3,90,'Profesor'),(19,'Marco Normativo de la educación','2017-12-12',3,95,'Profesor'),(20,'Metodología de la investigación (N)','2017-12-12',3,93,'Profesor'),(21,'Nombre del curso','2018-03-09',10,100,'Nombre del profesor');
 /*!40000 ALTER TABLE `materias_cursadas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-05 15:05:22
+-- Dump completed on 2018-03-09 15:31:27

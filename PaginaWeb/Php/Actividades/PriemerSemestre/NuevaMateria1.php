@@ -12,7 +12,7 @@
 
       <?php
         include('../../conf_tab.php');
-        
+
         $DB= new ConfigDB();
         $DB->Mysql();
 
@@ -30,7 +30,7 @@
 
 
 
-              
+
               $rs1=$DB->CONSULTA("INSERT INTO `materias_cursadas` VALUES (0,'$Materias', '$Calendario', '$Id_Materia', '$calificacion', '$NombreProfesor')");
 
 
@@ -38,7 +38,7 @@
               echo "<script>window.location='../../../Estudiante/Actividades.php'</script>";
 
 
-        
+
 
        ?>
 

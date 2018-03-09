@@ -17,7 +17,10 @@
         $DB->Mysql();
 
           $codigo= $_SESSION["CODIGO_ES"];
-          $Id_Act=$_SESSION["Segundo_informe"];
+          if (isset($_SESSION["Segundo_informe"])) {
+            $Id_Act=$_SESSION["Segundo_informe"];
+          }
+
 
             for ($i=201; $i <216 ; $i++) {
               $submit=isset($_POST['Submit'.$i]);
