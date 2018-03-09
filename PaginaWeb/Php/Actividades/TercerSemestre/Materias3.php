@@ -22,8 +22,11 @@
           $Id_Act=$_SESSION["Tercer_informe"];
 
 
+
+
+           
               
-              $rs=$DB->CONSULTA("INSERT INTO `materias_semestres` VALUES ('0','$CODIGO_ES',NULL, NULL, 'Tercer Semestre', $Id_Act)");
+              $rs=$DB->CONSULTA("INSERT INTO `materias_semestres` VALUES ('0','$CODIGO_ES','', NULL, 'Tercer Semestre', $Id_Act)");
               
               $rs1=$DB->CONSULTA("SELECT * FROM materias_semestres WHERE Id_Est= '$CODIGO_ES' and Semestre='Tercer Semestre'");
 

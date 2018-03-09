@@ -18,14 +18,9 @@
 
           $codigo= $_SESSION["CODIGO_ES"];
           if (isset($_SESSION["Primer_informe"])) {
-<<<<<<< HEAD
             $Id_Act=$_SESSION["Primer_informe"];
           }
 
-=======
-             $Id_Act=$_SESSION["Primer_informe"];
-           } 
->>>>>>> c750a19e8ef2bf02b5fd4e821aeeecddd12f0957
 
             for ($i=1; $i <17 ; $i++) {
               $submit=isset($_POST['Submit'.$i]);

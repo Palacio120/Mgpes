@@ -4,11 +4,7 @@
 
       <?php
         include('../../conf_tab.php');
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> c750a19e8ef2bf02b5fd4e821aeeecddd12f0957
         $DB= new ConfigDB();
         $DB->Mysql();
 
