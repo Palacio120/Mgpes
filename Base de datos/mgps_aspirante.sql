@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: mgps
 -- ------------------------------------------------------
--- Server version	5.7.17-log
+-- Server version	5.7.18-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `aspirantes`
+-- Table structure for table `aspirante`
 --
 
-DROP TABLE IF EXISTS `aspirantes`;
+DROP TABLE IF EXISTS `aspirante`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `aspirantes` (
+CREATE TABLE `aspirante` (
   `codigo_Aspirante` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `Fotografia` longblob,
   `modalidad` varchar(255) DEFAULT '',
@@ -76,26 +76,47 @@ CREATE TABLE `aspirantes` (
   KEY `Universidad` (`Universidad`),
   KEY `Promedio` (`Promedio`),
   KEY `Generacion` (`Generacion`),
-  KEY `aspirantes_ibfk_1` (`Orientacion`),
-  CONSTRAINT `aspirantes_ibfk_1` FOREIGN KEY (`Orientacion`) REFERENCES `lgac` (`Orientacion`) ON UPDATE CASCADE
+  KEY `aspirante_ibfk_1` (`Orientacion`),
+  CONSTRAINT `aspirante_ibfk_1` FOREIGN KEY (`Orientacion`) REFERENCES `lgac` (`Orientacion`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `aspirantes`
+-- Dumping data for table `aspirante`
 --
 
-<<<<<<< HEAD:Base de datos/mgps_aspirante.sql
 LOCK TABLES `aspirante` WRITE;
 /*!40000 ALTER TABLE `aspirante` DISABLE KEYS */;
 /*!40000 ALTER TABLE `aspirante` ENABLE KEYS */;
-=======
-LOCK TABLES `aspirantes` WRITE;
-/*!40000 ALTER TABLE `aspirantes` DISABLE KEYS */;
-INSERT INTO `aspirantes` VALUES (1,NULL,'tiempo completo','Nuevos paradigmas','','2017A','Alejandro Palacio Alvarez',20,'M','','','','','','','','','','','','','','','',90.00,'',NULL,NULL,''),(2,NULL,'tiempo completo','Nuevos paradigmas','','2017A','Alejandro Palacio Alvarez',20,'M','','','','','','','','','','','','','','','',90.00,'',NULL,NULL,''),(4,'C:xampp	mpphp8E35.tmp','TIEMPO COMPLETO','Calidad y mejoramiento','Maestría en Gestión y Politicas Publicas de la Educación Superior','2018A','Alejandro Palacio Álvarez',21,'M','PAAA970303HJCLLL02','Andador Dr. Luis Farah','652','0','Los Paraisos','44150','Jalisco','Guadalajara','-','3331174635','alejandropalacio119@gmail.com','Guadalajara Jal. México','Soltero','Tecnologías de la información','UdeG',90.00,'2015B','212546785','Prueba','prueba');
-/*!40000 ALTER TABLE `aspirantes` ENABLE KEYS */;
->>>>>>> c750a19e8ef2bf02b5fd4e821aeeecddd12f0957:Base de datos/mgps_aspirantes.sql
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = cp850 */ ;
+/*!50003 SET character_set_results = cp850 */ ;
+/*!50003 SET collation_connection  = cp850_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER NUEVOASP 
+AFTER INSERT ON ASPIRANTE
+FOR EACH ROW
+BEGIN
+	insert into exani(codigo_asp) values (new.codigo_Aspirante);
+	insert into orden_de_pago(codigo_asp) values(new.codigo_Aspirante);
+	insert into anteproyecto(codigo_asp) values(new.codigo_Aspirante);
+	insert into documentosASP(codigo_asp) values(new.codigo_Aspirante);
+	insert into ResultadoEntrevistas(codigo_asp) values( new.codigo_Aspirante);
+	Insert into CursoPropedeutico(codigo_asp) values (new.codigo_Aspirante);
+	insert into evaluacion(codigo_asp) values (new.codigo_Aspirante);
+	
+	
+end */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -106,8 +127,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-<<<<<<< HEAD:Base de datos/mgps_aspirante.sql
--- Dump completed on 2018-03-09 15:31:28
-=======
--- Dump completed on 2018-03-08  9:05:23
->>>>>>> c750a19e8ef2bf02b5fd4e821aeeecddd12f0957:Base de datos/mgps_aspirantes.sql
+-- Dump completed on 2018-03-09 15:41:29
