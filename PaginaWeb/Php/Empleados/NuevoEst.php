@@ -124,6 +124,7 @@
                 'Comité_Tutorial',
                 '$LGCA',
                 '$TemaTesis');");
+                
 
               if (isset($rs2)) {
                   echo "<h3>El aspirante ahora es estudiante</h3>";?>
@@ -138,6 +139,7 @@
               <?php
               $rs2=$DB->CONSULTA("SELECT * from Estudiante where Codigo_ASP='$codigo_Aspirante'");
 
+<<<<<<< HEAD
               while ($i=$DB->Obtener_filas($rs2)) {
                 $bandera=TRUE;
               }
@@ -148,6 +150,8 @@
                 <script type="text/javascript">alert('No se ingrsaron los datos a la base de datos.')</script>
               <?php } 
 
+=======
+>>>>>>> c750a19e8ef2bf02b5fd4e821aeeecddd12f0957
               };
 
                ?>

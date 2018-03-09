@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: mgps
 -- ------------------------------------------------------
--- Server version	5.7.18-log
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -42,7 +42,11 @@ CREATE TABLE `proyectos_semestre` (
   CONSTRAINT `Direccion_de_tesis` FOREIGN KEY (`Direccion_de_tesis`) REFERENCES `direcciondetesis` (`No_Tesis`) ON UPDATE CASCADE,
   CONSTRAINT `Informe_de_actividades` FOREIGN KEY (`idActividades`) REFERENCES `actividades` (`idActividades`) ON UPDATE CASCADE,
   CONSTRAINT `codigo` FOREIGN KEY (`Codigo_es`) REFERENCES `estudiante` (`CODIGO_ES`) ON DELETE NO ACTION ON UPDATE NO ACTION
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+>>>>>>> c750a19e8ef2bf02b5fd4e821aeeecddd12f0957
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -84,4 +88,8 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+<<<<<<< HEAD
 -- Dump completed on 2018-03-09 15:31:29
+=======
+-- Dump completed on 2018-03-08  9:04:57
+>>>>>>> c750a19e8ef2bf02b5fd4e821aeeecddd12f0957

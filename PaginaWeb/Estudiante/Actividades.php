@@ -85,8 +85,13 @@
                    if ($bandera==FALSE) {
                     ?>
                     <input type='button' value='nuevo Informe' onclick="nuevoInforme1()" style="margin: 10px;">
+<<<<<<< HEAD
                   </div>
                 </div>
+=======
+                    </div>
+                    </div>
+>>>>>>> c750a19e8ef2bf02b5fd4e821aeeecddd12f0957
                     <?php
                      }else{
                     ?>
@@ -1524,8 +1529,13 @@
                    if ($bandera==FALSE) {
                     ?>
                     <input type='button' value='nuevo Informe' onclick="nuevoInforme2()" style="margin: 10px;">
+<<<<<<< HEAD
                   </div>
                   </div>
+=======
+                    </div>
+                    </div>
+>>>>>>> c750a19e8ef2bf02b5fd4e821aeeecddd12f0957
                     <?php
                      }else{
                     ?>
@@ -2950,8 +2960,13 @@
                      if ($bandera==FALSE) {
                       ?>
                       <input type='button' value='nuevo Informe' onclick="nuevoInforme3()" style="margin: 10px;">
+<<<<<<< HEAD
                     </div>
                   </div>
+=======
+                      </div>
+                      </div>
+>>>>>>> c750a19e8ef2bf02b5fd4e821aeeecddd12f0957
                       <?php
                        }else{
                       ?>
@@ -4379,8 +4394,13 @@
                      if ($bandera==FALSE) {
                       ?>
                       <input type='button' value='nuevo Informe' onclick="nuevoInforme4()" style="margin: 10px;">
+<<<<<<< HEAD
                     </div>
                   </div>
+=======
+                      </div>
+                      </div>
+>>>>>>> c750a19e8ef2bf02b5fd4e821aeeecddd12f0957
                       <?php
                        }else{
                       ?>

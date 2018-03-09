@@ -117,16 +117,8 @@
                   <p><?php echo $_SESSION["Lugar_nacimiento"]; ?></p>
               </div>
               <div class="Elemento_Perfil">
-                <label>Vive con</label>
-                <p><?php echo $_SESSION["ViveCon"]; ?></p>
-              </div>
-              <div class="Elemento_Perfil">
                 <label>Estado civil</label>
                 <p><?php echo $_SESSION["EstadoCivil"]; ?></p>
-              </div>
-              <div class="Elemento_Perfil">
-                <label>Dependientes</label>
-                <p><?php echo $_SESSION["Dependientes"]; ?></p>
               </div>
 
             </div>
@@ -195,12 +187,16 @@
               <label>Generacion</label>
               <p><?php echo $_SESSION["Generacion"]; ?></p>
             </div>
-            <div class="Elemento_Perfil">
-              <label>Idiomas</label>
-              <p><?php echo $_SESSION["Idiomas"]; ?></p>
-            </div>
           </div>
-
+          <?php if (!isset($_SESSION["Director"])) {?>
+            <div class="conjunto">
+              <label>Tesis</label>
+              <div class="conjunto">
+                <label><h3>Editar los datos de la tesis en el informe de actividades en el campo proyecto</h3></label>
+              </div>
+              
+            </div>
+          <?php }else{ ?>
           <div class="conjunto">
             <label>Tesis</label>
             <div class="Elemento_Perfil">
@@ -244,6 +240,8 @@
               <p><?php echo $_SESSION["lector_2"]; ?></p>
             </div>
           </div>
+
+          <?php } ?>
         </div>
 
       </div>

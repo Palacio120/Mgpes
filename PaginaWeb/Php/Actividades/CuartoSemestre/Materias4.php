@@ -22,7 +22,7 @@
           $Id_Act=$_SESSION["Cuarto_informe"];
 
               
-              $rs=$DB->CONSULTA("INSERT INTO `materias_semestres` VALUES ('0','$CODIGO_ES', '',NULL, 'Cuarto Semestre', $Id_Act)");
+              $rs=$DB->CONSULTA("INSERT INTO `materias_semestres` VALUES ('0','$CODIGO_ES', NULL,NULL, 'Cuarto Semestre', $Id_Act)");
               
               $rs1=$DB->CONSULTA("SELECT * FROM materias_semestres WHERE Id_Est= '$CODIGO_ES' and Semestre='Cuarto Semestre'");
                   while ($i=$DB->Obtener_filas($rs1)) {
