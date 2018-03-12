@@ -116,6 +116,10 @@ if (isset($_SESSION['user'])) {
                   <input type="text" name="Modalodad" class="form-control" required>
                 </div>
                 <div class="col-md-3">
+                  <label>RFC</label>
+                  <input type="text" name="RFC" class="form-control" required>
+                </div>
+                <div class="col-md-3">
                   <label>Fotografia</label>
                   <input type="file" name="Fotografia" class="form-control" required>
                 </div>

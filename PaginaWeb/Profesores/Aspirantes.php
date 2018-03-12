@@ -92,10 +92,14 @@
                          <a href="#"  onclick="Consulta(<?php echo $rs["codigo_Aspirante"]; ?>)" >Desplegar datos</a><br>
                       </td>
                     </tr>
-                  <?php }?>
+                  <?php }
+
+                  ?>
 
               </table>
-            <?php } ?>
+            <?php }
+            
+            ?>
             </div>
           </div>
         </div>

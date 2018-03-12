@@ -43,6 +43,7 @@
       $Generacion =$_POST["Generacion"];
       $TemaTesis=$_POST["TemaTesis"];
       $LGCA=$_POST["LGCA"];
+      $rfc=$_POST["RFC"];
 
 
 
@@ -57,7 +58,7 @@
          $contenido = addslashes($contenido);
          fclose($fp);
 
-            $DB->CONSULTA("INSERT INTO `mgps`.`aspirante` VALUES (0,'$Fotografia','$Modalodad','$LGCA','Maestría en Gestión y Politicas Publicas de la Educación Superior','$Calendario','$Nombre','$Edad','$Genero','$Curp', '$calle','$NumCalle','$NumInt', '$Colonia','$CoPostal','$Municipio','$Estado','$TelCasa','$Celular','$correo','$LNacimiento','$Civil','$Licenciatura','$Univerisdad','$ProemedioLic','$Generacion','$Siiau','$TemaTesis');");
+            $DB->CONSULTA("INSERT INTO `mgps`.`aspirante` VALUES (0,'$Fotografia','$Modalodad','$LGCA','Maestría en Gestión y Politicas Publicas de la Educación Superior','$Calendario','$Nombre','$Edad','$Genero','$Curp', '$calle','$NumCalle','$NumInt', '$Colonia','$CoPostal','$Municipio','$Estado','$TelCasa','$Celular','$correo','$LNacimiento','$Civil','$Licenciatura','$Univerisdad','$ProemedioLic','$Generacion','$Siiau','$TemaTesis','$rfc');");
 
 
             echo "<script>window.location='../index.php'</script>";

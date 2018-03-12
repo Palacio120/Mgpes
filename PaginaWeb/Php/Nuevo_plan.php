@@ -11,10 +11,11 @@
 
 
       <?php
-        include('conexion.php');
+        include('conf_tab.php');
         include_once('funciones.php');
 
-        $con=conexion();
+        $DB=new ConfigDB;
+        $DB->Mysql();
 
 
           $Materias=$_POST["Materias"];
@@ -30,24 +31,11 @@
           $No_tesis=$_SESSION["DireccionTesis"];
           $Producción=$_POST["Producción"];
 
-          $Materias=CambiarEnter($Materias);
-          $Semestre=CambiarEnter($Semestre);
-          $Proyecto=CambiarEnter($Proyecto);
-          $extracurriculares=CambiarEnter($extracurriculares);
-          $investigacion=CambiarEnter($investigacion);
-          $Ponencias=CambiarEnter($Ponencias);
-          $Asesorias=CambiarEnter($Asesorias);
-          $Tutorias=CambiarEnter($Tutorias);
-          $Movilidad=CambiarEnter($Movilidad);
-          $Vinculación=CambiarEnter($Vinculación);
-          $Producción=CambiarEnter($Producción);
 
-
-           $query=("INSERT INTO `plan_de_trabajo` VALUES ('0','$Semestre', '$Materias', '$Proyecto', '$Producción', '$extracurriculares', '$investigacion', '$Ponencias', '$Asesorias', '$Tutorias', '$Movilidad', '$Vinculación', '$No_tesis',NULL,NULL,NULL)");
-         $rs=mysqli_query($con,$query);
+           $query=$DB->CONSULTA("INSERT INTO `plan_de_trabajo` VALUES ('0','$Semestre', '$Materias', '$Proyecto', '$Producción', '$extracurriculares', '$investigacion', '$Ponencias', '$Asesorias', '$Tutorias', '$Movilidad', '$Vinculación', '$No_tesis',NULL,NULL,NULL)");
 
          if(isset($rs)){
-          
+
           echo "<script>window.location='../Estudiante/Planes_trabajo.php'</script>";
          }
 

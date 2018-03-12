@@ -16,6 +16,7 @@
         $DB= new ConfigDB();
         $DB->Mysql();
         $id=$_POST["id"];
+        $bandera=FALSE;
         ?>
 
           <?php $rs1=$DB->CONSULTA("SELECT * FROM Aspirante where codigo_Aspirante= $id");
@@ -126,7 +127,8 @@
                 '$TemaTesis');");
 
               if (isset($rs2)) {
-                  echo "<h3>El aspirante ahora es estudiante</h3>";?>
+                  ?>
+
                   <div class="row" style="bottom:10px; position:absolute; ">
                     <div class="col-md-3">
                     </div>
@@ -144,9 +146,10 @@
 
               if ($bandera==TRUE) {
                 $rs2=$DB->CONSULTA("DELETE from Aspirante where codigo_Aspirante='$id';");
+                echo "<h3>El aspirante ahora es estudiante</h3>";
               }else{ ?>
-                <script type="text/javascript">alert('No se ingrsaron los datos a la base de datos.')</script>
-              <?php } 
+                <script type="text/javascript">alert('No se ingrsaron los datos a la base de datos.');</script>
+              <?php }
 
               };
 

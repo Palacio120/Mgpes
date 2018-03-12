@@ -54,6 +54,8 @@
           <div class="cuadro"><a href="Planes_Trabajo.php"><p>Plan de trabajo</p></a></div>
           <div class="cuadro"><a href="actividades.php"><p>Informes de actividades</p></a></div>
 
+          <?php echo $_SESSION["Fotografia"]; ?>
+
 
         </div>
       </div>
