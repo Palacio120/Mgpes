@@ -11,7 +11,6 @@
     <title>MGPES</title>
     <link href="../Styles/Default.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../Styles/menus.css" type="text/css" >
-    <link rel="stylesheet" href="../Styles/menus.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script type="text/javascript" src="../Scripts/main.Js"></script>
   </head>
@@ -54,7 +53,6 @@
           <div class="cuadro"><a href="Planes_Trabajo.php"><p>Plan de trabajo</p></a></div>
           <div class="cuadro"><a href="actividades.php"><p>Informes de actividades</p></a></div>
 
-          <?php echo $_SESSION["Fotografia"]; ?>
 
 
         </div>

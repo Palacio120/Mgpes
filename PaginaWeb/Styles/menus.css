@@ -17,6 +17,11 @@
     margin-top: 80px;
 }
 
+.menu_centrado{
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 80px;
+}
 .cuadro{
   display: inline-block;
   height: 50px;
@@ -118,10 +123,10 @@
 }
 
   #header img{
-    width:50px; 
+    width:50px;
     height: 100%;
     left: 70px;
-    margin-top:5px; 
+    margin-top:5px;
   }
 
 .menu_lateral li {

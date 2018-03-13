@@ -11,7 +11,6 @@ if (!isset($_SESSION["usuario"])) {
     <title>Aspirantes</title>
     <link href="../Styles/Default.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../Styles/menus.css" type="text/css" >
-    <link rel="stylesheet" href="../Styles/menus.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -51,6 +50,16 @@ if (!isset($_SESSION["usuario"])) {
               <li><a href="../php/logout.php"  id="D-letras3" style="color: white">logout</a></li>
             </ul>
           </div>
+        </div>
+        <div  id="centro" style="marginLeft:0px;">
+          <div class="menu_centrado">
+            <div class="cuadro"><a href="BecaConacyt\Asignacion.php"><p>Asignación de beca</p></a></div>
+            <div class="cuadro"><a href=""><p>Desempeño academico</p></a></div>
+            <div class="cuadro"><a href=""><p>Seguimiento Administrativo</p></a></div>
+            <div class="cuadro"><a href=""><p>Conclución de beca</p></a></div>
+            <div class="cuadro"><a href=""><p>Beca Mixta</p></a></div>
+          </div>
+
         </div>
 
       </div>

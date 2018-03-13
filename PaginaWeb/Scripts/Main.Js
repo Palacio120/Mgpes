@@ -47,6 +47,8 @@ function mostrar_Perfil() {
     document.getElementById("Ventana").style.Left="20%";
 }
 
+
+
 function ocultar2() {
     document.getElementById("menu").style.width = "0";
     document.getElementById("menu").style.border="hidden";
@@ -192,4 +194,12 @@ function NuevoAsp(){
 
 function  CancelarNuevoAsp(){
   location.reload();
+}
+
+function enable(num){
+  document.getElementById(num).disabled=false;
+}
+
+function disable(num){
+  document.getElementById(num).disabled=true;
 }
