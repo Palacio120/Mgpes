@@ -8,7 +8,7 @@ if (!isset($_SESSION["usuario"])) {
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Aspirantes</title>
+    <title>Becas CONACYT</title>
     <link href="../Styles/Default.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../Styles/menus.css" type="text/css" >
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -18,16 +18,7 @@ if (!isset($_SESSION["usuario"])) {
   </head>
   <body>
     <div class="page">
-      <div id="menu" class="menu_lateral" style="width: 0px; border: hidden;">
-        <a href="#" class="boton-cerrar" onclick="ocultar2()">×</a>
-        <ul class="menu">
-          <!--<li><a href="#">Requisitos de ingresos</a></li>
-          <li><a href="#">Desempeño academico</a></li>-->
-          <li><a href="Actividades.php">Informes de actividades</a></li>
-          <li><a href="Planes_Trabajo.php">Plan de trabajo</a></li>
-          <li><a class="logout" href="../php/logout.php">Logout</a></li>
-        </ul>
-      </div>
+      <?php include_once('MenuLateral.php') ?>
       <div class="header">
         <div id="head" class="main">
             <a id="abrir_menu" class="abrir-cerrar" href="javascript:void(0)" onclick="mostrar_Perfil()" style="display: inline;"> <img src="../image/boton_menu.png" alt="Bmenu" style="width:50px; heigth= 50px;"></a>

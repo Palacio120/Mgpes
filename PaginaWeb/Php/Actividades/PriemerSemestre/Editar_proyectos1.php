@@ -96,19 +96,14 @@
                     $_SESSION["Correo_Personal"]=$row["Correo_Personal"];
                     //datos personales 2
                     $_SESSION["Lugar_nacimiento"]=$row["Lugar_nacimiento"];
-                    $_SESSION["ViveCon"]=$row["ViveCon"];
-                    $_SESSION["Dependientes"]=$row["Dependientes"];
                     $_SESSION["EstadoCivil"]=$row["EstadoCivil"];
                     //datos academicos
                     $_SESSION["Licenciatura"]=$row["Licenciatura"];
                     $_SESSION["Universidad"]=$row["Universidad"];
                     $_SESSION["Promedio"]=$row["Promedio"];
                     $_SESSION["Generacion"]=$row["Generacion"];
-                    $_SESSION["Idiomas"]=$row["Idiomas"];
-                    //datos como aspirante
-                    $_SESSION["PuestoDesempeñado_comoAspirante"]=$row["PuestoDesempeñado_comoAspirante"];
-                    $_SESSION["Sueldo_comoAspirante"]=$row["Sueldo_comoAspirante"];
-                    $_SESSION["Antigüedad_comoAspirante"]=$row["Antigüedad_comoAspirante"];
+
+
                     //datos de tesis
                     $_SESSION["Proyecto"]=$row["Proyecto"];
                     $_SESSION["LíneasAplicaciónDelConocimiento"]=$row["LineasAplicacionDelConocimiento"];
@@ -118,19 +113,10 @@
                     $_SESSION["Vocal_2"]=$row["Vocal_2"];
                     //Datos Egresado
                     $_SESSION["EstadoDelEstudiante"]=$row["EstadoDelEstudiante"];
-                    $_SESSION["FechaTitulación"]=$row["FechaTitulación"];
-                    $_SESSION["TiempoTitulación"]=$row["TiempoTitulación"];
-                    $_SESSION["Núm_ActaTitulación"]=$row["Núm_ActaTitulación"];
 
                     $_SESSION["OBSERVACIÓN"]=$row["OBSERVACIÓN"];
                     $_SESSION["Tutor_CONACYT"]=$row["Tutor_CONACYT"];
                     $_SESSION["Comité_Tutorial"]=$row["Comité_Tutorial"];
-                    $_SESSION["Premios_Reconocimientos"]=$row["Premios_Reconocimientos"];
-                    $_SESSION["LugarTrabajo_comoEgresado"]=$row["LugarTrabajo_comoEgresado"];
-                    $_SESSION["PuestoDesempeñado_comoEgresado"]=$row["PuestoDesempeñado_comoEgresado"];
-                    $_SESSION["TeléfonoOficina_comoEgresado"]=$row["TeléfonoOficina_comoEgresado"];
-                    $_SESSION["Sueldo_comoEgresado"]=$row["Sueldo_comoEgresado"];
-                    $_SESSION["Antigüedad_comoEgresado"]=$row["Antigüedad_comoEgresado"];
                     }
 
             echo "<script>window.location='../../../Estudiante/Actividades.php'</script>";

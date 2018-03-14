@@ -19,7 +19,7 @@
           $codigo= $_SESSION["CODIGO_ES"];
           if (isset($_SESSION["Tercer_informe"])) {
             $Id_Act=$_SESSION["Tercer_informe"];
-          }
+
 
             for ($i=301; $i <317 ; $i++) {
               $submit=isset($_POST['Submit'.$i]);
@@ -2773,7 +2773,9 @@
                     <input type='button' value='cancelar' onclick='cancelar_Actvidades()' class='Botones'>
             </div>
             </form>
-            <?php } ?>
+            <?php }
+              }
+            ?>
 
 
 

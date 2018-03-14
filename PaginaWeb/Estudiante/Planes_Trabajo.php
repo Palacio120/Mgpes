@@ -22,16 +22,7 @@
   </head>
   <body>
     <div class="page">
-      <div id="menu" class="menu_lateral" style="width: 0px; border: hidden;">
-        <a href="#" class="boton-cerrar" onclick="ocultar2()">×</a>
-        <ul class="menu">
-          <!--<li><a href="#">Requisitos de ingresos</a></li>
-          <li><a href="#">Desempeño academico</a></li>-->
-          <li><a href="BecasCONACYT.php">Beca CONACYT</a></li>
-          <li><a href="Actividades.php">Informes de actividades</a></li>
-          <li><a class="logout" href="../php/logout.php">Logout</a></li>
-        </ul>
-      </div>
+      <?php include_once('MenuLateral.php') ?>
 
       <div class="header">
         <div id="head" class="main">

@@ -15,7 +15,7 @@
       $resultado=mysqli_query($this->conexion, $Consulta);
       if (!($resultado)) {
         echo "Mysql error:" .mysqli_error($this->conexion);
-      
+
       }
       return $resultado;
     }

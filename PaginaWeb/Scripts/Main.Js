@@ -203,3 +203,8 @@ function enable(num){
 function disable(num){
   document.getElementById(num).disabled=true;
 }
+
+function Cambiar(entrada,salida){
+  document.getElementById(entrada).style.display=('none');
+  document.getElementById(salida).style.display=('block');
+}

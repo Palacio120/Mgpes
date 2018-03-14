@@ -54,7 +54,7 @@ CREATE TABLE `direcciondetesis` (
 
 LOCK TABLES `direcciondetesis` WRITE;
 /*!40000 ALTER TABLE `direcciondetesis` DISABLE KEYS */;
-INSERT INTO `direcciondetesis` VALUES (2,'Dra. Sonia Reynaga Obregón','','Alejandro Palacio Alvarez','Prueba001','NULL','La internacionalización de programas de posgrado. El caso del Consejo Mexicano se Estudios de Posgrado','2017B','espera','','','CYMLES','Segundo Semestre'),(3,'Alejandro Palacio Alvarez','','Alejandro Palacio Alvarez','MG3_APA18','','Prueba de edición','2017A','espera','P','A','NPDES','Segundo Semestre'),(16,'No Asignado','','Santos Alejandro Palacio Alvarez','MG2_SAP18','','Prueba de nuevo aspirante','2018A','espera','No Asignado','No Asignado','CYMLES','Primer Semestre');
+INSERT INTO `direcciondetesis` VALUES (2,'Dra. Sonia Reynaga Obregón','','Alejandro Palacio Alvarez','Prueba001','NULL','La internacionalización de programas de posgrado. El caso del Consejo Mexicano se Estudios de Posgrado','2017B','espera','','','CYMLES','Segundo Semestre'),(3,'Alejandro Palacio Alvarez','','Alejandro Palacio Alvarez','MG3_APA18','','Prueba de edición','2017A','espera','P','A','NPDES','Segundo Semestre'),(16,'Prueba','Prueba','Santos Alejandro Palacio Alvarez','MG2_SAP18','','Prueba','2018A','espera','Prueba','Prueba','CYMLES','Primer Semestre');
 /*!40000 ALTER TABLE `direcciondetesis` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -67,4 +67,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-13 14:31:28
+-- Dump completed on 2018-03-14 14:13:32

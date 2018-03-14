@@ -19,7 +19,7 @@
           $codigo= $_SESSION["CODIGO_ES"];
           if (isset($_SESSION["Primer_informe"])) {
             $Id_Act=$_SESSION["Primer_informe"];
-          }
+
 
 
             for ($i=1; $i <17 ; $i++) {
@@ -3096,7 +3096,7 @@
             </form>
 
         <?php }
-
+          }
 
         function Eliminar_Difucion(){
             Include_once('../php/conf_tab.php');
@@ -3378,6 +3378,7 @@
             $id=$_POST["id_Eliminar_1"];
             $query=$DB->CONSULTA("DELETE FROM `mgps`.`vinculaciones` WHERE No_vinculacion='$id'; ");
         }
+
 
         ?>
 

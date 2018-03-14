@@ -19,7 +19,7 @@
           $codigo= $_SESSION["CODIGO_ES"];
           if (isset($_SESSION["Segundo_informe"])) {
             $Id_Act=$_SESSION["Segundo_informe"];
-          }
+
 
 
             for ($i=201; $i <216 ; $i++) {
@@ -2771,7 +2771,9 @@
             </div>
             </form>
 
-        <?php } ?>
+        <?php }
+            }
+        ?>
 
 
   </body>

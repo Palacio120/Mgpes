@@ -1,4 +1,4 @@
-<?php 
+<?php
 FUNCTION CambiarEnter($cadena){
  $largo_cadena=strlen($cadena);
  $cadena2="";
@@ -14,5 +14,9 @@ FUNCTION CambiarEnter($cadena){
  return $cadena2;
 }
 
+function Buscar_perfil(){
+  $id=$_POST['id'];
+
+}
 
 ?>

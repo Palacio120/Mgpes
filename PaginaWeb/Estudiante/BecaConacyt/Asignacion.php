@@ -8,7 +8,7 @@ if (!isset($_SESSION["usuario"])) {
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Aspirantes</title>
+    <title>Asignacion de beca</title>
     <link href="../../Styles/Default.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../../Styles/menus.css" type="text/css" >
     <link rel="stylesheet" href="../../Styles/Tablas.css" type="text/css">
@@ -19,16 +19,7 @@ if (!isset($_SESSION["usuario"])) {
   </head>
   <body>
     <div class="page">
-      <div id="menu" class="menu_lateral" style="width: 0px; border: hidden;">
-        <a href="#" class="boton-cerrar" onclick="ocultar2()">×</a>
-        <ul class="menu">
-          <!--<li><a href="#">Requisitos de ingresos</a></li>
-          <li><a href="#">Desempeño academico</a></li>-->
-          <li><a href="Actividades.php">Informes de actividades</a></li>
-          <li><a href="Planes_Trabajo.php">Plan de trabajo</a></li>
-          <li><a class="logout" href="../php/logout.php">Logout</a></li>
-        </ul>
-      </div>
+      <?php include_once('../MenuLateral.php') ?>
       <div class="header">
         <div id="head" class="main">
             <a id="abrir_menu" class="abrir-cerrar" href="javascript:void(0)" onclick="mostrar_Perfil()" style="display: inline;"> <img src="../../image/boton_menu.png" alt="Bmenu" style="width:50px; heigth= 50px;"></a>
@@ -62,24 +53,24 @@ if (!isset($_SESSION["usuario"])) {
                     $DB =new ConfigDB;
                     $DB->Mysql();
                     $codigo=$_SESSION["CODIGO_ES"];
-                    $bandera=false;
+                    $bandera=true;
                     $num=0;
 
                     $Consulta=$DB->CONSULTA("SELECT * FROM conacytasignacion where CODIGO_ES='$codigo' ");
                     while ($rs= $DB->Obtener_filas($Consulta)) {
-                      
+                      $bandera=false;
                     }
                      if ($bandera){ ?>
-                  <h4>No hay datos almacenados almacenelos porfavor</h4>
-                  <button type="button" name="button" class="btn btn-ligth">Subir Archivos</button>
-                <?php }else {
-                  include_once('../../Php/conf_tab.php');
-                    $DB =new ConfigDB;
-                    $DB->Mysql();
-                    $codigo=$_SESSION["CODIGO_ES"];
+                      <h4>No hay datos almacenados almacenelos porfavor</h4>
+                      <button type="button" name="button" class="btn btn-ligth" onclick="Cambiar('Semestres','Formato')">Subir Archivos</button>
+                    <?php }else {
+                      include_once('../../Php/conf_tab.php');
+                        $DB =new ConfigDB;
+                        $DB->Mysql();
+                        $codigo=$_SESSION["CODIGO_ES"];
 
-                    $Consulta=$DB->CONSULTA("SELECT * FROM conacytasignacion where CODIGO_ES='$codigo' ");
-                   ?>
+                        $Consulta=$DB->CONSULTA("SELECT * FROM conacytasignacion where CODIGO_ES='$codigo' ");
+                       ?>
                   <table width="100%" border="1" >
                     <tr>
                       <th>Archivo</th>
@@ -168,13 +159,14 @@ if (!isset($_SESSION["usuario"])) {
                     </tr>
                   <?php } ?>
                   </table>
+                  <button type="button" name="button" class="btn btn-ligth" onclick="Cambiar('Semestres','Formato')" style="float: right; margin-right: 10px;">Subir Archivos</button>
               <?php } ?>
               </div>
             </div>
             <div id="Semestres" style="display: block;">
               <div class="Semestre">
                 <div id="Formato" style="display:none;">
-                  <form class="" action="../../../Php/CONACYT/AsignacionPhp.Php" method="post" enctype="multipart/form-data">
+                  <form class="" action="../../Php/CONACYT/AsignacionPhp.Php" method="post" enctype="multipart/form-data">
                     <table width="100%" border="1" >
                       <tr>
                         <th>Archivo</th>
@@ -192,7 +184,7 @@ if (!isset($_SESSION["usuario"])) {
 
                         </td>
                         <td>
-                          <input type="file" name="Comprobante" id="1" disabled>
+                          <input type="file" name="Comprobante" id="1" disabled accept="application/pdf" >
                         </td>
                       </tr>
                       <tr>
@@ -206,7 +198,7 @@ if (!isset($_SESSION["usuario"])) {
                           </fieldset>
                         </td>
                         <td>
-                          <input type="file" name="promedio" id="2" disabled>
+                          <input type="file" name="promedio" id="2" disabled accept="application/pdf"  >
                         </td>
                       </tr>
                       <tr>
@@ -218,7 +210,7 @@ if (!isset($_SESSION["usuario"])) {
                           <label for="ComprobacionNo3">NO</label>
                         </td>
                         <td>
-                          <input type="file" name="ConstanciaNiv" id="3" disabled>
+                          <input type="file" name="ConstanciaNiv" id="3" disabled accept="application/pdf" >
                         </td>
                       </tr>
                       <tr>
@@ -230,7 +222,7 @@ if (!isset($_SESSION["usuario"])) {
                           <label for="ComprobacionNo4">NO</label>
                         </td>
                         <td>
-                          <input type="file" name="PromedioRec" id="4" disabled>
+                          <input type="file" name="PromedioRec" id="4" disabled accept="application/pdf" >
                         </td>
                       </tr>
                       <tr>
@@ -242,7 +234,7 @@ if (!isset($_SESSION["usuario"])) {
                           <label for="ComprobacionNo5">NO</label>
                         </td>
                         <td>
-                          <input type="file" name="Identificacion" id="5" disabled>
+                          <input type="file" name="Identificacion" id="5" disabled accept="application/pdf" >
                         </td>
                       </tr>
                       <tr>
@@ -254,7 +246,7 @@ if (!isset($_SESSION["usuario"])) {
                           <label for="ComprobacionNo6">NO</label>
                         </td>
                         <td>
-                          <input type="file" name="CartaCompromiso" id="6" disabled>
+                          <input type="file" name="CartaCompromiso" id="6" disabled accept="application/pdf" >
                         </td>
                       </tr>
                       <tr>
@@ -266,7 +258,7 @@ if (!isset($_SESSION["usuario"])) {
                           <label for="ComprobacionNo7">NO</label>
                         </td>
                         <td>
-                          <input type="file" name="CopiaVISA" id="7" disabled>
+                          <input type="file" name="CopiaVISA" id="7" disabled accept="application/pdf" >
                         </td>
                       </tr>
                       <tr>
@@ -278,7 +270,7 @@ if (!isset($_SESSION["usuario"])) {
                           <label for="ComprobacionNo8">NO</label>
                         </td>
                         <td>
-                          <input type="file" name="Asignacion" id="8" disabled>
+                          <input type="file" name="Asignacion" id="8" disabled accept="application/pdf" >
                         </td>
                       </tr>
                       <tr>
@@ -290,7 +282,7 @@ if (!isset($_SESSION["usuario"])) {
                           <label for="ComprobacionNo9">NO</label>
                         </td>
                         <td>
-                          <input type="file" name="Convenio" id="9" disabled>
+                          <input type="file" name="Convenio" id="9" disabled accept="application/pdf" >
                         </td>
                       </tr>
                       <tr>
@@ -302,11 +294,11 @@ if (!isset($_SESSION["usuario"])) {
                           <label for="ComprobacionNo10">NO</label>
                         </td>
                         <td>
-                            <input type="file" name="ISSSTE" id="10" disabled>
+                            <input type="file" name="ISSSTE" id="10" disabled accept="application/pdf" >
                         </td>
                       </tr>
                     </table>
-                    <input type="button" class="btn btn-ligth" name="Cancelar" value="Cancelar" style="margin-Top:10px;float:right; margin-right: 24px;">
+                    <input type="button" class="btn btn-ligth" name="Cancelar" value="Cancelar" onclick="CancelarNuevoAsp()"style="margin-Top:10px;float:right; margin-right: 24px;">
                     <input type="submit" class="btn btn-ligth" value="Submit" style="margin-Top:10px;float:right; margin-right: 24px;">
 
                   </form>

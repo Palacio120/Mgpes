@@ -46,6 +46,10 @@
   padding-top: 10px;
 }
 
+.Titulo #Formato label{
+  display: inline;
+}
+
 .centro{
   z-index: 0;
 }

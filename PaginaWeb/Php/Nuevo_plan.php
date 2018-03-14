@@ -32,7 +32,7 @@
           $Producción=$_POST["Producción"];
 
 
-           $query=$DB->CONSULTA("INSERT INTO `plan_de_trabajo` VALUES ('0','$Semestre', '$Materias', '$Proyecto', '$Producción', '$extracurriculares', '$investigacion', '$Ponencias', '$Asesorias', '$Tutorias', '$Movilidad', '$Vinculación', '$No_tesis',NULL,NULL,NULL)");
+           $query=$DB->CONSULTA("INSERT INTO `plan_de_trabajo` VALUES ('0','$Semestre', '$Materias', '$Proyecto', '$Producción', '$extracurriculares', '$investigacion', '$Ponencias', '$Asesorias', '$Tutorias', '$Movilidad', '$Vinculación', '$No_tesis',NULL,NULL,NULL,NULL)");
 
          if(isset($rs)){
 
