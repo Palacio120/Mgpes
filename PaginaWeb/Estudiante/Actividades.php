@@ -15,7 +15,7 @@
 <html>
   <head>
     <meta charset="utf-8" http-equiv="content-type">
-    <title>MGPES</title>
+    <title>Actividades</title>
     <link href="../Styles/Default.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../Styles/menus.css" type="text/css">
     <link rel="stylesheet" href="../Styles/tablas.css" type="text/css">
@@ -57,8 +57,7 @@
             <h3>Informe de actividades</h3>
 
             <div class="Semestre">
-              <a href="#" id="Primero" onclick="desplegar_primero()"><p>Primer Semetre</p></a>
-              <a href="#" id="Primero" onclick="desplegar_primero()"><p style="float: right; margin-right: 10px;" >+</p></a>
+              <a href="#" id="Primero" onclick="desplegar_primero()" style="display:block;padding-bottom:10px"><p>Primer Semetre</p></a>
               <div class="desplegar" style="display: none;" id="primer">
                 <div id="tabs1" style="display: block;">
                   <?php
@@ -81,8 +80,8 @@
                     <?php
                      }else{
                     ?>
-                  <div class="Semestre">
-                    <a href="#" onclick="Desplegar('Materias1')" id="Materia1"><p >Materias curriculares</p></a>
+                  <div class="Semestre" style="margin-top:5px;">
+                    <a href="#" onclick="Desplegar('Materias1')" id="Materia1" style="display:block;padding-bottom:5px;"><p >Materias curriculares</p></a>
                      <div class="desplegar" id="Materias1" style="display: none;">
                       <div class="Contenido">
                       <div id="tabla_Materias1" style="display: block;">
@@ -205,10 +204,10 @@
                   </div>
 
                   <div class="Semestre">
-                      <a href="#" onclick="Desplegar('Proyecto1')" id="Proyectos1"><p>Proyecto de tesis</p></a>
+                      <a href="#" onclick="Desplegar('Proyecto1')" id="Proyectos1" style="display:block;padding-bottom:5px;"><p>Proyecto de tesis</p></a>
                       <div class="desplegar" id="Proyecto1" style="display: none;">
                         <div id="tab_Pro">
-                      <?php
+                          <?php
                         require_once('../php/conf_tab.php');
 
                         $DB= new ConfigDB();
@@ -330,7 +329,7 @@
                   </div>
 
                   <div class="Semestre" >
-                      <a href="#"  id="Producc1" onclick="Desplegar('Produccion1')" ><p>Producción académica</p></a>
+                      <a href="#"  id="Producc1" onclick="Desplegar('Produccion1')" style="display:block;padding-bottom:5px;"><p>Producción académica</p></a>
                         <div class="desplegar" id="Produccion1" style="display: none;">
                           <div class="contenido" id="contenidoPrincipalProduccion" style="display:block;">
                             <?php
@@ -577,7 +576,7 @@
                   </div>
 
                   <div class="Semestre" >
-                    <a href="#"  id="Extra1" onclick="Desplegar('Extracurriculares1')" ><p>Actividades Extracurriculares</p></a>
+                    <a href="#"  id="Extra1" onclick="Desplegar('Extracurriculares1')" style="display:block;padding-bottom:5px;"><p>Actividades Extracurriculares</p></a>
                       <div class="desplegar" id="Extracurriculares1" style="display: none;">
                         <div class="contenido" id="contenidoPrincipalExtracurriculares1" style="display:block;">
                           <?php
@@ -711,7 +710,7 @@
                         </div>
                   </div>
                   <div class="Semestre" >
-                    <a href="#"  id="Investi1" onclick="Desplegar('ApoyoInvestigacion1')" ><p>Gestión de apoyo externo para la investigación</p></a>
+                    <a href="#"  id="Investi1" onclick="Desplegar('ApoyoInvestigacion1')"style="display:block;padding-bottom:5px;" ><p>Gestión de apoyo externo para la investigación</p></a>
                       <div class="desplegar" id="ApoyoInvestigacion1" style="display: none;">
                         <div class="contenido" id="contenidoPrincipalapoyo1" style="display:block;">
                           <?php
@@ -804,7 +803,7 @@
                         </div>
                   </div>
                  <div class="Semestre" >
-                    <a href="#"  id="Pon1" onclick="Desplegar('Ponentes1')" ><p>Asistencia a eventos academicos como ponente</p></a>
+                    <a href="#"  id="Pon1" onclick="Desplegar('Ponentes1')" style="display:block;padding-bottom:5px;"><p>Asistencia a eventos academicos como ponente</p></a>
                       <div class="desplegar" id="Ponentes1" style="display: none;">
                         <div class="contenido" id="contenidoPrincipalCongresos1" style="display:block;">
                           <?php
@@ -920,7 +919,7 @@
 
                   </div>
                   <div class="Semestre" >
-                    <a href="#"  id="Asesoria1" onclick="Desplegar('AsesoriaEsp1')" ><p>Asesoría especializada</p></a>
+                    <a href="#"  id="Asesoria1" onclick="Desplegar('AsesoriaEsp1')" style="display:block;padding-bottom:5px;"><p>Asesoría especializada</p></a>
                       <div class="desplegar" id="AsesoriaEsp1" style="display: none;">
                         <div class="contenido" id="contenidoPrincipalEspecializada1" style="display:block;">
                           <?php
@@ -1047,7 +1046,7 @@
                         </div>
                   </div>
                   <div class="Semestre" >
-                    <a href="#"  id="Tutorias1" onclick="Desplegar('NecesidadesTuto1')" ><p>Necesidades tutoriales</p></a>
+                    <a href="#"  id="Tutorias1" onclick="Desplegar('NecesidadesTuto1')" style="display:block;padding-bottom:5px;"><p>Necesidades tutoriales</p></a>
                       <div class="desplegar" id="NecesidadesTuto1" style="display: none;">
                         <div class="contenido" id="contenidoPrincipalTutorias1" style="display:block;">
                           <?php
@@ -1172,7 +1171,7 @@
                         </div>
                   </div>
                   <div class="Semestre" >
-                    <a href="#"  id="Movi1" onclick="Desplegar('MovilidadAca1')" ><p>Movilidad académica</p></a>
+                    <a href="#"  id="Movi1" onclick="Desplegar('MovilidadAca1')" style="display:block;padding-bottom:5px;"><p>Movilidad académica</p></a>
                       <div class="desplegar" id="MovilidadAca1" style="display: none;">
                         <div class="contenido" id="contenidoPrincipalMovilidad1" style="display:block;">
                           <?php
@@ -1308,7 +1307,7 @@
                         </div>
                   </div>
                   <div class="Semestre" >
-                    <a href="#"  id="Vincu1" onclick="Desplegar('VinculacionAcade1')" ><p>Vinculación académica</p></a>
+                    <a href="#"  id="Vincu1" onclick="Desplegar('VinculacionAcade1')" style="display:block;padding-bottom:5px;"><p>Vinculación académica</p></a>
                       <div class="desplegar" id="VinculacionAcade1" style="display: none;">
                         <div class="contenido" id="contenidoPrincipalVinculacion1" style="display:block;">
                           <?php
@@ -1496,8 +1495,7 @@
 
 
             <div class="Semestre">
-              <a href="#" id="Segundo" onclick="desplegar_Segundo()"><p>Segundo Semetre</p></a>
-              <a href="#" id="Segundo" onclick="desplegar_Segundo()"><p style="float: right; margin-right: 10px;" >+</p></a>
+              <a href="#" id="Segundo" onclick="desplegar_Segundo()" style="display:block;padding-bottom:10px"><p>Segundo Semetre</p></a>
               <div class="desplegar" style="display: none" id="Segund">
                 <div id="tabs2" style="display: block;" >
                   <?php
@@ -1520,8 +1518,8 @@
                     <?php
                      }else{
                     ?>
-                  <div class="Semestre">
-                    <a href="#" onclick="Desplegar('Materias2')" id="Materia2"><p >Materias curriculares</p></a>
+                  <div class="Semestre" style="margin-top:5px;">
+                    <a href="#" onclick="Desplegar('Materias2')" id="Materia2" style="display:block;padding-bottom:5px;"><p >Materias curriculares</p></a>
                      <div class="desplegar" id="Materias2" style="display: none;">
                       <div class="Contenido">
                       <div id="tabla_Materias2" style="display: block;">
@@ -1642,10 +1640,10 @@
                   </div>
 
                   <div class="Semestre">
-                      <a href="#" onclick="Desplegar('Proyecto2')" id="Proyectos2"><p>Proyecto de tesis</p></a>
+                      <a href="#" onclick="Desplegar('Proyecto2')" id="Proyectos2" style="display:block;padding-bottom:5px;"><p>Proyecto de tesis</p></a>
                       <div class="desplegar" id="Proyecto2" style="display: none;">
                         <div id="tab_Pro2">
-                      <?php
+                          <?php
                         require_once('../php/conf_tab.php');
 
                         $DB= new ConfigDB();
@@ -1767,7 +1765,7 @@
                   </div>
 
                   <div class="Semestre" >
-                      <a href="#"  id="Producc2" onclick="Desplegar('Produccion2')" ><p>Producción académica</p></a>
+                      <a href="#"  id="Producc2" onclick="Desplegar('Produccion2')" style="display:block;padding-bottom:5px;"><p>Producción académica</p></a>
                         <div class="desplegar" id="Produccion2" style="display: none;">
                           <div class="contenido" id="contenidoPrincipalProduccion2" style="display:block;">
                             <?php
@@ -2008,7 +2006,7 @@
                   </div>
 
                   <div class="Semestre" >
-                    <a href="#"  id="Extra2" onclick="Desplegar('Extracurriculares2')" ><p>Actividades Extracurriculares</p></a>
+                    <a href="#"  id="Extra2" onclick="Desplegar('Extracurriculares2')" style="display:block;padding-bottom:5px;"><p>Actividades Extracurriculares</p></a>
                       <div class="desplegar" id="Extracurriculares2" style="display: none;">
                         <div class="contenido" id="contenidoPrincipalExtracurriculares2" style="display:block;">
                           <?php
@@ -2142,7 +2140,7 @@
                         </div>
                   </div>
                   <div class="Semestre" >
-                    <a href="#"  id="Investi2" onclick="Desplegar('ApoyoInvestigacion2')" ><p>Gestión de apoyo externo para la investigación</p></a>
+                    <a href="#"  id="Investi2" onclick="Desplegar('ApoyoInvestigacion2')" style="display:block;padding-bottom:5px;"><p>Gestión de apoyo externo para la investigación</p></a>
                       <div class="desplegar" id="ApoyoInvestigacion2" style="display: none;">
                         <div class="contenido" id="contenidoPrincipalapoyo2" style="display:block;">
                           <?php
@@ -2235,7 +2233,7 @@
                         </div>
                   </div>
                  <div class="Semestre" >
-                    <a href="#"  id="Pon2" onclick="Desplegar('Ponentes2')" ><p>Asistencia a eventos academicos como ponente</p></a>
+                    <a href="#"  id="Pon2" onclick="Desplegar('Ponentes2')" style="display:block;padding-bottom:5px;"><p>Asistencia a eventos academicos como ponente</p></a>
                       <div class="desplegar" id="Ponentes2" style="display: none;">
                         <div class="contenido" id="contenidoPrincipalCongresos2" style="display:block;">
                           <?php
@@ -2351,7 +2349,7 @@
 
                   </div>
                   <div class="Semestre" >
-                    <a href="#"  id="Asesoria2" onclick="Desplegar('AsesoriaEsp2')" ><p>Asesoría especializada</p></a>
+                    <a href="#"  id="Asesoria2" onclick="Desplegar('AsesoriaEsp2')"style="display:block;padding-bottom:5px;" ><p>Asesoría especializada</p></a>
                       <div class="desplegar" id="AsesoriaEsp2" style="display: none;">
                         <div class="contenido" id="contenidoPrincipalEspecializada2" style="display:block;">
                           <?php
@@ -2478,7 +2476,7 @@
                         </div>
                   </div>
                   <div class="Semestre" >
-                    <a href="#"  id="Tutorias2" onclick="Desplegar('NecesidadesTuto2')" ><p>Necesidades tutoriales</p></a>
+                    <a href="#"  id="Tutorias2" onclick="Desplegar('NecesidadesTuto2')" style="display:block;padding-bottom:5px;"><p>Necesidades tutoriales</p></a>
                       <div class="desplegar" id="NecesidadesTuto2" style="display: none;">
                         <div class="contenido" id="contenidoPrincipalTutorias2" style="display:block;">
                           <?php
@@ -2603,7 +2601,7 @@
                         </div>
                   </div>
                   <div class="Semestre" >
-                    <a href="#"  id="Movi2" onclick="Desplegar('MovilidadAca2')" ><p>Movilidad académica</p></a>
+                    <a href="#"  id="Movi2" onclick="Desplegar('MovilidadAca2')" style="display:block;padding-bottom:5px;"><p>Movilidad académica</p></a>
                       <div class="desplegar" id="MovilidadAca2" style="display: none;">
                         <div class="contenido" id="contenidoPrincipalMovilidad2" style="display:block;">
                           <?php
@@ -2739,7 +2737,7 @@
                         </div>
                   </div>
                   <div class="Semestre" >
-                    <a href="#"  id="Vincu2" onclick="Desplegar('VinculacionAcade2')" ><p>Vinculación académica</p></a>
+                    <a href="#"  id="Vincu2" onclick="Desplegar('VinculacionAcade2')" style="display:block;padding-bottom:5px;"><p>Vinculación académica</p></a>
                       <div class="desplegar" id="VinculacionAcade2" style="display: none;">
                         <div class="contenido" id="contenidoPrincipalVinculacion2" style="display:block;">
                           <?php
@@ -2922,8 +2920,7 @@
 
 
             <div class="Semestre">
-              <a href="#" id="Tercero" onclick="desplegar_Tercero()"><p>Tercer Semetre</p></a>
-              <a href="#" id="Tercero" onclick="desplegar_Tercero()"><p style="float: right; margin-right: 10px;">+</p></a>
+              <a href="#" id="Tercero" onclick="desplegar_Tercero()" style="display:block;padding-bottom:10px"><p>Tercer Semetre</p></a>
               <div class="desplegar" style="display: none" id="Tercer">
                   <div id="tabs3" style="display: block;">
                     <?php
@@ -2946,8 +2943,8 @@
                       <?php
                        }else{
                       ?>
-                    <div class="Semestre">
-                      <a href="#" onclick="Desplegar('Materias3')" id="Materia3"><p >Materias curriculares</p></a>
+                    <div class="Semestre" style="margin-top:5px;">
+                      <a href="#" onclick="Desplegar('Materias3')" id="Materia3"style="display:block;padding-bottom:5px;"><p >Materias curriculares</p></a>
                        <div class="desplegar" id="Materias3" style="display: none;">
                         <div class="Contenido">
                           <div id="tabla_Materias3" style="display: block;">
@@ -3068,7 +3065,7 @@
                     </div>
 
                     <div class="Semestre">
-                        <a href="#" onclick="Desplegar('Proyecto3')" id="Proyectos3"><p>Proyecto de tesis</p></a>
+                        <a href="#" onclick="Desplegar('Proyecto3')" id="Proyectos3" style="display:block;padding-bottom:5px;"><p>Proyecto de tesis</p></a>
                         <div class="desplegar" id="Proyecto3" style="display: none;">
                           <div id="tab_Pro3">
                         <?php
@@ -3193,7 +3190,7 @@
                     </div>
 
                     <div class="Semestre" >
-                        <a href="#"  id="Producc3" onclick="Desplegar('Produccion3')" ><p>Producción académica</p></a>
+                        <a href="#"  id="Producc3" onclick="Desplegar('Produccion3')" style="display:block;padding-bottom:5px;"><p>Producción académica</p></a>
                           <div class="desplegar" id="Produccion3" style="display: none;">
                             <div class="contenido" id="contenidoPrincipalProduccion3" style="display:block;">
                               <?php
@@ -3437,7 +3434,7 @@
 
 
                     <div class="Semestre" >
-                      <a href="#"  id="Extra3" onclick="Desplegar('Extracurriculares3')" ><p>Actividades Extracurriculares</p></a>
+                      <a href="#"  id="Extra3" onclick="Desplegar('Extracurriculares3')" style="display:block;padding-bottom:5px;"><p>Actividades Extracurriculares</p></a>
                         <div class="desplegar" id="Extracurriculares3" style="display: none;">
                           <div class="contenido" id="contenidoPrincipalExtracurriculares3" style="display:block;">
                             <?php
@@ -3571,7 +3568,7 @@
                           </div>
                     </div>
                     <div class="Semestre" >
-                      <a href="#"  id="Investi3" onclick="Desplegar('ApoyoInvestigacion3')" ><p>Gestión de apoyo externo para la investigación</p></a>
+                      <a href="#"  id="Investi3" onclick="Desplegar('ApoyoInvestigacion3')" style="display:block;padding-bottom:5px;"><p>Gestión de apoyo externo para la investigación</p></a>
                         <div class="desplegar" id="ApoyoInvestigacion3" style="display: none;">
                           <div class="contenido" id="contenidoPrincipalapoyo3" style="display:block;">
                             <?php
@@ -3664,7 +3661,7 @@
                           </div>
                     </div>
                     <div class="Semestre" >
-                        <a href="#"  id="Pon3" onclick="Desplegar('Ponentes3')" ><p>Asistencia a eventos academicos como ponente</p></a>
+                        <a href="#"  id="Pon3" onclick="Desplegar('Ponentes3')" style="display:block;padding-bottom:5px;"><p>Asistencia a eventos academicos como ponente</p></a>
                           <div class="desplegar" id="Ponentes3" style="display: none;">
                             <div class="contenido" id="contenidoPrincipalCongresos3" style="display:block;">
                               <?php
@@ -3780,7 +3777,7 @@
 
                     </div>
                     <div class="Semestre" >
-                      <a href="#"  id="Asesoria3" onclick="Desplegar('AsesoriaEsp3')" ><p>Asesoría especializada</p></a>
+                      <a href="#"  id="Asesoria3" onclick="Desplegar('AsesoriaEsp3')" style="display:block;padding-bottom:5px;"><p>Asesoría especializada</p></a>
                         <div class="desplegar" id="AsesoriaEsp3" style="display: none;">
                           <div class="contenido" id="contenidoPrincipalEspecializada3" style="display:block;">
                             <?php
@@ -3907,7 +3904,7 @@
                           </div>
                     </div>
                     <div class="Semestre" >
-                      <a href="#"  id="Tutorias3" onclick="Desplegar('NecesidadesTuto3')" ><p>Necesidades tutoriales</p></a>
+                      <a href="#"  id="Tutorias3" onclick="Desplegar('NecesidadesTuto3')" style="display:block;padding-bottom:5px;"><p>Necesidades tutoriales</p></a>
                         <div class="desplegar" id="NecesidadesTuto3" style="display: none;">
                           <div class="contenido" id="contenidoPrincipalTutorias3" style="display:block;">
                             <?php
@@ -4032,7 +4029,7 @@
                           </div>
                     </div>
                     <div class="Semestre" >
-                      <a href="#"  id="Movi3" onclick="Desplegar('MovilidadAca3')" ><p>Movilidad académica</p></a>
+                      <a href="#"  id="Movi3" onclick="Desplegar('MovilidadAca3')" style="display:block;padding-bottom:5px;"><p>Movilidad académica</p></a>
                         <div class="desplegar" id="MovilidadAca3" style="display: none;">
                           <div class="contenido" id="contenidoPrincipalMovilidad3" style="display:block;">
                             <?php
@@ -4168,7 +4165,7 @@
                           </div>
                     </div>
                     <div class="Semestre" >
-                      <a href="#"  id="Vincu3" onclick="Desplegar('VinculacionAcade3')" ><p>Vinculación académica</p></a>
+                      <a href="#"  id="Vincu3" onclick="Desplegar('VinculacionAcade3')" style="display:block;padding-bottom:5px;"><p>Vinculación académica</p></a>
                         <div class="desplegar" id="VinculacionAcade3" style="display: none;">
                           <div class="contenido" id="contenidoPrincipalVinculacion3" style="display:block;">
                             <?php
@@ -4349,10 +4346,8 @@
 
 
 
-
             <div class="Semestre">
-              <a href="#" id="Cuarto" onclick="desplegar_Cuarto()"><p>Cuarto Semetre</p></a>
-              <a href="#" id="Cuarto" onclick="desplegar_Cuarto()"><p style="float: right; margin-right: 10px;">+</p></a>
+              <a href="#" id="Cuarto" onclick="desplegar_Cuarto()" style="display:block;padding-bottom:10px"><p>Cuarto Semetre</p></a>
               <div class="desplegar" style="display: none" id="Cuar">
                   <div id="tabs4">
                     <?php
@@ -4375,8 +4370,8 @@
                       <?php
                        }else{
                       ?>
-                    <div class="Semestre">
-                      <a href="#" onclick="Desplegar('Materias4')" id="Materia4"><p >Materias curriculares</p></a>
+                    <div class="Semestre" style="margin-top:5px;">
+                      <a href="#" onclick="Desplegar('Materias4')" id="Materia4" style="display:block;padding-bottom:5px;"><p >Materias curriculares</p></a>
                        <div class="desplegar" id="Materias4" style="display: none;">
                         <div class="Contenido">
                         <div id="tabla_Materias4" style="display: block;">
@@ -4497,10 +4492,10 @@
                     </div>
 
                     <div class="Semestre">
-                        <a href="#" onclick="Desplegar('Proyecto4')" id="Proyectos4"><p>Proyecto de tesis</p></a>
+                        <a href="#" onclick="Desplegar('Proyecto4')" id="Proyectos4" style="display:block;padding-bottom:5px;"><p>Proyecto de tesis</p></a>
                         <div class="desplegar" id="Proyecto4" style="display: none;">
                           <div id="tab_Pro4">
-                        <?php
+                         <?php
                           require_once('../php/conf_tab.php');
 
                           $DB= new ConfigDB();
@@ -4622,7 +4617,7 @@
                     </div>
 
                     <div class="Semestre" >
-                        <a href="#"  id="Producc4" onclick="Desplegar('Produccion4')" ><p>Producción académica</p></a>
+                        <a href="#"  id="Producc4" onclick="Desplegar('Produccion4')" style="display:block;padding-bottom:5px;"><p>Producción académica</p></a>
                           <div class="desplegar" id="Produccion4" style="display: none;">
                             <div class="contenido" id="contenidoPrincipalProduccion4" style="display:block;">
                               <?php
@@ -4864,7 +4859,7 @@
                     </div>
 
                     <div class="Semestre" >
-                      <a href="#"  id="Extra4" onclick="Desplegar('Extracurriculares4')" ><p>Actividades Extracurriculares</p></a>
+                      <a href="#"  id="Extra4" onclick="Desplegar('Extracurriculares4')" style="display:block;padding-bottom:5px;"><p>Actividades Extracurriculares</p></a>
                         <div class="desplegar" id="Extracurriculares4" style="display: none;">
                           <div class="contenido" id="contenidoPrincipalExtracurriculares4" style="display:block;">
                             <?php
@@ -4998,7 +4993,7 @@
                           </div>
                     </div>
                     <div class="Semestre" >
-                      <a href="#"  id="Investi4" onclick="Desplegar('ApoyoInvestigacion4')" ><p>Gestión de apoyo externo para la investigación</p></a>
+                      <a href="#"  id="Investi4" onclick="Desplegar('ApoyoInvestigacion4')" style="display:block;padding-bottom:5px;"><p>Gestión de apoyo externo para la investigación</p></a>
                         <div class="desplegar" id="ApoyoInvestigacion4" style="display: none;">
                           <div class="contenido" id="contenidoPrincipalapoyo4" style="display:block;">
                             <?php
@@ -5091,7 +5086,7 @@
                           </div>
                     </div>
                     <div class="Semestre" >
-                      <a href="#"  id="Pon4" onclick="Desplegar('Ponentes4')" ><p>Asistencia a eventos academicos como ponente</p></a>
+                      <a href="#"  id="Pon4" onclick="Desplegar('Ponentes4')" style="display:block;padding-bottom:5px;"><p>Asistencia a eventos academicos como ponente</p></a>
                         <div class="desplegar" id="Ponentes4" style="display: none;">
                           <div class="contenido" id="contenidoPrincipalCongresos4" style="display:block;">
                             <?php
@@ -5207,7 +5202,7 @@
 
                     </div>
                     <div class="Semestre" >
-                       <a href="#"  id="Asesoria4" onclick="Desplegar('AsesoriaEsp4')" ><p>Asesoría especializada</p></a>
+                       <a href="#"  id="Asesoria4" onclick="Desplegar('AsesoriaEsp4')" style="display:block;padding-bottom:5px;"><p>Asesoría especializada</p></a>
                         <div class="desplegar" id="AsesoriaEsp4" style="display: none;">
                           <div class="contenido" id="contenidoPrincipalEspecializada4" style="display:block;">
                             <?php
@@ -5334,7 +5329,7 @@
                           </div>
                     </div>
                     <div class="Semestre" >
-                      <a href="#"  id="Tutorias4" onclick="Desplegar('NecesidadesTuto4')" ><p>Necesidades tutoriales</p></a>
+                      <a href="#"  id="Tutorias4" onclick="Desplegar('NecesidadesTuto4')" style="display:block;padding-bottom:5px;"><p>Necesidades tutoriales</p></a>
                         <div class="desplegar" id="NecesidadesTuto4" style="display: none;">
                           <div class="contenido" id="contenidoPrincipalTutorias4" style="display:block;">
                             <?php
@@ -5459,7 +5454,7 @@
                           </div>
                     </div>
                     <div class="Semestre" >
-                      <a href="#"  id="Movi4" onclick="Desplegar('MovilidadAca4')" ><p>Movilidad académica</p></a>
+                      <a href="#"  id="Movi4" onclick="Desplegar('MovilidadAca4')" style="display:block;padding-bottom:5px;"><p>Movilidad académica</p></a>
                         <div class="desplegar" id="MovilidadAca4" style="display: none;">
                           <div class="contenido" id="contenidoPrincipalMovilidad4" style="display:block;">
                             <?php
@@ -5595,7 +5590,7 @@
                           </div>
                     </div>
                     <div class="Semestre" >
-                      <a href="#"  id="Vincu4" onclick="Desplegar('VinculacionAcade4')" ><p>Vinculación académica</p></a>
+                      <a href="#"  id="Vincu4" onclick="Desplegar('VinculacionAcade4')" style="display:block;padding-bottom:5px;"><p>Vinculación académica</p></a>
                         <div class="desplegar" id="VinculacionAcade4" style="display: none;">
                           <div class="contenido" id="contenidoPrincipalVinculacion4" style="display:block;">
                             <?php

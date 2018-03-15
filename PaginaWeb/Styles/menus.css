@@ -69,13 +69,19 @@
   padding-left: 10px;
 }
 
-.menu_lateral a{
+.menu_lateral a, .dropbtn{
   display: block;
-  font-size: 120%;
+  padding: 6px 8px 6px 16px;
+  font-size: 20px;
   color: #eee;
-  text-decoration: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
   border: none;
 }
+
 
 .menu_desplegable a{
   color: black;
@@ -103,11 +109,27 @@
 
 .menu_lateral a:hover{
   transition: .5s  ;
-  background-color: #fff;
   color: #000;
   text-decoration: none;
 }
 
+.dropbtn:hover{
+  transition: .5s  ;
+  color: #000;
+  text-decoration: none;
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+.dropdown:hover .dropdown-container {
+    transition: 10s  ;
+    display: block;
+
+}
 
 .menu_lateral ul {
     margin: 4rem auto;

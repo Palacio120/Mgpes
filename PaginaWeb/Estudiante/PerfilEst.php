@@ -8,7 +8,7 @@
 <html>
   <head>
     <meta charset="utf-8" http-equiv="content-type">
-    <title>MGPES</title>
+    <title>Perfil</title>
     <link href="../Styles/Default.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../Styles/menus.css" type="text/css">
     <link rel="stylesheet" href="../Styles/Perfiles.css" type="text/css">

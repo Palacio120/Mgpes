@@ -8,7 +8,7 @@
 <html>
   <head>
     <meta charset="utf-8" http-equiv="content-type">
-    <title>MGPES</title>
+    <title>Plan de trabajo</title>
     <link href="../Styles/Default.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../Styles/menus.css" type="text/css">
     <link rel="stylesheet" href="../Styles/Tablas.css" type="text/css">
@@ -52,8 +52,7 @@
             <input type="button"  name="nuevoPlan" value="Nuevo Plan de estudios" onclick="Nuevo_plan()" id="NPlan" style=" display: inline; float: right; margin: 20px;">
             <div id="Semestres" style="display: block;">
               <div class="Semestre">
-                <p>Primer Semetre</p>
-                <a href="#" id="Primero" onclick="desplegar_primero()"><p style="float: right; margin-right: 10px;">+</p></a>
+                <a href="#" id="Primero" onclick="desplegar_primero()" style="display:block; padding-bottom:10px"><p>Primer Semetre</p></a>
               </div>
               <div class="desplegar" style="display: none;" id="primer">
                 <div id="Tabla" style="display: inline ;">
@@ -126,8 +125,7 @@
 
               </div>
               <div class="Semestre">
-                <p>Segundo Semetre</p>
-                <a href="#" id="Segundo" onclick="desplegar_Segundo()"><p style="float: right; margin-right: 10px;" >+</p></a>
+                <a href="#" id="Segundo" onclick="desplegar_Segundo()" style="display:block; padding-bottom:10px"><p>Segundo Semetre</p></a>
               </div>
               <div class="desplegar" style="display: none" id="Segund">
                 <div id="Tabla" style="display: inline ;">
@@ -200,8 +198,7 @@
               </div>
 
               <div class="Semestre">
-                <p>Tercer Semetre</p>
-                <a href="#" id="Tercero" onclick="desplegar_Tercero()"><p style="float: right; margin-right: 10px;">+</p></a>
+                <a href="#" id="Tercero" onclick="desplegar_Tercero()" style="display:block; padding-bottom:10px"><p>Tercer Semetre</p></a>
               </div>
               <div class="desplegar" style="display: none" id="Tercer">
 
@@ -273,8 +270,7 @@
                 </div>
               </div>
               <div class="Semestre">
-                <p>Cuarto Semetre</p>
-                <a href="#" id="Cuarto" onclick="desplegar_Cuarto()"><p style="float: right; margin-right: 10px;">+</p></a>
+                <a href="#" id="Cuarto" onclick="desplegar_Cuarto()" style="display:block; padding-bottom:10px"><p>Cuarto Semetre</p></a>
               </div>
               <div class="desplegar" style="display: none" id="Cuar">
                 <div id="Tabla" style="display: inline ;">

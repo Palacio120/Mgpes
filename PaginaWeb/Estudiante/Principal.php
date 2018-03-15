@@ -44,7 +44,7 @@
           <?php } ?>
           <p style="margin-top: 5px;"><?php  echo $_SESSION["nombre"]; ?></p>
           <p><b>codigo:  </b><?php echo  $_SESSION["CodigoSIIAU"]; ?></p>
-          <p><b>Generacion: </b> <?php echo $_SESSION["Generacion"];  ?></p>
+          <p><b>Generacion: </b> <?php echo $_SESSION["calenadario_escolar"];  ?></p>
         </div>
         <div class="menu_principal">
           <!--<div class="cuadro"><a href=""><p>Requisitos de ingresos</p></a></div>
