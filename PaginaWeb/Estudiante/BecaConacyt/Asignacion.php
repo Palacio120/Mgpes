@@ -54,7 +54,6 @@ if (!isset($_SESSION["usuario"])) {
                     $DB->Mysql();
                     $codigo=$_SESSION["CODIGO_ES"];
                     $bandera=true;
-                    $num=0;
 
                     $Consulta=$DB->CONSULTA("SELECT * FROM conacytasignacion where CODIGO_ES='$codigo' ");
                     while ($rs= $DB->Obtener_filas($Consulta)) {

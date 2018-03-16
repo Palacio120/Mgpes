@@ -208,3 +208,25 @@ function Cambiar(entrada,salida){
   document.getElementById(entrada).style.display=('none');
   document.getElementById(salida).style.display=('block');
 }
+
+function AgregarDesempeño(num){
+  switch (num) {
+    case 1:
+    document.getElementById('SemestreForm').value=('Priemer Semestre');
+    document.getElementById('FormatoSemestre').submit();
+    break;
+    case 2:
+    document.getElementById('SemestreForm').value=('Segundo Semestre');
+    document.getElementById('FormatoSemestre').submit();
+    break;
+    case 3:
+    document.getElementById('SemestreForm').value=('Tercer Semetre');
+    document.getElementById('FormatoSemestre').submit();
+    break;
+    case 4:
+    document.getElementById('SemestreForm').value=('Cuarto Semestre');
+    document.getElementById('FormatoSemestre').submit();
+    break;
+
+  }
+}
