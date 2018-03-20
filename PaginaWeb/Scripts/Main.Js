@@ -220,7 +220,7 @@ function AgregarDesempeño(num){
     document.getElementById('FormatoSemestre').submit();
     break;
     case 3:
-    document.getElementById('SemestreForm').value=('Tercer Semetre');
+    document.getElementById('SemestreForm').value=('Tercer Semestre');
     document.getElementById('FormatoSemestre').submit();
     break;
     case 4:

@@ -3,6 +3,11 @@ session_start();
 if (!isset($_SESSION["usuario"])) {
   echo "<script> window.location= '../index.Php'</script>";
 }
+if (!is_null($_SESSION['redireccion'])) {
+     $cadena= $_SESSION['redireccion'];
+     $_SESSION['redireccion']=NULL;
+    echo "<script> window.location=  '$cadena' </script>";
+}
 ?>
 <!DOCTYPE html>
 <html>
