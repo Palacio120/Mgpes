@@ -71,7 +71,7 @@ include_once('..\..\Php\CONACYT\DesempeñoAcademicoPHP.php');
                 }
                 if ($bandera){ ?>
                   <h4>No hay datos almacenados</h4>
-                  <button type="button" name="button" onclick="AgregarDesempeño(1)"> class="btn btn-light" style="margin:10px;"Agregar</button>
+                  <button type="button" name="button" onclick="AgregarDesempeño(1)" class="btn btn-light" style="margin:10px;">Agregar</button>
                 <?php }else{ ?>
                   <table>
                     <tr>

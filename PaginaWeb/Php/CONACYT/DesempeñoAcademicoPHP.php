@@ -1,9 +1,10 @@
 <?php
 
-for ($i=10; $i>=42 ; $i++) {
-  if (isset($_POST['Archivo'.$i])) {
-    $Cadena='A'.$i;
-    '$cadena'();
+for ($i=11; $i<=42 ; $i++) {
+  $Cadena='Archivo'.$i;
+  $Cadena2='A'.$i;
+  if (isset($_FILES[$Cadena]["name"])) {
+      $Cadena2();
   }
 }
 
@@ -13,13 +14,20 @@ function A11(){
   $DB=new ConfigDB;
   $DB->Mysql();
   $codigo=$_SESSION["CODIGO_ES"];
-  $Nombre=$_FILE["Archivo11"]["name"];
-  $Tamaño=$_FILE["Archivo11"]["size"];
-  $Archivo=$_FILE["Archivo11"]["tmp_name"];
-  $Tipo=$_FILE["Archivo11"]["type"];
+  $Nombre=$_FILES["Archivo11"]["name"];
+  $Tamaño=$_FILES["Archivo11"]["size"];
+  $Archivo=$_FILES["Archivo11"]["tmp_name"];
+  $Tipo=$_FILES["Archivo11"]["type"];
 
-  $Consulta=$DB->CONSULTA("UPDATE conacytdesempeño set (FormatoDeDesmpeño='',NombreFormato='',TipoFormato='')");
+  if ( $Archivo != "none"){
+     $fp = fopen($Archivo, "rb");
+     $contenido = fread($fp, $Tamaño);
+     $contenido = addslashes($contenido);
+     fclose($fp);
 
+     $Consulta=$DB->CONSULTA("UPDATE `mgps`.`conacytdesempeño` SET FormatoDeDesmpeño='$contenido',NombreFormato='$Nombre',TipoFormato='$Tipo' WHERE CODIGO_ES='$codigo' and Semestre='Primer Semestre'");
+
+  }
 }
 function A12(){
   include_once('..\..\Php\conf_tab.php');
@@ -27,13 +35,19 @@ function A12(){
   $DB=new ConfigDB;
   $DB->Mysql();
   $codigo=$_SESSION["CODIGO_ES"];
-  $Nombre=$_FILE["Archivo12"]["name"];
-  $Tamaño=$_FILE["Archivo12"]["size"];
-  $Archivo=$_FILE["Archivo12"]["tmp_name"];
-  $Tipo=$_FILE["Archivo12"]["type"];
+  $Nombre=$_FILES["Archivo12"]["name"];
+  $Tamaño=$_FILES["Archivo12"]["size"];
+  $Archivo=$_FILES["Archivo12"]["tmp_name"];
+  $Tipo=$_FILES["Archivo12"]["type"];
 
-  $Consulta=$DB->CONSULTA("UPDATE conacytdesempeño set ()");
+  if ( $Archivo != "none"){
+     $fp = fopen($Archivo, "rb");
+     $contenido = fread($fp, $Tamaño);
+     $contenido = addslashes($contenido);
+     fclose($fp);
 
+    $Consulta=$DB->CONSULTA("UPDATE `mgps`.`conacytdesempeño` SET ComprobanteCalificaciones='$contenido',NombreComprobante='$Nombre',TipoComprobante='$Tipo' WHERE CODIGO_ES='$codigo' and Semestre='Primer Semestre'");
+  }
 }
 function A21(){
   include_once('..\..\Php\conf_tab.php');
@@ -41,13 +55,18 @@ function A21(){
   $DB=new ConfigDB;
   $DB->Mysql();
   $codigo=$_SESSION["CODIGO_ES"];
-  $Nombre=$_FILE["Archivo21"]["name"];
-  $Tamaño=$_FILE["Archivo21"]["size"];
-  $Archivo=$_FILE["Archivo21"]["tmp_name"];
-  $Tipo=$_FILE["Archivo21"]["type"];
+  $Nombre=$_FILES["Archivo21"]["name"];
+  $Tamaño=$_FILES["Archivo21"]["size"];
+  $Archivo=$_FILES["Archivo21"]["tmp_name"];
+  $Tipo=$_FILES["Archivo21"]["type"];
+  if ( $Archivo != "none"){
+     $fp = fopen($Archivo, "rb");
+     $contenido = fread($fp, $Tamaño);
+     $contenido = addslashes($contenido);
+     fclose($fp);
 
-  $Consulta=$DB->CONSULTA("UPDATE conacytdesempeño set (FormatoDeDesmpeño='',NombreFormato='',TipoFormato='')");
-
+  $Consulta=$DB->CONSULTA("UPDATE `mgps`.`conacytdesempeño` SET FormatoDeDesmpeño='$contenido',NombreFormato='$Nombre',TipoFormato='$Tipo' WHERE CODIGO_ES='$codigo' and Semestre='Segundo Semestre'");
+  }
 }
 function A22(){
   include_once('..\..\Php\conf_tab.php');
@@ -55,13 +74,18 @@ function A22(){
   $DB=new ConfigDB;
   $DB->Mysql();
   $codigo=$_SESSION["CODIGO_ES"];
-  $Nombre=$_FILE["Archivo22"]["name"];
-  $Tamaño=$_FILE["Archivo22"]["size"];
-  $Archivo=$_FILE["Archivo22"]["tmp_name"];
-  $Tipo=$_FILE["Archivo22"]["type"];
+  $Nombre=$_FILES["Archivo22"]["name"];
+  $Tamaño=$_FILES["Archivo22"]["size"];
+  $Archivo=$_FILES["Archivo22"]["tmp_name"];
+  $Tipo=$_FILES["Archivo22"]["type"];
+  if ( $Archivo != "none"){
+     $fp = fopen($Archivo, "rb");
+     $contenido = fread($fp, $Tamaño);
+     $contenido = addslashes($contenido);
+     fclose($fp);
 
-  $Consulta=$DB->CONSULTA("UPDATE conacytdesempeño set ()");
-
+  $Consulta=$DB->CONSULTA("UPDATE conacytdesempeño set ComprobanteCalificaciones='$contenido',NombreComprobante='$Nombre',TipoComprobante='$Tipo' WHERE CODIGO_ES='$codigo' and Semestre='Segundo Semestre'");
+  }
 }
 function A31(){
   include_once('..\..\Php\conf_tab.php');
@@ -69,13 +93,18 @@ function A31(){
   $DB=new ConfigDB;
   $DB->Mysql();
   $codigo=$_SESSION["CODIGO_ES"];
-  $Nombre=$_FILE["Archivo31"]["name"];
-  $Tamaño=$_FILE["Archivo31"]["size"];
-  $Archivo=$_FILE["Archivo31"]["tmp_name"];
-  $Tipo=$_FILE["Archivo31"]["type"];
+  $Nombre=$_FILES["Archivo31"]["name"];
+  $Tamaño=$_FILES["Archivo31"]["size"];
+  $Archivo=$_FILES["Archivo31"]["tmp_name"];
+  $Tipo=$_FILES["Archivo31"]["type"];
+  if ( $Archivo != "none"){
+     $fp = fopen($Archivo, "rb");
+     $contenido = fread($fp, $Tamaño);
+     $contenido = addslashes($contenido);
+     fclose($fp);
 
-  $Consulta=$DB->CONSULTA("UPDATE conacytdesempeño set (FormatoDeDesmpeño='',NombreFormato='',TipoFormato='')");
-
+  $Consulta=$DB->CONSULTA("UPDATE `mgps`.`conacytdesempeño` SET FormatoDeDesmpeño='$contenido',NombreFormato='$Nombre',TipoFormato='$Tipo' WHERE CODIGO_ES='$codigo' and Semestre='Tercer Semestre'");
+  }
 }
 function A32(){
   include_once('..\..\Php\conf_tab.php');
@@ -83,13 +112,18 @@ function A32(){
   $DB=new ConfigDB;
   $DB->Mysql();
   $codigo=$_SESSION["CODIGO_ES"];
-  $Nombre=$_FILE["Archivo32"]["name"];
-  $Tamaño=$_FILE["Archivo32"]["size"];
-  $Archivo=$_FILE["Archivo32"]["tmp_name"];
-  $Tipo=$_FILE["Archivo32"]["type"];
+  $Nombre=$_FILES["Archivo32"]["name"];
+  $Tamaño=$_FILES["Archivo32"]["size"];
+  $Archivo=$_FILES["Archivo32"]["tmp_name"];
+  $Tipo=$_FILES["Archivo32"]["type"];
+  if ( $Archivo != "none"){
+     $fp = fopen($Archivo, "rb");
+     $contenido = fread($fp, $Tamaño);
+     $contenido = addslashes($contenido);
+     fclose($fp);
 
-  $Consulta=$DB->CONSULTA("UPDATE conacytdesempeño set ()");
-
+  $Consulta=$DB->CONSULTA("UPDATE conacytdesempeño set ComprobanteCalificaciones='$contenido',NombreComprobante='$Nombre',TipoComprobante='$Tipo' WHERE CODIGO_ES='$codigo' and Semestre='Tercer Semestre'");
+  }
 }
 function A41(){
   include_once('..\..\Php\conf_tab.php');
@@ -97,13 +131,18 @@ function A41(){
   $DB=new ConfigDB;
   $DB->Mysql();
   $codigo=$_SESSION["CODIGO_ES"];
-  $Nombre=$_FILE["Archivo41"]["name"];
-  $Tamaño=$_FILE["Archivo41"]["size"];
-  $Archivo=$_FILE["Archivo41"]["tmp_name"];
-  $Tipo=$_FILE["Archivo41"]["type"];
+  $Nombre=$_FILES["Archivo41"]["name"];
+  $Tamaño=$_FILES["Archivo41"]["size"];
+  $Archivo=$_FILES["Archivo41"]["tmp_name"];
+  $Tipo=$_FILES["Archivo41"]["type"];
+  if ( $Archivo != "none"){
+     $fp = fopen($Archivo, "rb");
+     $contenido = fread($fp, $Tamaño);
+     $contenido = addslashes($contenido);
+     fclose($fp);
 
-  $Consulta=$DB->CONSULTA("UPDATE conacytdesempeño set (FormatoDeDesmpeño='',NombreFormato='',TipoFormato='')");
-
+  $Consulta=$DB->CONSULTA("UPDATE `mgps`.`conacytdesempeño` SET FormatoDeDesmpeño='$contenido',NombreFormato='$Nombre',TipoFormato='$Tipo' WHERE CODIGO_ES='$codigo' and Semestre='Cuarto Semestre'");
+  }
 }
 function A42(){
   include_once('..\..\Php\conf_tab.php');
@@ -111,13 +150,18 @@ function A42(){
   $DB=new ConfigDB;
   $DB->Mysql();
   $codigo=$_SESSION["CODIGO_ES"];
-  $Nombre=$_FILE["Archivo42"]["name"];
-  $Tamaño=$_FILE["Archivo42"]["size"];
-  $Archivo=$_FILE["Archivo42"]["tmp_name"];
-  $Tipo=$_FILE["Archivo42"]["type"];
+  $Nombre=$_FILES["Archivo42"]["name"];
+  $Tamaño=$_FILES["Archivo42"]["size"];
+  $Archivo=$_FILES["Archivo42"]["tmp_name"];
+  $Tipo=$_FILES["Archivo42"]["type"];
+  if ( $Archivo != "none"){
+     $fp = fopen($Archivo, "rb");
+     $contenido = fread($fp, $Tamaño);
+     $contenido = addslashes($contenido);
+     fclose($fp);
 
-  $Consulta=$DB->CONSULTA("UPDATE conacytdesempeño set ()");
-
+  $Consulta=$DB->CONSULTA("UPDATE conacytdesempeño set ComprobanteCalificaciones='$contenido',NombreComprobante='$Nombre',TipoComprobante='$Tipo' WHERE CODIGO_ES='$codigo' and Semestre='Cuarto Semestre'");
+  }
 }
 
 

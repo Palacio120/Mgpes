@@ -6,6 +6,20 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <style media="screen">
+    .Titulo3{
+      display: block;
+      width: 102%;
+      background-color: #077B84;
+      border: 1px solid;
+    }
+    .Titulo3 label{
+      color: white;
+    }
+     .Cuadro ::-webkit-scrollbar {
+      visibility: visible;
+    }
+    </style>
   </head>
   <body>
 
@@ -24,8 +38,12 @@
                   <div class="Titulo3">
                     <label>Datos Personales</label>
                   </div>
-                  <div class="row">
-                    <div class="col-md-3">
+                  <div class="Right" style="float:right">
+                    <label style="display:block;">Fotografia</label>
+                    <?php echo '<img style="width:130px;" src="data:image/jpeg;base64,'.base64_encode($i["Fotografia"]).'" >'?>
+                  </div>
+                  <div class="row" style="display:inline-block; width:70%;">
+                    <div class="col-md-3" >
                       <label>Codigo aspirante</label><br>
                       <?php echo $i['codigo_Aspirante']; ?>
                     </div>
@@ -38,11 +56,15 @@
                       <?php echo $i['Edad']; ?>
                     </div>
                     <div class="col-md-3">
+                      <label>Modalidad</label><br>
+                      <?php echo $i['modalidad']; ?>
+                    </div>
+                  </div>
+                  <div class="row" style="display:inline-block; width:70%;">
+                    <div class="col-md-3">
                       <label>Genero</label><br>
                       <?php echo $i["Genero"]; ?>
                     </div>
-                  </div>
-                  <div class="row">
                     <div class="col-md-3">
                       <label>Nombre del programa</label><br>
                       <?php echo $i['NombrePrograma']; ?>
@@ -52,18 +74,13 @@
                       <label>Calendario escolar</label><br>
                       <?php echo $i['calendario_Escolar']; ?>
                     </div>
-
-                    <div class="col-md-3">
-                      <label>Modalidad</label><br>
-                      <?php echo $i['modalidad']; ?>
-                    </div>
-
                     <div class="col-md-3">
                       <label>Orientacion</label><br>
                       <?php echo $i['Orientacion']; ?>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row" style="display:inline-block; width:70%;">
+
                     <div class="col-md-3">
                       <label>CURP</label><br>
                       <?php echo $i['CURP']; ?>
@@ -156,7 +173,8 @@
                   <div class="col-md-3">
                   </div>
                   <div class="col-md-12">
-                    <button type="button" name="2" class="btn btn-ligth" onclick="agregarEstudiante(<?php echo $i['codigo_Aspirante']; ?>)" style="display:inline-block; Rigth:10px; bottom:10px;">Mover a Estudiante</button>
+                    <button type="button" name="2" class="btn btn-primary" onclick="agregarEstudiante(<?php echo $i['codigo_Aspirante']; ?>)" style="display:inline-block; bottom:10px;">Mover a Estudiante</button>
+                    <button type="button" name="Eliminar" class="btn btn-danger" onclick="EliminarAspirante(<?php echo $i['codigo_Aspirante']; ?>)">Eliminar</button>
                     <button type="button" name="button" class="btn btn-light" onclick="ocultarVentana()" style=" Rigth:10px; bottom:10px;">Cerrar</button>
                   </div>
                 </div>
