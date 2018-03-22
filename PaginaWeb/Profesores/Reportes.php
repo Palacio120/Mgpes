@@ -11,7 +11,7 @@
     <title>Aspirantes</title>
     <link href="../Styles/Default.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../Styles/menus.css" type="text/css" >
-    <link rel="stylesheet" href="../Styles/menus.css" type="text/css">
+    <link rel="stylesheet" href="../Styles/Tablas.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -19,16 +19,7 @@
   </head>
   <body>
     <div class="page">
-      <div id="menu" class="menu_lateral" style="width: 0px; border: hidden;">
-        <a href="#" class="boton-cerrar" onclick="ocultar2()">×</a>
-        <ul class="menu">
-          <!--<li><a href="#">Requisitos de ingresos</a></li>
-          <li><a href="#">Beca CONACYT</a></li>-->
-          <li><a href="Estudiantes.php">Estudiantes</a></li>
-          <li><a href="Aspirantes.php">Aspirantes</a></li>
-          <li><a class="logout" href="../php/logout.php">Logout</a></li>
-        </ul>
-      </div>
+      <?php include_once('MenuLateral.php'); ?>
       <div class="header">
         <div id="head" class="main">
             <a id="abrir_menu" class="abrir-cerrar" href="javascript:void(0)" onclick="mostrar_Perfil()" style="display: inline;"> <img src="../image/boton_menu.png" alt="Bmenu" style="width:50px; heigth= 50px;"></a>
@@ -52,7 +43,43 @@
             </ul>
           </div>
         </div>
+          <div class="centro">
+            <div id="Titulo" class="Titulo">
+              <h3>Estudiantes</h3>
 
+              <table style="margin-bottom:30px;">
+              <tr>
+                <th>Codigo</th>
+                <th>Estudiante</th>
+                <th>Generación</th>
+                <th>Acciones</th>
+              </tr>
+            <?php
+              include_once('../Php/conf_tab.php');
+              $DB=new ConfigDB;
+              $DB->Mysql();
+
+              $consulta=$DB->CONSULTA("SELECT * FROM Estudiante limit 50;");
+
+              while($i=$DB->Obtener_filas($consulta)){
+                ?>
+                <tr>
+                  <td><?php echo $i["CODIGO_ES"]; ?></td>
+                  <td><?php echo $i["NombreCompleto"]; ?></td>
+                  <td><?php echo $i["calenadario_escolar"]; ?></td>
+                  <td>
+                    <a href="#" onclick="">Primer Semestre</a><br>
+                    <a href="#" onclick="">Segundo Semestre</a><br>
+                    <a href="#" onclick="">Tercer Semestre</a><br>
+                    <a href="#" onclick="">Cuarto Semestre</a>
+                  </td>
+                </tr>
+                <?php }  ?>
+
+
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>

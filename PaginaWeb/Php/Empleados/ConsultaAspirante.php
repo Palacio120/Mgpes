@@ -16,9 +16,6 @@
     .Titulo3 label{
       color: white;
     }
-     .Cuadro ::-webkit-scrollbar {
-      visibility: visible;
-    }
     </style>
   </head>
   <body>

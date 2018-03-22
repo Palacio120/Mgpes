@@ -18,14 +18,14 @@
 
         $DB->CONSULTA("DELETE from Aspirante where codigo_Aspirante='$id'");
         $rs2=$DB->CONSULTA("SELECT * from Estudiante where Codigo_ASP='$id'");
-        if (0==$DB->total_Filas($rs2])) {
+        if (0==$DB->total_Filas($rs2)) {
           echo "<h3>El aspirante ha sido eliminado del sistema</h3>";
+        }else{
+          echo "<h3>Ubo un problema porfavor contactar con un tecnico<h3>";
         }
 
         ?>
-        <div class="row" style="bottom:10px; position:absolute; ">
-          <div class="col-md-3">
-          </div>
+          <div class="row" style="bottom:10px; position:absolute; ">
           <div class="col-md-12">
             <button type="button" name="button" class="btn btn-light" onclick="ocultarVentana()" style=" Rigth:10px; bottom:10px;">Cerrar</button>
           </div>

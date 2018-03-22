@@ -62,3 +62,24 @@ function agregarEstudiante(num){
 
 		}
 }
+
+function EliminarAspirante(num){
+	if(confirm('¿Desea ELIMINAR al aspirante?')){
+			var parametros={
+							"id": num
+			}
+			$.ajax({
+							data: parametros,
+							url:  '../php/Empleados/Eliminar.php',
+							type: 'post',
+							beforeSend: function(){
+								$("#Ventana").html("Procesando, espere por favor...");
+							},
+							success: function(response){
+								$("#Ventana").html(response);
+							}
+			});
+		}else {
+
+		}
+}

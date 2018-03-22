@@ -19,17 +19,7 @@
   </head>
   <body>
     <div class="page">
-      <div id="menu" class="menu_lateral" style="width: 0px; border: hidden;">
-        <a href="#" class="boton-cerrar" onclick="ocultar2()">×</a>
-        <ul class="menu">
-          <!--<li><a href="#">Requisitos de ingresos</a></li>
-          <li><a href="#">Beca CONACYT</a></li>
-          -->
-          <li><a href="Reportes.php">Reportes de Estudiantes</a></li>
-          <li><a href="Aspirantes.php">Aspirantes</a></li>
-          <li><a class="logout" href="../php/logout.php">Logout</a></li>
-        </ul>
-      </div>
+      <?php include_once('MenuLateral.php') ?>
       <div class="header">
         <div id="head" class="main">
             <a id="abrir_menu" class="abrir-cerrar" href="javascript:void(0)" onclick="mostrar_Perfil()" style="display: inline;"> <img src="../image/boton_menu.png" alt="Bmenu" style="width:50px; heigth= 50px;"></a>
