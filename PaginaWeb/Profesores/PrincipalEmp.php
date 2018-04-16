@@ -51,8 +51,7 @@
         </div>
         <div class="menu_principal">
           <div class="cuadro"><a href="Aspirantes.php"><p>Aspirantes</p></a></div>
-          <div class="cuadro"><a href="Reportes.php"><p>Reportes de Estudiantes</p></a></div>
-          <div class="cuadro"><a href="Estudiantes.php"><p>Estudiantes</p></a></div>
+          <div class="cuadro"><a href="Estudiantes\Estudiantes.php"><p>Estudiantes</p></a></div>
 
         </div>
       </div>

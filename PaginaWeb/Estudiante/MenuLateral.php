@@ -12,11 +12,11 @@
         <a href="\Mgpes\PaginaWeb\Estudiante\BecaConacyt\Asignacion.php">Asignación de beca</a>
         <a href="\Mgpes\PaginaWeb\Estudiante\BecaConacyt\DesempenoAcademico.php">Desempeño academico</a>
         <a href="#">Seguimiento administrativo</a>
-        <a href="#">Conclución de beca</a>
+        <a href="\Mgpes\PaginaWeb\Estudiante\BecaConacyt\Conclucion.php">Conclución de beca</a>
         <a href="#">Beca Mixta</a>
       </div>
     </div>
 
-    <a class="logout" href="../php/logout.php" style="text-align: right;">Logout</a>
+    <a class="logout" href="\Mgpes\PaginaWeb\Php\logout.php" style="text-align: right;">Logout</a>
 
 </div>
