@@ -4,7 +4,7 @@
 
   <a href="\Mgpes\PaginaWeb\Profesores\Aspirantes.php">Aspirantes</a>
   <div class="dropdown">
-    <button type="button" name="button" class="dropbtn" ><a href="\Mgpes\PaginaWeb\Profesores\Estudiantes\Estudiantes.php">Estudiantes <i class="fa fa-caret-down" style="float:right"></i></a></button>
+    <button type="button" name="button" class="dropbtn" ><a href="\Mgpes\PaginaWeb\Profesores\Estudiantes\Estudiantes.php" style="padding-left:0px;">Estudiantes <i class="fa fa-caret-down" style="float:right"></i></a></button>
     <div class="dropdown-container">
       <a href="\Mgpes\PaginaWeb\Profesores\Estudiantes\Reportes.php">Reportes de Estudiantes</a>
       <a href="\Mgpes\PaginaWeb\Profesores\Estudiantes\BECACONACYT\BecasCONACYT.php">BecasCONACYT</a>

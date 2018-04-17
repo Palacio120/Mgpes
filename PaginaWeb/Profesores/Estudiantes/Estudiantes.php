@@ -27,7 +27,7 @@
         <div id="header" style="margin-left=0;">
         <div class="contenedor">
           <img src="../../image/logo_udg-gris.png" style="width:50px; height: 100%; margin-top: -15px">
-          <h2 title="MGPES"> <a href="PrincipalEmp.Php" id="Letras">Maestría en Gestion y Politícas de la Educación Superior</a></h2>
+          <h2 title="MGPES"> <a href="../PrincipalEmp.Php" id="Letras">Maestría en Gestion y Politícas de la Educación Superior</a></h2>
         </div>
         </div>
         <div class="opcciones">

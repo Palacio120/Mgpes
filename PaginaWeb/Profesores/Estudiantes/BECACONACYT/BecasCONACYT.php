@@ -43,6 +43,9 @@
             </ul>
           </div>
         </div>
+        <div class="menu_centrado">
+          <div class="cuadro"><a href="Conclucion.php"><p>Concluciones de Becas</p></a></div>
+        </div>
 
         </div>
       </div>

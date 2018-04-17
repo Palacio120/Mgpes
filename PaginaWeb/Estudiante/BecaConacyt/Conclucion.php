@@ -53,11 +53,11 @@ if (!isset($_SESSION["usuario"])) {
                     $DB =new ConfigDB;
                     $DB->Mysql();
                     $codigo=$_SESSION["CODIGO_ES"];
-                    $bandera=false;
+                    $bandera=true;
 
-                    $Consulta=$DB->CONSULTA("SELECT * FROM conacytasignacion where CODIGO_ES='$codigo' ");
+                    $Consulta=$DB->CONSULTA("SELECT * FROM conacytconclucion where CODIGO_ES='$codigo' ");
                     while ($rs= $DB->Obtener_filas($Consulta)) {
-                      $bandera=True;
+                      $bandera=false;
                     }
                      if ($bandera){ ?>
                       <h4 style="margin-left:20px;">No ha concluido su BECA CONACYT</h4>
@@ -115,7 +115,7 @@ if (!isset($_SESSION["usuario"])) {
                     ?>
                 <?php } ?>
                 </table>
-                <button type="button" class="btn btn-light" name="button" onclick="Cambiar('Semestres','Formato')">Agregar Documentos</button>
+                <button type="button" class="btn btn-light" name="button" onclick="Cambiar('Semestres','Formato')" style="float:Right;margin-right:20px">Agregar Documentos</button>
               <?php } ?>
               </div>
             </div>
@@ -154,8 +154,9 @@ if (!isset($_SESSION["usuario"])) {
                         </td>
                       </tr>
                     </table>
-                    <input type="button" class="btn btn-ligth" name="Cancelar" value="Cancelar" onclick="CancelarNuevoAsp()"style="margin-Top:10px;float:right; margin-right: 24px;">
-                    <input type="submit" class="btn btn-ligth" value="Submit" style="margin-Top:10px;float:right; margin-right: 24px;">
+                    <input type="submit" class="btn btn-primary" value="Submit" style="margin-Top:10px;float:right; margin-right: 24px;">
+                    <input type="button" class="btn btn-ligth" name="Cancelar" value="Cancelar" onclick="CancelarNuevoAsp()"style="margin-Top:10px;float:right;margin-right: 24px;">
+
 
                   </form>
                 </div>

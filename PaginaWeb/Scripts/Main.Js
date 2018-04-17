@@ -209,6 +209,12 @@ function Cambiar(entrada,salida){
   document.getElementById(salida).style.display=('block');
 }
 
+function Cambiar_php(entrada,salida,php){
+  document.getElementById(entrada).style.display=('none');
+  document.getElementById(salida).style.display=('block');
+  document.getElementById("Form").action=('/Mgpes/PaginaWeb/Php/Empleados/ConclucionBecaNuevo.php.?id='+php);
+}
+
 function AgregarDesempeño(num){
   switch (num) {
     case 1:
