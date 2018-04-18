@@ -181,10 +181,26 @@ function mostrarVentana(Id_value){
     ventana.style.display = ("block");
     document.getElementById("Id_Seleccionado").value=Id_value;
 }
+function  mostrarVentana1(Id_value,Semestre){
+    document.getElementById("miVentana").style.display = ("block");
+    document.getElementById("Id_Seleccionado").value=Id_value;
+    document.getElementById("Semestre").value=Semestre;
+}
 
 function ocultarVentana(){
     var ventana = document.getElementById("miVentana");
     ventana.style.display = "none";
+}
+function SubmitForm(tipo){
+  if (tipo=='Plan de trabajo') {
+    var form = document.getElementById("FormOculto");
+    form.action=("/Mgpes/PaginaWeb/Php/Empleados/Reportes.php.?tipo='"+tipo+"'");
+    form.submit();
+  }else if (tipo =='Reporte de actividades') {
+    var form = document.getElementById("FormOculto");
+    form.action=("/Mgpes/PaginaWeb/Php/Empleados/Reportes.php.?tipo='"+tipo+"'");
+    form.submit();
+  }
 }
 
 function NuevoAsp(){

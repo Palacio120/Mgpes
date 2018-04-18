@@ -128,7 +128,19 @@
 .dropdown:hover .dropdown-container {
     transition: 10s  ;
     display: block;
+}
 
+ #submenu .dropdown-container{
+   display: none;
+   background-color: #262626;
+   padding-right: 8px;
+}
+ #submenu .dropdown-container a{
+   color: ;
+ }
+#submenu:hover  .dropdown-container {
+    transition: 10s  ;
+    display: block;
 }
 
 .menu_lateral ul {

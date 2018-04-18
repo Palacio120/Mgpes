@@ -8,7 +8,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Aspirantes</title>
+    <title>Conclucion de beca</title>
     <link href="../../../Styles/Default.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../../../Styles/menus.css" type="text/css">
     <link rel="stylesheet" href="../../../Styles/tablas.css" type="text/css">

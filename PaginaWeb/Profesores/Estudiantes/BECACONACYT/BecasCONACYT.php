@@ -8,7 +8,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Aspirantes</title>
+    <title>CONACYT</title>
     <link href="../../../Styles/Default.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../../../Styles/menus.css" type="text/css" >
     <link rel="stylesheet" href="../../../Styles/menus.css" type="text/css">
@@ -43,7 +43,7 @@
             </ul>
           </div>
         </div>
-        <div class="menu_centrado">
+        <div class="menu_centrado" id="centro">
           <div class="cuadro"><a href="Conclucion.php"><p>Concluciones de Becas</p></a></div>
         </div>
 

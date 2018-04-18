@@ -8,7 +8,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Aspirantes</title>
+    <title>Reporte</title>
     <link href="../../Styles/Default.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../../Styles/menus.css" type="text/css" >
     <link rel="stylesheet" href="../../Styles/Tablas.css" type="text/css">
@@ -43,7 +43,7 @@
             </ul>
           </div>
         </div>
-          <div class="centro">
+          <div class="centro" id="centro">
             <div id="Titulo" class="Titulo">
               <h3>Estudiantes</h3>
 
@@ -68,16 +68,27 @@
                   <td><?php echo $i["NombreCompleto"]; ?></td>
                   <td><?php echo $i["calenadario_escolar"]; ?></td>
                   <td>
-                    <a href="#" onclick="">Primer Semestre</a><br>
-                    <a href="#" onclick="">Segundo Semestre</a><br>
-                    <a href="#" onclick="">Tercer Semestre</a><br>
-                    <a href="#" onclick="">Cuarto Semestre</a>
+                    <a href="#" onclick="mostrarVentana1('<?php echo $i["CODIGO_ES"]; ?>','Primer Semestre')">Primer Semestre</a><br>
+                    <a href="#" onclick="mostrarVentana1('<?php echo $i["CODIGO_ES"]; ?>','Segundo Semestre')">Segundo Semestre</a><br>
+                    <a href="#" onclick="mostrarVentana1('<?php echo $i["CODIGO_ES"]; ?>','Tercer Semestre')">Tercer Semestre</a><br>
+                    <a href="#" onclick="mostrarVentana1('<?php echo $i["CODIGO_ES"]; ?>','Cuarto Semestre')">Cuarto Semestre</a>
                   </td>
                 </tr>
                 <?php }  ?>
 
 
               </table>
+            </div>
+            <div class="Ventana" id="miVentana" style="display:none">
+              <form class="" action="" target="_blank" method="post" id="FormOculto">
+                <input type="hidden" id="Id_Seleccionado" name="Id">
+                <input type="hidden" name="Semestre" id="Semestre">
+              </form>
+              <div class="menu_centrado" id="centro">
+                <div class="cuadro"><a href="#" onclick="SubmitForm('Plan de trabajo')"><p>Plan de Trabajo</p></a></div>
+                <div class="cuadro"><a href="#" onclick="SubmitForm('Reporte de actividades')"><p>Reporte de Actividades</p></a></div>
+              </div>
+              <button type="button" name="button" style="float:right;margin:10px;" class="btn btn-light" onclick="ocultarVentana()">Cerrar ventana</button>
             </div>
           </div>
         </div>

@@ -8,7 +8,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Aspirantes</title>
+    <title>Estudiantes</title>
     <link href="../../Styles/Default.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../../Styles/menus.css" type="text/css" >
     <link rel="stylesheet" href="../../Styles/menus.css" type="text/css">
@@ -43,7 +43,7 @@
             </ul>
           </div>
         </div>
-          <div class="menu_centrado">
+          <div class="menu_centrado" id="centro" >
             <div class="cuadro"><a href="BECACONACYT/BecasCONACYT.php"><p>BecasCONACYT</p></a></div>
             <div class="cuadro"><a href="Reportes.php"><p>Reportes Estudiantes</p></a></div>
           </div>

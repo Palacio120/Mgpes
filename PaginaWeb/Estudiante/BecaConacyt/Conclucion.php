@@ -8,7 +8,7 @@ if (!isset($_SESSION["usuario"])) {
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Asignacion de beca</title>
+    <title>Conclucion de beca</title>
     <link href="../../Styles/Default.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../../Styles/menus.css" type="text/css" >
     <link rel="stylesheet" href="../../Styles/Tablas.css" type="text/css">
@@ -109,11 +109,9 @@ if (!isset($_SESSION["usuario"])) {
                             ?>
                           </td>
                         </tr>
-                        <?php
+                <?php
                       }
-
-                    ?>
-                <?php } ?>
+                     } ?>
                 </table>
                 <button type="button" class="btn btn-light" name="button" onclick="Cambiar('Semestres','Formato')" style="float:Right;margin-right:20px">Agregar Documentos</button>
               <?php } ?>
@@ -122,13 +120,23 @@ if (!isset($_SESSION["usuario"])) {
             <div id="Semestres" style="display: block;">
               <div class="Semestre">
                 <div id="Formato" style="display:none;">
-                  <form class="" action="../../Php/CONACYT/Conclucion.Php" method="post" enctype="multipart/form-data">
+                  <form class="" action="../../Php/CONACYT/Conclucion.php" method="post" enctype="multipart/form-data">
                     <table width="100%" border="1" >
                       <tr>
                         <th>Tipo</th>
                         <th>Comprobación</th>
                         <th>Archivos</th>
                       </tr>
+                      <?php
+                      include_once('../../Php/conf_tab.php');
+                        $DB =new ConfigDB;
+                        $DB->Mysql();
+                      $codigo=$_SESSION["CODIGO_ES"];
+
+                      $Consulta=$DB->CONSULTA("SELECT * FROM conacytconclucion where CODIGO_ES='$codigo' ");
+                      while ($rs= $DB->Obtener_filas($Consulta)) {
+
+                          if ($rs["Conclucion"]=='Objetivo cumplido') { ?>
                       <tr>
                         <td>cumple con el objeto de la beca,(Carta de Reconocimiento).</td>
                         <td>
@@ -141,6 +149,7 @@ if (!isset($_SESSION["usuario"])) {
                           <input type="file" name="Comprobante" id="1" disabled accept="application/pdf" >
                         </td>
                       </tr>
+                    <?php }else {?>
                       <tr>
                         <td>No cumple con el objeto de la beca,(Carta de No Adeudo).</td>
                         <td>
@@ -153,6 +162,8 @@ if (!isset($_SESSION["usuario"])) {
                           <input type="file" name="Comprobante" id="2" disabled accept="application/pdf" >
                         </td>
                       </tr>
+                    <?php }
+                  } ?>
                     </table>
                     <input type="submit" class="btn btn-primary" value="Submit" style="margin-Top:10px;float:right; margin-right: 24px;">
                     <input type="button" class="btn btn-ligth" name="Cancelar" value="Cancelar" onclick="CancelarNuevoAsp()"style="margin-Top:10px;float:right;margin-right: 24px;">
