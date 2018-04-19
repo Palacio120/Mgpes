@@ -194,11 +194,11 @@ function ocultarVentana(){
 function SubmitForm(tipo){
   if (tipo=='Plan de trabajo') {
     var form = document.getElementById("FormOculto");
-    form.action=("/Mgpes/PaginaWeb/Php/Empleados/Reportes.php.?tipo='"+tipo+"'");
+    form.action=("/Mgpes/PaginaWeb/Php/Empleados/Reportes.php.?tipo="+tipo);
     form.submit();
   }else if (tipo =='Reporte de actividades') {
     var form = document.getElementById("FormOculto");
-    form.action=("/Mgpes/PaginaWeb/Php/Empleados/Reportes.php.?tipo='"+tipo+"'");
+    form.action=("/Mgpes/PaginaWeb/Php/Empleados/Reportes.php.?tipo="+tipo);
     form.submit();
   }
 }

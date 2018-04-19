@@ -114,11 +114,13 @@
                     $_SESSION["DireccionTesis"]=$row["DireccionTesis"];
                     $_SESSION["Vocal_1"]=$row["Vocal_1"];
                     $_SESSION["Vocal_2"]=$row["Vocal_2"];
+                    $_SESSION["Tema_Tesis"]=$row["Tema_Tesis"];
                     //Datos Egresado
                     $_SESSION["EstadoDelEstudiante"]=$row["EstadoDelEstudiante"];
                     $_SESSION["FechaTitulación"]=$row["FechaTitulación"];
                     $_SESSION["TiempoTitulación"]=$row["TiempoTitulación"];
                     $_SESSION["Núm_ActaTitulación"]=$row["Núm_ActaTitulación"];
+
 
                     $_SESSION["OBSERVACIÓN"]=$row["OBSERVACIÓN"];
                     $_SESSION["Tutor_CONACYT"]=$row["Tutor_CONACYT"];
