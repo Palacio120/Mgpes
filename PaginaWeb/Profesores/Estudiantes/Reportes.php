@@ -1,7 +1,7 @@
 <?php
   session_start();
   if (!isset($_SESSION["user"])) {
-    echo "<script> window.location= '../index.Php'</script>";
+    echo "<script> window.location= '/Mgpes/PaginaWeb/index.php'</script>";
   }
 ?>
 <!DOCTYPE html>
@@ -79,17 +79,19 @@
 
               </table>
             </div>
-            <div class="Ventana" id="miVentana" style="display:none">
-              <form class="" action="" target="_blank" method="post" id="FormOculto">
-                <input type="hidden" id="Id_Seleccionado" name="Id">
-                <input type="hidden" name="Semestre" id="Semestre">
-              </form>
-              <div class="menu_centrado" id="centro">
-                <div class="cuadro"><a href="#" onclick="SubmitForm('Plan de trabajo')"><p>Plan de Trabajo</p></a></div>
-                <div class="cuadro"><a href="#" onclick="SubmitForm('Reporte de actividades')"><p>Reporte de Actividades</p></a></div>
+
+              <div class="Ventana" id="Ventana" style="display:none;float:left">
+                <form class="" action="" target="_blank" method="post" id="FormOculto">
+                  <input type="hidden" id="Id_Seleccionado" name="Id">
+                  <input type="hidden" name="Semestre" id="Semestre">
+                </form>
+                <div class="menu_centrado" id="centro">
+                  <div class="cuadro"><a href="#" onclick="SubmitForm('Plan de trabajo')"><p>Plan de Trabajo</p></a></div>
+                  <div class="cuadro"><a href="#" onclick="SubmitForm('Reporte de actividades')"><p>Reporte de Actividades</p></a></div>
+                </div>
+                <button type="button" name="button" style="float:right;margin:10px;" class="btn btn-light" onclick="ocultarVentana1()">Cerrar ventana</button>
               </div>
-              <button type="button" name="button" style="float:right;margin:10px;" class="btn btn-light" onclick="ocultarVentana()">Cerrar ventana</button>
-            </div>
+
           </div>
         </div>
       </div>

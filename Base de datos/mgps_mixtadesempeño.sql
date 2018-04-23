@@ -25,14 +25,14 @@ DROP TABLE IF EXISTS `mixtadesempeño`;
 CREATE TABLE `mixtadesempeño` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `CODIGO_ES` char(9) NOT NULL,
+  `Semestre` enum('Primer Semestre','Segundo Semestre','Tercer Semestre','CuartoSemestre') DEFAULT NULL,
   `InformeActividades` longblob,
   `Informe_Nomb_Temp` varchar(255) DEFAULT NULL,
   `Informe_Tipo` varchar(45) DEFAULT NULL,
-  `Semestre` enum('Primer Semestre','Segundo Semestre','Tercer Semestre','CuartoSemestre') DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `mixtaDesempeño_idfk_1_idx` (`CODIGO_ES`),
   CONSTRAINT `mixtaDesempeño_idfk_1` FOREIGN KEY (`CODIGO_ES`) REFERENCES `estudiante` (`CODIGO_ES`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +41,7 @@ CREATE TABLE `mixtadesempeño` (
 
 LOCK TABLES `mixtadesempeño` WRITE;
 /*!40000 ALTER TABLE `mixtadesempeño` DISABLE KEYS */;
+INSERT INTO `mixtadesempeño` VALUES (1,'Prueba001','Primer Semestre',NULL,NULL,NULL),(2,'Prueba001','Segundo Semestre',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `mixtadesempeño` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-20 15:13:20
+-- Dump completed on 2018-04-23 14:09:52

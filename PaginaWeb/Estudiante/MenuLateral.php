@@ -13,7 +13,15 @@
         <a href="\Mgpes\PaginaWeb\Estudiante\BecaConacyt\DesempenoAcademico.php">Desempeño academico</a>
         <a href="#">Seguimiento administrativo</a>
         <a href="\Mgpes\PaginaWeb\Estudiante\BecaConacyt\Conclucion.php">Conclución de beca</a>
-        <a href="#">Beca Mixta</a>
+        <div class="dropdown"  id="submenu">
+          <button type="button" name="button" class="dropbtn" ><a href="\Mgpes\PaginaWeb\Estudiante\BecaConacyt\BecaMixta.php" style="padding-left:0px;">Beca Mixta<i class="fa fa-caret-down" style="float:right"></i></a></button>
+          <div class="dropdown-container">
+            <a href="\Mgpes\PaginaWeb\Estudiante\BecaConacyt\BecaMixta\Asignacion.php">Asignación de beca</a>
+            <a href="\Mgpes\PaginaWeb\Estudiante\BecaConacyt\BecaMixta\DesempenoAcademico.php">Desempeño academico</a>
+          </div>
+        </div>
+
+
       </div>
     </div>
 

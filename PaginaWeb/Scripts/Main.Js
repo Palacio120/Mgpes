@@ -44,7 +44,8 @@ function mostrar_Perfil() {
     document.getElementById("head").style.marginLeft = "300px";
     document.getElementById("abrir_menu").style.display = "none";
     document.getElementById("centro").style.marginLeft="305px";
-    document.getElementById("Ventana").style.Left="20%";
+    document.getElementById("Ventana").style.marginLeft="305px";
+    document.getElementById("Ventana").style.width="50%";
 }
 
 
@@ -55,6 +56,8 @@ function ocultar2() {
     document.getElementById("head").style.marginLeft = "5px";
     document.getElementById("abrir_menu").style.display = "inline";
     document.getElementById("centro").style.marginLeft="0px";
+    document.getElementById("Ventana").style.marginLeft="0px";
+    document.getElementById("Ventana").style.width="70%";
 }
 
 function Buscar_perfil(){
@@ -182,13 +185,17 @@ function mostrarVentana(Id_value){
     document.getElementById("Id_Seleccionado").value=Id_value;
 }
 function  mostrarVentana1(Id_value,Semestre){
-    document.getElementById("miVentana").style.display = ("block");
+    document.getElementById("Ventana").style.display = ("block");
     document.getElementById("Id_Seleccionado").value=Id_value;
     document.getElementById("Semestre").value=Semestre;
 }
 
 function ocultarVentana(){
     var ventana = document.getElementById("miVentana");
+    ventana.style.display = "none";
+}
+function ocultarVentana1(){
+    var ventana = document.getElementById("Ventana");
     ventana.style.display = "none";
 }
 function SubmitForm(tipo){

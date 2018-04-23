@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["usuario"])) {
-  echo "<script> window.location= '../index.Php'</script>";
+  echo "<script> window.location= '/Mgpes/PaginaWeb/index.php'</script>";
 }
 include_once('..\..\Php\CONACYT\DesempeñoAcademicoPHP.php');
 

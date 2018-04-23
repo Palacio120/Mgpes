@@ -23,7 +23,7 @@
       }else {
         $DB->CONSULTA("INSERT INTO `mgps`.`conacytasignacion` VALUES
                       (0,
-                      'MG2_SAP18',
+                      '$codigo',
                       NULL,
                       NULL,
                       NULL,
@@ -222,7 +222,7 @@
         $contenido10 = addslashes($contenido10);
         fclose($fp10);
 
-        $DB->CONSULTA("UPDATE `mgps`.`conacytasignacion` SET  `ISSSTEArchivo` = '$contenido10',, `ISSSTETypo` = '$Tipo10',, `ISSSTETmp` ='$NombreArchivo10'WHERE `CODIGO_ES` = '$codigo';");
+        $DB->CONSULTA("UPDATE `mgps`.`conacytasignacion` SET  `ISSSTEArchivo` = '$contenido10', `ISSSTETypo` = '$Tipo10', `ISSSTETmp` ='$NombreArchivo10'WHERE `CODIGO_ES` = '$codigo';");
 
         }
       }

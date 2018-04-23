@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["usuario"])) {
-  echo "<script> window.location= '../index.Php'</script>";
+  echo "<script> window.location= '/Mgpes/PaginaWeb/index.php'</script>";
 }
 ?>
 <!DOCTYPE html>
@@ -45,7 +45,7 @@ if (!isset($_SESSION["usuario"])) {
         </div>
         <div class="centro" id="centro" style="margin-left:0px;">
           <div id="Titulo" class="Titulo">
-            <h3>Asignacion de beca</h3>
+            <h3>Asignación de beca</h3>
             <div id="Semestres" style="display: block;">
               <div class="Semestre">
                 <?php

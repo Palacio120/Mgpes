@@ -1,7 +1,7 @@
 <?php
   session_start();
-  if (!isset($_SESSION["usuario"])) {
-    echo "<script> window.location= '../index.Php'</script>";
+  if (!isset($_SESSION["user"])) {
+    echo "<script> window.location= '/Mgpes/PaginaWeb/index.php'</script>";
   }
 ?>
 <!Doctype html>
