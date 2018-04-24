@@ -47,7 +47,7 @@ if (!isset($_SESSION["usuario"])) {
           <div class="menu_centrado">
             <div class="cuadro"><a href="BecaConacyt\Asignacion.php"><p>Asignación de beca</p></a></div>
             <div class="cuadro"><a href="BecaConacyt\DesempenoAcademico.php"><p>Desempeño academico</p></a></div>
-            <div class="cuadro"><a href="#"><p>Seguimiento Administrativo</p></a></div><span>*Idea de colocarlo en el menu de los administrativos</span>
+            <!--<div class="cuadro"><a href="#"><p>Seguimiento Administrativo</p></a></div><span>*Idea de colocarlo en el menu de los administrativos</span>-->
             <div class="cuadro"><a href="BecaConacyt\Conclucion.php"><p>Conclución de beca</p></a></div>
             <div class="cuadro"><a href="BecaConacyt\BecaMixta.php"><p>Beca Mixta</p></a></div>
           </div>

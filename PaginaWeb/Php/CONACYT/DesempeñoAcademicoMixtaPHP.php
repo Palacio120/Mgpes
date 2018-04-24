@@ -25,7 +25,7 @@ function A11(){
      $contenido = addslashes($contenido);
      fclose($fp);
 
-     $Consulta=$DB->CONSULTA("UPDATE `mgps`.`mixtadesempeño` SET FormatoDeDesmpeño='$contenido',NombreFormato='$Nombre',TipoFormato='$Tipo' WHERE CODIGO_ES='$codigo' and Semestre='Primer Semestre'");
+     $Consulta=$DB->CONSULTA("UPDATE `mgps`.`mixtadesempeño` SET InformeActividades='$contenido',Informe_Nomb_Temp='$Nombre',Informe_Tipo='$Tipo' WHERE CODIGO_ES='$codigo' and Semestre='Primer Semestre'");
 
   }
 }
@@ -46,7 +46,7 @@ function A21(){
      $contenido = addslashes($contenido);
      fclose($fp);
 
-  $Consulta=$DB->CONSULTA("UPDATE `mgps`.`mixtadesempeño` SET FormatoDeDesmpeño='$contenido',NombreFormato='$Nombre',TipoFormato='$Tipo' WHERE CODIGO_ES='$codigo' and Semestre='Segundo Semestre'");
+  $Consulta=$DB->CONSULTA("UPDATE `mgps`.`mixtadesempeño` SET InformeActividades='$contenido',Informe_Nomb_Temp='$Nombre',Informe_Tipo='$Tipo' WHERE CODIGO_ES='$codigo' and Semestre='Segundo Semestre'");
   }
 }
 
@@ -66,7 +66,7 @@ function A31(){
      $contenido = addslashes($contenido);
      fclose($fp);
 
-  $Consulta=$DB->CONSULTA("UPDATE `mgps`.`mixtadesempeño` SET FormatoDeDesmpeño='$contenido',NombreFormato='$Nombre',TipoFormato='$Tipo' WHERE CODIGO_ES='$codigo' and Semestre='Tercer Semestre'");
+  $Consulta=$DB->CONSULTA("UPDATE `mgps`.`mixtadesempeño` SET InformeActividades='$contenido',Informe_Nomb_Temp='$Nombre',Informe_Tipo='$Tipo' WHERE CODIGO_ES='$codigo' and Semestre='Tercer Semestre'");
   }
 }
 
@@ -86,7 +86,7 @@ function A41(){
      $contenido = addslashes($contenido);
      fclose($fp);
 
-  $Consulta=$DB->CONSULTA("UPDATE `mgps`.`mixtadesempeño` SET FormatoDeDesmpeño='$contenido',NombreFormato='$Nombre',TipoFormato='$Tipo' WHERE CODIGO_ES='$codigo' and Semestre='Cuarto Semestre'");
+  $Consulta=$DB->CONSULTA("UPDATE `mgps`.`mixtadesempeño` SET InformeActividades='$contenido',Informe_Nomb_Temp='$Nombre',Informe_Tipo='$Tipo' WHERE CODIGO_ES='$codigo' and Semestre='Cuarto Semestre'");
   }
 }
 
